@@ -222,11 +222,11 @@
                 </div>
             </div>
 
-            <div class="collapse" id="collapseAvaliacao">
+            <div class="collapse mt-0 mb-0" id="collapseAvaliacao">
                 <div class="container-fluid bg-whiteGrey border border-1 p-0 m-0">
                     <div class="row">
                         <form class="" method="POST" action="../produto.php">
-                            <div class="row m-1 mx-auto">
+                            <div class="row m-1 mb-0 mx-auto">
                                 <div class="col-sm-6 col-md-4 col-lg-4">
                                     <div class="form-floating select-avaliacao">
                                         <select class="form-select border border-1 rounded-0 select-avaliacao" id="selectAvaliacao" name="selectAvaliacao" aria-label="Avaliação">
@@ -258,23 +258,70 @@
                             </div>
                         </form>
                     </div>
+                    <div class="container-fluid pt-2 mt-2 top-separator">
+                        <div class="row mt-0 pt-0">
+                            <div class="col-sm-12 col-md-12 col-lg-6">
 
-                    <div class="row">
-                        <div class="container-fluid top-separator">
-                            <div class="card">
-                                <div class="row">
+                                <div class="card">
+                                    <div class="row">
 
-                                    <div class="col-3">
-                                        <img src="img/imgPadraoProduto.png" class="card-img-top card-img-comentario" alt="...">
-                                    </div>
-                                    <div class="col-9">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Nome usuário</h5>
-                                            <p class="card-text">Opinião do usuário</p>
-                                            <img class="svg star-rate fill-star" src="img/btns/star_rate.svg">
+                                        <div class="col-3 pe-0">
+                                            <img src="img/imgPadraoProduto.png" class="card-img-top card-img-comentario" alt="...">
+                                        </div>
+                                        <div class="col-9 ps-0">
+                                            <div class="card-body m-0 p-0">
+                                                <h4 class="card-title">
+                                                    <div class="container-fluid m-0 mb-1 p-0 w-100 bottom-separator">
+
+                                                        <?php
+                                                        for ($i = 0; $i < 5; $i++) {
+                                                        ?>
+                                                            <img class="svg star-rate fill-star" src="img/btns/star_rate.svg">
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                </h4>
+                                                <h5>Nome Usuário</h5>
+                                                <p class="card-text">Opinião do usuário</p>
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+
+
+                            <div class="col-sm-12 col-md-12 col-lg-6">
+
+                                <div class="card">
+                                    <div class="row">
+
+                                        <div class="col-3 pe-0">
+                                            <img src="img/imgPadraoProduto.png" class="card-img-top card-img-comentario" alt="...">
+                                        </div>
+                                        <div class="col-9 ps-0">
+                                            <div class="card-body m-0 p-0">
+                                                <h4 class="card-title">
+                                                    <div class="container-fluid m-0 mb-1 p-0 w-100 bottom-separator">
+
+                                                        <?php
+                                                        for ($i = 0; $i < 5; $i++) {
+                                                        ?>
+                                                            <img class="svg star-rate fill-star" src="img/btns/star_rate.svg">
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                </h4>
+                                                <h5>Nome Usuário</h5>
+                                                <p class="card-text">Opinião do usuário</p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>

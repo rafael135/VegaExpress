@@ -83,6 +83,7 @@ select:focus{
 
 .btn-pub:hover > div > div > .star-rate{
     fill: rgb(235, 235, 235) !important;
+    transition: 300ms;
 }
 
 .btn-pub[aria-expanded="true"] > div > div.expand > svg{
@@ -111,6 +112,13 @@ div.col-3 > .card-img-comentario{
 .fill-star{
     fill: rgb(255, 255, 14) !important;
     flood-color: rgb(255, 255, 14) !important;
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
+}
+
+.container-fluid.bottom-separator{
+    border-top: 0 !important;
+    border-bottom: 1px solid rgb(235, 235, 235) !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
 }
