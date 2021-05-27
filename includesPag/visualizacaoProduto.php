@@ -284,7 +284,6 @@
                                                 </h4>
                                                 <h5>Nome Usuário</h5>
                                                 <p class="card-text">Opinião do usuário</p>
-
                                             </div>
                                         </div>
                                     </div>
@@ -293,10 +292,8 @@
 
 
                             <div class="col-sm-12 col-md-12 col-lg-6">
-
                                 <div class="card">
                                     <div class="row">
-
                                         <div class="col-3 pe-0">
                                             <img src="img/imgPadraoProduto.png" class="card-img-top card-img-comentario" alt="...">
                                         </div>
