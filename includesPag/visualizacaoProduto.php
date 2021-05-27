@@ -173,7 +173,7 @@
                 ?>
 
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-sm-12 col-md-8 col-lg-6">
                         <div class="row pt-4">
                             <div class="col-12">
                                 <div class="card" style="height: 200px;">
@@ -205,7 +205,7 @@
                     <button class="btn btn-pub rounded-0 w-100 border border-1" style="max-height:50px;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAvaliacao" aria-expanded="false" aria-controls="collapseAvaliacao">
                         <div class="row">
                             <div class="col-1">
-                                <img class="svg star-rate" src="img/btns/star_rate.svg"></img>
+                                <img class="svg star-rate svg-btn" src="img/btns/star_rate.svg"></img>
                             </div>
 
                             <div class="col-10">
@@ -214,8 +214,8 @@
                                 </div>
                             </div>
 
-                            <div class="expand col-1">
-                                <img class="svg expand-more" src="img/btns/expand.svg"></img>
+                            <div class="expand col-1 align-items-start">
+                                <img class="svg expand-more svg-btn" src="img/btns/expand.svg"></img>
                             </div>
                         </div>
                     </button>
@@ -226,25 +226,57 @@
                 <div class="container-fluid bg-whiteGrey border border-1 p-0 m-0">
                     <div class="row">
                         <form class="" method="POST" action="../produto.php">
-                            <div class="row">
-                                <div class="col-3">
+                            <div class="row m-1 mx-auto">
+                                <div class="col-sm-6 col-md-4 col-lg-4">
                                     <div class="form-floating select-avaliacao">
-                                        <select class="form-select rounded-0 select-avaliacao" id="selectAvaliacao" name="selectAvaliacao" aria-label="Pesquisar por">
+                                        <select class="form-select border border-1 rounded-0 select-avaliacao" id="selectAvaliacao" name="selectAvaliacao" aria-label="Avaliação">
                                             <option value="1">1 estrela</option>
                                             <option value="2">2 estrelas</option>
                                             <option value="3">3 estrelas</option>
                                             <option value="4">4 estrelas</option>
                                             <option value="5">5 estrelas</option>
                                         </select>
-                                        <label class="form-label select-avaliacao" for="selectAvaliacao">Filtrar por</label>
+                                        <label class="form-label" for="selectAvaliacao">Avaliação</label>
                                     </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-4 col-lg-4 offset-md-4 offset-lg-4">
+                                    <div class="form-floating select-avaliacao rounded-0">
+                                        <select class="form-select border border-1 rounded-0 select-avaliacao" id="selectRelevancia" name="selectRelevancia" aria-label="Filtrar por">
+                                            <option value="1">Mais recentes</option>
+                                            <option value="2">Mais antigos</option>
+                                            <option value="3">Mais relevantes</option>
+                                            <option value="4">Menos relevantes</option>
+                                        </select>
+                                        <label class="form-label" for="selectRelevancia">Filtrar por</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-4 col-lg-4 offset-sm-3">
+
                                 </div>
                             </div>
                         </form>
                     </div>
 
                     <div class="row">
+                        <div class="container-fluid top-separator">
+                            <div class="card">
+                                <div class="row">
 
+                                    <div class="col-3">
+                                        <img src="img/imgPadraoProduto.png" class="card-img-top card-img-comentario" alt="...">
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Nome usuário</h5>
+                                            <p class="card-text">Opinião do usuário</p>
+                                            <img class="svg star-rate fill-star" src="img/btns/star_rate.svg">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

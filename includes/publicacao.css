@@ -1,14 +1,18 @@
 .container-fluid.bg-whiteGrey{
-    background-color: rgb(235, 235, 235) !important;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
+    background-color: rgb(250, 250, 250) !important;
     border: 0 !important;
 }
 
 .select-avaliacao{
     border: 0 !important;
     border-radius: none !important;
+    background-color: rgb(225, 225, 225);
     
+}
+
+select:focus{
+    box-shadow: none !important;
+    border: thin solid #027CE9 !important;
 }
 
 .btn-carousel-blue{
@@ -86,8 +90,27 @@
     transition: 300ms;
 }
 
-.svg{
+.svg-btn{
     fill: #027CE9;
     height: 30px;
     width: 30px;
+}
+
+.container-fluid.top-separator{
+    border-top: 2px solid rgb(235, 235, 235) !important;
+    border-bottom: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+}
+
+div.col-3 > .card-img-comentario{
+    height: 100%;
+    width: 100%;
+}
+
+.fill-star{
+    fill: rgb(255, 255, 14) !important;
+    flood-color: rgb(255, 255, 14) !important;
+    height: 60px;
+    width: 60px;
 }
