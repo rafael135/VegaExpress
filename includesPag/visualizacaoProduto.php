@@ -256,9 +256,6 @@
 
                                 </div>
                             </div>
-                            <div class="container-fluid">
-                                
-                            </div>
                         </form>
                     </div>
                     <div class="container-fluid pt-2 mt-2 top-separator">
