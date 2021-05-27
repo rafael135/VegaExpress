@@ -1,0 +1,12 @@
+{
+    "name":"tcc/vegaexpress",
+    "autoload":{
+        "psr-4": {
+            "App\\" : ["app/Db", "app/Entity", "app/Funcs", "ActionPHP/verificarEmail.php"]
+        }
+    },
+    "require": {
+        "mobiledetect/mobiledetectlib": "^2.8",
+        "phpmailer/phpmailer": "^6.4"
+    }
+}

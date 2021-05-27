@@ -1,0 +1,125 @@
+* {
+    /*margin: 0;*/
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100%;
+    background-color: #fff;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    line-height: normal;
+}
+
+.Sidenavbar {
+    width: 300px;
+    height: 100%;
+    position: fixed;
+    margin-left: -300px;
+    box-shadow: 0 0 0 0.25rem #7952b344;
+    /*background-color: #415a9e;*/
+    transition: 0.4s;
+}
+
+.Sidenav-link {
+    font-size: 1.25em;
+    background-color: #027CE9 !important;
+}
+
+.nav-link:active,
+.nav-link:focus,
+.nav-link:hover {
+    background-color: #0084f8 !important;
+}
+
+.dropdown-menu {
+    background-color: #415a9e;
+}
+
+.dropdown-item#dropdownSideBar:active,
+.dropdown-item#dropdownSideBar:focus,
+.dropdown-item#dropdownSideBar:hover {
+    background-color: #0084f8;
+}
+
+.my-container {
+    transition: 0.4s;
+}
+
+
+/* for navbar */
+
+.active-nav {
+    margin-left: 0;
+}
+
+
+/* for main section */
+
+.active-cont {
+    margin-left: 300px;
+}
+
+#menu-btn {
+    /*background-color: #415a9e;*/
+    border: solid !important;
+    border-color: transparent !important;
+    border-width: thin !important;
+    background-color: #fff !important;
+}
+
+/*#menu-btn:focus {
+    box-shadow: 0 0 0 0.25rem #7952b344;
+}*/
+
+#menu-btn:hover{
+    background-color: rgb(245, 245, 245) !important;
+    border: solid !important;
+    border-color: #0084f8 !important;
+    border-width: thin !important;
+}
+
+header#over{
+    overflow: hidden;
+}
+
+.btn-custom{
+    border: none;
+    color: #027CE9;
+    background-color: transparent;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
+    font-size: 1.25rem;
+    
+}
+
+.btn-custom:hover{
+    background-color: #0084f8;
+}
+
+.btn-custom::after{
+    color:white;
+    border: 0;
+}
+
+.collapse-item-custom{
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
+    background-color: #027CE9;
+}
+
+.btn-side{
+    background-color: transparent;
+    border-radius: 0 !important;
+    
+    
+    background-size: 200%;
+    
+}
+
+.btn-side:hover{
+    color: white;
+    background: linear-gradient(left, #027CE9 50%, #fff 50%, right);
+    
+    transition: 0.2s ease-in;
+    
+}

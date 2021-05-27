@@ -1,0 +1,155 @@
+<!-- Estava testando algumas coisas e deixei os códigos que não usei aqui-->
+
+<div class="mb-2 row align-content-center">
+    <!--<label for="nome" class="col-1 col-form-label">Nome:</label>-->
+    <div class="col-6">
+        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+    </div>
+
+    <!--<label for="sobrenome" class="col-2 col-form-label">Sobrenome:</label>-->
+    <div class="col-6">
+        <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Sobrenome">
+    </div>
+</div>
+
+
+
+
+
+<!-- DropdownMenu sidebar -->
+<button href="#" class="nav-item btn-custom flex-fill w-100 dropdown-toggle text-light text-start pl-4 p-2"
+    type="button" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Service</button>
+<ul class="dropdown-menu w-100" aria-labelledby="navbarDropdown">
+    <li><a href="#" class="dropdown-item text-light pl-4 p-2">Service 01</a></li>
+    <li><a href="#" class="dropdown-item text-light pl-4 p-2">Service 02</a></li>
+    <li><a href="#" class="dropdown-item text-light pl-4 p-2">Service 03</a></li>
+</ul>
+
+
+
+
+<div class="container-fluid align-items-center">
+    <a class="navbar-brand" href="index.php">
+        <img src="img/LogoTCC_Final.png" height="40" alt="" class="">
+    </a>
+    <!-- Menu para mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- o id tem que ser igual ao "aria-controls" no menu mobile-->
+    <!-- collapse é um objeto que mostra mais items ao ser clicado -->
+
+    <div id="navbarNav" class="collapse navbar-collapse justify-content-center text-center">
+        <!-- "nav-fill" é para forçar ele a cobrir a tela toda -->
+        <!-- "me-auto" é para centralizar os objetos automaticamente -->
+        <!-- Os mb's são para margem, "mb-lg-0" é apenas igual a zero se o usuário estiver usando uma tela de notebook(720p) ou maior -->
+        <ul ul class="navbar-nav d-flex flex-wrap text-center nav-fill me-auto h-100" style="position:sticky">
+            <div class="row">
+                <div class="col-2"><a href="#" class="nav-link Sidenav-link link-custom h-100 w-100 text-dark">Sobre</a>
+                </div>
+                <div class="col-2"><a href="#" class="nav-link Sidenav-link h-100 w-100 text-dark">Contato</a></div>
+                <div class="col-2"><a href="registroEmpresa.php"
+                        class="nav-link Sidenav-link h-100 w-100 text-dark">Registro</a></div>
+                <div class="col-6">
+                    <form class="d-flex my-auto" style="align-items:flex-end;">
+                        <!-- "form-control" é para utilizar o visual do Bootstrap, "me-2" é dar um espaçamento a direita -->
+                        <input class="form-control me-2" type="search" style="width: 75%;" placeholder="Pesquisa"
+                            aria-label="Pesquisa">
+                        <!-- "btn" é para dizer que ele irá ser um botão do Bootstrap, "btn-light" é o tema do botão, "flex-fill" é para ocupar o espaço restante disponível -->
+                        <button class="btn btn-light flex-fill" type="submit"><img
+                                src="bootstrap-icons-1.4.0/search.svg" width="24" height="24"></img></button>
+                    </form>
+                </div>
+            </div>
+
+        </ul>
+
+        <!-- "d-flex é para obrigar ele a ocupar todo o espaço, "my-auto" é para centralizar ele na direita -->
+
+    </div>
+</div>
+
+
+
+
+<!-- Nome -->
+<div class="row">
+    <div class="col-6 form-floating fadeIn first mb-2">
+        <input type="text" class="form-control" id="nome" name="nomeP" placeholder="Nome">
+        <label class="form-label ms-2" for="nome">Nome</label>
+    </div>
+
+    <div class="col-6 form-floating fadeIn first">
+        <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Sobrenome">
+        <label class="form-label ms-2" for="sobrenome">Sobrenome</label>
+    </div>
+</div>
+
+
+
+
+if($emailCelular != "" && $senha != ""){
+$cont = 0;
+$usuario = new Usuario();
+$consultaEmail = $usuario->getDados("email");
+$consultaCelular = $usuario->getDados("celular");
+$consultaSenha = $usuario->getDados("senha");
+
+foreach ($consultaEmail as $emailC) {
+
+foreach($consultaCelular as $celularC){
+if($_POST['emailCelular'] == $celularC){
+$celular = $_POST['emailCelular'];
+$cont++;
+break;
+}
+}
+
+if($cont == 1){
+break;
+}else{
+if($_POST['emailCelular'] == $emailC){
+$email = $_POST['emailCelular'];
+$cont++;
+break;
+}
+}
+}
+
+foreach($consultaSenha as $senhaC){
+if($_POST['senhaLogin'] == $senhaC){
+
+}
+}
+}
+
+
+
+
+<div class="container-fluid header-btn p-0 py-2 m-0">
+    <div class="row w-50 mx-auto">
+        <ul class="nav nav-pills flex-column p-0">
+
+
+            <li class="nav-item userOption mx-auto" id="userConfig">
+                <a class="nav-link btn-group w-100 rounded rounded-2" href="">
+                    <div class="row p-0">
+                        <div class="col-2">
+                            <button type="button" class="btn h-100 text-center w-100 btn-clean">
+                                <span class="material-icons m-1 blue text-center fs-1">
+                                    note_add
+                                </span>
+                            </button>
+                        </div>
+                        <div class="col-10">
+                            <button type="button" class="btn h-100 text-center w-100 btn-clean">
+                                Fazer uma publicação
+                            </button>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,172 @@
+.container-fluid #containerHeader{
+    background-color: #027CE9;
+    
+    border-top-left-radius: 12px;
+    
+}
+
+a#btnOpt2{
+    background-color: #f8f9fa !important;
+}
+
+.container-fluid.grey{
+    background-color: rgb(235, 235, 235);
+}
+
+.nav-item > a{
+    color: #027CE9;
+    border-style: solid;
+    border-radius: 0;
+    border-width: 1px;
+    
+    border-color: rgb(235, 235, 235);
+}
+
+.nav-item > a  > .row > div > button > span.material-icons{
+    color: #027CE9;
+    background-color: transparent !important;
+    
+}
+
+.nav-item:hover > a  > .row > div > button > span.material-icons{
+    cursor: pointer;
+    color: #fff;
+    background-color: #0088ff;
+    transition: 300ms;
+}
+
+.nav-item:active > a  > .row > div > button > span.material-icons{
+    background-color: #027CE9;
+}
+
+.nav-item:hover > a{
+    cursor: pointer;
+    color: #fff;
+    background-color: #0088ff;
+    border-style: solid;
+    border-radius: 0;
+    border-width: 1px;
+    border-color: #027CE9;
+    transition: 300ms;
+}
+
+.nav-item:active > a{
+    background-color: #027CE9;
+}
+
+.btn-clean{
+    background-color: transparent !important;
+    color: #027CE9 !important;
+    border: 0 !important;
+    font-size: 24px !important;
+}
+
+.nav-item:hover > a > div > div > button{
+    background-color: #0088ff;
+    color: #fff !important;
+    transition: 300ms;
+}
+
+a.activeOpt{
+    color: #fff !important;
+    background-color: #329fff !important;
+    border-style: solid !important;
+    border-radius: 0 !important;
+    border-width: 1px !important;
+    border-color: #027CE9 !important;
+}
+
+a.activeOpt > .row > div > button{
+    color: #fff !important;
+}
+
+a.activeOpt > .row > div > button > span.material-icons{
+    color: #fff !important;
+}
+
+.container-fluid.header-btn{
+    background-color: #fff;
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
+
+
+/* Botão menor para adicionar publicação */
+
+.btnPub{
+    color: #027CE9;
+    border-style: solid;
+    border-radius: 0;
+    border-width: 1px;
+    border-color: rgb(235, 235, 235);
+}
+
+.btnPub > .row > div > button > span.material-icons{
+    color: #027CE9;
+    background-color: transparent !important;
+}
+
+.btnPub:hover > .row > div > button > span.material-icons{
+    cursor: pointer;
+    color: #fff;
+    background-color: #0088ff;
+    transition: 300ms;
+}
+
+.btnPub:active > .row > div > button > span.material-icons{
+    background-color: #027CE9;
+}
+
+.btnPub:hover{
+    cursor: pointer;
+    color: #fff;
+    background-color: #0088ff;
+    border-style: solid;
+    border-radius: 0;
+    border-width: 1px;
+    border-color: #027CE9;
+    transition: 300ms;
+}
+
+.btnPub:active{
+    background-color: #027CE9;
+}
+
+.btnPub{
+    color: #027CE9;
+    border-style: solid;
+    border-radius: 0;
+    border-width: 1px;
+    
+    border-color: rgb(235, 235, 235);
+}
+
+.btnPub > .row > div > button > span.material-icons{
+    color: #027CE9;
+    background-color: transparent !important;
+}
+
+.btnPub:hover > .row > div > button > span.material-icons{
+    cursor: pointer;
+    color: #fff;
+    background-color: #0088ff;
+    transition: 300ms;
+}
+
+.btnPub:active > .row > div > button > span.material-icons{
+    background-color: #027CE9;
+}
+
+.btnPub:hover{
+    cursor: pointer;
+    color: #fff;
+    background-color: #0088ff;
+    border-style: solid;
+    border-radius: 0;
+    border-width: 1px;
+    border-color: #027CE9;
+    transition: 300ms;
+}
+
+.btnPub:active{
+    background-color: #027CE9;
+}
