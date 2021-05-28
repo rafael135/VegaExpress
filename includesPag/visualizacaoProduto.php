@@ -204,7 +204,7 @@
                 <div class="col-12">
                     <button class="btn btn-pub rounded-0 w-100 border border-1" style="max-height:50px;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAvaliacao" aria-expanded="false" aria-controls="collapseAvaliacao">
                         <div class="row">
-                            <div class="col-1">
+                            <div class="col-1 d-flex justify-content-start">
                                 <img class="svg star-rate svg-btn" src="img/btns/star_rate.svg"></img>
                             </div>
 
@@ -214,7 +214,7 @@
                                 </div>
                             </div>
 
-                            <div class="expand col-1 align-items-start">
+                            <div class="expand col-1 d-flex justify-content-end">
                                 <img class="svg expand-more svg-btn" src="img/btns/expand.svg"></img>
                             </div>
                         </div>
@@ -223,7 +223,7 @@
             </div>
 
             <div class="collapse mt-0 mb-0" id="collapseAvaliacao">
-                <div class="container-fluid bg-whiteGrey border border-1 p-0 m-0">
+                <div class="container-fluid bg-whiteGrey border border-1 p-0 pb-2 m-0">
                     <div class="row">
                         <form class="" method="POST" action="../produto.php">
                             <div class="row m-1 mb-0 mx-auto">
@@ -260,66 +260,43 @@
                     </div>
                     <div class="container-fluid pt-2 mt-2 top-separator">
                         <div class="row mt-0 pt-0">
-                            <div class="col-sm-12 col-md-12 col-lg-6">
+                            <?php
+                            $d = 4;
+                            $i = 0;
+                            while ($i < $d) {
+                            ?>
+                                <div class="col-sm-12 col-md-12 col-lg-6 mb-2">
+                                    <div class="card card-user">
+                                        <div class="row">
 
-                                <div class="card">
-                                    <div class="row">
-
-                                        <div class="col-3 pe-0">
-                                            <img src="img/imgPadraoProduto.png" class="card-img-top card-img-comentario" alt="...">
-                                        </div>
-                                        <div class="col-9 ps-0">
-                                            <div class="card-body m-0 p-0">
-                                                <h4 class="card-title">
-                                                    <div class="container-fluid m-0 mb-1 p-0 w-100 bottom-separator">
-
-                                                        <?php
-                                                        for ($i = 0; $i < 5; $i++) {
-                                                        ?>
-                                                            <img class="svg star-rate fill-star" src="img/btns/star_rate.svg">
-                                                        <?php
-                                                        }
-                                                        ?>
-                                                    </div>
-                                                </h4>
-                                                <h5>Nome Usuário</h5>
-                                                <p class="card-text">Opinião do usuário</p>
+                                            <div class="col-sm-5 col-md-4 col-lg-3 pe-0">
+                                                <img src="img/imgPadraoProduto.png" class="card-img-top card-img-comentario card-user" alt="...">
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-sm-12 col-md-12 col-lg-6">
-                                <div class="card">
-                                    <div class="row">
-                                        <div class="col-3 pe-0">
-                                            <img src="img/imgPadraoProduto.png" class="card-img-top card-img-comentario" alt="...">
-                                        </div>
-                                        <div class="col-9 ps-0">
-                                            <div class="card-body m-0 p-0">
-                                                <h4 class="card-title">
-                                                    <div class="container-fluid m-0 mb-1 p-0 w-100 bottom-separator">
-
-                                                        <?php
-                                                        for ($i = 0; $i < 5; $i++) {
-                                                        ?>
+                                            <div class="col-sm-7 col-md-8 col-lg-9 ps-0">
+                                                <div class="card-body overflow-auto m-0 p-0 card-user">
+                                                    <h4 class="card-title">
+                                                        <div class="container-fluid m-0 mb-1 p-0 w-100 bottom-separator">
                                                             <img class="svg star-rate fill-star" src="img/btns/star_rate.svg">
-                                                        <?php
-                                                        }
-                                                        ?>
+                                                            <img class="svg star-rate fill-star" src="img/btns/star_rate.svg">
+                                                            <img class="svg star-rate fill-star" src="img/btns/star_rate.svg">
+                                                            <img class="svg star-rate fill-star-deact" src="img/btns/star_rate.svg">
+                                                            <img class="svg star-rate fill-star-deact" src="img/btns/star_rate.svg">
+                                                        </div>
+                                                    </h4>
+                                                    <h5 class="ms-2">Nome Usuário</h5>
+                                                    <div class="container-fluid h-100 p-0 m-0 bg-user-coment">
+                                                        <p class="card-text ms-2">Opinião do usuário</p>
                                                     </div>
-                                                </h4>
-                                                <h5>Nome Usuário</h5>
-                                                <p class="card-text">Opinião do usuário</p>
-
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                            </div>
+                            <?php
+                                $i++;
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>

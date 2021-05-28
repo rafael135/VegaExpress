@@ -116,9 +116,30 @@ div.col-3 > .card-img-comentario{
     width: 40px;
 }
 
+.fill-star-deact{
+    fill: rgb(255, 255, 195) !important;
+    flood-color: rgb(255, 255, 195) !important;
+    height: 40px;
+    width: 40px;
+}
+
 .container-fluid.bottom-separator{
     border-top: 0 !important;
     border-bottom: 1px solid rgb(235, 235, 235) !important;
     border-left: 0 !important;
     border-right: 0 !important;
+}
+
+.container-fluid.bg-user-coment{
+    background-color: #fdfdfd;
+    border-top: 1px solid rgb(235, 235, 235) !important;
+    border-bottom: 1px solid rgb(235, 235, 235) !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+}
+
+@media(min-width: 992px) {
+    .card-user{
+        height: 12rem !important;
+    }
 }

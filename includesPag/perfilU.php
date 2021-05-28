@@ -1,3 +1,5 @@
+
+
 <?php
 
 use App\Produto;
@@ -20,14 +22,14 @@ if ($_GET) {
     <div class="col-12 m-0 p-0">
         <div class="container-fluid border m-0 p-0">
             <div class="row">
-                <div class="col-3 me-0 pe-0" id="options">
+                <div class="col-sm-6 col-md-5 col-lg-4 me-0 pe-0" id="options">
                     <div class="container-fluid m-0 p-0">
                         <ul class="nav nav-pills flex-column pe-0">
                             <div class="row">
 
                                 <div class="col-12">
                                     <li class="nav-item">
-                                        <a class="nav-link btn-group w-100 <?php if ($idPag == 0) {
+                                        <a class="nav-link btnOpt1 btn-group w-100 <?php if ($idPag == 0) {
                                                                                 echo ("activeOpt");
                                                                             } ?>" href="perfil.php?id=0">
                                             <div class="row">
@@ -50,7 +52,7 @@ if ($_GET) {
 
                                 <div class="col-12">
                                     <li class="nav-item">
-                                        <a class="nav-link btn-group w-100 <?php if ($idPag == 1) {
+                                        <a class="nav-link btnOpt2 btn-group w-100 <?php if ($idPag == 1) {
                                                                                 echo ("activeOpt");
                                                                             } ?>" href="perfil.php?id=1">
                                             <div class="row">
@@ -75,7 +77,7 @@ if ($_GET) {
                                 <div class="col-9 pe-0">
                                     <li class="nav-item">
 
-                                        <a class="nav-link btn-group w-100 <?php if ($idPag == 2) {
+                                        <a class="nav-link btnOpt3 btn-group w-100 <?php if ($idPag == 2) {
                                                                                 echo ("activeOpt");
                                                                             } ?>" href="perfil.php?id=2">
                                             <div class="row">
@@ -102,7 +104,7 @@ if ($_GET) {
                                         <div class="row p-0 m-0">
                                             <div class="col-12">
                                                 <button type="button" class="btn h-100 text-center w-100 btn-clean">
-                                                    <span class="material-icons mx-2 my-1 blue text-center fs-1">
+                                                    <span class="material-icons mx-sm-2 mx-md-2 mx-lg-4 my-1 blue text-center fs-1">
                                                         note_add
                                                     </span>
                                                 </button>
@@ -203,7 +205,7 @@ if ($_GET) {
                     </div>
                 </div>
 
-                <div class="col-9 ms-0 ps-0" id="options-show">
+                <div class="col-sm-6 col-md-7 col-lg-8 ms-0 ps-0" id="options-show">
                     <div class="container-fluid h-100 bg-light p-0">
 
                         <!-- Página de visibilidade -->

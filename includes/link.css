@@ -105,9 +105,9 @@ body{
     color: white !important;
 }
 
-.btn:hover{
+/*.btn:hover{
     border-color: #027CE9 !important;
-}
+}*/
 
 .bg-blue{
     background-color: #027CE9 !important;
@@ -518,3 +518,23 @@ input:focus{
     box-shadow: none !important;
     
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #004b8d;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #027CE9;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1793ff;
+  }
