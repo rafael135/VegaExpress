@@ -526,7 +526,8 @@ input:focus{
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: #004b8d;
+    background-color: #004b8db6;
+    
   }
   
   /* Handle */

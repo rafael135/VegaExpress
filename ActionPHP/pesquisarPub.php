@@ -3,7 +3,13 @@
 
     if($_POST){
         $pesquisarTxt = $_POST['txtPesquisa'];
-        $frete = $_POST['checkFrete'];
+        $frete;
+        if(isset($_POST['checkFrete'])){
+            $frete = true;
+        }else{
+            $frete = false;
+        }
+        
         $condicaoProduto = $_POST['radioCondicao'];
         var_dump($frete);
         var_dump($condicaoProduto);

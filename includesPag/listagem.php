@@ -48,18 +48,18 @@ use App\money_format;
                                     $imgs = $i['imagens'];
                                     $idAutor = $i['idAutor'];
                                     $img = explode(" ", $imgs);
-                                    if($img[0] != ""){
+                                    if ($img[0] != "") {
                                         $destinoImg = "UsrImg/$idAutor/Produtos/$idProduto/" . $img[0];
-                                    }else{
+                                    } else {
                                         $destinoImg = "img/imgPadraoProduto.png";
                                     }
-                                    
+
                         ?>
 
                                     <div class="col-sm-4 col-md-3 col-lg-2 mx-auto">
                                         <a href="produto.php?id=<?php echo ($idProduto); ?>">
                                             <div class="card link text-white text-center mb-2 mx-0">
-                                                <img class="card-img-top" src="<?php echo($destinoImg); ?>" alt="" style="max-height: 9rem !important;">
+                                                <img class="card-img-top" src="<?php echo ($destinoImg); ?>" alt="" style="max-height: 9rem !important;">
                                                 <div class="card-body">
                                                     <h4 cklass="card-title"><?php echo ($titulo); ?></h4>
                                                     <?php setlocale(LC_MONETARY, 'pt_BR.UTF8');
@@ -80,9 +80,11 @@ use App\money_format;
                         ?>
                     </div>
                     <div class="container-fluid p-0 m-0">
-
-                        <a class="expand-btn" href="index.php?pag=<?php echo ($pag); ?>"><span id="expand-icon" class="material-icons blue text-center w-100 h-100" style="font-size: 64px;">expand_more</span></a>
-
+                        <div class="row mx-auto justify-content-center">
+                            <div class="col-1">
+                                <a class="expand-btn text-center w-100" href="index.php?pag=<?php echo ($pag); ?>"><span id="expand-icon" class="material-icons blue text-center d-flex justify-content-center" style="font-size: 64px;">expand_more</span></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

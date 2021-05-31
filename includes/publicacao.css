@@ -104,6 +104,10 @@ select:focus{
     border-right: 0 !important;
 }
 
+hr.hr-coments{
+    color: #027CE9 !important;
+}
+
 div.col-3 > .card-img-comentario{
     height: 100%;
     width: 100%;

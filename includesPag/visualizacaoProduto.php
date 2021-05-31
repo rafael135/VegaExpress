@@ -150,11 +150,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-3 offset-lg-9">
-                            <div class="container-fluid p-0 m-0 mt-5">
-                                <a href=""><button class="btn btn-cart border border-1 h-100 w-100"><span class="material-icons m-1 blue">add_shopping_cart</span></button></a>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
 
@@ -194,8 +190,8 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-
+                    <div class="col-sm-2 offset-sm-10 col-md-2 offset-md-2 col-lg-2 offset-lg-4 align-self-end">
+                        <a class="" href=""><button class="btn btn-cart border align-text-bottom border-1 w-100 mt-4"><span class="material-icons m-1 blue">add_shopping_cart</span></button></a>
                     </div>
                 </div>
             </div>
@@ -223,7 +219,7 @@
             </div>
 
             <div class="collapse mt-0 mb-0" id="collapseAvaliacao">
-                <div class="container-fluid bg-whiteGrey border border-1 p-0 pb-2 m-0">
+                <div class="container-fluid bg-whiteGrey border border-1 p-0 pb-2 pt-2 m-0">
                     <div class="row">
                         <form class="" method="POST" action="../produto.php">
                             <div class="row m-1 mb-0 mx-auto">
@@ -258,7 +254,9 @@
                             </div>
                         </form>
                     </div>
-                    <div class="container-fluid pt-2 mt-2 top-separator">
+                    <hr class="hr-coments mx-3" />
+
+                    <div class="container-fluid pt-1 mt-1">
                         <div class="row mt-0 pt-0">
                             <?php
                             $d = 4;

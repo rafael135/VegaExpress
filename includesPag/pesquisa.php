@@ -29,8 +29,10 @@
                                     </div>
 
                                     <div class="col-sm-12 col-md-4 col-lg-1 px-0 d-flex justify-content-center align-items-center">
-                                        <input type="checkbox" class="btn-check" id="checkFrete" name="checkFrete" autocomplete="off">
-                                        <label class="btn btn-outline-primary no-outline" for="checkFrete">Frete grátis</label>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="checkFrete" name="checkFrete">
+                                            <label class="form-check-label" for="checkFrete">Frete grátis</label>
+                                        </div>
                                     </div>
 
                                     <div class="col-sm-12 col-md-4 col-lg-2 p-0 m-0 d-flex flex-column justify-content-center align-items-center">
