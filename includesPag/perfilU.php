@@ -1,5 +1,3 @@
-
-
 <?php
 
 use App\Produto;
@@ -18,43 +16,49 @@ if ($_GET) {
 }
 ?>
 
-<div class="row ps-4 pe-4 mt-3">
+<div class="row mt-3">
     <div class="col-12 m-0 p-0">
-        <div class="container-fluid border m-0 p-0">
-            <div class="row">
-                <div class="col-sm-6 col-md-5 col-lg-4 me-0 pe-0" id="options">
+        <div class="container-fluid m-0 p-0">
+            <div class="row p-0 m-0">
+                <div class="col-12" id="options">
                     <div class="container-fluid m-0 p-0">
-                        <ul class="nav nav-pills flex-column pe-0">
-                            <div class="row">
+                        <ul class="nav nav-pills p-0 m-0">
+                            <div class="row m-0 p-0 px-2 w-100 g-0">
 
                                 <div class="col-12">
                                     <li class="nav-item">
-                                        <a class="nav-link btnOpt1 btn-group w-100 <?php if ($idPag == 0) {
-                                                                                echo ("activeOpt");
-                                                                            } ?>" href="perfil.php?id=0">
-                                            <div class="row">
-                                                <div class="col-2">
-                                                    <button type="button" class="btn h-100 text-center w-100 btn-clean">
-                                                        <span class="material-icons blue text-center m-1">
-                                                            visibility
-                                                        </span>
-                                                    </button>
-                                                </div>
-                                                <div class="col-10">
-                                                    <button type="button" class="btn h-100 text-start w-100 btn-clean">
-                                                        Visibilidade de perfil
-                                                    </button>
-                                                </div>
+                                        <div class="row">
+
+                                            <div class="col-12">
+                                                <a class="nav-link btnOpt1 btn-group <?php if ($idPag == 0) {
+                                                                                            echo ("activeOpt");
+                                                                                        } ?>" href="perfil.php?id=0">
+                                                    <div class="row">
+                                                        <div class="col-2">
+                                                            <button type="button" class="btn h-100 text-center w-100 btn-clean">
+                                                                <span class="material-icons blue text-center m-1">
+                                                                    visibility
+                                                                </span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="col-10">
+                                                            <button type="button" class="btn h-100 text-start w-100 btn-clean">
+                                                                Visibilidade de perfil
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </a>
                                             </div>
-                                        </a>
+                                        </div>
+
                                     </li>
                                 </div>
 
                                 <div class="col-12">
                                     <li class="nav-item">
                                         <a class="nav-link btnOpt2 btn-group w-100 <?php if ($idPag == 1) {
-                                                                                echo ("activeOpt");
-                                                                            } ?>" href="perfil.php?id=1">
+                                                                                        echo ("activeOpt");
+                                                                                    } ?>" href="perfil.php?id=1">
                                             <div class="row">
 
                                                 <div class="col-2">
@@ -78,8 +82,8 @@ if ($_GET) {
                                     <li class="nav-item">
 
                                         <a class="nav-link btnOpt3 btn-group w-100 <?php if ($idPag == 2) {
-                                                                                echo ("activeOpt");
-                                                                            } ?>" href="perfil.php?id=2">
+                                                                                        echo ("activeOpt");
+                                                                                    } ?>" href="perfil.php?id=2">
                                             <div class="row">
 
                                                 <div class="col-2">
@@ -101,10 +105,10 @@ if ($_GET) {
 
                                 <div class="col-3 ps-0">
                                     <a class="btnPub btn-group w-100 h-100" title="Publicar um produto" role="button" href="" data-bs-toggle="modal" data-bs-target="#produtoModal">
-                                        <div class="row p-0 m-0">
+                                        <div class="row p-0 m-0 mx-auto justify-content-center">
                                             <div class="col-12">
                                                 <button type="button" class="btn h-100 text-center w-100 btn-clean">
-                                                    <span class="material-icons mx-sm-2 mx-md-2 mx-lg-4 my-1 blue text-center fs-1">
+                                                    <span class="material-icons d-flex align-self-center justify-content-center blue text-center fs-1">
                                                         note_add
                                                     </span>
                                                 </button>
@@ -204,105 +208,108 @@ if ($_GET) {
                         </ul>
                     </div>
                 </div>
-
-                <div class="col-sm-6 col-md-7 col-lg-8 ms-0 ps-0" id="options-show">
-                    <div class="container-fluid h-100 bg-light p-0">
-
-                        <!-- Página de visibilidade -->
-                        <?php
-
-                        if ($idPag == 0) {
+                <div class="row p-0 m-0">
 
 
-                        ?>
-                            Página de visibilidade
+                    <div class="col-12" id="options-show">
+                        <div class="container-fluid h-100 bg-light">
 
-                        <?php
-                        }
-                        ?>
+                            <!-- Página de visibilidade -->
+                            <?php
 
-                        <!-- Página de segurança -->
-                        <?php
-                        if ($idPag == 1) {
+                            if ($idPag == 0) {
 
 
-                        ?>
+                            ?>
+                                Página de visibilidade
 
-                            Página de segurança
-                        <?php
-                        }
-                        ?>
+                            <?php
+                            }
+                            ?>
 
-                        <!-- Página de Publicações -->
-                        <?php
-                        if ($idPag == 2) {
-
-
-                        ?>
+                            <!-- Página de segurança -->
+                            <?php
+                            if ($idPag == 1) {
 
 
-                            <div class="container-fluid p-0 m-0">
-                                <div class="row p-3">
-                                    <?php if ($idPag == 2) {
-                                        if (isset($_SESSION['idUsuario'])) {
-                                            $idAutor = $_SESSION['idUsuario'];
-                                            $publicacoes = new Produto();
-                                            $resultado = $publicacoes->getProdutoAutorId($idAutor);
-                                            if ($resultado != false) {
-                                                foreach ($resultado as $publicacao) {
-                                                    $titulo = $publicacao['titulo'];
-                                                    $preco = $publicacao['preco'];
-                                                    $idProduto = $publicacao['idProduto'];
-                                                    $vendas = $publicacao['vendas'];
-                                                    $dataPublicacao = $publicacao['dataPublicacao'];
-                                                    $imgs = $publicacao['imagens'];
-                                                    $idAutor = $publicacao['idAutor'];
-                                                    $img = explode(" ", $imgs);
-                                                    if($img[0] != ""){
-                                                        $destinoImg = "UsrImg/$idAutor/Produtos/$idProduto/" . $img[0];
-                                                    }else{
-                                                        $destinoImg = "img/imgPadraoProduto.png";
-                                                    }
-                                                    
-                                                    
+                            ?>
+
+                                Página de segurança
+                            <?php
+                            }
+                            ?>
+
+                            <!-- Página de Publicações -->
+                            <?php
+                            if ($idPag == 2) {
 
 
-                                                    
+                            ?>
 
-                                    ?>
 
-                                                    <div class="col-sm-6 col-md-4 col-lg-2 mx-auto">
-                                                        <a class="text-white" href="produto.php?id=<?php echo ($idProduto); ?>">
-                                                            <div class="card link text-white text-center mb-2 mx-0">
-                                                                <img class="card-img-top" src="<?php echo($destinoImg); ?>" alt="" style="max-height: 7rem !important;">
-                                                                
-                                                                <div class="card-body">
-                                                                    <h4 cklass="card-title text-white"><?php echo ($titulo); ?></h4>
-                                                                    <?php setlocale(LC_MONETARY, 'pt_BR.UTF8');
-                                                                    $money = new money_format();
-                                                                    ?>
-                                                                    <p class="card-text text-center text-white"><?php echo ($money->money_format("%.2n", $preco)) ?></p>
-                                                                    
+                                <div class="container-fluid p-0 m-0">
+                                    <div class="row p-3">
+                                        <?php if ($idPag == 2) {
+                                            if (isset($_SESSION['idUsuario'])) {
+                                                $idAutor = $_SESSION['idUsuario'];
+                                                $publicacoes = new Produto();
+                                                $resultado = $publicacoes->getProdutoAutorId($idAutor);
+                                                if ($resultado != false) {
+                                                    foreach ($resultado as $publicacao) {
+                                                        $titulo = $publicacao['titulo'];
+                                                        $preco = $publicacao['preco'];
+                                                        $idProduto = $publicacao['idProduto'];
+                                                        $vendas = $publicacao['vendas'];
+                                                        $dataPublicacao = $publicacao['dataPublicacao'];
+                                                        $imgs = $publicacao['imagens'];
+                                                        $idAutor = $publicacao['idAutor'];
+                                                        $img = explode(" ", $imgs);
+                                                        if ($img[0] != "") {
+                                                            $destinoImg = "UsrImg/$idAutor/Produtos/$idProduto/" . $img[0];
+                                                        } else {
+                                                            $destinoImg = "img/imgPadraoProduto.png";
+                                                        }
+
+
+
+
+
+
+                                        ?>
+
+                                                        <div class="col-sm-6 col-md-4 col-lg-2 mx-auto">
+                                                            <a class="text-white" href="produto.php?id=<?php echo ($idProduto); ?>">
+                                                                <div class="card link text-white text-center mb-2 mx-0">
+                                                                    <img class="card-img-top" src="<?php echo ($destinoImg); ?>" alt="" style="max-height: 7rem !important;">
+
+                                                                    <div class="card-body">
+                                                                        <h4 cklass="card-title text-white"><?php echo ($titulo); ?></h4>
+                                                                        <?php setlocale(LC_MONETARY, 'pt_BR.UTF8');
+                                                                        $money = new money_format();
+                                                                        ?>
+                                                                        <p class="card-text text-center text-white"><?php echo ($money->money_format("%.2n", $preco)) ?></p>
+
+                                                                    </div>
+                                                                    <a class="btn btn-clean btn-delete-pub m-0 p-0 text-white" href="ActionPHP/excluirPub.php?id=<?php echo ($idProduto); ?>"><span class="material-icons m-0 p-0 red">delete</span></a>
                                                                 </div>
-                                                                <a class="btn btn-clean btn-delete-pub m-0 p-0 text-white" href="ActionPHP/excluirPub.php?id=<?php echo($idProduto); ?>"><span class="material-icons m-0 p-0 red">delete</span></a>
-                                                            </div>
-                                                        </a>
-                                                    </div>
+                                                            </a>
+                                                        </div>
 
 
-                                    <?php
+                                        <?php
+                                                    }
                                                 }
                                             }
                                         }
-                                    }
 
-                                    ?>
+                                        ?>
+                                    </div>
                                 </div>
-                            </div>
+                        </div>
+                    <?php
+                            }
+                    ?>
                     </div>
-                <?php
-                        }
-                ?>
                 </div>
             </div>
         </div>

@@ -375,23 +375,23 @@ body{
     border-color: rgb(235, 235, 235);
 }
 
-.nav-item > .nav-link  > .row > div > button > span.material-icons{
+.nav-item > div > div > .nav-link  > .row > div > button > span.material-icons{
     color: #027CE9;
     background-color: transparent !important;
 }
 
-.nav-item:hover > .nav-link  > .row > div > button > span.material-icons{
+.nav-item:hover > div > div > .nav-link  > .row > div > button > span.material-icons{
     cursor: pointer;
     color: #fff;
     background-color: #0088ff;
     transition: 300ms;
 }
 
-.nav-item:active > .nav-link  > .row > div > button > span.material-icons{
+.nav-item:active > div > div > .nav-link  > .row > div > button > span.material-icons{
     background-color: #027CE9;
 }
 
-.nav-item:hover > .nav-link{
+.nav-item:hover > div > div > .nav-link{
     cursor: pointer;
     color: #fff;
     background-color: #0088ff;
@@ -402,7 +402,7 @@ body{
     transition: 300ms;
 }
 
-.nav-item:active > .nav-link{
+.nav-item:active > div > div > .nav-link{
     background-color: #027CE9;
 }
 
@@ -413,7 +413,7 @@ body{
     font-size: 20px !important;
 }
 
-.nav-item:hover > .nav-link > .row > div > .btn-clean{
+.nav-item:hover > div > div > .nav-link > .row > div > .btn-clean{
     color: #fff !important;
     transition: 300ms;
 }
