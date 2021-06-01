@@ -11,7 +11,10 @@
         }
         
         $condicaoProduto = $_POST['radioCondicao'];
-        var_dump($frete);
-        var_dump($condicaoProduto);
+
+        $_COOKIE['freteGratis'] = $frete;
+        $_COOKIE['condicaoProduto'] = $condicaoProduto;
+
+        header("Location: ../pesquisa.php?pesquisar=$pesquisarTxt");
     }
 ?>
