@@ -133,21 +133,16 @@
                     <div class="row ms-1">
                         <div class="col-12 ms-0 ps-0">
                             <div class="container-fluid w-100 p-0 m-0 mt-1">
-                                <p class="text-start text-blue fs-3" id="produtoTxt"><?php echo ($titulo); ?></p>
+                                <p class="text-start text-blue fs-2" id="produtoTxt"><?php echo ($titulo); ?></p>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-2 m-0 p-0">
                             <div class="container-fluid p-0 m-0">
-                                <p class="text-start text-success" id="produtoTxt"><?php echo ($money->money_format("%.2n", $preco)); ?></p>
+                                <p class="text-start text-success fs-2 fw-bolder" id="produtoTxt"><?php echo ($money->money_format("%.2n", $preco)); ?></p>
                             </div>
                         </div>
 
-                        <div class="col-sm-12 col-md-12 col-lg-10 m-0 p-0">
-                            <div class="container-fluid p-0 h-100">
-                                <label for="txtDescricao" class="form-floating form-text">Descricão</label>
-                                <textarea class="form-control form-control-lg" id="txtDescricao" disabled style="text-align: justify;"><?php echo ($descricao) ?></textarea>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="row">
 
@@ -195,6 +190,50 @@
                     </div>
                 </div>
             </div>
+
+
+
+
+            <div class="row justify-content-center align-items-center pt-3">
+                <div class="col-12">
+                    <button class="btn btn-pub rounded-0 w-100 border border-1" style="max-height:50px;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDescricao" aria-expanded="false" aria-controls="collapseDescricao">
+                        <div class="row">
+                            <div class="col-10 offset-1">
+                                <div class="container-fluid my-auto p-0">
+                                    <p class="text-center align-self-center m-auto fs-5 h-100 w-100">Descrição</p>
+                                </div>
+                            </div>
+
+                            <div class="expand col-1 d-flex justify-content-end">
+                                <img class="svg expand-more svg-btn" src="img/btns/expand.svg"></img>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="collapse mt-0 mb-0" id="collapseDescricao">
+                <div class="container-fluid bg-whiteGrey border border-1 p-0 pb-2 pt-2 m-0">
+                    <div class="container-fluid pt-1 mt-1">
+                        <div class="row mt-0 pt-0 mx-1">
+                            <div class="col-sm-12 col-md-12 col-lg-12 m-0 p-0">
+                                <div class="container-fluid p-0 h-100">
+                                    <textarea class="form-control form-control-lg rounded-0" id="txtDescricao" disabled style="text-align: justify;"><?php echo ($descricao) ?></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
 
             <div class="row justify-content-center align-items-center pt-3">
                 <div class="col-12">

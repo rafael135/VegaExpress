@@ -1,5 +1,5 @@
 <div class="container-fluid mt-3">
-    <div class="row mx-1 mb-2">
+    <div class="row mx-1 mb-2 g-0">
         <div class="col-12 border-0">
 
             <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -31,7 +31,7 @@
                                     <div class="col-sm-12 col-md-4 col-lg-1 px-0 d-flex justify-content-center align-items-center">
                                         <div class="form-check form-switch">
                                             <input class="form-check-input" type="checkbox" id="checkFrete" name="checkFrete">
-                                            <label class="form-check-label" for="checkFrete">Frete grátis</label>
+                                            <label class="form-check-label text-blue  fw-bold" for="checkFrete">Frete grátis</label>
                                         </div>
                                     </div>
 

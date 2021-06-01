@@ -539,3 +539,7 @@ input:focus{
   ::-webkit-scrollbar-thumb:hover {
     background: #1793ff;
   }
+
+  .form-check:hover > .form-check-input:hover{
+      cursor: pointer !important;
+  }
