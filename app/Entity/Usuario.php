@@ -82,7 +82,6 @@ class Usuario{
                         $_SESSION['nomeUsuario'] = $dado['nome'];
                         $_SESSION['emailUsuario'] = $dado['email'];
                         $_SESSION['celularUsuario'] = $dado['celular'];
-                        $_SESSION['verificadoUsuario'] = $dado['contaVerificada'];
                         $_SESSION['enderecoUsuario'] = $dado['endereco'];
                         $_SESSION['usuarioVerificado'] = $dado['contaVerificada'];
                     }
@@ -102,7 +101,6 @@ class Usuario{
                         $_SESSION['nomeUsuario'] = $dado['nome'];
                         $_SESSION['emailUsuario'] = $dado['email'];
                         $_SESSION['celularUsuario'] = $dado['celular'];
-                        $_SESSION['verificadoUsuario'] = $dado['contaVerificada'];
                         $_SESSION['enderecoUsuario'] = $dado['endereco'];
                         $_SESSION['usuarioVerificado'] = $dado['contaVerificada'];
                     }
@@ -122,7 +120,7 @@ class Usuario{
                     $_SESSION['nomeUsuario'] = $dado['nome'];
                     $_SESSION['emailUsuario'] = $dado['email'];
                     $_SESSION['celularUsuario'] = $dado['celular'];
-                    $_SESSION['verificadoUsuario'] = $dado['contaVerificada'];
+                    $_SESSION['usuarioVerificado'] = $dado['contaVerificada'];
                     $_SESSION['enderecoUsuario'] = $dado['endereco'];
                 }
             }

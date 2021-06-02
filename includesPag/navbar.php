@@ -29,7 +29,11 @@
 
     <?php
     if (isset($_SESSION['idUsuario'])) {
-
+        if(PHP_SESSION_ACTIVE){
+            
+        }else{
+            session_start();
+        }
         $verificado = $_SESSION['usuarioVerificado'];
         if ($verificado != null) {
             if ($verificado == "false") {
