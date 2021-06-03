@@ -14,8 +14,16 @@
         include __DIR__.'/includesPag/navbar.php';
     }
 
-    // Inclui a página Sobre Nós
-    include __DIR__ . '/includesPag/pesquisa.php';
+    ?>
+
+    <head>
+        <link rel="stylesheet" href="includes/pesquisa.css">
+    </head>
+
+    <?php
+
+    // Inclui o formulário de pesquisa
+    //include __DIR__ . '/includesPag/pesquisa.php';
 
     // Inclui a página Sobre Nós
     include __DIR__ . '/includesPag/PesquisaResultado.php';

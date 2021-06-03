@@ -9,12 +9,13 @@
         }else{
             $frete = false;
         }
-        
         $condicaoProduto = $_POST['radioCondicao'];
 
-        $_COOKIE['freteGratis'] = $frete;
-        $_COOKIE['condicaoProduto'] = $condicaoProduto;
+        $filtro = 0;
+        if(isset($_POST['selectFiltrar'])){
+            $filtro = $_POST['selectFiltrar'];
+        }
 
-        header("Location: ../pesquisa.php?pesquisar=$pesquisarTxt");
+        header("Location: ../pesquisa.php?txtPesquisa=$pesquisarTxt&frete=$frete&condicaoProduto=$condicaoProduto&filtro=$filtro");
     }
 ?>

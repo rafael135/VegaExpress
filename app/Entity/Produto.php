@@ -77,4 +77,27 @@ class Produto
         
         return true;
     }
+
+    public function getProdutos($pesquisa = null, $frete = null, $condicao = null, $filtro = null){
+        $obDb = new Database("produtos");
+        if($filtro == 1){
+            $filtro = "preco DESC";
+        }elseif($filtro == 2){
+            $filtro = "preco ASC";
+        }elseif($filtro == 3){
+            $filtro = "avaliacao DESC";
+        }elseif($filtro == 4){
+            $filtro = "dataPublicacao DESC";
+        }elseif($filtro == 5){
+            $filtro = "dataPublicacao ASC";
+        }else{
+            $filtro = null;
+        }
+
+        
+
+        $result = $obDb->select("titulo like '%$pesquisa%' OR descricao like '%$pesquisa%' AND frete = $frete AND condicao = $condicao", $filtro);
+
+        return $result;
+    }
 }

@@ -51,7 +51,7 @@
 
     <!-- "navbar" declara o nav como uma navbar para o Bootstrap, "navbar-expand-lg" é para os componentes da navbar aparecerem apenas quando a tela for maior que (720p) -->
     <!-- "navbar-dark" e "bg-dark" são os temas da navbar, "shadow-sm" é para adicionar uma pequena sombra, e "mb-1" é para adicionar um espaçamento abaixo da Navbar para separar dos outros componentes -->
-    <nav class="navbar navbar-expand navbar-light bg-light shadow">
+    <nav class="navbar navbar-expand navbar-light bg-light">
         <!-- "container-fluid" é um container que ocupa a tela inteira na horizontal, "align-items-center" é para alinhar os componentes no centro -->
         <div class="container-fluid">
             <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">

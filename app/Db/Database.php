@@ -50,8 +50,6 @@ class Database
     {
 
         try {
-            
-
             if ($params == null) {
                 $sql = $this->getConexao()->prepare($query);
                 $sql->execute();
