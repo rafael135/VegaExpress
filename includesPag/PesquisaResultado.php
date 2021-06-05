@@ -241,31 +241,48 @@
             <div class="col-lg-9 pt-3">
                 <div class="row mx-auto">
 
-                    <?php foreach ($resultado as $produto) {
-                        $idProduto = $produto['idProduto'];
-                        $idAutor = $produto['idAutor'];
-                        $titulo = $produto['titulo'];
-                        $preco = $produto['preco'];
-                        $img = $produto['imagens'];
-                        $img = explode(" ", $img);
-                        $destinoImg = "";
-                        if ($img[0] != "") {
-                            $destinoImg = "UsrImg/$idAutor/Produtos/$idProduto/" . $img[0];
-                        } else {
-                            $destinoImg = "img/imgPadraoProduto.png";
-                        }
-                    ?>
-                        <div class="col-sm-4 col-md-3 col-lg-2">
-                            <a href="produto.php?id=<?php echo ($idProduto) ?>">
-                                <div class="card mb-4" style="width: 12rem; height: 12rem;">
-                                    <img src="<?php echo ($destinoImg); ?>" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><?php echo ($titulo) ?></h5>
-                                        <p class="card-text"><?php echo ($money->money_format("%.2n", $preco)); ?></p>
+                    <?php
+                    if ($resultado != false) {
 
+
+                        foreach ($resultado as $produto) {
+                            $idProduto = $produto['idProduto'];
+                            $idAutor = $produto['idAutor'];
+                            $titulo = $produto['titulo'];
+                            $preco = $produto['preco'];
+                            $img = $produto['imagens'];
+                            $img = explode(" ", $img);
+                            $destinoImg = "";
+                            if ($img[0] != "") {
+                                $destinoImg = "UsrImg/$idAutor/Produtos/$idProduto/" . $img[0];
+                            } else {
+                                $destinoImg = "img/imgPadraoProduto.png";
+                            }
+                    ?>
+                            <div class="col-sm-4 col-md-3 col-lg-2">
+                                <a href="produto.php?id=<?php echo ($idProduto) ?>">
+                                    <div class="card mb-4" style="width: 12rem; height: 12rem;">
+                                        <img src="<?php echo ($destinoImg); ?>" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><?php echo ($titulo) ?></h5>
+                                            <p class="card-text"><?php echo ($money->money_format("%.2n", $preco)); ?></p>
+
+                                        </div>
                                     </div>
+                                </a>
+                            </div>
+                        <?php
+                        }
+                    } else {
+                        ?>
+                        <div class="row h-100">
+
+                            <div class="col-12">
+                                <div class="container-fluid p-0 m-0 h-100">
+                                    <p class="display-4 fw-bolder text-uppercase text-center">Nenhuma publicação foi encontrada!</p>
                                 </div>
-                            </a>
+                            </div>
+                            
                         </div>
                     <?php
                     }
