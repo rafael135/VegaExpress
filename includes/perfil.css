@@ -20,6 +20,7 @@ a#btnOpt2{
     border-width: 1px;
     
     border-color: rgb(235, 235, 235);
+    border: 1px solid rgb(235, 235, 235) !important;
 }
 
 .nav-item > a  > .row > div > button > span.material-icons{
@@ -169,4 +170,12 @@ a.activeOpt > .row > div > button > span.material-icons{
 
 .btnPub:active{
     background-color: #027CE9;
+}
+
+.nav-item{
+    border: 1px solid rgb(235, 235, 235) !important;
+}
+
+.border-custom-nav{
+    border: 1px solid rgb(235, 235, 235) !important;
 }

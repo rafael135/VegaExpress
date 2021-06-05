@@ -36,7 +36,7 @@ if ($_GET) {
     ?>
 
     <!--Coluna 1-->
-    <div class="container-fluid m-0 p-0 mx-2 ms-0 text-center pt-1">
+    <div class="container-fluid m-0 p-0 mx-2 ms-0 text-center pt-0">
         <div class="row">
             <div class="col-lg-3">
                 <div class="container-fluid container-search p-0 m-0 p-2 border border-2">
@@ -46,7 +46,7 @@ if ($_GET) {
                             <input type="text" class="form-control rounded-2" id="txtPesquisa" name="txtPesquisa" placeholder="Pesquisa" value="<?php echo ($txt); ?>">
                             <label for="txtPesquisa">Pesquisa</label>
                         </div>
-                        <div class="container-fluid p-0 m-0 p-2 border border-2">
+                        <div class="container-fluid border-produto p-0 m-0 p-2">
                             <div class="form-check form-switch mb-3">
                                 <input class="form-check-input" type="radio" name="filtro" id="flexSwitchCheckDefault">
                                 <label class="form-check-label" for="flexSwitchCheckDefault">Eletrodomésticos</label>
@@ -108,7 +108,7 @@ if ($_GET) {
                             </div>
                         </div>
 
-                        <div class="container-fluid p-0 m-0 justify-content-center align-items-center">
+                        <div class="container-fluid p-0 px-3 m-0 justify-content-center align-items-center">
                             <hr class="mx-1" />
                             <div class="form-check form-switch">
                                 <input class="form-check-input" <?php if ($frete == 1) {
@@ -120,8 +120,8 @@ if ($_GET) {
 
                         <hr class="mx-1">
 
-                        <div class="container-fluid container-divisor w-100 p-0 m-0">
-                            <div class="btn-group no-outline text-center d-flex ps-3 pe-3 rounded-0 h-100 justify-content-center align-items-center" role="group" aria-label="Basic radio toggle button group">
+                        <div class="container-fluid w-100 p-0 m-0">
+                            <div class="btn-group no-outline text-center d-flex px-3 rounded-0 h-100 justify-content-center align-items-center" role="group" aria-label="Basic radio toggle button group">
                                 <input type="radio" class="btn-check no-outline" <?php if ($condicaoProduto == 1) {
                                                                                         echo ("checked");
                                                                                     } ?> name="radioCondicao" value="novo" id="btnNovo" autocomplete="off" checked>
@@ -136,7 +136,7 @@ if ($_GET) {
 
                         <hr class="mx-1">
 
-                        <div class="container-fluid p-0 m-0">
+                        <div class="container-fluid p-0 px-3 m-0">
                             <div class="form-floating rounded-0">
                                 <select class="form-select border border-1 rounded-0" id="selectFiltrar" name="selectFiltrar" aria-label="Filtrar por">
                                     <option value="1" <?php if($filtro == 1){ echo("selected"); } ?>>Preço decrescente</option>
@@ -154,7 +154,7 @@ if ($_GET) {
             </div>
 
             <!--Coluna 2-->
-            <div class="col-lg-9">
+            <div class="col-lg-9 pt-3">
                 <div class="row mx-auto">
 
                     <?php foreach($resultado as $produto) {
@@ -173,7 +173,7 @@ if ($_GET) {
                     ?>
                         <div class="col-sm-4 col-md-3 col-lg-2">
                             <a href="produto.php?id=<?php echo($idProduto) ?>">
-                                <div class="card mb-4" style="width: 12rem;">
+                                <div class="card mb-4" style="width: 12rem; height: 12rem;">
                                     <img src="<?php echo($destinoImg); ?>" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title"><?php echo($titulo) ?></h5>

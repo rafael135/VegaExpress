@@ -444,13 +444,22 @@ body{
 }
 
 a.btn-delete-pub{
-    position: absolute !important;
-    right: 0px !important;
+    
 }
 
 a.btn-delete-pub:hover{
     color: #ffffff;
 }
+
+a.btn-edit-pub{
+    
+}
+
+a > div > div > div > div > div > div> .btn-edit-pub:hover > span{
+    color: #ffffff;
+}
+
+
 
 .accordion-body-custom{
     background-color: rgb(245, 245, 245) !important;
