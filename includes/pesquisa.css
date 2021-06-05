@@ -6,10 +6,37 @@
 }
 
 .container-fluid.container-search{
-    background-color: rgba(245, 245, 245, 0.705) !important;
+    background-color: rgba(252, 252, 252, 0.705) !important;
     border: 1px solid rgb(235, 235, 235) !important;
 }
 
 .container-fluid.border-produto{
     border: 1px solid rgb(235, 235, 235) !important;
+}
+
+.btn-pub:hover{
+    color: rgb(235, 235, 235) !important;
+    background-color: #027CE9 !important;
+    transition: 300ms;
+}
+
+.btn-pub:hover > div > div > .expand-more{
+    fill: rgb(235, 235, 235) !important;
+    transition: 300ms;
+}
+
+.btn-pub:hover > div > div > .star-rate{
+    fill: rgb(235, 235, 235) !important;
+    transition: 300ms;
+}
+
+.btn-pub[aria-expanded="true"] > div > div.expand > svg{
+    transform: rotate(180deg);
+    transition: 300ms;
+}
+
+.svg-btn{
+    fill: #027CE9 !important;
+    height: 30px !important;
+    width: 30px !important;
 }
