@@ -147,3 +147,56 @@ div.col-3 > .card-img-comentario{
         height: 12rem !important;
     }
 }
+
+input.form-control.no-borders-input{
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: solid 1px rgb(215, 215, 215) !important;
+    border-radius: 0 !important;
+    background-color: transparent !important;
+}
+
+input.form-control.no-borders-input:focus{
+    border-bottom: solid 1px #027CE9 !important;
+    transition: 300ms;
+}
+
+input.form-control.border-preco{
+    border: solid 1px rgb(215, 215, 215) !important;
+}
+
+input.form-control.border-preco:focus{
+    border: solid 1px #027CE9 !important;
+    transition: 300ms;
+}
+
+.input-group:focus > input.border-preco:focus{
+    border: solid 1px #027CE9 !important;
+    transition: 300ms;
+}
+
+input.form-control.border-preco#preco{
+    border: solid 1px rgb(215, 215, 215) !important;
+    
+}
+
+.svg-btn-success{
+    fill: rgb(250, 250, 250) !important;
+    height: 30px;
+    width: 30px;
+}
+
+.btn-svg-success{
+    border: 1px solid #198754 !important;
+    background-color: #198754 !important;
+}
+
+.btn-svg-success:hover{
+    background-color: #10633c !important;
+    transition: 300ms;
+}
+
+.btn-svg-success:hover > svg{
+    fill: rgb(235, 235, 235) !important;
+}
