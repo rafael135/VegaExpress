@@ -40,3 +40,86 @@
     height: 30px !important;
     width: 30px !important;
 }
+
+.container-fluid.container-resultado{
+    background-color: rgba(245, 245, 245, 0.904) !important;
+}
+
+.card{
+    height: 12rem !important;
+    width: 12rem !important;
+}
+
+@media(max-width: 1550px) {
+    .card{
+        width: 11rem !important;
+        height: 11rem !important;
+    }
+}
+
+@media(max-width: 1410px) {
+    .card{
+        width: 10rem !important;
+        height: 10rem !important;
+    }
+}
+
+@media(max-width: 1280px) {
+    .card{
+        width: 9rem !important;
+        height: 9rem !important;
+    }
+
+    .card-title{
+        font-size: 1rem !important;
+    }
+
+    .card-text{
+        font-size: 0.75rem !important;
+    }
+}
+
+@media(max-width: 1140px) {
+    .card{
+        width: 8rem !important;
+        height: 8rem !important;
+    }
+
+    .card-title{
+        font-size: 0.8rem !important;
+    }
+
+    .card-text{
+        font-size: 0.6rem !important;
+    }
+}
+
+@media(max-width: 991px) {
+    .card{
+        height: 10rem !important;
+        width: 10rem !important;
+    }
+
+    .card-title{
+        font-size: 1rem !important;
+    }
+
+    .card-text{
+        font-size: 0.8rem !important;
+    }
+}
+
+@media(max-width: 575px) {
+    .card{
+        height: auto !important;
+        width: auto !important;
+    }
+
+    .card-title{
+        font-size: 0.9rem !important;
+    }
+
+    .card-text{
+        font-size: 0.7rem !important;
+    }
+}

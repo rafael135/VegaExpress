@@ -70,8 +70,8 @@
 
     <!--Coluna 1-->
     <div class="container-fluid m-0 p-0 mx-2 ms-0 text-center pt-0">
-        <div class="row">
-            <div class="col-lg-3">
+        <div class="row gx-0">
+            <div class="col-lg-3 pe-lg-0">
                 <div class="container-fluid container-search p-0 m-0 p-2 border border-2">
                     <p class="text-start">Filtros:</p>
                     <form class="mb-2" method="POST" action="ActionPHP/pesquisarPub.php">
@@ -181,30 +181,34 @@
                         <div class="container-fluid p-0 m-0">
                             <div class="row gx-0">
                                 <div class="col-6">
-                                    <input type="radio" class="btn-check w-100 me-0" name="optPublicacao" id="optProduto" style="border-bottom-right-radius: 0 !important; border-top-right-radius: 0 !important;" autocomplete="off" checked>
-                                    <label class="btn btn-outline-light btn-radio-blue w-100 me-0" for="optProduto" style="border-bottom-right-radius: 0 !important; border-top-right-radius: 0 !important;">Produto</label>
+                                    <input type="radio" class="btn-check rounded-0 w-100 me-0" name="optPublicacao" id="optProduto" style="border-bottom-right-radius: 0 !important; border-top-right-radius: 0 !important;" autocomplete="off" checked>
+                                    <label class="btn btn-outline-light rounded-0 btn-radio-blue w-100 me-0" for="optProduto" style="border-bottom-right-radius: 0 !important; border-top-right-radius: 0 !important;">Produto</label>
                                 </div>
 
                                 <div class="col-6">
-                                    <input type="radio" class="btn-check w-100 ms-0" name="optPublicacao" id="optServico" style="border-bottom-left-radius: 0 !important; border-top-left-radius: 0 !important;" autocomplete="off">
-                                    <label class="btn btn-outline-light btn-radio-blue w-100 ms-0" for="optServico" style="border-bottom-left-radius: 0 !important; border-top-left-radius: 0 !important;">Serviço</label>
+                                    <input type="radio" class="btn-check rounded-0 w-100 ms-0" name="optPublicacao" id="optServico" style="border-bottom-left-radius: 0 !important; border-top-left-radius: 0 !important;" autocomplete="off">
+                                    <label class="btn btn-outline-light rounded-0 btn-radio-blue w-100 ms-0" for="optServico" style="border-bottom-left-radius: 0 !important; border-top-left-radius: 0 !important;">Serviço</label>
                                 </div>
                             </div>
                         </div>
 
                         <hr class="mx-1">
 
-                        <div class="container-fluid w-100 p-0 m-0">
-                            <div class="btn-group no-outline text-center d-flex px-3 rounded-0 h-100 justify-content-center align-items-center" role="group" aria-label="Basic radio toggle button group">
-                                <input type="radio" class="btn-check no-outline" <?php if ($condicaoProduto == 1) {
-                                                                                        echo ("checked");
-                                                                                    } ?> name="radioCondicao" value="novo" id="btnNovo" autocomplete="off" checked>
-                                <label class="btn btn-outline-primary no-outline" for="btnNovo">Novo</label>
+                        <div class="container-fluid p-0 m-0">
+                            <div class="row gx-0">
+                                <div class="col-6">
+                                    <input type="radio" class="btn-check rounded-0 w-100 me-0" <?php if ($condicaoProduto == 1) {
+                                                                                                    echo ("checked");
+                                                                                                } ?> name="radioCondicao" id="btnNovo" style="border-bottom-right-radius: 0 !important; border-top-right-radius: 0 !important;" autocomplete="off">
+                                    <label class="btn btn-outline-light rounded-0 btn-radio-blue w-100 me-0" for="btnNovo" style="border-bottom-right-radius: 0 !important; border-top-right-radius: 0 !important;">Novo</label>
+                                </div>
 
-                                <input type="radio" class="btn-check no-outline" <?php if ($condicaoProduto == 0) {
-                                                                                        echo ("checked");
-                                                                                    } ?> name="radioCondicao" value="usado" id="btnUsado" autocomplete="off">
-                                <label class="btn btn-outline-primary no-outline" for="btnUsado">Usado</label>
+                                <div class="col-6">
+                                    <input type="radio" class="btn-check rounded-0 w-100 ms-0" <?php if ($condicaoProduto == 0) {
+                                                                                                    echo ("checked");
+                                                                                                } ?> name="radioCondicao" id="btnUsado" style="border-bottom-left-radius: 0 !important; border-top-left-radius: 0 !important;" autocomplete="off">
+                                    <label class="btn btn-outline-light rounded-0 btn-radio-blue w-100 ms-0" for="btnUsado" style="border-bottom-left-radius: 0 !important; border-top-left-radius: 0 !important;">Usado</label>
+                                </div>
                             </div>
                         </div>
 
@@ -238,55 +242,57 @@
             </div>
 
             <!--Coluna 2-->
-            <div class="col-lg-9 pt-3">
-                <div class="row mx-auto">
+            <div class="col-lg-9 p-0 m-0">
+                <div class="container-fluid container-resultado p-0 m-0">
+                    <div class="row mx-sm-auto mx-md-auto gx-0">
 
-                    <?php
-                    if ($resultado != false) {
+                        <?php
+                        if ($resultado != false) {
 
 
-                        foreach ($resultado as $produto) {
-                            $idProduto = $produto['idProduto'];
-                            $idAutor = $produto['idAutor'];
-                            $titulo = $produto['titulo'];
-                            $preco = $produto['preco'];
-                            $img = $produto['imagens'];
-                            $img = explode(" ", $img);
-                            $destinoImg = "";
-                            if ($img[0] != "") {
-                                $destinoImg = "UsrImg/$idAutor/Produtos/$idProduto/" . $img[0];
-                            } else {
-                                $destinoImg = "img/imgPadraoProduto.png";
-                            }
-                    ?>
-                            <div class="col-sm-4 col-md-3 col-lg-2">
-                                <a href="produto.php?id=<?php echo ($idProduto) ?>">
-                                    <div class="card mb-4" style="width: 12rem; height: 12rem;">
-                                        <img src="<?php echo ($destinoImg); ?>" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title"><?php echo ($titulo) ?></h5>
-                                            <p class="card-text"><?php echo ($money->money_format("%.2n", $preco)); ?></p>
+                            foreach ($resultado as $produto) {
+                                $idProduto = $produto['idProduto'];
+                                $idAutor = $produto['idAutor'];
+                                $titulo = $produto['titulo'];
+                                $preco = $produto['preco'];
+                                $img = $produto['imagens'];
+                                $img = explode(" ", $img);
+                                $destinoImg = "";
+                                if ($img[0] != "") {
+                                    $destinoImg = "UsrImg/$idAutor/Produtos/$idProduto/" . $img[0];
+                                } else {
+                                    $destinoImg = "img/imgPadraoProduto.png";
+                                }
+                        ?>
+                                <div class="col-sm-4 col-md-3 col-lg-2 pt-2 mx-sm-auto mx-md-auto justify-content-sm-center align-items-sm-center">
+                                    <a href="produto.php?id=<?php echo ($idProduto) ?>">
+                                        <div class="card mx-sm-auto mx-md-auto mb-4">
+                                            <img src="<?php echo ($destinoImg); ?>" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><?php echo ($titulo) ?></h5>
+                                                <p class="card-text"><?php echo ($money->money_format("%.2n", $preco)); ?></p>
 
+                                            </div>
                                         </div>
+                                    </a>
+                                </div>
+                            <?php
+                            }
+                        } else {
+                            ?>
+                            <div class="row h-100">
+
+                                <div class="col-12">
+                                    <div class="container-fluid p-0 pt-2 px-3 m-0 h-100">
+                                        <p class="display-4 fw-bolder text-uppercase text-center">Nenhuma publicação foi encontrada!</p>
                                     </div>
-                                </a>
+                                </div>
+
                             </div>
                         <?php
                         }
-                    } else {
                         ?>
-                        <div class="row h-100">
-
-                            <div class="col-12">
-                                <div class="container-fluid p-0 m-0 h-100">
-                                    <p class="display-4 fw-bolder text-uppercase text-center">Nenhuma publicação foi encontrada!</p>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    <?php
-                    }
-                    ?>
+                    </div>
                 </div>
             </div>
 

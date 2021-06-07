@@ -20,8 +20,8 @@
     $produto = new Produto();
     $idPub = $_GET['id'];
     if (isset($_SESSION['succ'])) {
-       $toastSuccess = $_SESSION['succ'];
-    }else{
+        $toastSuccess = $_SESSION['succ'];
+    } else {
         $toastSuccess = false;
     }
 
@@ -87,7 +87,7 @@
         });
     </script>
 
-    <div class="container-fluid px-3">
+    <div class="container-fluid px-1">
 
         <?php
         if ($toastSuccess == true) {
@@ -112,7 +112,10 @@
             </script>
 
 
+
+
         <?php
+            $_SESSION['succ'] = false;
         }
         ?>
 

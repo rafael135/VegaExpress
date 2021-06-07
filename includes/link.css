@@ -18,17 +18,6 @@ card:hover{
      
 }
 
-/*.nav-link:hover{
-    background-color: #99818126 !important;
-    
-}
-
-.navbar-nav.navbar-center {
-    position: absolute;
-    left: 100%;
-    transform: translatex(-100%);
-}*/
-
 .btn-custom{
     border: none;
     color: white;
@@ -63,14 +52,6 @@ card:hover{
 #menu-user{
     border-color: rgb(224, 224, 224);
 }
-
-/*.nav-item{
-    background-color: #ffffff26;
-}
-
-.nav-item:hover{
-    background-color: #ffffff26;
-}*/
 
 #menu-user:hover {
     background-color: #ffffff0c;
@@ -184,7 +165,12 @@ body{
 
 .btn:focus,.btn:active, .accordion-button:focus, .accordion-button:active {
     outline: none !important;
-    box-shadow: none;
+    box-shadow: none !important;
+ }
+
+ input:focus{
+     outline: none;
+     box-shadow: none;
  }
 
  .accordion-button:not(.collapsed){
@@ -365,60 +351,6 @@ body{
     border-bottom: thin solid rgb(240, 240, 240);
 }
 
-
-
-.nav-item > .nav-link{
-    color: #027CE9;
-    border-style: solid;
-    border-radius: 0;
-    border-width: 1px;
-    border-color: rgb(235, 235, 235);
-}
-
-.nav-item > div > div > .nav-link  > .row > div > button > span.material-icons{
-    color: #027CE9;
-    background-color: transparent !important;
-}
-
-.nav-item:hover > div > div > .nav-link  > .row > div > button > span.material-icons{
-    cursor: pointer;
-    color: #fff;
-    background-color: #0088ff;
-    transition: 300ms;
-}
-
-.nav-item:active > div > div > .nav-link  > .row > div > button > span.material-icons{
-    background-color: #027CE9;
-}
-
-.nav-item:hover > div > div > .nav-link{
-    cursor: pointer;
-    color: #fff;
-    background-color: #0088ff;
-    border-style: solid;
-    border-radius: 0;
-    border-width: 1px;
-    border-color: #027CE9;
-    transition: 300ms;
-}
-
-.nav-item:active > div > div > .nav-link{
-    background-color: #027CE9;
-}
-
-.btn-clean{
-    background-color: transparent !important;
-    color: #027CE9 !important;
-    border: 0 !important;
-    font-size: 20px !important;
-}
-
-.nav-item:hover > div > div > .nav-link > .row > div > .btn-clean{
-    color: #fff !important;
-    transition: 300ms;
-}
-
-
 .offcanvas{
     width: 400px;
     max-height: fit-content;
@@ -547,8 +479,11 @@ input:focus{
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #1793ff;
+    transition: 300ms;
   }
 
   .form-check:hover > .form-check-input:hover{
       cursor: pointer !important;
   }
+
+  

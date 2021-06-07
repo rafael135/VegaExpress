@@ -17,6 +17,7 @@
     <!-- CSS para customizar links dos produtos e outras coisas -->
     <link rel="stylesheet" href="includes/link.css">
     <link rel="stylesheet" href="includes/fadeIn.css">
+    <link rel="stylesheet" href="includes/navitems.css">
 
     <script src="https://kit.fontawesome.com/e19fb67a3c.js" crossorigin="anonymous"></script>
 
@@ -56,19 +57,9 @@
         <div class="container-fluid">
             <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                 <ul class="navbar-nav me-auto">
-                    <a class="btn border border-1 rounded m-0 p-0 rounded-3 bg-light h-100 w-100" href="sobreN.php">
-                        <div class="btn-group w-100 h-100 p-0 m-0" role="group" id="grupo-sobre" aria-label="Sobre Nós">
-                            <button type="button" id="btn-sobre" class="btn-dropdown-custom p-0 m-0 me-1 h-100 w-auto text-center">
-                                <span class="material-icons blue text-center m-1" id="btn-sobre-icon" style="font-size:32px;">
-                                    info
-                                </span>
-                            </button>
-
-                            <button type="button" id="btn-sobre-txt" class="btn-dropdown-custom p-2 m-0 my-auto h-100 w-auto rounded-0 text-center text-white w-100">
-                                Sobre Nós
-                            </button>
-                        </div>
-                    </a>
+                <li class="nav-item">
+                        <a class="btn border border-1 rounded rounded-3 bg-light h-100 w-100" title="Sobre nós" href="sobreN.php"><span class="text-center material-icons blue m-1" style="font-size:32px;">info</span></a>
+                    </li>
                 </ul>
             </div>
 
@@ -82,7 +73,7 @@
             <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="btn border border-1 rounded rounded-3 bg-light h-100 w-100" href="carrinho.php"><span class="text-center material-icons blue m-1" style="font-size:32px;">shopping_cart</span></a>
+                        <a class="btn border border-1 rounded rounded-3 bg-light h-100 w-100" title="Carrinho" href="carrinho.php"><span class="text-center material-icons blue m-1" style="font-size:32px;">shopping_cart</span></a>
                     </li>
 
                     <li class="nav-item">
@@ -163,7 +154,7 @@
                                         ?>
 
                                             <li class="nav-item userOption mb-1" id="userConfig">
-                                                <a class="nav-link btn-group w-100" href="perfil.php">
+                                                <a class="nav-link nav-userOpt btn-group w-100" href="perfil.php">
                                                     <div class="row">
                                                         <div class="col-2">
                                                             <button type="button" class="btn h-100 text-center w-100 btn-clean">
@@ -182,7 +173,7 @@
                                             </li>
 
                                             <li class="nav-item userOption mb-1" id="userLogout">
-                                                <a class="nav-link w-100" href="actionPHP/logout.php?id=<?php echo ($_SESSION['idUsuario']); ?>">
+                                                <a class="nav-link nav-userOpt w-100" href="actionPHP/logout.php?id=<?php echo ($_SESSION['idUsuario']); ?>">
                                                     <div class="row">
                                                         <div class="col-2">
                                                             <button type="button" class="btn h-100 text-center w-100 btn-clean">
@@ -203,7 +194,7 @@
                                         } else {
                                         ?>
                                             <li class="nav-item userOption" id="userLogin">
-                                                <a class="nav-link w-100" href="registroEmpresa.php">
+                                                <a class="nav-link nav-userOpt w-100" href="registroEmpresa.php">
                                                     <i class="fas fa-sign-in-alt"></i> Entrar
                                                 </a>
                                             </li>

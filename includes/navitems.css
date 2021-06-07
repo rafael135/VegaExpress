@@ -1,0 +1,109 @@
+.nav-item > .nav-link{
+    color: #027CE9 !important;
+    border-style: solid !important;
+    border-radius: 0 !important;
+    border-width: 1px !important;
+    border-color: rgb(235, 235, 235) !important;
+}
+
+.nav-item > div > div > .nav-link  > .row > div > button > span.material-icons{
+    color: #027CE9 !important;
+    background-color: transparent !important;
+}
+
+.nav-item:hover > div > div > .nav-link  > .row > div > button > span.material-icons{
+    cursor: pointer !important;
+    color: #fff !important;
+    background-color: #0088ff !important;
+    transition: 300ms !important;
+}
+
+.nav-item:active > div > div > .nav-link  > .row > div > button > span.material-icons{
+    background-color: #027CE9 !important;
+}
+
+.nav-item:hover > div > div > .nav-link{
+    cursor: pointer !important;
+    color: #fff !important;
+    background-color: #0088ff !important;
+    border-style: solid !important;
+    border-radius: 0 !important;
+    border-width: 1px !important;
+    border-color: #027CE9 !important;
+    transition: 300ms !important;
+}
+
+.nav-item:active > div > div > .nav-link{
+    background-color: #027CE9 !important;
+}
+
+.btn-clean{
+    background-color: transparent !important;
+    color: #027CE9 !important;
+    border: 0  !important;
+    font-size: 20px !important;
+}
+
+.nav-item:hover > div > div > .nav-link > .row > div > .btn-clean{
+    color: #fff !important;
+    transition: 300ms !important;
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.nav-item.userOption > a > div > div > button{
+    background-color: transparent !important;
+}
+
+.nav-item.userOption > a > div > div > button > span{
+    color: #027CE9 !important;
+    background-color: transparent !important;
+}
+
+.nav-item.userOption:hover > a > div > div > button{
+    
+    color: #fff !important;
+    transition: 300ms !important;
+}
+
+.nav-item.userOption:hover > a > div > div > button > span{
+    color: #fff !important;
+    transition: 300ms !important;
+}
+
+.nav-item.userOption:hover > a{
+    background-color: #027CE9 !important;
+    color: #fff !important;
+    transition: 300ms !important;
+}
+
+.nav-item > a > span{
+    background-color: transparent !important;
+}
+
+.nav-item:hover > a > span{
+    color: rgb(245, 245, 245) !important;
+    transition: 300ms !important;
+}
+
+.nav-item:hover > a{
+    background-color: #027CE9 !important;
+    transition: 300ms;
+}
+
+
+
+
+.nav-item > div > a > span{
+    background-color: transparent !important;
+}
+
+.nav-item:hover > div > a > span{
+    color: rgb(245, 245, 245) !important;
+    transition: 300ms !important;
+}
+
+.nav-item:hover > div > a{
+    background-color: #027CE9 !important;
+    transition: 300ms !important;
+}
