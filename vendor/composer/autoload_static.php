@@ -42,8 +42,22 @@ class ComposerStaticInitd8ed6724f3697df7db078339977c6683
     );
 
     public static $classMap = array (
+        'App\\Autor' => __DIR__ . '/../..' . '/app/Entity/Autor.php',
+        'App\\Comentario' => __DIR__ . '/../..' . '/app/Entity/Comentario.php',
+        'App\\Database' => __DIR__ . '/../..' . '/app/Db/Database.php',
+        'App\\Email' => __DIR__ . '/../..' . '/app/Entity/Email.php',
+        'App\\Produto' => __DIR__ . '/../..' . '/app/Entity/Produto.php',
+        'App\\Publicacao' => __DIR__ . '/../..' . '/app/Entity/Publicacao.php',
+        'App\\Usuario' => __DIR__ . '/../..' . '/app/Entity/Usuario.php',
+        'App\\money_format' => __DIR__ . '/../..' . '/app/Funcs/money_format.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Detection\\MobileDetect' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/namespaced/Detection/MobileDetect.php',
         'Mobile_Detect' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/Mobile_Detect.php',
+        'PHPMailer\\PHPMailer\\Exception' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/Exception.php',
+        'PHPMailer\\PHPMailer\\OAuth' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuth.php',
+        'PHPMailer\\PHPMailer\\PHPMailer' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/PHPMailer.php',
+        'PHPMailer\\PHPMailer\\POP3' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/POP3.php',
+        'PHPMailer\\PHPMailer\\SMTP' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/SMTP.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
