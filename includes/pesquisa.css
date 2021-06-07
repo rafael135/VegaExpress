@@ -45,81 +45,81 @@
     background-color: rgba(245, 245, 245, 0.904) !important;
 }
 
-.card{
+.card.card-resultado{
     height: 12rem !important;
     width: 12rem !important;
 }
 
 @media(max-width: 1550px) {
-    .card{
+    .card.card-resultado{
         width: 11rem !important;
         height: 11rem !important;
     }
 }
 
 @media(max-width: 1410px) {
-    .card{
+    .card.card-resultado{
         width: 10rem !important;
         height: 10rem !important;
     }
 }
 
 @media(max-width: 1280px) {
-    .card{
+    .card.card-resultado{
         width: 9rem !important;
         height: 9rem !important;
     }
 
-    .card-title{
+    .card-title.card-resultado{
         font-size: 1rem !important;
     }
 
-    .card-text{
+    .card-text.card-resultado{
         font-size: 0.75rem !important;
     }
 }
 
 @media(max-width: 1140px) {
-    .card{
+    .card.card-resultado{
         width: 8rem !important;
         height: 8rem !important;
     }
 
-    .card-title{
+    .card-title.card-resultado{
         font-size: 0.8rem !important;
     }
 
-    .card-text{
+    .card-text.card-resultado{
         font-size: 0.6rem !important;
     }
 }
 
 @media(max-width: 991px) {
-    .card{
+    .card.card-resultado{
         height: 10rem !important;
         width: 10rem !important;
     }
 
-    .card-title{
+    .card-title.card-resultado{
         font-size: 1rem !important;
     }
 
-    .card-text{
+    .card-text.card-resultado{
         font-size: 0.8rem !important;
     }
 }
 
 @media(max-width: 575px) {
-    .card{
+    .card.card-resultado{
         height: auto !important;
         width: auto !important;
     }
 
-    .card-title{
+    .card-title.card-resultado{
         font-size: 0.9rem !important;
     }
 
-    .card-text{
+    .card-text.card-resultado{
         font-size: 0.7rem !important;
     }
 }

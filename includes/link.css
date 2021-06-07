@@ -59,7 +59,7 @@ card:hover{
 
 .navbar{
     background-color:rgb(245, 245, 245) !important;
-    
+    border-bottom: thin solid rgb(225, 225, 225) !important;
 }
 
 .titulo-produto{

@@ -109,17 +109,17 @@
                             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasUsuario" aria-labelledby="offcanvasUsuarioLabel">
                                 <div class="offcanvas-header offcanvas-user p-1">
 
-                                    <div class="card w-100" style="height:100px;">
+                                    <div class="card w-100" style="max-height: 122px !important;">
                                         <div class="row">
 
-                                            <div class="col-4">
-                                                <img class="card-img me-1" src="img/proj5.jpg" style="height: 100px;" alt="">
+                                            <div class="col-5">
+                                                <img class="card-img rounded-0 m-0 p-0" src="img/proj5.jpg" style="max-height: 120px !important;" alt="">
                                             </div>
 
-                                            <div class="col-8">
+                                            <div class="col-7">
                                                 <div class="card-body ps-0 ms-0">
                                                     <h4 class="card-title"><?php echo ($nomeUsuario); ?></h4>
-                                                    <p class="card-text <?php if (!isset($verificado)) {
+                                                    <p class="card-text fw-bold fs-6 <?php if (!isset($verificado)) {
                                                                             echo ("text-danger");
                                                                         } else {
                                                                             if ($verificado == false) {
@@ -130,9 +130,9 @@
                                                                                 } else {
 
                                                                                     if ($verificado == false) {
-                                                                                        echo ("<span class='material-icons red'>dangerous</span> Conta não verificada!");
+                                                                                        echo ("Conta não verificada!");
                                                                                     } else {
-                                                                                        echo ("<span class='material-icons text-success'>check</span> Conta verificada");
+                                                                                        echo ("Conta verificada");
                                                                                     }
                                                                                 }
                                                                                 ?></p>
