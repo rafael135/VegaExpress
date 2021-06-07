@@ -6,20 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'App\\Autor' => $baseDir . '/app/Entity/Autor.php',
-    'App\\Comentario' => $baseDir . '/app/Entity/Comentario.php',
-    'App\\Database' => $baseDir . '/app/Db/Database.php',
-    'App\\Email' => $baseDir . '/app/Entity/Email.php',
-    'App\\Produto' => $baseDir . '/app/Entity/Produto.php',
-    'App\\Publicacao' => $baseDir . '/app/Entity/Publicacao.php',
-    'App\\Usuario' => $baseDir . '/app/Entity/Usuario.php',
-    'App\\money_format' => $baseDir . '/app/Funcs/money_format.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'Detection\\MobileDetect' => $vendorDir . '/mobiledetect/mobiledetectlib/namespaced/Detection/MobileDetect.php',
     'Mobile_Detect' => $vendorDir . '/mobiledetect/mobiledetectlib/Mobile_Detect.php',
-    'PHPMailer\\PHPMailer\\Exception' => $vendorDir . '/phpmailer/phpmailer/src/Exception.php',
-    'PHPMailer\\PHPMailer\\OAuth' => $vendorDir . '/phpmailer/phpmailer/src/OAuth.php',
-    'PHPMailer\\PHPMailer\\PHPMailer' => $vendorDir . '/phpmailer/phpmailer/src/PHPMailer.php',
-    'PHPMailer\\PHPMailer\\POP3' => $vendorDir . '/phpmailer/phpmailer/src/POP3.php',
-    'PHPMailer\\PHPMailer\\SMTP' => $vendorDir . '/phpmailer/phpmailer/src/SMTP.php',
 );

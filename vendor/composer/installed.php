@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '7d5197f1cd0b0d42a7155b710fba6316ad91d403',
     'name' => 'tcc/vegaexpress',
   ),
   'versions' => 
@@ -31,12 +31,12 @@
     ),
     'tcc/vegaexpress' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '7d5197f1cd0b0d42a7155b710fba6316ad91d403',
     ),
   ),
 );
