@@ -13,12 +13,18 @@
     use App\Autor;
     use App\money_format;
     use App\Produto;
-    use FFI\ParserException;
+    use App\Publicacao;
 
     require_once("vendor/autoload.php");
 
     $produto = new Produto();
     $idPub = $_GET['id'];
+    if (isset($_SESSION['succ'])) {
+       $toastSuccess = $_SESSION['succ'];
+    }else{
+        $toastSuccess = false;
+    }
+
     $publicacao = $produto->getProdutoId($idPub);
 
     if ($publicacao != false) {
@@ -42,7 +48,6 @@
         $imgs = $publicacao[0]['imagens'];
         header("Location: ../perfil.php?id=2");
     }
-
 
     ?>
 
@@ -82,10 +87,36 @@
         });
     </script>
 
-
-
     <div class="container-fluid px-3">
-        <form method="POST" action="editarPub.php" class="m-0 p-0">
+
+        <?php
+        if ($toastSuccess == true) {
+        ?>
+            <div class="toast-container position-absolute bottom-0 end-0 p-3">
+                <div class="toast" data-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <img src="img/btns/done.svg" class="svg svg-success" alt="Sucesso!">
+                        <strong class="me-auto">Sucesso</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        Alteração feita com sucesso!
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                $(document).ready(function() {
+                    $(".toast").toast("show");
+                });
+            </script>
+
+
+        <?php
+        }
+        ?>
+
+        <form method="POST" action="ActionPHP/editarPub.php?id=<?php echo ($idProduto); ?>" class="m-0 p-0">
             <div class="container-fluid mae py-2">
                 <div class="row mx-auto">
                     <div class="col-sm-12 col-md-12 col-lg-3 ms-0 ps-0 me-0 pe-0" id="imgCol">
@@ -170,7 +201,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                                                <button type="button" class="btn btn-success">Salvar alterações</button>
+                                                <button type="submit" class="btn btn-success">Salvar alterações</button>
                                             </div>
                                         </div>
                                     </div>
@@ -183,11 +214,11 @@
                                         <div class="col-8 mb-3">
                                             <div class="input-group d-flex justify-content-evenly align-items-baseline">
                                                 <span class="input-group-text rounded-0" for="precoAnterior" id="precoAnteriorLabel">Preço Atual</span>
-                                                <input type="text" class="form-control text-center border-preco rounded-0" disabled id="precoAnterior" value="<?php echo ($money->money_format("%.2n", $preco)); ?>" name="precoAnterior" placeholder="Preço Atual" aria-labelledby="precoAnteriorLabel">
+                                                <input type="text" class="form-control text-center border-preco rounded-0" readonly id="precoAnterior" value="<?php echo ($money->money_format("%.2n", $preco)); ?>" name="precoAnterior" placeholder="Preço Atual" aria-labelledby="precoAnteriorLabel">
                                             </div>
-                                            <div class="input-group rounded-0 d-flex justify-content-evenly align-items-baseline">
+                                            <div class="input-group d-flex justify-content-evenly align-items-baseline">
                                                 <span class="input-group-text rounded-0" for="preco" id="precoLabel">Preço R$</span>
-                                                <input type="text" class="form-control border-preco rounded-0" id="preco" name="preco" placeholder="Preço" aria-describedby="precoLabel">
+                                                <input type="text" class="form-control border-preco rounded-0" id="preco" name="preco" value="<?php echo ($money->money_format("%.2n", $preco)); ?>" placeholder="Preço" aria-describedby="precoLabel">
                                             </div>
 
                                         </div>

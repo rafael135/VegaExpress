@@ -97,6 +97,10 @@ select:focus{
     width: 30px;
 }
 
+.svg-success{
+    fill: #1abe4c !important;
+}
+
 .container-fluid.top-separator{
     border-top: 2px solid rgb(235, 235, 235) !important;
     border-bottom: 0 !important;
@@ -171,14 +175,27 @@ input.form-control.border-preco:focus{
     transition: 300ms;
 }
 
-.input-group:focus > input.border-preco:focus{
+.input-group:focus > .border-preco:focus{
     border: solid 1px #027CE9 !important;
     transition: 300ms;
 }
 
 input.form-control.border-preco#preco{
     border: solid 1px rgb(215, 215, 215) !important;
-    
+}
+
+input.form-control.border-preco#preco:focus{
+    border: solid 1px #027CE9 !important;
+    transition: 300ms;
+}
+
+.input-group:focus > input.border-preco#preco:focus{
+    border: solid 1px #027CE9 !important;
+    transition: 300ms;
+}
+
+input.form-control.border-preco#preco{
+    border: solid 1px rgb(215, 215, 215) !important;
 }
 
 .svg-btn-success{

@@ -69,7 +69,7 @@ class Publicacao{
         $colunaImagens = $result[0];
         
         
-        var_dump($colunaImagens);
+        //var_dump($colunaImagens);
         if($colunaImagens == ""){
             $colunaImagens = "";
         }else{
@@ -85,6 +85,16 @@ class Publicacao{
             echo("Erro: " . $e->getMessage());
         }
         return $resultado;
+    }
+
+    public function editarPublicacao($id, $titulo, $preco, $descricao){
+        $obDatabase = new Database('produtos');
+        $result = $obDatabase->atualizar("idProduto = $id", [
+            'titulo' => $titulo,
+            'preco' => $preco,
+            'descricao' => $descricao
+        ]);
+        return $result;
     }
 
     
