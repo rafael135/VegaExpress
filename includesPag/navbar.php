@@ -73,7 +73,7 @@
             <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="btn border border-1 rounded rounded-3 bg-light h-100 w-100" title="Carrinho" href="carrinho.php"><span class="text-center material-icons blue m-1" style="font-size:32px;">shopping_cart</span></a>
+                        <a class="btn border border-1 rounded rounded-3 h-100 w-100" title="Carrinho" href="carrinho.php"><span class="text-center material-icons blue m-1" style="font-size:32px;">shopping_cart</span></a>
                     </li>
 
                     <li class="nav-item">

@@ -1,9 +1,10 @@
 .nav-item > .nav-link{
     color: #027CE9 !important;
-    border-style: solid !important;
+    /*border-style: solid !important;
     border-radius: 0 !important;
     border-width: 1px !important;
-    border-color: rgb(235, 235, 235) !important;
+    border-color: rgb(235, 235, 235) !important;*/
+    border: none !important;
 }
 
 .nav-item > div > div > .nav-link  > .row > div > button > span.material-icons{
@@ -61,7 +62,6 @@
 }
 
 .nav-item.userOption:hover > a > div > div > button{
-    
     color: #fff !important;
     transition: 300ms !important;
 }
@@ -91,8 +91,9 @@
     transition: 300ms;
 }
 
-
-
+.nav-item > a{
+    background-color: #fff !important;
+}
 
 .nav-item > div > a > span{
     background-color: transparent !important;
@@ -105,5 +106,36 @@
 
 .nav-item:hover > div > a{
     background-color: #027CE9 !important;
+    transition: 300ms !important;
+}
+
+.nav-item > div > a{
+    background-color: #fff !important;
+}
+
+div.border-custom-nav > a.btnPub{
+    background-color: #fff !important;
+}
+
+div.border-custom-nav:hover > a.btnPub{
+    background-color: #027CE9 !important;
+    transition: 300ms !important;
+}
+
+div.border-custom-nav > a.btnPub > div > div > button{
+    background-color: transparent !important;
+}
+
+div.border-custom-nav > a.btnPub > div > div > button > span{
+    background-color: transparent !important;
+}
+
+div.border-custom-nav:hover > a.btnPub > div > div > button{
+    color: #fff !important;
+    transition: 300ms !important;
+}
+
+div.border-custom-nav:hover > a.btnPub > div > div > button > span{
+    color: #fff !important;
     transition: 300ms !important;
 }

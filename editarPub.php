@@ -8,19 +8,21 @@ session_start();
 $detect = new Mobile_Detect();
 
 if ($_GET) {
-    $produto = new Produto();
-    $idPub = $_GET['id'];
-    $publicacao = $produto->getProdutoId($idPub);
-    $idProduto = $publicacao[0]['idProduto'];
-    $idAutor = $publicacao[0]['idAutor'];
-    $idUsuarioAtual = $_SESSION['idUsuario'];
+    if (isset($_GET['id'])) {
+        $produto = new Produto();
+        $idPub = $_GET['id'];
+        $publicacao = $produto->getProdutoId($idPub);
+        $idProduto = $publicacao[0]['idProduto'];
+        $idAutor = $publicacao[0]['idAutor'];
+        $idUsuarioAtual = $_SESSION['idUsuario'];
 
-    if ($idPub == $idProduto && $idUsuarioAtual == $idAutor) {
+        if ($idPub == $idProduto && $idUsuarioAtual == $idAutor) {
+        } else {
+            header("Location: perfil.php?id=2");
+        }
     } else {
         header("Location: perfil.php?id=2");
     }
-} else {
-    header("Location: perfil.php?id=2");
 }
 
 

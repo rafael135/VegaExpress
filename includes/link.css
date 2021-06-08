@@ -22,9 +22,8 @@ card:hover{
     border: none;
     color: white;
     background-color: transparent;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 1.25rem;
-    
 }
 
 .btn-custom:hover{
@@ -334,6 +333,7 @@ body{
 body{
     /*background-color: #4B5563;*/
     font-family: sans-serif;
+    background-color: #fff !important;
 }
 
 .expand-btn{
@@ -486,4 +486,6 @@ input:focus{
       cursor: pointer !important;
   }
 
-  
+  .svg-success{
+    fill: #1abe4c !important;
+}

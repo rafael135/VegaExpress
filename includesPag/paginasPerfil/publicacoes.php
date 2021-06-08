@@ -4,8 +4,12 @@ use App\Produto;
 use App\money_format;
 ?>
 
+<head>
+    <link rel="stylesheet" href="includesPag/paginasPerfil/includes/publicacoes.css">
+</head>
+
 <div class="container-fluid p-0 m-0">
-    <div class="row p-3">
+    <div class="row">
         <?php
         if (isset($_SESSION['idUsuario'])) {
             $idAutor = $_SESSION['idUsuario'];
@@ -38,7 +42,7 @@ use App\money_format;
                     <div class="col-sm-6 col-md-4 col-lg-2">
                         <!--<a href="produto.php?id=<?php echo ($idProduto); ?>" title="Editar publicação">-->
                         <a href="editarPub.php?id=<?php echo ($idProduto); ?>" title="Editar publicação">
-                            <div class="card link text-white text-center mb-2 mx-0" style="max-height: 12rem !important; max-width: 12rem !important;">
+                            <div class="card card-usuario link text-white text-center mb-lg-2 mx-0">
                                 <img class="card-img" src="<?php echo ($destinoImg); ?>" alt="">
                                 <!--<div class="card-img-overlay py-0">
                                                                     <div class="row px-lg-3">
@@ -55,11 +59,11 @@ use App\money_format;
                                                                     </div>
                                                                 </div>-->
                                 <div class="card-body">
-                                    <h4 cklass="card-title text-white"><?php echo ($titulo); ?></h4>
+                                    <h4 cklass="card-title card-title-usuario text-white"><?php echo ($titulo); ?></h4>
                                     <?php setlocale(LC_MONETARY, 'pt_BR.UTF8');
                                     $money = new money_format();
                                     ?>
-                                    <p class="card-text text-center text-white"><?php echo ($money->money_format("%.2n", $preco)) ?></p>
+                                    <p class="card-text card-text-usuario text-center text-white"><?php echo ($money->money_format("%.2n", $preco)) ?></p>
                                 </div>
                             </div>
                         </a>

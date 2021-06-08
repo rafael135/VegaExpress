@@ -119,12 +119,10 @@ class Database
     public function atualizar($where, $values){
         //Dados da query
         $fields = array_keys($values);
-
         $query = 'UPDATE '. $this -> tabela . ' SET ' . implode('=?,', $fields) . '=? WHERE '. $where;
-        
 
-        $this -> executar($query, array_values($values));
+        $result = $this -> executar($query, array_values($values));
 
-        return true;
+        return $result;
     }
 }

@@ -5,7 +5,7 @@ use App\money_format;
 
 $idPag;
 if ($_GET) {
-    if ($_GET['id']) {
+    if (isset($_GET['id'])) {
         $idPag = $_GET['id'];
     } else {
         $idPag = 0;
@@ -25,35 +25,30 @@ if ($_GET) {
                         <ul class="nav nav-pills p-0 m-0">
                             <div class="row m-0 p-0 w-100 g-0">
 
-                                <div class="col-12">
+                            <div class="col-12">
                                     <li class="nav-item">
-                                        <div class="row">
+                                        <a class="nav-link btnOpt2 btn-group w-100 <?php if ($idPag == 0) {
+                                                                                        echo ("activeOpt");
+                                                                                    } ?>" href="perfil.php?id=0">
+                                            <div class="row">
 
-                                            <div class="col-12">
-                                                <a class="nav-link btnOpt1 btn-group <?php if ($idPag == 0) {
-                                                                                            echo ("activeOpt");
-                                                                                        } ?>" href="perfil.php?id=0">
-                                                    <div class="row">
-                                                        <div class="col-2">
-                                                            <button type="button" class="btn h-100 text-center w-100 btn-clean">
-                                                                <span class="material-icons blue text-center m-1">
-                                                                    visibility
-                                                                </span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="col-10">
-                                                            <button type="button" class="btn h-100 text-start w-100 btn-clean">
-                                                                Visibilidade de perfil
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </a>
+                                                <div class="col-2">
+                                                    <button type="button" class="btn h-100 text-center w-100 btn-clean">
+                                                        <span class="material-icons blue text-center m-1">
+                                                            visibility
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                                <div class="col-10">
+                                                    <button type="button" class="btn h-100 text-start w-100 btn-clean">
+                                                        Visibilidade de perfil
+                                                    </button>
+                                                </div>
                                             </div>
-                                        </div>
-
+                                        </a>
                                     </li>
                                 </div>
-
+                                
                                 <div class="col-12">
                                     <li class="nav-item">
                                         <a class="nav-link btnOpt2 btn-group w-100 <?php if ($idPag == 1) {
@@ -79,9 +74,9 @@ if ($_GET) {
                                 </div>
 
                                 <div class="col-9 pe-0">
-                                    <li class="nav-item">
+                                    <li class="nav-item rounded-0">
 
-                                        <a class="nav-link btnOpt3 btn-group w-100 <?php if ($idPag == 2) {
+                                        <a class="nav-link btnOpt3 rounded-0 btn-group w-100 <?php if ($idPag == 2) {
                                                                                         echo ("activeOpt");
                                                                                     } ?>" href="perfil.php?id=2">
                                             <div class="row">
@@ -104,9 +99,9 @@ if ($_GET) {
                                 </div>
 
                                 <div class="col-3 ps-0 border-custom-nav">
-                                    <a class="btnPub btn-group w-100 h-100" title="Publicar um produto" role="button" href="" data-bs-toggle="modal" data-bs-target="#produtoModal">
+                                    <a class="btnPub btn-group rounded-0 w-100 h-100" title="Publicar um produto" role="button" href="" data-bs-toggle="modal" data-bs-target="#produtoModal">
                                         <div class="row p-0 m-0 mx-auto justify-content-center">
-                                            <div class="col-12">
+                                            <div class="col-12 px-0">
                                                 <button type="button" class="btn h-100 text-center w-100 btn-clean">
                                                     <span class="material-icons d-flex align-self-center justify-content-center blue text-center fs-1">
                                                         note_add
@@ -210,7 +205,7 @@ if ($_GET) {
                 </div>
 
                 <div class="col-sm-12 col-md-8 col-lg-9 m-0 p-0" id="options-show">
-                    <div class="container-fluid h-100 bg-light">
+                    <div class="container-fluid h-100 bg-light p-0 m-0 px-3">
 
                         <!-- Página de visibilidade -->
                         <?php
@@ -244,22 +239,22 @@ if ($_GET) {
                         ?>
 
 
-                            
 
-                                    
-                                </div>
-                            </div>
+
+
                     </div>
-                <?php
-                        }
-                ?>
                 </div>
-
             </div>
-
+        <?php
+                        }
+        ?>
         </div>
 
     </div>
+
+</div>
+
+</div>
 </div>
 
 <?php

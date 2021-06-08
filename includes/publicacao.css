@@ -97,10 +97,6 @@ select:focus{
     width: 30px;
 }
 
-.svg-success{
-    fill: #1abe4c !important;
-}
-
 .container-fluid.top-separator{
     border-top: 2px solid rgb(235, 235, 235) !important;
     border-bottom: 0 !important;
