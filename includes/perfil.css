@@ -59,7 +59,7 @@ a#btnOpt2{
     background-color: transparent !important;
     color: #027CE9 !important;
     border: 0 !important;
-    font-size: 24px !important;
+    font-size: 24px;
 }
 
 .nav-item:hover > a > div > div > button{

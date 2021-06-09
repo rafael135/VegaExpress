@@ -5,23 +5,23 @@
 
 @media (max-width: 1660px) {
     .card-usuario{
-        height: 11rem !important;
-        width: 11rem !important;
+        height: 12rem !important;
+        width: 12rem !important;
     }
 
     .card-title-usuario{
-        font-size: 1.25rem !important;
+        
     }
 
     .card-text-usuario{
-        font-size: 0.75rem !important;
+        
     }
 }
 
 @media (max-width: 1532px) {
     .card-usuario{
-        height: 10rem !important;
-        width: 10rem !important;
+        height: 10.3rem !important;
+        width: 10.3rem !important;
     }
 
     .card-title-usuario{
@@ -35,8 +35,8 @@
 
 @media (max-width: 1404px) {
     .card-usuario{
-        height: 9rem !important;
-        width: 9rem !important;
+        height: 9.8rem !important;
+        width: 9.8rem !important;
     }
 
     .card-title-usuario{
@@ -92,7 +92,6 @@
         
     }
 
-
 }
 
 @media (max-width: 767px) {
@@ -127,4 +126,70 @@
 
 .nav-pills .nav-link{
     border-radius: 0 !important;
+}
+
+.col-lg-1-custom{
+    flex: 0 0 auto;
+    width: 13.020833328125%;
+}
+
+@media (max-width: 991px){
+    .col-lg-1-custom{
+        flex: 0 0 auto;
+        width: 18.518517777777777777777777777778%;
+    }
+}
+
+@media (max-width: 767px){
+    .col-lg-1-custom{
+        flex: 0 0 auto;
+        width: 50%;
+    }
+}
+
+@media (max-width: 575px) {
+    .col-lg-1-custom{
+        flex: 0 0 auto;
+        width: 100%;
+    }
+}
+
+.txtOptionBtn{
+    font-size: 1.5rem !important;
+}
+
+@media(max-width: 1326px){
+    .txtOptionBtn{
+        font-size: 1.35rem !important;
+    }
+}
+
+@media(max-width: 1224px){
+    .txtOptionBtn{
+        font-size: 1.25rem !important;
+    }
+}
+
+@media(max-width: 1156px){
+    .txtOptionBtn{
+        font-size: 1.15rem !important;
+    }
+}
+
+@media(max-width: 1087px){
+    .txtOptionBtn{
+        font-size: 1.05rem !important;
+    }
+}
+
+@media(max-width: 1019px){
+    .txtOptionBtn{
+        font-size: 1rem !important;
+    }
+}
+
+@media(max-width: 991px){
+    .txtOptionBtn{
+        font-size: 1.7rem !important;
+    }
 }

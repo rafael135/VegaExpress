@@ -1,5 +1,5 @@
-<div class="container-fluid p-0 px-3 pt-5 m-0">
-    <div class="accordion">
+<div class="container-fluid bg-light p-0 rounded-0 m-0">
+    <div class="accordion p-3">
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button" id="vegaInfo" type="button" data-bs-toggle="collapse" data-bs-target="#collapseForm" aria-expanded="true" aria-controls="collapseForm">
@@ -28,7 +28,7 @@
     </div>
 
 
-    <div class="accordion pt-2">
+    <div class="accordion p-3 pt-2">
         <div class="accordion-item">
             <h2 class="accordion-header" id="vega-obj">
                 <button class="accordion-button" id="vegaInfo" type="button" data-bs-toggle="collapse" data-bs-target="#vega-obj-form" aria-expanded="false" aria-controls="vega-obj-form">

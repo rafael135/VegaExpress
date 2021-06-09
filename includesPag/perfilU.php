@@ -18,14 +18,14 @@ if ($_GET) {
 
 <div class="row mt-3 mx-3">
     <div class="col-12 m-0 p-0">
-        <div class="container-fluid m-0 p-0">
+        <div class="container-fluid bg-light m-0 p-0">
             <div class="row p-0 m-0">
-                <div class="col-sm-12 col-md-4 col-lg-3 m-0 p-0" id="options">
+                <div class="col-sm-12 col-md-12 col-lg-12 m-0 p-0" id="options">
                     <div class="container-fluid m-0 p-0">
                         <ul class="nav nav-pills p-0 m-0">
                             <div class="row m-0 p-0 w-100 g-0">
-
-                            <div class="col-12">
+                            
+                            <div class="col-lg-4">
                                     <li class="nav-item">
                                         <a class="nav-link btnOpt2 btn-group w-100 <?php if ($idPag == 0) {
                                                                                         echo ("activeOpt");
@@ -40,7 +40,7 @@ if ($_GET) {
                                                     </button>
                                                 </div>
                                                 <div class="col-10">
-                                                    <button type="button" class="btn h-100 text-start w-100 btn-clean">
+                                                    <button type="button" class="btn h-100 text-start w-100 btn-clean txtOptionBtn">
                                                         Visibilidade de perfil
                                                     </button>
                                                 </div>
@@ -49,7 +49,7 @@ if ($_GET) {
                                     </li>
                                 </div>
                                 
-                                <div class="col-12">
+                                <div class="col-lg-4">
                                     <li class="nav-item">
                                         <a class="nav-link btnOpt2 btn-group w-100 <?php if ($idPag == 1) {
                                                                                         echo ("activeOpt");
@@ -64,7 +64,7 @@ if ($_GET) {
                                                     </button>
                                                 </div>
                                                 <div class="col-10">
-                                                    <button type="button" class="btn h-100 text-start w-100 btn-clean">
+                                                    <button type="button" class="btn h-100 text-start w-100 btn-clean txtOptionBtn">
                                                         Segurança
                                                     </button>
                                                 </div>
@@ -73,7 +73,7 @@ if ($_GET) {
                                     </li>
                                 </div>
 
-                                <div class="col-9 pe-0">
+                                <div class="col-sm-10 col-md-11 col-lg-3 pe-0">
                                     <li class="nav-item rounded-0">
 
                                         <a class="nav-link btnOpt3 rounded-0 btn-group w-100 <?php if ($idPag == 2) {
@@ -89,7 +89,7 @@ if ($_GET) {
                                                     </button>
                                                 </div>
                                                 <div class="col-10">
-                                                    <button type="button" class="btn h-100 text-start w-100 btn-clean">
+                                                    <button type="button" class="btn h-100 text-start w-100 btn-clean fs-4 txtOptionBtn">
                                                         Minhas Publicações
                                                     </button>
                                                 </div>
@@ -98,7 +98,7 @@ if ($_GET) {
                                     </li>
                                 </div>
 
-                                <div class="col-3 ps-0 border-custom-nav">
+                                <div class="col-sm-2 col-md-1 col-lg-1 ps-0 border-custom-nav">
                                     <a class="btnPub btn-group rounded-0 w-100 h-100" title="Publicar um produto" role="button" href="" data-bs-toggle="modal" data-bs-target="#produtoModal">
                                         <div class="row p-0 m-0 mx-auto justify-content-center">
                                             <div class="col-12 px-0">
@@ -204,7 +204,7 @@ if ($_GET) {
                     </div>
                 </div>
 
-                <div class="col-sm-12 col-md-8 col-lg-9 m-0 p-0" id="options-show">
+                <div class="col-sm-12 col-md-12 col-lg-12 m-0 p-0" id="options-show">
                     <div class="container-fluid h-100 bg-light p-0 m-0 px-3">
 
                         <!-- Página de visibilidade -->

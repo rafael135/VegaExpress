@@ -8,8 +8,8 @@ use App\money_format;
     <link rel="stylesheet" href="includesPag/paginasPerfil/includes/publicacoes.css">
 </head>
 
-<div class="container-fluid p-0 m-0">
-    <div class="row">
+<div class="container-fluid p-0 m-0 w-100">
+    <div class="row pt-2">
         <?php
         if (isset($_SESSION['idUsuario'])) {
             $idAutor = $_SESSION['idUsuario'];
@@ -39,10 +39,10 @@ use App\money_format;
         ?>
 
 
-                    <div class="col-sm-6 col-md-4 col-lg-2">
+                    <div class="col-sm-6 col-md-4 col-lg-1-custom mx-auto">
                         <!--<a href="produto.php?id=<?php echo ($idProduto); ?>" title="Editar publicação">-->
                         <a href="editarPub.php?id=<?php echo ($idProduto); ?>" title="Editar publicação">
-                            <div class="card card-usuario link text-white text-center mb-lg-2 mx-0">
+                            <div class="card card-usuario link text-white text-center mb-lg-2 mt-sm-2 mt-md-2 mx-auto">
                                 <img class="card-img" src="<?php echo ($destinoImg); ?>" alt="">
                                 <!--<div class="card-img-overlay py-0">
                                                                     <div class="row px-lg-3">

@@ -58,7 +58,7 @@ use App\money_format;
 
                                     <div class="col-sm-4 col-md-3 col-lg-2 mx-auto">
                                         <a href="produto.php?id=<?php echo ($idProduto); ?>">
-                                            <div class="card link text-white text-center mb-2 mx-0" style="height: 14rem !important; width: 14rem !important;">
+                                            <div class="card link text-white text-center mb-2 mx-auto" style="height: 14rem !important; width: 14rem !important;">
                                                 <img class="card-img-top" src="<?php echo ($destinoImg); ?>" alt="">
                                                 <div class="card-body my-auto">
                                                     <h4 cklass="card-title"><?php echo ($titulo); ?></h4>
