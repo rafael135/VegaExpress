@@ -18,7 +18,11 @@ if ($_GET) {
 
 <div class="row mt-3 mx-3">
     <div class="col-12 m-0 p-0">
+<<<<<<< Updated upstream
         <div class="container-fluid bg-light m-0 p-0">
+=======
+        <div class="container-fluid m-0 p-4 ">
+>>>>>>> Stashed changes
             <div class="row p-0 m-0">
                 <div class="col-sm-12 col-md-12 col-lg-12 m-0 p-0" id="options">
                     <div class="container-fluid m-0 p-0">
@@ -73,8 +77,14 @@ if ($_GET) {
                                     </li>
                                 </div>
 
+<<<<<<< Updated upstream
                                 <div class="col-sm-10 col-md-11 col-lg-3 pe-0">
                                     <li class="nav-item rounded-0">
+=======
+                                <!-- Minhas publicações -->
+                                <div class="col-9 pe-0">
+                                    <li class="nav-item">
+>>>>>>> Stashed changes
 
                                         <a class="nav-link btnOpt3 rounded-0 btn-group w-100 <?php if ($idPag == 2) {
                                                                                         echo ("activeOpt");
@@ -125,7 +135,7 @@ if ($_GET) {
                                                 <div class="modal-body">
                                                     <form class="m-3" method="POST" action="ActionPHP/novaPub.php" enctype="multipart/form-data">
                                                         <div class="row">
-                                                            <div class="col-12 form-floating fadeIn first mb-2">
+                                                            <div class="col-12 form-floating fadeIn first mb-4">
                                                                 <input type="text" maxlength="65" class="form-control" id="titulo" name="titulo" placeholder="Título" required>
                                                                 <label class="form-label ms-2" for="titulo" id="titulo">Título</label>
                                                             </div>
@@ -141,7 +151,7 @@ if ($_GET) {
                                                                 <script src="ActionsJS/inputImagensPreview.js"></script>
                                                             </div>
 
-                                                            <div class="col-12 form-floating fadeIn first mb-2">
+                                                            <div class="col-12 form-floating fadeIn first mb-3">
                                                                 <textarea type="text" class="form-control" id="descricao" name="descricao" placeholder="Descrição"></textarea>
                                                                 <label class="form-label ms-2" for="descricao" id="descricao">Descrição</label>
                                                             </div>
@@ -214,7 +224,25 @@ if ($_GET) {
 
 
                         ?>
-                            Página de visibilidade
+                            <!-- Alterar nome -->
+                            <form action="">
+                                <label for="alternome">Alterar nome de exibição:</label>
+                                <input type="text" class="mt-3 mb-3" name="alternome" id="">
+
+                                <!-- Alterar foto de perfil -->
+                                <div class="row me-0 mt-3">
+                                    <div class="col-12 fadeIn first">
+                                        <label for="imgperfil">Trocar a foto de perfil:</label>
+                                        <input type="file" accept=".png, .jpg, .jpeg" class="form-control" id="imgperfil" name="" placeholder="Foto de perfil" title="Selecionar a foto de perfil" multiple>
+                                    </div>
+                                    <div class="col-12 mb-2 fadeIn first">
+                                        <img id="img-0">
+                                    </div>
+
+                                    <script src="ActionsJS/inputImagensPreview.js"></script>
+                                </div>
+
+                            </form>
 
                         <?php
                         }
@@ -227,7 +255,14 @@ if ($_GET) {
 
                         ?>
 
-                            Página de segurança
+                            <label for="ConfirmEmail">Verifique sua conta:</label>
+                            <input type="email" class="mt-3 mb-4" name="ConfirmEmail" id=""><i class="fa fa-exclamation ms-2" style="color: red;"></i>
+
+                            <br>
+
+                            <label for="TrocaSenha">Trocar a senha:</label>
+                            <input type="password" name="TrocaSenha" id="">
+
                         <?php
                         }
                         ?>
@@ -252,6 +287,11 @@ if ($_GET) {
 
     </div>
 
+<<<<<<< Updated upstream
+=======
+    <a href="index.php" class="btn btn-success d-grid gap-2 col-4 mx-auto mt-5">Salvar alterações e sair</a>
+
+>>>>>>> Stashed changes
 </div>
 
 </div>

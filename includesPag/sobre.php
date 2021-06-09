@@ -33,28 +33,12 @@
             <h2 class="accordion-header" id="vega-obj">
                 <button class="accordion-button" id="vegaInfo" type="button" data-bs-toggle="collapse" data-bs-target="#vega-obj-form" aria-expanded="false" aria-controls="vega-obj-form">
                     <h1 class="display-5">Qual o objetivo da Vega Express?</h1>
+
+                    <!-- O objetivo da Vega Express é se tornar uma fonte alternativa de comércio entre aqueles que desejam publicar seus produtos/serviços sem passarem por todas as burocrácias estatais -->
+
                 </button>
             </h2>
-            <div id="vega-obj-form" class="accordion-collapse show" aria-labelledby="vega-obj" data-bs-parent="#vega-obj">
-                <div class="accordion-body" class="vega-info" id="vega-obj">
-                    <blockquote class="blockquote p-0">
-                        <h2 id="vega-info-text"><strong>O objetivo da equipe é:</strong></h2>
-                    </blockquote>
 
-                    <ul class="list-group">
-                        <li class="list-group-item w-100 text-center"></li>
-                        <li class="list-group-item w-100 text-center"></li>
-                        <li class="list-group-item w-100 text-center"></li>
-                        <li class="list-group-item w-100 text-center"></li>
-                        <li class="list-group-item w-100 text-center"></li>
-                    </ul>
-
-
-                </div>
-            </div>
         </div>
     </div>
 </div>
-
-
-
