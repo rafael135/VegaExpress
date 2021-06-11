@@ -1,6 +1,10 @@
 {
+  "type" : "module",
   "dependencies": {
     "@popperjs/core": "^2.9.2",
-    "inputmask": "^5.0.6"
+    "cropperjs": "^1.5.11",
+    "inputmask": "^5.0.6",
+    "jquery": "^3.6.0",
+    "jquery-cropper": "^1.0.1"
   }
 }

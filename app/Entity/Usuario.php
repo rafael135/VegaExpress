@@ -126,6 +126,27 @@ class Usuario{
             }
         }
 
+        public function mudarFotoPerfil($id, $foto){
+            $obDb = new Database("usuarios");
+            $resultado = $obDb->atualizar("id = $id", [
+                'imgPerfil' => $foto
+            ]);
+            return $resultado;
+        }   
+
+        public function getFotoPerfil($id){
+            $img = $this->getDados("id = $id", "imgPerfil");
+            return $img;
+        }
+
+        public function mudarNome($id , $nome){
+            $obDb = new Database("usuarios");
+            $resultado = $obDb->atualizar("id = $id", [
+                'nome' => $nome
+            ]);
+            return $resultado;
+        }
+
         
     }
 ?>

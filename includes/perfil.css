@@ -172,10 +172,50 @@ a.activeOpt > .row > div > button > span.material-icons{
     background-color: #027CE9;
 }
 
-.nav-item{
+.nav-item-userOpts{
     border: 1px solid rgb(235, 235, 235) !important;
 }
 
 .border-custom-nav{
     border: 1px solid rgb(235, 235, 235) !important;
+}
+
+.txtOptionBtn{
+    font-size: 1.5rem !important;
+}
+
+@media(max-width: 1326px){
+    .txtOptionBtn{
+        font-size: 1.35rem !important;
+    }
+}
+
+@media(max-width: 1224px){
+    .txtOptionBtn{
+        font-size: 1.25rem !important;
+    }
+}
+
+@media(max-width: 1156px){
+    .txtOptionBtn{
+        font-size: 1.15rem !important;
+    }
+}
+
+@media(max-width: 1087px){
+    .txtOptionBtn{
+        font-size: 1.05rem !important;
+    }
+}
+
+@media(max-width: 1019px){
+    .txtOptionBtn{
+        font-size: 1rem !important;
+    }
+}
+
+@media(max-width: 991px){
+    .txtOptionBtn{
+        font-size: 1.7rem !important;
+    }
 }

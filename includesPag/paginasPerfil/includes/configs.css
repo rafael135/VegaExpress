@@ -1,0 +1,83 @@
+.fieldset-visibilidade{
+    border: 2px solid rgb(230, 230, 230);
+}
+
+
+
+.btn-mudarNome{
+    border: thin solid transparent !important;
+    background-color: #027CE9 !important;
+    color: #fff !important;
+    border-radius: 0;
+}
+.btn-mudarNome:hover{
+    background-color: #0062b8 !important;
+    color: #fff !important;
+    border-color: #027de94f !important;
+    transition: 300ms;
+}
+
+
+
+
+.btn-mudarNomeModal{
+    border: thin solid transparent !important;
+    background-color: #027CE9 !important;
+    color: #fff !important;
+}
+.btn-mudarNomeModal:hover{
+    background-color: #0062b8 !important;
+    color: #fff !important;
+    border-color: #027de94f !important;
+    transition: 300ms;
+}
+
+
+
+
+.btn-cancelarModal{
+    border: thin solid transparent !important;
+    background-color: #e02828 !important;
+    color: #fff !important;
+}
+
+.btn-cancelarModal:hover{
+    background-color: #a72020 !important;
+    color: #fff !important;
+    border-color: #e0282860 !important;
+    transition: 300ms;
+}
+
+
+.svg-imgUser{
+    border-bottom: none !important;
+    max-width: 400px !important;
+    max-height: 400px !important;
+}
+
+.row-img{
+    
+}
+
+.imagePreview{
+    max-width: 100% !important;
+    max-height: 100% !important;
+}
+
+.imagePreview-img{
+    display: block !important;
+    width: 100% !important;
+    
+}
+
+.cropper-face{
+    max-width: 400px !important;
+    max-height: 400px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+}
+
+.ctn-label{
+    background-color: #027CE9 !important;
+}
+

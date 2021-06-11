@@ -51,6 +51,7 @@ if ($detect->isMobile() == true && !$detect->isTablet()) {
 
 <head>
     <link rel="stylesheet" href="includes/perfil.css">
+    <link rel="stylesheet" href="includesPag/paginasPerfil/includes/configs.css">
 </head>
 <?php
 

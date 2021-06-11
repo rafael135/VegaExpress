@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="includes/fadeIn.css">
     <link rel="stylesheet" href="includes/navitems.css">
 
+    <script src="JQuery 3.6.0/jquery-3.6.0.min.js"></script>
     <script src="https://kit.fontawesome.com/e19fb67a3c.js" crossorigin="anonymous"></script>
 
 
@@ -72,11 +73,11 @@
 
             <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
+                    <li class="border-0 nav-item">
                         <a class="btn border border-1 rounded rounded-3 h-100 w-100" title="Carrinho" href="carrinho.php"><span class="text-center material-icons blue m-1" style="font-size:32px;">shopping_cart</span></a>
                     </li>
 
-                    <li class="nav-item">
+                    <li class="border-0 nav-item">
                         <div class="btn-group dropstart mx-3">
                             <a class="btn border-1 rounded rounded-3 justify-content-center align-content-center bg-light text-white" id="menu-user" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUsuario" aria-controls="offcanvasUsuario">
                                 <?php

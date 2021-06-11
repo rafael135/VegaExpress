@@ -18,11 +18,7 @@ if ($_GET) {
 
 <div class="row mt-3 mx-3">
     <div class="col-12 m-0 p-0">
-<<<<<<< Updated upstream
         <div class="container-fluid bg-light m-0 p-0">
-=======
-        <div class="container-fluid m-0 p-4 ">
->>>>>>> Stashed changes
             <div class="row p-0 m-0">
                 <div class="col-sm-12 col-md-12 col-lg-12 m-0 p-0" id="options">
                     <div class="container-fluid m-0 p-0">
@@ -30,7 +26,7 @@ if ($_GET) {
                             <div class="row m-0 p-0 w-100 g-0">
                             
                             <div class="col-lg-4">
-                                    <li class="nav-item">
+                                    <li class="nav-item nav-item-userOpts">
                                         <a class="nav-link btnOpt2 btn-group w-100 <?php if ($idPag == 0) {
                                                                                         echo ("activeOpt");
                                                                                     } ?>" href="perfil.php?id=0">
@@ -54,7 +50,7 @@ if ($_GET) {
                                 </div>
                                 
                                 <div class="col-lg-4">
-                                    <li class="nav-item">
+                                    <li class="nav-item nav-item-userOpts">
                                         <a class="nav-link btnOpt2 btn-group w-100 <?php if ($idPag == 1) {
                                                                                         echo ("activeOpt");
                                                                                     } ?>" href="perfil.php?id=1">
@@ -77,14 +73,9 @@ if ($_GET) {
                                     </li>
                                 </div>
 
-<<<<<<< Updated upstream
-                                <div class="col-sm-10 col-md-11 col-lg-3 pe-0">
-                                    <li class="nav-item rounded-0">
-=======
                                 <!-- Minhas publicações -->
-                                <div class="col-9 pe-0">
-                                    <li class="nav-item">
->>>>>>> Stashed changes
+                                <div class="col-sm-10 col-md-11 col-lg-3 pe-0">
+                                    <li class="nav-item nav-item-userOpts">
 
                                         <a class="nav-link btnOpt3 rounded-0 btn-group w-100 <?php if ($idPag == 2) {
                                                                                         echo ("activeOpt");
@@ -221,30 +212,7 @@ if ($_GET) {
                         <?php
 
                         if ($idPag == 0) {
-
-
-                        ?>
-                            <!-- Alterar nome -->
-                            <form action="">
-                                <label for="alternome">Alterar nome de exibição:</label>
-                                <input type="text" class="mt-3 mb-3" name="alternome" id="">
-
-                                <!-- Alterar foto de perfil -->
-                                <div class="row me-0 mt-3">
-                                    <div class="col-12 fadeIn first">
-                                        <label for="imgperfil">Trocar a foto de perfil:</label>
-                                        <input type="file" accept=".png, .jpg, .jpeg" class="form-control" id="imgperfil" name="" placeholder="Foto de perfil" title="Selecionar a foto de perfil" multiple>
-                                    </div>
-                                    <div class="col-12 mb-2 fadeIn first">
-                                        <img id="img-0">
-                                    </div>
-
-                                    <script src="ActionsJS/inputImagensPreview.js"></script>
-                                </div>
-
-                            </form>
-
-                        <?php
+                            include("paginasPerfil/visibilidade.php");
                         }
                         ?>
 
@@ -287,11 +255,6 @@ if ($_GET) {
 
     </div>
 
-<<<<<<< Updated upstream
-=======
-    <a href="index.php" class="btn btn-success d-grid gap-2 col-4 mx-auto mt-5">Salvar alterações e sair</a>
-
->>>>>>> Stashed changes
 </div>
 
 </div>
