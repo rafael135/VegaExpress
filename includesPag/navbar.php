@@ -30,10 +30,12 @@
 <body>
 
     <?php
+
+    use App\Usuario;
+
     if (isset($_SESSION['idUsuario'])) {
-        if(PHP_SESSION_ACTIVE){
-            
-        }else{
+        if (PHP_SESSION_ACTIVE) {
+        } else {
             session_start();
         }
         $verificado = $_SESSION['usuarioVerificado'];
@@ -58,7 +60,7 @@
         <div class="container-fluid">
             <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                 <ul class="navbar-nav me-auto">
-                <li class="nav-item">
+                    <li class="nav-item">
                         <a class="btn border border-1 rounded rounded-3 bg-light h-100 w-100" title="Sobre nós" href="sobreN.php"><span class="text-center material-icons blue m-1" style="font-size:32px;">info</span></a>
                     </li>
                 </ul>
@@ -106,6 +108,12 @@
                             } else {
                                 $nomeUsuario = "Faça login!";
                             }
+
+                            $idUsr = $_SESSION['idUsuario'];
+                            $user = new Usuario();
+                            $imgPerfil = $user->getDados("id = $idUsr", "imgPerfil");
+                            $imgPerfil = $imgPerfil[0]['imgPerfil'];
+                            $destino = "UsrImg/" . $idUsr . "/fotoPerfil/" . $imgPerfil;
                             ?>
                             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasUsuario" aria-labelledby="offcanvasUsuarioLabel">
                                 <div class="offcanvas-header offcanvas-user p-1">
@@ -114,19 +122,24 @@
                                         <div class="row">
 
                                             <div class="col-5">
-                                                <img class="card-img rounded-0 m-0 p-0" src="img/proj5.jpg" style="max-height: 120px !important;" alt="">
+                                                <img class="card-img rounded-0 m-0 p-0" src="<?php if ($imgPerfil != "0") {
+                                                                                                    echo ($destino);
+                                                                                                } else {
+                                                                                                    echo ("img/imgPadraoUser.svg");
+                                                                                                }
+                                                                                                ?>" style="max-height: 120px !important;" alt="">
                                             </div>
 
                                             <div class="col-7">
                                                 <div class="card-body ps-0 ms-0">
                                                     <h4 class="card-title"><?php echo ($nomeUsuario); ?></h4>
                                                     <p class="card-text fw-bold fs-6 <?php if (!isset($verificado)) {
-                                                                            echo ("text-danger");
-                                                                        } else {
-                                                                            if ($verificado == false) {
-                                                                                echo ("text-danger");
-                                                                            }
-                                                                        } ?>"><?php
+                                                                                            echo ("text-danger");
+                                                                                        } else {
+                                                                                            if ($verificado == false) {
+                                                                                                echo ("text-danger");
+                                                                                            }
+                                                                                        } ?>"><?php
                                                                                 if (!isset($_SESSION['idUsuario'])) {
                                                                                 } else {
 

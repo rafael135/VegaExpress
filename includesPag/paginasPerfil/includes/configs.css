@@ -71,10 +71,10 @@
 }
 
 .cropper-face{
-    max-width: 400px !important;
+    /*max-width: 400px !important;
     max-height: 400px !important;
     min-width: 40px !important;
-    min-height: 40px !important;
+    min-height: 40px !important;*/
 }
 
 .ctn-label{

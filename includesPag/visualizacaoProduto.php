@@ -161,6 +161,8 @@
                 $dados = $autor->getInformacoesAutor($idAutor);
                 $nomeAutor = $dados['nome'];
                 $AutorId = $dados['id'];
+                $imgAutor = $dados['imgPerfil'];
+                $destino = "UsrImg/" . $idUsr . "/fotoPerfil/" . $imgAutor;
                 ?>
 
                 <div class="row">
@@ -170,7 +172,13 @@
                                 <div class="card" style="height: 200px;">
                                     <div class="row">
                                         <div class="col-4">
-                                            <img src="img/proj5.jpg" class="card-img img-fluid rounded-0" style="max-height:200px; padding-bottom:2px;" alt="">
+                                            <img src="<?php 
+                                                if ($imgAutor != "0") {
+                                                    echo ($destino);
+                                                } else {
+                                                    echo ("img/imgPadraoUser.svg");
+                                                }
+                                            ?>" class="card-img img-fluid rounded-0" style="max-height:200px; padding-bottom:2px;" alt="">
                                         </div>
                                         <div class="col-8">
                                             <div class="card-body">
