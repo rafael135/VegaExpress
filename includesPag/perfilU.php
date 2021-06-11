@@ -24,8 +24,8 @@ if ($_GET) {
                     <div class="container-fluid m-0 p-0">
                         <ul class="nav nav-pills p-0 m-0">
                             <div class="row m-0 p-0 w-100 g-0">
-                            
-                            <div class="col-lg-4">
+
+                                <div class="col-lg-4">
                                     <li class="nav-item nav-item-userOpts">
                                         <a class="nav-link btnOpt2 btn-group w-100 <?php if ($idPag == 0) {
                                                                                         echo ("activeOpt");
@@ -48,7 +48,7 @@ if ($_GET) {
                                         </a>
                                     </li>
                                 </div>
-                                
+
                                 <div class="col-lg-4">
                                     <li class="nav-item nav-item-userOpts">
                                         <a class="nav-link btnOpt2 btn-group w-100 <?php if ($idPag == 1) {
@@ -78,8 +78,8 @@ if ($_GET) {
                                     <li class="nav-item nav-item-userOpts">
 
                                         <a class="nav-link btnOpt3 rounded-0 btn-group w-100 <?php if ($idPag == 2) {
-                                                                                        echo ("activeOpt");
-                                                                                    } ?>" href="perfil.php?id=2">
+                                                                                                    echo ("activeOpt");
+                                                                                                } ?>" href="perfil.php?id=2">
                                             <div class="row">
 
                                                 <div class="col-2">
@@ -223,13 +223,67 @@ if ($_GET) {
 
                         ?>
 
-                            <label for="ConfirmEmail">Verifique sua conta:</label>
-                            <input type="email" class="mt-3 mb-4" name="ConfirmEmail" id=""><i class="fa fa-exclamation ms-2" style="color: red;"></i>
+                            <!-- Verificar conta -->
+                            <div class="row d-flex justify-content-center mt-4 mx-auto col-3">
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary btn-lg d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Verificar conta
+                                </button>
 
-                            <br>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Verifique seu email para proteger sua conta!</label>
+                                                    <input type="email" class="form-control mt-2" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Endereço de email">
+                                                    <small id="emailHelp" class="form-text text-muted">Será enviado um pedido de confirmação ao seu email</small>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                                <button type="button" class="btn btn-primary">Enviar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                            <label for="TrocaSenha">Trocar a senha:</label>
-                            <input type="password" name="TrocaSenha" id="">
+                            <!-- Trocar senha -->
+                            <div class="row d-flex justify-content-center mt-4 mx-auto col-3">
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary btn-lg d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Trocar senha
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="Trocasenha" tabindex="-1" aria-labelledby="" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="Trocasenha"></h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <label for="Trocasenha">Troque sua senha:</label>
+                                                    <input type="password" class="form-control mt-2" id="Trocasenha" aria-describedby="emailHelp" placeholder="Digite sua nova senha">
+                    
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                                <button type="button" class="btn btn-primary">Enviar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                         <?php
                         }
