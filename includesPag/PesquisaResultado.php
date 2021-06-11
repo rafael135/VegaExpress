@@ -265,11 +265,18 @@
                                 }
                         ?>
                                 <div class="col-sm-4 col-md-3 col-lg-2 pt-2 mx-sm-auto mx-md-auto justify-content-sm-center align-items-sm-center">
-                                    <a href="produto.php?id=<?php echo ($idProduto) ?>">
+                                    <a href="produto.php?id=<?php echo ($idProduto) ?>" title="<?php echo($titulo) ?>">
                                         <div class="card card-resultado mx-sm-auto mx-md-auto mb-4">
                                             <img src="<?php echo ($destinoImg); ?>" class="card-img-top" alt="...">
                                             <div class="card-body">
-                                                <h5 class="card-title card-resultado"><?php echo ($titulo) ?></h5>
+                                                <h5 class="card-title card-resultado"><?php if(strlen($titulo) > 12){
+                                                    $tituloArray = str_split($titulo);
+                                                    for($i = 0; $i < 12; $i++){
+                                                        echo($tituloArray[$i]);
+                                                    }
+                                                }else{
+                                                    echo($titulo);
+                                                } ?></h5>
                                                 <p class="card-text card-resultado"><?php echo ($money->money_format("%.2n", $preco)); ?></p>
 
                                             </div>

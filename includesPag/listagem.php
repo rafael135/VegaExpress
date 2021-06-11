@@ -4,6 +4,10 @@ require_once("vendor/autoload.php");
 use App\Produto;
 use App\money_format;
 ?>
+
+<head>
+    <link rel="stylesheet" href="includesPag/includesListagem/listagem.css">
+</head>
 <div class="row m-3 mt-2">
     <div class="container-fluid rounded-0" style="background-color: rgb(235, 235, 235) !important;">
         <div class="row">
@@ -57,11 +61,23 @@ use App\money_format;
                         ?>
 
                                     <div class="col-sm-4 col-md-3 col-lg-2 mx-auto">
-                                        <a href="produto.php?id=<?php echo ($idProduto); ?>">
-                                            <div class="card link text-white text-center mb-2 mx-auto" style="height: 14rem !important; width: 14rem !important;">
+                                        <a href="produto.php?id=<?php echo ($idProduto); ?>" title="<?php echo ($titulo); ?>">
+                                            <div class="card card-listagem link text-white text-center mb-2 mx-auto">
                                                 <img class="card-img-top" src="<?php echo ($destinoImg); ?>" alt="">
                                                 <div class="card-body my-auto">
-                                                    <h4 cklass="card-title"><?php echo ($titulo); ?></h4>
+                                                    <h4 cklass="card-title"><?php if (strlen($titulo) > 12) {
+                                                                                $tituloArray = str_split($titulo);
+                                                                                for ($i = 0; $i < 12; $i++) {
+                                                                                    echo ($tituloArray[$i]);
+                                                                                }
+                                                                            } else {
+                                                                                echo ($titulo);
+                                                                            }
+
+                                                                            ?></h4>
+
+
+
                                                     <?php setlocale(LC_MONETARY, 'pt_BR.UTF8');
                                                     $money = new money_format();
                                                     ?>

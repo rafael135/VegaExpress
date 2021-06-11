@@ -1,0 +1,18 @@
+.card-listagem{
+    height: 14rem !important;
+    width: 14rem !important;
+}
+
+@media(max-width: 1430px){
+    .card-listagem{
+        height: 13rem !important;
+        width: 13rem !important;
+    }
+}
+
+@media(max-width: 1340px){
+    .card-listagem{
+        height: 12rem !important;
+        width: 12rem !important;
+    }
+}
