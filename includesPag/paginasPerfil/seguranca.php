@@ -4,6 +4,8 @@
 
 <?php
 
+$verificado = false;
+
 if (isset($_SESSION['usuarioVerificado'])) {
     $verificado = $_SESSION['usuarioVerificado'];
     if ($verificado == "true") {
@@ -11,41 +13,62 @@ if (isset($_SESSION['usuarioVerificado'])) {
     } else {
         $verificado = false;
     }
+} else {
+    $verificado = false;
+}
+
+$emailEnviado = "null";
+
+if(isset($_SESSION['emailEnviado'])){
+    $emailEnviado = $emailEnviado;
 }
 ?>
 
 <!-- Verificar conta -->
-<div class="row d-flex justify-content-center mt-4 mx-auto col-3">
+<div class="row d-flex justify-content-center mt-4 mx-auto">
     <!-- Button trigger modal -->
+    <div class="card w-100 card-btnVerificar">
+        <div class="card-body">
+            <?php if ($verificado == false) {
+            ?>
+                <h5 class="card-title text-center text-danger fs-1 fw-bold">Atenção!</h5>
 
-    <div class="container px-0 pt-0 container-btnVerificar">
+            <?php } ?>
+            <p class="card-text fs-3 mb-0 text-center <?php if ($verificado == true) {
+                                                            echo ("text-success");
+                                                        } else {
+                                                            echo ("text-danger");
+                                                        } ?>">
+                <?php if ($verificado == true) {
+                    echo ("Sua conta está verificada");
+                } else {
+                    echo ("Sua conta não está verificada, clique no botão e verifique para ter acesso");
+                } ?>
+            </p>
+            <?php if ($verificado == false) { ?>
+                <button type="button" class="btn btn-lg btn-mudarNome w-100 d-flex justify-content-center rounded-0" data-bs-toggle="modal" data-bs-target="#verificarContaModal">
+                    Verificar conta
+                </button>
+            <?php } ?>
+        </div>
+    </div>
+
+    <!--<div class="container px-0 pt-0 ">
         <div class="row">
+
+
             <div class="col-12">
                 <div class="container-fluid p-0 m-0">
-                    <p class="fs-3 mb-0 text-center <?php if ($verificado == true) {
-                                                        echo ("text-success");
-                                                    } else {
-                                                        echo ("text-danger");
-                                                    } ?>">
-                        <?php if ($verificado == true) {
-                            echo ("Sua conta está verificada");
-                        } else {
-                            echo ("Conta não verificada!");
-                        } ?>
-                    </p>
+
                 </div>
             </div>
 
 
             <div class="col-12">
-                <?php if ($verificado == false) { ?>
-                    <button type="button" class="btn btn-lg btn-mudarNome w-100 d-flex justify-content-center rounded-0" data-bs-toggle="modal" data-bs-target="#verificarContaModal">
-                        Verificar conta
-                    </button>
-                <?php } ?>
+
             </div>
         </div>
-    </div>
+    </div>-->
 
     <!-- Modal -->
     <div class="modal fade" id="verificarContaModal" tabindex="-1" aria-labelledby="verificarContaModalLabel" aria-hidden="true">
@@ -56,14 +79,18 @@ if (isset($_SESSION['usuarioVerificado'])) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form method="POST" action="ActionPHP/verificarEmail.php" class="p-0 m-0">
-                    <div class="modal-body p-0 m-0">
-                        <div class="form-floating" <?php if($_SESSION['emailEnviado'] == "visualizado"){ echo("hidden"); } ?>>
+                    <div class="modal-body p-2 m-0">
+                        <div class="form-floating" <?php if ($emailEnviado == "visualizado") {
+                                                        echo ("hidden");
+                                                    } ?>>
                             <input type="email" class="form-control mt-2" id="email" required aria-describedby="emailHelp" placeholder="Endereço de email" name="email">
                             <label for="email" class="form-label">Digite seu e-mail novamente</label>
                             <small id="emailHelp" class="form-text text-muted">Será enviado um pedido de confirmação ao seu email</small>
                         </div>
 
-                        <div class="container-fluid p-0 m-0" <?php if($_SESSION['emailEnviado'] != "visualizado"){ echo("hidden"); } ?>>
+                        <div class="container-fluid p-0 m-0" <?php if ($emailEnviado != "visualizado") {
+                                                                    echo ("hidden");
+                                                                } ?>>
                             <div class="row">
                                 <p class="fs-2 fw-bold text-danger text-center h-100 w-100">Um e-mail já foi enviado!</p>
                             </div>
@@ -71,7 +98,9 @@ if (isset($_SESSION['usuarioVerificado'])) {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-cancelarModal" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" <?php if($_SESSION['emailEnviado'] == "visualizado"){ echo("hidden"); } ?> class="btn btn-mudarNomeModal">Enviar</button>
+                        <button type="submit" <?php if ($emailEnviado == "visualizado") {
+                                                    echo ("hidden");
+                                                } ?> class="btn btn-mudarNomeModal">Enviar</button>
                     </div>
                 </form>
             </div>
@@ -95,14 +124,25 @@ if (isset($_SESSION['usuarioVerificado'])) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label for="TrocarSenha">Troque sua senha:</label>
-                        <input type="password" class="form-control mt-2" id="TrocarSenha" placeholder="Digite sua nova senha">
-
+                    <div class="form-floating">
+                        <!--<small id="passwordAnteriorHelp" class="form-text text-muted"></small>-->
+                        <input type="password" class="form-control mt-2" id="passwordAnterior" required minlength="8" aria-describedby="passwordAnteriorLabel" placeholder="Senha atual" name="passwordAnterior">
+                        <label for="passwordAnteriorLabel" class="form-label">Senha atual</label>
                     </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control mt-2" id="passwordTroca" minlength="8" required aria-describedby="passwordTrocaLabel" placeholder="Digite a nova senha" name="passwordTroca">
+                        <label for="passwordTroca" id="passwordTrocaLabel" class="form-label">Digite a nova senha</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control mt-2" id="passwordTrocaConfirmar" required aria-describedby="passwordTrocaConfirmarLabel" placeholder="Repita a senha atual" name="passwordTrocaConfirmar">
+                        <label for="passwordTrocaConfirmar" id="passwordTrocaConfirmarLabel" class="form-label">Repita a nova senha</label>
+                        <small id="passwordTrocaHelp" class="form-text text-muted text-warning">Será enviado um e-mail com o link para confirmar a troca de sua senha</small>
+                    </div>
+
+                    <script src="includesPag/paginasPerfil/includes/passwordIgual.js"></script>
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-cancelarModal" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-cancelarModal" data-bs-dismiss="modal">Cancelar</button>
                     <button type="button" class="btn btn-mudarNomeModal">Confirmar</button>
                 </div>
             </div>
