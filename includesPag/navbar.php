@@ -29,16 +29,47 @@
 
 <body>
 
+    <script>
+        jQuery(document).ready(function() {
+            /*  Replace all SVG images with inline SVG */
+            $('img.svg').each(function() {
+                var $img = $(this);
+                var imgID = $img.attr('id');
+                var imgClass = $img.attr('class');
+                var imgURL = $img.attr('src');
+
+                $.get(imgURL, function(data) {
+                    // Get the SVG tag, ignore the rest
+                    var $svg = $(data).find('svg');
+                    // Add replaced image's ID to the new SVG
+                    if (typeof imgID !== 'undefined') {
+                        $svg = $svg.attr('id', imgID);
+                    }
+                    // Add replaced image's classes to the new SVG
+                    if (typeof imgClass !== 'undefined') {
+                        $svg = $svg.attr('class', imgClass + ' replaced-svg');
+                    }
+                    // Remove any invalid XML tags as per http://validator.w3.org
+                    $svg = $svg.removeAttr('xmlns:a');
+                    // Replace image with new SVG
+                    $img.replaceWith($svg);
+                });
+            });
+        });
+    </script>
+
     <?php
 
     use App\Usuario;
 
+    $logado = false;
     if (isset($_SESSION['idUsuario'])) {
         if (PHP_SESSION_ACTIVE) {
         } else {
             session_start();
         }
         $verificado = $_SESSION['usuarioVerificado'];
+        $logado = true;
         if ($verificado != null) {
             if ($verificado == "false") {
                 $verificado = false;
@@ -108,58 +139,83 @@
                             } else {
                                 $nomeUsuario = "Faça login!";
                             }
-
-                            $idUsr = $_SESSION['idUsuario'];
-                            $user = new Usuario();
-                            $imgPerfil = $user->getDados("id = $idUsr", "imgPerfil");
-                            $imgPerfil = $imgPerfil[0]['imgPerfil'];
-                            $destino = "UsrImg/" . $idUsr . "/fotoPerfil/" . $imgPerfil;
+                            if (isset($_SESSION['idUsuario'])) {
+                                $idUsr = $_SESSION['idUsuario'];
+                                $user = new Usuario();
+                                $imgPerfil = $user->getDados("id = $idUsr", "imgPerfil");
+                                $imgPerfil = $imgPerfil[0]['imgPerfil'];
+                                $destino = "UsrImg/" . $idUsr . "/fotoPerfil/" . $imgPerfil;
+                            }
                             ?>
                             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasUsuario" aria-labelledby="offcanvasUsuarioLabel">
                                 <div class="offcanvas-header offcanvas-user p-1">
 
-                                    <div class="card w-100" style="max-height: 122px !important;">
-                                        <div class="row">
+                                    <div class="card w-100 card-Usr">
 
-                                            <div class="col-5">
-                                                <img class="card-img rounded-0 m-0 p-0" src="<?php if ($imgPerfil != "0") {
-                                                                                                    echo ($destino);
-                                                                                                } else {
-                                                                                                    echo ("img/imgPadraoUser.svg");
-                                                                                                }
-                                                                                                ?>" style="max-height: 120px !important;" alt="">
-                                            </div>
 
-                                            <div class="col-7">
-                                                <div class="card-body ps-0 ms-0">
-                                                    <h4 class="card-title"><?php echo ($nomeUsuario); ?></h4>
-                                                    <p class="card-text fw-bold fs-6 <?php if (!isset($verificado)) {
-                                                                                            echo ("text-danger");
-                                                                                        } else {
-                                                                                            if ($verificado == false) {
-                                                                                                echo ("text-danger");
-                                                                                            }
-                                                                                        } ?>"><?php
-                                                                                if (!isset($_SESSION['idUsuario'])) {
-                                                                                } else {
+                                        <div class="container-fluid container-imgUsr p-0 m-0 p-2">
+                                            <div class="row justify-content-center align-content-center align-items-center">
 
-                                                                                    if ($verificado == false) {
-                                                                                        echo ("Conta não verificada!");
-                                                                                    } else {
-                                                                                        echo ("Conta verificada");
-                                                                                    }
-                                                                                }
-                                                                                ?></p>
-                                                </div>
+
+
+
+                                                <?php
+                                                if (!isset($imgPerfil) || $imgPerfil == "0") {
+                                                ?>
+                                                    <img src="<?php echo ("img/imgPadraoUser.svg"); ?>" class="card-img svg rounded rounded-circle <?php if ($logado == true) {
+                                                                                                                                                        echo ("svg-navbar-userLogin");
+                                                                                                                                                    } else {
+                                                                                                                                                        echo ("svg-navbar-userNoLogin");
+                                                                                                                                                    } ?>">
+                                                <?php
+                                                } else {
+
+                                                ?>
+
+                                                    <img class="card-img rounded rounded-circle m-0 p-0 border-0" src="<?php if (isset($imgPerfil) && $imgPerfil != "0") {
+                                                                                                                            echo ($destino);
+                                                                                                                        } else {
+                                                                                                                            echo ("");
+                                                                                                                        }
+                                                                                                                        ?>" alt="">
+
+                                                <?php } ?>
                                             </div>
                                         </div>
+
+
+
+
+                                        <div class="card-body m-0">
+                                            <h4 class="card-title"><?php echo ($nomeUsuario); ?></h4>
+                                            <p class="card-text fw-bold fs-6 <?php if (!isset($verificado)) {
+                                                                                    echo ("text-danger");
+                                                                                } else {
+                                                                                    if ($verificado == false) {
+                                                                                        echo ("text-danger");
+                                                                                    }
+                                                                                } ?>"><?php
+                                                                                        if (!isset($_SESSION['idUsuario'])) {
+                                                                                        } else {
+
+                                                                                            if ($verificado == false) {
+                                                                                                echo ("Conta não verificada!");
+                                                                                            } else {
+                                                                                                echo ("Conta verificada");
+                                                                                            }
+                                                                                        }
+                                                                                        ?></p>
+                                        </div>
+
+
                                     </div>
 
                                     <!--<h5 class="offcanvas-title" id="offcanvasUsuarioLabel">Offcanvas with backdrop</h5>-->
-                                    <button type="button" class="btn-close-custom text-end m-0 pb-5" data-bs-dismiss="offcanvas" aria-label="Close"><span class="material-icons" style="font-size:24px;">close</span></button>
+                                    <!--<button type="button" class="btn-close-custom text-end m-0 pb-5" data-bs-dismiss="offcanvas" aria-label="Close"><span class="material-icons" style="font-size:24px;">close</span></button>-->
                                 </div>
                                 <div class="offcanvas-body offcanvas-UOptions p-1">
-                                    <ul class="nav nav-pills flex-column mb-auto">
+
+                                    <ul class="nav nav-flush flex-column mb-auto">
                                         <?php
 
 
@@ -217,6 +273,9 @@
                                         ?>
                                     </ul>
                                 </div>
+
+
+
                             </div>
 
                             <script src="../ActionsJS/dropdownButtonsAnim.js"></script>

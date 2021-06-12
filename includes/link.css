@@ -333,7 +333,8 @@ body{
 body{
     /*background-color: #4B5563;*/
     font-family: sans-serif;
-    background-color: #084d6e !important;
+    /*background-color: #084d6e !important;*/
+    background-color: rgba(245, 245, 245, 0.904) !important;
 }
 
 .expand-btn{
@@ -488,4 +489,39 @@ input:focus{
 
   .svg-success{
     fill: #1abe4c !important;
+}
+
+.svg-navbar-userLogin{
+    fill: rgb(224, 224, 224) !important;
+}
+
+.svg-navbar-userNoLogin{
+    fill: #d81919 !important;
+}
+
+.card-Usr{
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+}
+
+.card-Usr img{
+    width: 30% !important;
+    height: 50% !important;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: calc(0.25rem - 1px);
+}
+
+.card-Usr svg{
+    width: 30% !important;
+    height: 50% !important;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: calc(0.25rem - 1px);
+}
+
+.container-imgUsr{
+    border: 0;
+    border-bottom: thin solid rgb(235, 235, 235);
+    
 }

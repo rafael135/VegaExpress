@@ -72,7 +72,7 @@
     <div class="container-fluid m-0 p-0 mx-2 ms-0 text-center pt-0">
         <div class="row gx-0">
             <div class="col-lg-3 pe-lg-0">
-                <div class="container-fluid container-search p-0 m-0 p-2 border border-2">
+                <div class="container-fluid container-search min-vh-100 p-0 m-0 p-2 border border-2">
                     <p class="text-start">Filtros:</p>
                     <form class="mb-2" method="POST" action="ActionPHP/pesquisarPub.php">
                         <div class="form-floating mb-3">
