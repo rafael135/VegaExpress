@@ -156,7 +156,7 @@
                                         <div class="container-fluid container-imgUsr p-0 m-0 p-2">
                                             <div class="row justify-content-center align-content-center align-items-center">
 
-
+                                                <button type="button" class="btn-close-custom text-end m-0 p-0 position-absolute end-0 top-0" data-bs-dismiss="offcanvas" aria-label="Close"><span class="material-icons" style="font-size:24px;">close</span></button>
 
 
                                                 <?php
@@ -187,14 +187,14 @@
 
 
                                         <div class="card-body m-0">
-                                            <h4 class="card-title"><?php echo ($nomeUsuario); ?></h4>
-                                            <p class="card-text fw-bold fs-6 <?php if (!isset($verificado)) {
-                                                                                    echo ("text-danger");
-                                                                                } else {
-                                                                                    if ($verificado == false) {
-                                                                                        echo ("text-danger");
-                                                                                    }
-                                                                                } ?>"><?php
+                                            <h4 class="card-title text-center"><?php echo ($nomeUsuario); ?></h4>
+                                            <p class="card-text text-center fw-bold fs-6 <?php if (!isset($verificado)) {
+                                                                                                echo ("text-danger");
+                                                                                            } else {
+                                                                                                if ($verificado == false) {
+                                                                                                    echo ("text-danger");
+                                                                                                }
+                                                                                            } ?>"><?php
                                                                                         if (!isset($_SESSION['idUsuario'])) {
                                                                                         } else {
 
@@ -211,7 +211,7 @@
                                     </div>
 
                                     <!--<h5 class="offcanvas-title" id="offcanvasUsuarioLabel">Offcanvas with backdrop</h5>-->
-                                    <!--<button type="button" class="btn-close-custom text-end m-0 pb-5" data-bs-dismiss="offcanvas" aria-label="Close"><span class="material-icons" style="font-size:24px;">close</span></button>-->
+                                    <!---->
                                 </div>
                                 <div class="offcanvas-body offcanvas-UOptions p-1">
 

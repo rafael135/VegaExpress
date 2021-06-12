@@ -4,13 +4,13 @@
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
-
     session_start();
 
+    if(isset($_SESSION['idUsuario'])){
     $mail = new PHPMailer(true);
     try{
         //Configurações de servidor:
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
         $mail->isSMTP();
         $mail->Host = "smtp.gmail.com";
         $mail->SMTPAuth = true;
@@ -20,7 +20,7 @@
         $mail->Port = 587;
 
         //Informações da mensagem:
-        $emailDestino = $_SESSION['emailUsuario'];
+        $emailDestino = $_POST['email']; //$_SESSION['emailUsuario'];
         $nomeDestino = $_SESSION['nomeUsuario'];
 
         
@@ -65,9 +65,15 @@
         $mail->Body = $html;
         $mail->AltBody = "Clique no link abaixo para confirmar o e-mail:\n
         localhost/VegaExpress/perfil.php?confirm=$codConfirmacao";
-
-        if($mail->send()){
-            echo("E-mail enviado com sucesso!");
+        
+        $resultado = $mail->send();
+        var_dump($resultado);
+        if($resultado != false){
+            $_SESSION['emailEnviado'] = true;
+            header("Location: ../perfil.php?id=1");
+        }else{
+            $_SESSION['emailEnviado'] = false;
+            header("Location: ../perfil.php?id=1");
         }
 
     }catch(Exception $e){
@@ -87,4 +93,5 @@
 
         var_dump($enviarEmail);
     }*/
+}
 ?>

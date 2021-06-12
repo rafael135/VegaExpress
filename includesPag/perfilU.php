@@ -16,7 +16,7 @@ if ($_GET) {
 }
 ?>
 
-<div class="row mt-3 mx-3">
+<div class="row mt-3 mx-1">
     <div class="col-12 m-0 p-0">
         <div class="container-fluid bg-light m-0 p-0">
             <div class="row p-0 m-0">
@@ -138,8 +138,6 @@ if ($_GET) {
                                                                 <div class="col-12 mb-2 fadeIn first">
                                                                     <img id="img-0">
                                                                 </div>
-
-                                                                <script src="ActionsJS/inputImagensPreview.js"></script>
                                                             </div>
 
                                                             <div class="col-12 form-floating fadeIn first mb-3">
@@ -219,73 +217,7 @@ if ($_GET) {
                         <!-- Página de segurança -->
                         <?php
                         if ($idPag == 1) {
-
-
-                        ?>
-
-                            <!-- Verificar conta -->
-                            <div class="row d-flex justify-content-center mt-4 mx-auto col-3">
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary btn-lg d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Verificar conta
-                                </button>
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">Verifique seu email para proteger sua conta!</label>
-                                                    <input type="email" class="form-control mt-2" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Endereço de email">
-                                                    <small id="emailHelp" class="form-text text-muted">Será enviado um pedido de confirmação ao seu email</small>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                                <button type="button" class="btn btn-primary">Enviar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Trocar senha -->
-                            <div class="row d-flex justify-content-center mt-4 mx-auto col-3">
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary btn-lg d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Trocar senha
-                                </button>
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="Trocasenha" tabindex="-1" aria-labelledby="" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="Trocasenha"></h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="form-group">
-                                                    <label for="Trocasenha">Troque sua senha:</label>
-                                                    <input type="password" class="form-control mt-2" id="Trocasenha" aria-describedby="emailHelp" placeholder="Digite sua nova senha">
-                    
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                                <button type="button" class="btn btn-primary">Enviar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        <?php
+                            include("paginasPerfil/seguranca.php");
                         }
                         ?>
 

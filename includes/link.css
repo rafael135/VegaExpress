@@ -491,6 +491,10 @@ input:focus{
     fill: #1abe4c !important;
 }
 
+.svg-warning{
+    fill: #ffc107 !important;
+}
+
 .svg-navbar-userLogin{
     fill: rgb(224, 224, 224) !important;
 }
