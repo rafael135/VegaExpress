@@ -172,11 +172,124 @@ if (isset($_SESSION['emailEnviado'])) {
                 $(".toast").toast("show");
             });
         </script>
-<?php
-
-        
+    <?php
     }
 }
+if (isset($_SESSION['senhaAlterada'])) {
+    unset($_SESSION['senhaAlterada']);
+    ?>
+
+    <head>
+        <script src="JQuery 3.6.0/jquery-3.6.0.min.js"></script>
+    </head>
+
+    <script>
+        jQuery(document).ready(function() {
+            /*  Replace all SVG images with inline SVG */
+            $('img.svg').each(function() {
+                var $img = $(this);
+                var imgID = $img.attr('id');
+                var imgClass = $img.attr('class');
+                var imgURL = $img.attr('src');
+
+                $.get(imgURL, function(data) {
+                    // Get the SVG tag, ignore the rest
+                    var $svg = $(data).find('svg');
+                    // Add replaced image's ID to the new SVG
+                    if (typeof imgID !== 'undefined') {
+                        $svg = $svg.attr('id', imgID);
+                    }
+                    // Add replaced image's classes to the new SVG
+                    if (typeof imgClass !== 'undefined') {
+                        $svg = $svg.attr('class', imgClass + ' replaced-svg');
+                    }
+                    // Remove any invalid XML tags as per http://validator.w3.org
+                    $svg = $svg.removeAttr('xmlns:a');
+                    // Replace image with new SVG
+                    $img.replaceWith($svg);
+                });
+            });
+        });
+    </script>
+    <div class="toast-container position-absolute bottom-0 end-0 p-3">
+        <div class="toast" data-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="img/btns/done.svg" class="svg svg-success" alt="Sucesso!">
+                <strong class="me-auto">Sucesso</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Senha alterada com sucesso!
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $(".toast").toast("show");
+        });
+    </script>
+<?php
+
+}
+
+if (isset($_SESSION['senhaErrada'])) {
+    unset($_SESSION['senhaErrada']);
+?>
+
+    <head>
+        <script src="JQuery 3.6.0/jquery-3.6.0.min.js"></script>
+    </head>
+
+    <script>
+        jQuery(document).ready(function() {
+            /*  Replace all SVG images with inline SVG */
+            $('img.svg').each(function() {
+                var $img = $(this);
+                var imgID = $img.attr('id');
+                var imgClass = $img.attr('class');
+                var imgURL = $img.attr('src');
+
+                $.get(imgURL, function(data) {
+                    // Get the SVG tag, ignore the rest
+                    var $svg = $(data).find('svg');
+                    // Add replaced image's ID to the new SVG
+                    if (typeof imgID !== 'undefined') {
+                        $svg = $svg.attr('id', imgID);
+                    }
+                    // Add replaced image's classes to the new SVG
+                    if (typeof imgClass !== 'undefined') {
+                        $svg = $svg.attr('class', imgClass + ' replaced-svg');
+                    }
+                    // Remove any invalid XML tags as per http://validator.w3.org
+                    $svg = $svg.removeAttr('xmlns:a');
+                    // Replace image with new SVG
+                    $img.replaceWith($svg);
+                });
+            });
+        });
+    </script>
+    <div class="toast-container position-absolute bottom-0 end-0 p-3">
+        <div class="toast" data-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="img/btns/danger.svg" class="svg svg-warning" alt="Atenção!">
+                <strong class="me-auto fw-bold ms-2">Atenção</strong>
+                <button type="button" class="btn-close btn-close-custom" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body text-warning">
+                A senha atual inserida está incorreta!
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $(".toast").toast("show");
+        });
+    </script>
+<?php
+}
+
 //$result = false;
 
 //  Inclui o final da página

@@ -19,7 +19,7 @@ if (isset($_SESSION['usuarioVerificado'])) {
 
 $emailEnviado = "null";
 
-if(isset($_SESSION['emailEnviado'])){
+if (isset($_SESSION['emailEnviado'])) {
     $emailEnviado = $emailEnviado;
 }
 ?>
@@ -123,28 +123,31 @@ if(isset($_SESSION['emailEnviado'])){
                     <h5 class="modal-title" id="TrocarSenhaLabel"></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <div class="form-floating">
-                        <!--<small id="passwordAnteriorHelp" class="form-text text-muted"></small>-->
-                        <input type="password" class="form-control mt-2" id="passwordAnterior" required minlength="8" aria-describedby="passwordAnteriorLabel" placeholder="Senha atual" name="passwordAnterior">
-                        <label for="passwordAnteriorLabel" class="form-label">Senha atual</label>
-                    </div>
-                    <div class="form-floating">
-                        <input type="password" class="form-control mt-2" id="passwordTroca" minlength="8" required aria-describedby="passwordTrocaLabel" placeholder="Digite a nova senha" name="passwordTroca">
-                        <label for="passwordTroca" id="passwordTrocaLabel" class="form-label">Digite a nova senha</label>
-                    </div>
-                    <div class="form-floating">
-                        <input type="password" class="form-control mt-2" id="passwordTrocaConfirmar" required aria-describedby="passwordTrocaConfirmarLabel" placeholder="Repita a senha atual" name="passwordTrocaConfirmar">
-                        <label for="passwordTrocaConfirmar" id="passwordTrocaConfirmarLabel" class="form-label">Repita a nova senha</label>
-                        <small id="passwordTrocaHelp" class="form-text text-muted text-warning">Será enviado um e-mail com o link para confirmar a troca de sua senha</small>
+                <form method="POST" action="ActionPHP/mudarSenha.php" class="p-0 m-0">
+                    <div class="modal-body">
+                        <div class="form-floating">
+                            <!--<small id="passwordAnteriorHelp" class="form-text text-muted"></small>-->
+                            <input type="password" class="form-control mt-2" id="passwordAnterior" required minlength="8" aria-describedby="passwordAnteriorLabel" placeholder="Senha atual" name="passwordAnterior">
+                            <label for="passwordAnteriorLabel" class="form-label">Senha atual</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control mt-2" id="passwordTroca" minlength="8" required aria-describedby="passwordTrocaLabel" placeholder="Digite a nova senha" name="passwordTroca">
+                            <label for="passwordTroca" id="passwordTrocaLabel" class="form-label">Digite a nova senha</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control mt-2" id="passwordTrocaConfirmar" required aria-describedby="passwordTrocaConfirmarLabel" placeholder="Repita a senha atual" name="passwordTrocaConfirmar">
+                            <label for="passwordTrocaConfirmar" id="passwordTrocaConfirmarLabel" class="form-label">Repita a nova senha</label>
+                            <a><small id="passwordTrocaHelp" class="form-text text-muted text-warning">Esqueceu a senha?</small></a>
+                        </div>
+
+                        <script src="includesPag/paginasPerfil/includes/passwordIgual.js"></script>
                     </div>
 
-                    <script src="includesPag/paginasPerfil/includes/passwordIgual.js"></script>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-cancelarModal" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-mudarNomeModal">Confirmar</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-cancelarModal" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-mudarNomeModal">Confirmar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

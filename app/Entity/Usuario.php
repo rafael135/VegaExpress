@@ -147,6 +147,14 @@ class Usuario{
             return $resultado;
         }
 
+        public function mudarSenha($id, $senha){
+            $obDb = new Database("usuarios");
+            $resultado = $obDb->atualizar("id = $id", [
+                'senha' => $senha
+            ]);
+            return $resultado;
+        }
+
         
     }
 ?>
