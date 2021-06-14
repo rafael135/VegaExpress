@@ -27,7 +27,8 @@ if ($_GET) {
                     ]);
 
                     if ($result != false) {
-                        //unset($_SESSION['codVerificacao']);
+                        $_SESSION['usuarioVerificado'] = "true";
+                        unset($_SESSION['codVerificacao']);
                     }
                 }
             }
@@ -117,9 +118,8 @@ if ($result != false) {
 }
 
 if (isset($_SESSION['emailEnviado'])) {
-    if ($_SESSION['emailEnviado'] != "visualizado") {
-        unset($_SESSION['emailEnviado']);
-        $_SESSION['emailEnviado'] = "visualizado";
+    if ($_SESSION['emailEnviado'] == true) {
+        $_SESSION['emailEnviado'] = false;
     ?>
 
         <head>

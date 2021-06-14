@@ -16,20 +16,18 @@
         } else {
             $frete = 0;
         }
-        $condicaoProduto = $_GET['condicaoProduto'];
-        if ($condicaoProduto == "novo") {
-            $condicaoProduto = 1; // 1 - Simboliza que o produto é novo
-        } else {
-            $condicaoProduto = 0; // 0 - Simboliza que o produto é usado
-        }
+        $condicaoProduto = intval($_GET['condicaoProduto']);
+        
 
         $filtro = intval($_GET['filtro']);
+
+        $filtroPreco = intval($_GET['filtroPreco']);
 
         $pesquisar = new Produto();
 
         $money = new money_format();
 
-        $resultado = $pesquisar->getProdutos($txt, $frete, $condicaoProduto, $filtro);
+        $resultado = $pesquisar->getProdutos($txt, $frete, $condicaoProduto, $filtro, $filtroPreco);
 
         //var_dump($resultado);
     }
@@ -199,14 +197,14 @@
                                 <div class="col-6">
                                     <input type="radio" class="btn-check rounded-0 w-100 me-0" <?php if ($condicaoProduto == 1) {
                                                                                                     echo ("checked");
-                                                                                                } ?> name="radioCondicao" id="btnNovo" style="border-bottom-right-radius: 0 !important; border-top-right-radius: 0 !important;" autocomplete="off">
+                                                                                                } ?> name="radioCondicao" id="btnNovo" value="1" style="border-bottom-right-radius: 0 !important; border-top-right-radius: 0 !important;" autocomplete="off">
                                     <label class="btn btn-outline-light rounded-0 btn-radio-blue w-100 me-0" for="btnNovo" style="border-bottom-right-radius: 0 !important; border-top-right-radius: 0 !important;">Novo</label>
                                 </div>
 
                                 <div class="col-6">
                                     <input type="radio" class="btn-check rounded-0 w-100 ms-0" <?php if ($condicaoProduto == 0) {
                                                                                                     echo ("checked");
-                                                                                                } ?> name="radioCondicao" id="btnUsado" style="border-bottom-left-radius: 0 !important; border-top-left-radius: 0 !important;" autocomplete="off">
+                                                                                                } ?> name="radioCondicao" id="btnUsado" value="0" style="border-bottom-left-radius: 0 !important; border-top-left-radius: 0 !important;" autocomplete="off">
                                     <label class="btn btn-outline-light rounded-0 btn-radio-blue w-100 ms-0" for="btnUsado" style="border-bottom-left-radius: 0 !important; border-top-left-radius: 0 !important;">Usado</label>
                                 </div>
                             </div>
@@ -217,12 +215,6 @@
                         <div class="container-fluid p-0 px-3 m-0">
                             <div class="form-floating rounded-0">
                                 <select class="form-select border border-1 rounded-0" id="selectFiltrar" name="selectFiltrar" aria-label="Filtrar por">
-                                    <option value="1" <?php if ($filtro == 1) {
-                                                            echo ("selected");
-                                                        } ?>>Preço decrescente</option>
-                                    <option value="2" <?php if ($filtro == 2) {
-                                                            echo ("selected");
-                                                        } ?>>Preço crescente</option>
                                     <option value="3" <?php if ($filtro == 3) {
                                                             echo ("selected");
                                                         } ?>>Melhor avaliados</option>
@@ -234,6 +226,45 @@
                                                         } ?>>Mais velhos</option>
                                 </select>
                                 <label class="form-label" for="selectFiltrar">Filtrar por</label>
+                            </div>
+                        </div>
+
+                        <hr class="mx-1">
+
+                        <div class="container-fluid">
+                            <div class="row justify-content-center align-items-center pt-3">
+                                <div class="col-12">
+                                    <button class="btn btn-pub rounded-0 w-100 border border-1" style="max-height:50px;" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePreco" aria-expanded="false" aria-controls="collapsePreco">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <div class="container-fluid my-auto p-0">
+                                                    <p class="text-start align-self-center m-auto fs-5 h-100 w-100">Preço</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="expand col-2 d-flex justify-content-end">
+                                                <img class="svg expand-more svg-btn" src="img/btns/expand.svg"></img>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="collapse mt-0 mb-0" id="collapsePreco">
+                                <div class="container-fluid container-search text-blue p-2 m-0">
+                                    <div class="form-floating rounded-0">
+                                        <select class="form-select border border-1 rounded-0" id="selectFiltrarPreco" name="selectFiltrarPreco" aria-label="Filtrar por">
+                                            <option value="1" <?php if ($filtroPreco == 1) {
+                                                                    echo ("selected");
+                                                                } ?>>Preço decrescente</option>
+                                            <option value="2" <?php if ($filtroPreco == 2) {
+                                                                    echo ("selected");
+                                                                } ?>>Preço crescente</option>
+                                        </select>
+                                        <label class="form-label" for="selectFiltrarPreco">Filtrar por</label>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </form>
@@ -265,18 +296,18 @@
                                 }
                         ?>
                                 <div class="col-sm-4 col-md-3 col-lg-2 pt-2 mx-sm-auto mx-md-auto justify-content-sm-center align-items-sm-center">
-                                    <a href="produto.php?id=<?php echo ($idProduto) ?>" title="<?php echo($titulo) ?>">
+                                    <a href="produto.php?id=<?php echo ($idProduto) ?>" title="<?php echo ($titulo) ?>">
                                         <div class="card card-resultado mx-sm-auto mx-md-auto mb-4">
                                             <img src="<?php echo ($destinoImg); ?>" class="card-img-top" alt="...">
                                             <div class="card-body">
-                                                <h5 class="card-title card-resultado"><?php if(strlen($titulo) > 12){
-                                                    $tituloArray = str_split($titulo);
-                                                    for($i = 0; $i < 12; $i++){
-                                                        echo($tituloArray[$i]);
-                                                    }
-                                                }else{
-                                                    echo($titulo);
-                                                } ?></h5>
+                                                <h5 class="card-title card-resultado"><?php if (strlen($titulo) > 12) {
+                                                                                            $tituloArray = str_split($titulo);
+                                                                                            for ($i = 0; $i < 12; $i++) {
+                                                                                                echo ($tituloArray[$i]);
+                                                                                            }
+                                                                                        } else {
+                                                                                            echo ($titulo);
+                                                                                        } ?></h5>
                                                 <p class="card-text card-resultado"><?php echo ($money->money_format("%.2n", $preco)); ?></p>
 
                                             </div>

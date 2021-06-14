@@ -21,7 +21,7 @@ class Produto
 
     public function getTodosProdutos()
     {
-        
+
 
         $obDb = new Database("produtos");
 
@@ -37,7 +37,8 @@ class Produto
         }
     }
 
-    public function getProdutoId($id){
+    public function getProdutoId($id)
+    {
         $obDb = new Database("produtos");
 
 
@@ -68,35 +69,75 @@ class Produto
         }
     }
 
-    public function excluirProdutoId($id){
+    public function excluirProdutoId($id)
+    {
         $obDb = new Database("produtos");
 
         $sql = "DELETE FROM produtos WHERE idProduto = $id";
         $sql = $obDb->getConexao()->prepare($sql);
         $sql->execute();
-        
+
         return true;
     }
 
-    public function getProdutos($pesquisa = null, $frete = null, $condicao = null, $filtro = null){
+    public function getProdutos($pesquisa = null, $frete = null, $condicao = null, $filtro = null, $filtroPreco = null)
+    {
         $obDb = new Database("produtos");
-        if($filtro == 1){
-            $filtro = "preco DESC";
-        }elseif($filtro == 2){
-            $filtro = "preco ASC";
-        }elseif($filtro == 3){
+
+
+        $cont = 0;
+
+        if ($filtro == 3) {
             $filtro = "avaliacao DESC";
-        }elseif($filtro == 4){
+            $cont++;
+        } elseif ($filtro == 4) {
             $filtro = "dataPublicacao DESC";
-        }elseif($filtro == 5){
+            $cont++;
+        } elseif ($filtro == 5) {
             $filtro = "dataPublicacao ASC";
-        }else{
+            $cont++;
+        } else {
             $filtro = null;
+        }
+
+        if ($filtroPreco == 1) {
+            $filtroPreco = "preco DESC";
+            $cont++;
+        } elseif ($filtroPreco == 2) {
+            $filtroPreco = "preco ASC";
+            $cont++;
+        } else {
+            $filtroPreco = null;
+        }
+
+
+
+        $filtroDefinitivo = "";
+
+        if ($filtro != null) {
+            $filtroDefinitivo .= $filtro;
+        }
+        if ($filtroPreco != null) {
+            if (count_chars($filtroDefinitivo) > 0) {
+                $filtroDefinitivo .= "_" . $filtroPreco;
+            }else{
+                $filtroDefinitivo .= $filtroPreco;
+            }
+           
+        }
+
+        if (str_contains($filtroDefinitivo, "_")) {
+            $filtroDefinitivo = explode("_", $filtroDefinitivo);
+        }
+
+        if ($filtroDefinitivo == "") {
+            $filtroDefinitivo = null;
         }
 
         
 
-        $result = $obDb->select("titulo like '%$pesquisa%' OR descricao like '%$pesquisa%' AND frete = $frete AND condicao = $condicao", $filtro);
+
+        $result = $obDb->select("titulo like '%$pesquisa%' OR descricao like '%$pesquisa%' AND frete = $frete AND condicao = $condicao", $filtroDefinitivo);
 
         return $result;
     }

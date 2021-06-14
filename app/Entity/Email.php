@@ -1,70 +1,57 @@
 <?php
 
-    namespace App;
-    require '../vendor/autoload.php';
-    use PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\PHPMailer as PHPMailerPHPMailer;
+namespace App;
 
-class Email{
-        private $destino;
-        private $assunto;
-        private $mensagem;
-        private $mail = new PHPMailerPHPMailer();
+require '../vendor/autoload.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+session_start();
 
 
-        public function __construct($destino, $assunto, $mensagem)
-        {
-            $this->destino = $destino;
-            $this->assunto = $assunto;
-            $this->mensagem = $mensagem;
-        }
+class Email
+{
+    private $mail;
 
-        public function enviarEmail(){
-            
+    public function __construct()
+    {
+        try {
+            $this->mail = new PHPMailer(true);
             $this->mail->isSMTP();
-            $this->mail->Host = "vegaexpressmail.com";
-            $this->mail->Port = 25;
+            $this->mail->Host = "smtp.gmail.com";
             $this->mail->SMTPAuth = true;
-
-            $this->mail->Username = "";
-            $this->mail->Password = "";
-
-            // Configurações de compatibilidade para autenticação em TLS 
-            $this->mail->SMTPOptions = array("ssl" => array("verify_peer" => false, "verify_peer_name" => false, "allow_self_signed" => true));
-            //Assim pode identificar mensagens de erro. 
-            // $this->mail->SMTPDebug = 2; 
-
-            $this->mail->FromName = "VegaExpress";
-
-            // Define o(s) destinatário(s) 
-            $this->mail->AddAddress($this->destino, "Teste");
-            
-            // Definir se o e-mail é em formato HTML ou texto plano 
-            // Formato HTML . Use "false" para enviar em formato texto simples ou "true" para HTML.
-            $this->mail->IsHTML(true); 
-
-            // Define o Charset
-            $this->mail->CharSet = "UTF-8";
-
-            // Assunto da mensagem
-            $this->mail->Subject = "Verificação de conta";
-
-            // Corpo do email
-            $this->mail->Body = "Conteúdo do email";
-
-            // Opcional: Anexos
-            //$this->mail->addAttachment("/home/exemplo/arquivo.pdf", "arquivo.pdf");
-
-            // Envia o email
-            $enviado = $this->mail->send();
-
-            //Exibe a mensagem para o usuário
-            if($enviado){
-                // Retorna verdadeiro se o email for enviado com sucesso
-                return true;
-            }else{
-                return false;
-            }
+            $this->mail->Username = "vegaexpress0@gmail.com";
+            $this->mail->Password = "35418706";
+            $this->mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $this->mail->Port = 587;
+        } catch (Exception $e) {
         }
     }
-?>
+
+    public function setDestino($destino, $nomeUsr)
+    {
+        $this->mail->setFrom("vegaexpress0@gmail.com", "VegaExpress");
+        $this->mail->addAddress("$destino", "$nomeUsr");
+        $this->mail->isHTML(true);
+        $this->mail->CharSet = "utf-8";
+    }
+
+    public function setAssunto($assunto){
+        $this->mail->Subject = $assunto;
+    }
+
+    public function setConteudoEmail($html){
+        $this->mail->Body = $html;
+    }
+
+    public function setConteudoEmailAdaptativo($text){
+        $this->mail->AltBody = $text;
+    }
+
+    public function enviarEmail(){
+        $resultado = $this->mail->send();
+        return $resultado;
+    }
+}

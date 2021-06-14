@@ -16,6 +16,11 @@
             $filtro = $_POST['selectFiltrar'];
         }
 
-        header("Location: ../pesquisa.php?txtPesquisa=$pesquisarTxt&frete=$frete&condicaoProduto=$condicaoProduto&filtro=$filtro");
+        $filtroPreco = 0;
+        if(isset($_POST['selectFiltrarPreco'])){
+            $filtroPreco = $_POST['selectFiltrarPreco'];
+        }
+
+        header("Location: ../pesquisa.php?txtPesquisa=$pesquisarTxt&frete=$frete&condicaoProduto=$condicaoProduto&filtro=$filtro&filtroPreco=$filtroPreco");
     }
 ?>

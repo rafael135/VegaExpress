@@ -1,6 +1,11 @@
 .card-btnVerificar{
     border: thin solid rgb(220, 220, 220);
-    background-color: #2beb9157 !important;
+    background-color: #3cc9876e !important;
+}
+
+.cardbtnVerificarFalse{
+    border: thin solid rgb(220, 220, 220);
+    background-color: #e02828e7 !important;
 }
 
 
@@ -14,6 +19,19 @@
     background-color: #0062b8 !important;
     color: #fff !important;
     border-color: #027de94f !important;
+    transition: 300ms;
+}
+
+.btn-mudarNomeVerificar{
+    border: thin solid #fff !important;
+    background-color: #fff !important;
+    color: #e02828 !important;
+}
+
+.btn-mudarNomeVerificar:hover{
+    border: thin solid #aa1c1c !important;
+    background-color: #e02828 !important;
+    color: #fff !important;
     transition: 300ms;
 }
 
@@ -45,5 +63,28 @@
     background-color: #a72020 !important;
     color: #fff !important;
     border-color: #e0282860 !important;
+    transition: 300ms;
+}
+
+
+
+.fieldset-visibilidade{
+    border: 2px solid rgb(230, 230, 230);
+}
+
+
+
+
+
+.btn-mudarSenha{
+    border: thin solid transparent !important;
+    background-color: #027CE9 !important;
+    color: #fff !important;
+    border-radius: 0;
+}
+.btn-mudarSenha:hover{
+    background-color: #0062b8 !important;
+    color: #fff !important;
+    border-color: #001d364f !important;
     transition: 300ms;
 }

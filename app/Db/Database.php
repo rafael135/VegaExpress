@@ -100,7 +100,33 @@ class Database
     {
         //Dados da query
         $where = strlen($where) ? 'WHERE ' . $where : '';
-        $order = strlen($order) ? 'ORDER BY ' . $order : '';
+        if (is_array($order) == false && $order != null && count($order) < 2) {
+            $order = strlen($order) ? 'ORDER BY ' . $order : '';
+        }elseif($order != null){
+           
+           
+            $txtOrderFinal = "ORDER BY ";
+            for($d = 0; $d <= count($order); $d++){
+                if(isset($order[$d])){
+                    $ord = $order[$d];
+                }else{
+                    $ord = null;
+                }
+                
+                
+                if($ord != null){
+                    $txtOrderFinal = $txtOrderFinal . $ord . ", ";
+                }else{
+                    $i = strlen($txtOrderFinal);
+                    $txtOrderFinal = substr($txtOrderFinal, 0, $i - 2);
+                    
+                }
+            }
+            $order = $txtOrderFinal;
+            
+        }else{
+            $order = strlen($order) ? 'ORDER BY ' . $order : '';
+        }
         $limit = strlen($limit) ? 'LIMIT ' . $limit : '';
 
         //Monta a query
@@ -110,18 +136,19 @@ class Database
             $query = 'SELECT ' . $fields . ' FROM ' . $this->tabela . ' ' . $where . ' ' . $order . ' ' . $limit;
         }
 
-
+            //var_dump($query);
 
         //Executa a Query
         return $this->executar($query);
     }
 
-    public function atualizar($where, $values){
+    public function atualizar($where, $values)
+    {
         //Dados da query
         $fields = array_keys($values);
-        $query = 'UPDATE '. $this -> tabela . ' SET ' . implode('=?,', $fields) . '=? WHERE '. $where;
+        $query = 'UPDATE ' . $this->tabela . ' SET ' . implode('=?,', $fields) . '=? WHERE ' . $where;
 
-        $result = $this -> executar($query, array_values($values));
+        $result = $this->executar($query, array_values($values));
 
         return $result;
     }
