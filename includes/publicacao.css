@@ -195,21 +195,57 @@ input.form-control.border-preco#preco{
 }
 
 .svg-btn-success{
-    fill: rgb(250, 250, 250) !important;
-    height: 30px;
-    width: 30px;
+    fill: #198754 !important;
+    height: 36px;
+    width: 36px;
 }
 
 .btn-svg-success{
-    border: 1px solid #198754 !important;
-    background-color: #198754 !important;
+    border: 2px solid #10633c !important;
+    background-color: rgb(240, 240, 240) !important;
 }
 
 .btn-svg-success:hover{
     background-color: #10633c !important;
+    border-color: #10633c !important;
     transition: 300ms;
 }
 
+.btn-svg-success > svg{
+    fill: #198754 !important;
+}
+
 .btn-svg-success:hover > svg{
+    fill: rgb(235, 235, 235) !important;
+}
+
+
+
+
+
+
+
+.svg-btn-delete{
+    fill: #e02828 !important;
+    height: 36px;
+    width: 36px;
+}
+
+.btn-svg-delete{
+    border: 2px solid #e02828 !important;
+    background-color: rgb(240, 240, 240) !important;
+}
+
+.btn-svg-delete:hover{
+    background-color: #e02828 !important;
+    border-color: #e02828 !important;
+    transition: 300ms;
+}
+
+.btn-svg-delete > svg{
+    fill: #e02828 !important;
+}
+
+.btn-svg-delete:hover > svg{
     fill: rgb(235, 235, 235) !important;
 }

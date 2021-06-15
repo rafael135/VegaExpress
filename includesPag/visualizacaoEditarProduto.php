@@ -87,7 +87,7 @@
         });
     </script>
 
-    <div class="container-fluid px-1">
+    <div class="container-fluid px-3 py-3">
 
         <?php
         if ($toastSuccess == true) {
@@ -122,6 +122,7 @@
         <form method="POST" action="ActionPHP/editarPub.php?id=<?php echo ($idProduto); ?>" class="m-0 p-0">
             <div class="container-fluid mae py-2">
                 <div class="row mx-auto">
+
                     <div class="col-sm-12 col-md-12 col-lg-3 ms-0 ps-0 me-0 pe-0" id="imgCol">
                         <div class="card m-0 p-0 w-100" id="img">
                             <div id="carouselExampleIndicators" class="carousel w-100 me-0 pe-0 slide" id="img" data-bs-ride="carousel">
@@ -180,17 +181,43 @@
                             <div class="col-6 ms-0 ps-0">
                                 <div class="container-fluid w-100 p-0 m-0 mt-1">
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control no-borders-input" id="titulo" value="<?php echo ($titulo); ?>" name="titulo" placeholder="Titulo">
+                                        <input type="text" class="form-control mb-3 no-borders-input" id="titulo" value="<?php echo ($titulo); ?>" name="titulo" placeholder="Titulo">
                                         <label class="form-label ms-2" for="titulo" id="tituloLabel">Titulo</label>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-lg-1 offset-lg-5 d-flex justify-content-end align-items-end">
-                                <button type="button" class="btn btn-svg-success h-100 w-100" data-bs-toggle="modal" data-bs-target="#confirmacaoModal">
-                                    <img class="svg svg-btn-success" src="img/btns/done.svg">
+
+                            <div class="col-lg-2 offset-lg-4 d-flex justify-content-end align-items-end pe-0">
+                                <button type="button" class="btn btn-svg-delete h-100 w-100" data-bs-toggle="modal" data-bs-target="#deletarModal">
+                                    <img class="svg svg-btn-delete" src="UIcons/svg/fi-rs-trash.svg">
                                 </button>
 
+
+                                <div class="modal fade" id="deletarModal" tabindex="-1" aria-labelledby="deletarModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="deletarModalLabel">Confirmação</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Tem certeza de que deseja excluir a publicação?
+                                            </div>
+                                            <div class="modal-footer">
+
+                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                                <a href="ActionPHP/excluirPub.php?id=<?php echo ($idProduto); ?>" type="button" class="btn btn-success">Sim</a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="button" class="btn btn-svg-success ms-3 h-100 w-100" data-bs-toggle="modal" data-bs-target="#confirmacaoModal">
+                                    <img class="svg svg-btn-success" src="img/btns/done.svg">
+                                </button>
+                                    
 
                                 <div class="modal fade" id="confirmacaoModal" tabindex="-1" aria-labelledby="confimacaoModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
@@ -209,12 +236,19 @@
                                         </div>
                                     </div>
                                 </div>
+
+
+
                             </div>
+
+
+
+                            
                             <div class="col-sm-12 col-md-12 col-lg-4 m-0 p-0">
                                 <div class="container-fluid p-0 m-0">
                                     <div class="row">
 
-                                        <div class="col-8 mb-3">
+                                        <div class="col-8 mb-3 mt-sm-3 mt-md-3 mt-lg-1">
                                             <div class="input-group d-flex justify-content-evenly align-items-baseline">
                                                 <span class="input-group-text rounded-0" for="precoAnterior" id="precoAnteriorLabel">Preço Atual</span>
                                                 <input type="text" class="form-control text-center border-preco rounded-0" readonly id="precoAnterior" value="<?php echo ($money->money_format("%.2n", $preco)); ?>" name="precoAnterior" placeholder="Preço Atual" aria-labelledby="precoAnteriorLabel">
@@ -278,44 +312,44 @@
                             <a class="" href=""><button class="btn btn-cart border align-text-bottom border-1 w-100 mt-4" disabled><span class="material-icons m-1 blue">add_shopping_cart</span></button></a>
                         </div>
                     </div>
-                </div>
+                </div><!-- !!!!!! -->
+        </form>
 
 
 
-
-                <div class="row justify-content-center align-items-center pt-3">
-                    <div class="col-12">
-                        <button class="btn btn-pub rounded-0 w-100 border border-1" style="max-height:50px;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDescricao" aria-expanded="false" aria-controls="collapseDescricao">
-                            <div class="row">
-                                <div class="col-10 offset-1">
-                                    <div class="container-fluid my-auto p-0">
-                                        <p class="text-center align-self-center m-auto fs-5 h-100 w-100">Descrição</p>
-                                    </div>
-                                </div>
-
-                                <div class="expand col-1 d-flex justify-content-end">
-                                    <img class="svg expand-more svg-btn" src="img/btns/expand.svg"></img>
-                                </div>
+        <div class="row justify-content-center align-items-center pt-3">
+            <div class="col-12">
+                <button class="btn btn-pub rounded-0 w-100 border border-1" style="max-height:50px;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDescricao" aria-expanded="false" aria-controls="collapseDescricao">
+                    <div class="row">
+                        <div class="col-10 offset-1">
+                            <div class="container-fluid my-auto p-0">
+                                <p class="text-center align-self-center m-auto fs-5 h-100 w-100">Descrição</p>
                             </div>
-                        </button>
-                    </div>
-                </div>
+                        </div>
 
-                <div class="collapse mt-0 mb-0" id="collapseDescricao">
-                    <div class="container-fluid bg-whiteGrey border border-1 p-0 pb-2 pt-2 m-0">
-                        <div class="container-fluid pt-1 mt-1">
-                            <div class="row mt-0 pt-0 mx-1">
-                                <div class="col-sm-12 col-md-12 col-lg-12 m-0 p-0">
-                                    <div class="container-fluid p-0 h-100">
-                                        <textarea class="form-control form-control-lg rounded-0" id="txtDescricao" name="descricao" style="text-align: justify;"><?php echo ($descricao) ?></textarea>
-                                    </div>
-                                </div>
+                        <div class="expand col-1 d-flex justify-content-end">
+                            <img class="svg expand-more svg-btn" src="img/btns/expand.svg"></img>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div class="collapse mt-0 mb-0" id="collapseDescricao">
+            <div class="container-fluid bg-whiteGrey border border-1 p-0 pb-2 pt-2 m-0">
+                <div class="container-fluid pt-1 mt-1">
+                    <div class="row mt-0 pt-0 mx-1">
+                        <div class="col-sm-12 col-md-12 col-lg-12 m-0 p-0">
+                            <div class="container-fluid p-0 h-100">
+                                <textarea class="form-control form-control-lg rounded-0" id="txtDescricao" name="descricao" style="text-align: justify;"><?php echo ($descricao) ?></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
+    </div>
+    </form>
 
 
     </div>

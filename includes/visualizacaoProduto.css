@@ -46,13 +46,13 @@
 }
 
 .btn:hover{
-    border-color: #027CE9 !important;
+    border-color: #027CE9;
     
 }
 
 .container-fluid.mae{
     background-color:rgb(240, 240, 240) !important;
-    border: 2px solid rgb(230, 230, 230);
+    border: 2px solid rgb(220, 220, 220) !important;
     /*border-radius: 12px;*/
 }
 

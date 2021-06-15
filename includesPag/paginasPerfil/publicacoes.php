@@ -59,7 +59,14 @@ use App\money_format;
                                                                     </div>
                                                                 </div>-->
                                 <div class="card-body">
-                                    <h4 cklass="card-title card-title-usuario text-white"><?php echo ($titulo); ?></h4>
+                                    <h4 cklass="card-title card-title-usuario text-white"><?php if (strlen($titulo) > 12) {
+                                                                                $tituloArray = str_split($titulo);
+                                                                                for ($i = 0; $i < 12; $i++) {
+                                                                                    echo ($tituloArray[$i]);
+                                                                                }
+                                                                            } else {
+                                                                                echo ($titulo);
+                                                                            } ?></h4>
                                     <?php setlocale(LC_MONETARY, 'pt_BR.UTF8');
                                     $money = new money_format();
                                     ?>

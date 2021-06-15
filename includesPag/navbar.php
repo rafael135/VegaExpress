@@ -21,6 +21,7 @@
 
     <script src="JQuery 3.6.0/jquery-3.6.0.min.js"></script>
     <script src="https://kit.fontawesome.com/e19fb67a3c.js" crossorigin="anonymous"></script>
+    <!--<link href="UIcons/css/uicons-regular-straight.css" rel="stylesheet">-->
 
 
 
