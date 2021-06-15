@@ -31,6 +31,13 @@
             $filtroPreco = $_POST['selectFiltrarPreco'];
         }
 
-        header("Location: ../pesquisa.php?txtPesquisa=$pesquisarTxt&frete=$frete&condicaoProduto=$condicaoProduto&filtro=$filtro&filtroPreco=$filtroPreco&precoMin=$precoMin&precoMax=$precoMax");
+        $paginaAtual = 0;
+        if(isset($_POST['paginaAtual'])){
+            $paginaAtual = intval($_POST['paginaAtual']);
+        }
+
+
+
+        header("Location: ../pesquisa.php?txtPesquisa=$pesquisarTxt&frete=$frete&condicaoProduto=$condicaoProduto&filtro=$filtro&filtroPreco=$filtroPreco&precoMin=$precoMin&precoMax=$precoMax&paginaAtual=$paginaAtual");
     }
 ?>

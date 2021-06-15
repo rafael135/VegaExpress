@@ -98,7 +98,7 @@ use App\money_format;
                     <div class="container-fluid p-0 m-0">
                         <div class="row mx-auto justify-content-center">
                             <div class="col-1">
-                                <a class="expand-btn text-center w-100" href="index.php?pag=<?php echo ($pag); ?>"><span id="expand-icon" class="material-icons blue text-center d-flex justify-content-center" style="font-size: 64px;">expand_more</span></a>
+                                <a class="expand-btn text-center w-100" href="pesquisa.php?txtPesquisa=&frete=&condicaoProduto=0&filtro=4&filtroPreco=1&precoMin=0&precoMax=0"><span id="expand-icon" class="material-icons blue text-center d-flex justify-content-center" style="font-size: 64px;">expand_more</span></a>
                             </div>
                         </div>
                     </div>
@@ -107,3 +107,4 @@ use App\money_format;
         </div>
     </div>
 </div>
+<!--index.php?pag=<?php echo ($pag); ?>-->

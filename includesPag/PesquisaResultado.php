@@ -5,8 +5,13 @@
 
     <?php
 
+    use App\Database;
     use App\money_format;
     use App\Produto;
+
+    $obDb = new Database("produtos");
+    $countProdutosBD = count($obDb->select(null, null, null, '*'));
+    $paginaAtual = 0;
 
     if ($_GET) {
         $txt = $_GET['txtPesquisa'];
@@ -25,7 +30,6 @@
 
         if ($_GET['precoMin'] != null) {
             $precoMin = floatval($_GET['precoMin']);
-            
         } else {
             $precoMin = 0;
         }
@@ -36,13 +40,23 @@
             $precoMax = 0;
         }
 
+        
+        if (isset($_GET['paginaAtual'])) {
+            $paginaAtual = intval($_GET['paginaAtual']);
+            if($paginaAtual == 0){
+                $paginaAtual = 1;
+            }
+        }
+
 
 
         $pesquisar = new Produto();
 
         $money = new money_format();
 
-        $resultado = $pesquisar->getProdutos($txt, $frete, $condicaoProduto, $precoMin, $precoMax, $filtro, $filtroPreco);
+        $resultado = $pesquisar->getProdutos($txt, $frete, $condicaoProduto, $precoMin, $precoMax, $filtro, $filtroPreco, $paginaAtual);
+
+        
 
         //var_dump($resultado);
     }
@@ -82,10 +96,10 @@
     </script>
 
     <!--Coluna 1-->
-    <div class="container-fluid m-0 p-0 mx-2 ms-0 text-center pt-0">
+    <div class="container-fluid m-0 p-0 pe-2 pb-2 mx-2 ms-0 text-center pt-0">
         <div class="row gx-0">
             <div class="col-lg-3 pe-lg-0">
-                <div class="container-fluid container-search min-vh-100 p-0 m-0 p-2 border border-2">
+                <div class="container-fluid container-search p-0 m-0 p-2 border border-2">
                     <p class="text-start">Filtros:</p>
                     <form class="mb-2" method="POST" action="ActionPHP/pesquisarPub.php">
                         <div class="row">
@@ -98,7 +112,9 @@
                             </div>
 
                             <div class="col-sm-12 col-md-4 col-lg-3 mb-3 ps-md-0 ps-lg-0">
-                                <button type="submit" class="btn btn-pub text-center rounded-0 w-100 h-100">E</button>
+                                <button type="submit" class="btn btn-paginaPesquisa-svg text-center rounded-0 w-100 h-100">
+                                    <img class="svg svg-btn" src="UIcons/svg/fi-rs-search.svg" title="">
+                                </button>
                             </div>
 
 
@@ -307,6 +323,8 @@
                                     </div>
                                 </div>
 
+                                <input name="paginaAtual" hidden value="<?php echo ($paginaAtual); ?>">
+
                             </div>
                         </div>
                     </form>
@@ -315,19 +333,24 @@
             </div>
 
             <!--Coluna 2-->
-            <div class="col-lg-9 p-0 m-0">
-                <div class="container-fluid container-resultado p-0 m-0">
+            <div class="col-lg-9">
+                <div class="container-fluid container-resultado p-0 m-0 p-1">
                     <div class="row mx-sm-auto mx-md-auto gx-0">
 
+                    <?php $contador = count($resultado); ?>
                         <?php
                         if ($resultado != false) {
+
+                            
+
+                            //var_dump($contador);
 
 
                             foreach ($resultado as $produto) {
                                 $idProduto = $produto['idProduto'];
                                 $idAutor = $produto['idAutor'];
                                 $titulo = $produto['titulo'];
-                                $preco = $produto['preco'];
+                                $preco = floatval($produto['preco']);
                                 $img = $produto['imagens'];
                                 $img = explode(" ", $img);
                                 $destinoImg = "";
@@ -336,27 +359,32 @@
                                 } else {
                                     $destinoImg = "img/imgPadraoProduto.png";
                                 }
-                        ?>
-                                <div class="col-sm-4 col-md-3 col-lg-2 pt-2 mx-sm-auto mx-md-auto justify-content-sm-center align-items-sm-center">
-                                    <a href="produto.php?id=<?php echo ($idProduto) ?>" title="<?php echo ($titulo) ?>">
-                                        <div class="card card-resultado mx-sm-auto mx-md-auto mb-4">
-                                            <img src="<?php echo ($destinoImg); ?>" class="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title card-resultado"><?php if (strlen($titulo) > 12) {
-                                                                                            $tituloArray = str_split($titulo);
-                                                                                            for ($i = 0; $i < 12; $i++) {
-                                                                                                echo ($tituloArray[$i]);
-                                                                                            }
-                                                                                        } else {
-                                                                                            echo ($titulo);
-                                                                                        } ?></h5>
-                                                <p class="card-text card-resultado"><?php echo ($money->money_format("%.2n", $preco)); ?></p>
 
+
+
+                                if ($preco >= $precoMin && $preco <= $precoMax || $precoMax <= 0) {
+                        ?>
+                                    <div class="col-12 pt-2 mx-sm-auto mx-md-auto justify-content-sm-center align-items-sm-center">
+                                        <a href="produto.php?id=<?php echo ($idProduto) ?>" title="<?php echo ($titulo) ?>">
+                                            <div class="card card-resultado mx-sm-auto mx-md-auto mx-lg-3 mb-1">
+                                                <img src="<?php echo ($destinoImg); ?>" class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title card-resultado text-start"><?php if (strlen($titulo) > 12) {
+                                                                                                $tituloArray = str_split($titulo);
+                                                                                                for ($i = 0; $i < 24; $i++) {
+                                                                                                    echo ($tituloArray[$i]);
+                                                                                                }
+                                                                                            } else {
+                                                                                                echo ($titulo);
+                                                                                            } ?></h5>
+                                                    <p class="card-text card-resultado text-success text-start"><?php echo ($money->money_format("%.2n", $preco)); ?></p>
+
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
+                                        </a>
+                                    </div>
                             <?php
+                                }
                             }
                         } else {
                             ?>
@@ -373,6 +401,54 @@
                         }
                         ?>
                     </div>
+                </div>
+                <?php
+                    $parametros = $_SERVER['QUERY_STRING'];
+ 
+                    $UrlAtual = '?' . $parametros;
+ 
+                    //echo $UrlAtual;
+                ?>
+                <div class="container-fluid p-0 m-0 mt-2">
+                    <nav aria-label="Página">
+                        <ul class="pagination pagination-lg justify-content-center">
+                            <?php
+                                $condicaoAnterior = ($paginaAtual - 1) <= 0;
+                                $condicaoProximo = ($contador + 20) > $countProdutosBD;
+                                
+                                //var_dump($condicaoProximo);
+                                
+
+                                if(str_contains($UrlAtual, "paginaAtual=")){
+                                    $posicao = strpos($UrlAtual ,"paginaAtual=");
+                                    //$UrlAtual = substr($UrlAtual, 0, $posicao + 12);
+                                    //$posicao = substr($UrlAtual, $posicao, $posicao + 12);
+                                    if($paginaAtual <= 0){
+                                        $paginaAnterior = 0;
+                                    }else{
+                                        $paginaAnterior = $paginaAtual - 1;
+                                    }
+                                    
+                                    if($paginaAnterior <= 0){
+                                        $UrlPagAnterior = "pesquisa.php" . substr($UrlAtual, 0, $posicao) . "paginaAtual=0";
+                                    }else{
+                                        $UrlPagAnterior = "pesquisa.php" . substr($UrlAtual, 0, $posicao) . str_replace($UrlAtual, "paginaAtual=", "paginaAtual=$paginaAnterior");
+                                    }
+                                    
+
+                                    $proxPagina = $paginaAtual + 1;
+                                    
+                                    $urlProxPagina = "pesquisa.php" . substr($UrlAtual, 0, $posicao) . str_replace($UrlAtual, "paginaAtual=", "paginaAtual=$proxPagina");
+                                }
+                            ?>
+
+                            
+                            <li class="page-item <?php if($condicaoAnterior == true){ echo("disabled"); } ?>"><a class="page-link" <?php if($condicaoAnterior == true){ echo("tabindex='-1' aria-disabled='true'"); } ?> href="<?php echo($UrlPagAnterior); ?>"><?php if($condicaoAnterior == true){ echo("..."); }else{ echo($paginaAtual - 1); } ?> </a></li>
+                            <li class="page-item active"><a class="page-link" href="pesquisa.php<?php echo($UrlAtual); ?>"><?php echo($paginaAtual); ?></a></li>
+                            <li class="page-item <?php if($condicaoProximo != true){ echo("disabled"); } ?>"><a class="page-link" <?php if($condicaoProximo != true){ echo("tabindex='-1' aria-disabled='true'"); } ?> href="<?php echo($urlProxPagina); ?>"><?php if($condicaoProximo != true){ echo("..."); }else{ echo($paginaAtual + 1); } ?></a></li>
+                            
+                        </ul>
+                    </nav>
                 </div>
             </div>
 

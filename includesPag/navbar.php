@@ -149,7 +149,7 @@
                             }
                             ?>
                             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasUsuario" aria-labelledby="offcanvasUsuarioLabel">
-                                <div class="offcanvas-header offcanvas-user p-1">
+                                <div class="offcanvas-header offcanvas-user p-0">
 
                                     <div class="card w-100 card-Usr">
 
@@ -214,7 +214,7 @@
                                     <!--<h5 class="offcanvas-title" id="offcanvasUsuarioLabel">Offcanvas with backdrop</h5>-->
                                     <!---->
                                 </div>
-                                <div class="offcanvas-body offcanvas-UOptions p-1">
+                                <div class="offcanvas-body offcanvas-UOptions p-0">
 
                                     <ul class="nav nav-flush flex-column mb-auto">
                                         <?php
@@ -224,7 +224,7 @@
 
                                         ?>
 
-                                            <li class="nav-item userOption mb-1" id="userConfig">
+                                            <li class="nav-item userOption mb-0" id="userConfig">
                                                 <a class="nav-link nav-userOpt btn-group w-100" href="perfil.php">
                                                     <div class="row">
                                                         <div class="col-2">
@@ -243,7 +243,7 @@
                                                 </a>
                                             </li>
 
-                                            <li class="nav-item userOption mb-1" id="userLogout">
+                                            <li class="nav-item userOption mb-0" id="userLogout">
                                                 <a class="nav-link nav-userOpt w-100" href="actionPHP/logout.php?id=<?php echo ($_SESSION['idUsuario']); ?>">
                                                     <div class="row">
                                                         <div class="col-2">

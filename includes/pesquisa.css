@@ -8,6 +8,8 @@
 .container-fluid.container-search{
     background-color: rgba(252, 252, 252, 0.904) !important;
     border: 1px solid rgb(235, 235, 235) !important;
+    
+    
 }
 
 .container-fluid.border-produto{
@@ -43,8 +45,27 @@
 
 .container-fluid.container-resultado{
     background-color: rgba(245, 245, 245, 0.904) !important;
+    border: 2px solid rgb(225, 225, 225) !important;
 }
 
+
+.card.card-resultado{
+    flex-direction: row !important;
+}
+
+.card.card-resultado > img{
+    width: 30% !important;
+}
+
+.card-title.card-resultado{
+    font-size: 36px !important;
+}
+
+
+
+
+
+/*
 .card.card-resultado{
     height: 12rem !important;
     width: 12rem !important;
@@ -123,3 +144,4 @@
         font-size: 0.7rem !important;
     }
 }
+*/

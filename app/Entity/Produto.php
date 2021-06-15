@@ -4,7 +4,6 @@ namespace App;
 
 require_once(__DIR__ . "/../../vendor/autoload.php");
 
-
 use App\Database;
 
 class Produto
@@ -80,7 +79,7 @@ class Produto
         return true;
     }
 
-    public function getProdutos($pesquisa = null, $frete = null, $condicao = null, $precoMin = null, $precoMax = null, $filtro = null, $filtroPreco = null)
+    public function getProdutos($pesquisa = null, $frete = null, $condicao = null, $precoMin = null, $precoMax = null, $filtro = null, $filtroPreco = null, $pagina = null)
     {
         $obDb = new Database("produtos");
 
@@ -145,13 +144,25 @@ class Produto
         }
 
         //var_dump("$wherePreco titulo like '%$pesquisa%' OR descricao like '%$pesquisa%' AND frete = $frete AND condicao = $condicao");
+        $paginaAnt = 0;
+        $proxPag = 0;
+        $limit = "";
+        
+        if($pagina != null){
+            $paginaAnt = (($pagina) * 20) - 20;
+            if($paginaAnt < 0){
+                $paginaAnt = 0;
+            }
+            $proxPag = ($pagina) * 20;
 
-
+            $limit = "$paginaAnt, $proxPag";
+            //var_dump($limit);
+        }
 
         
 
 
-        $result = $obDb->select("$wherePreco titulo like '%$pesquisa%' OR descricao like '%$pesquisa%' AND frete = $frete AND condicao = $condicao", $filtroDefinitivo);
+        $result = $obDb->select("$wherePreco titulo like '%$pesquisa%' OR descricao like '%$pesquisa%' AND frete = $frete AND condicao = $condicao", $filtroDefinitivo, $limit);
 
         return $result;
     }
