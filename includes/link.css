@@ -529,3 +529,8 @@ input:focus{
     border-bottom: thin solid rgb(235, 235, 235);
     
 }
+
+.btn-pesquisa-submit{
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}

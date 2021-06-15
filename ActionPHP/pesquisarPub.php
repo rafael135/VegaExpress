@@ -16,11 +16,21 @@
             $filtro = $_POST['selectFiltrar'];
         }
 
+        $precoMin = $_POST['precoMin'];
+        $precoMax = $_POST['precoMax'];
+
+        if($precoMin == ""){
+            $precoMin = 0;
+        }
+        if($precoMax == ""){
+            $precoMax = 0;
+        }
+
         $filtroPreco = 0;
         if(isset($_POST['selectFiltrarPreco'])){
             $filtroPreco = $_POST['selectFiltrarPreco'];
         }
 
-        header("Location: ../pesquisa.php?txtPesquisa=$pesquisarTxt&frete=$frete&condicaoProduto=$condicaoProduto&filtro=$filtro&filtroPreco=$filtroPreco");
+        header("Location: ../pesquisa.php?txtPesquisa=$pesquisarTxt&frete=$frete&condicaoProduto=$condicaoProduto&filtro=$filtro&filtroPreco=$filtroPreco&precoMin=$precoMin&precoMax=$precoMax");
     }
 ?>

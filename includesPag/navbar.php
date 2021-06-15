@@ -195,16 +195,16 @@
                                                                                                     echo ("text-danger");
                                                                                                 }
                                                                                             } ?>"><?php
-                                                                                        if (!isset($_SESSION['idUsuario'])) {
-                                                                                        } else {
+                                                                                                    if (!isset($_SESSION['idUsuario'])) {
+                                                                                                    } else {
 
-                                                                                            if ($verificado == false) {
-                                                                                                echo ("Conta não verificada!");
-                                                                                            } else {
-                                                                                                echo ("Conta verificada");
-                                                                                            }
-                                                                                        }
-                                                                                        ?></p>
+                                                                                                        if ($verificado == false) {
+                                                                                                            echo ("Conta não verificada!");
+                                                                                                        } else {
+                                                                                                            echo ("Conta verificada");
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?></p>
                                         </div>
 
 
@@ -278,7 +278,7 @@
 
                             </div>
 
-                            <script src="../ActionsJS/dropdownButtonsAnim.js"></script>
+                            <!--<script src="../ActionsJS/dropdownButtonsAnim.js"></script>-->
 
                         </div>
                     </li>

@@ -17,17 +17,32 @@
             $frete = 0;
         }
         $condicaoProduto = intval($_GET['condicaoProduto']);
-        
+
 
         $filtro = intval($_GET['filtro']);
 
         $filtroPreco = intval($_GET['filtroPreco']);
 
+        if ($_GET['precoMin'] != null) {
+            $precoMin = floatval($_GET['precoMin']);
+            
+        } else {
+            $precoMin = 0;
+        }
+
+        if ($_GET['precoMax'] != null) {
+            $precoMax = floatval($_GET['precoMax']);
+        } else {
+            $precoMax = 0;
+        }
+
+
+
         $pesquisar = new Produto();
 
         $money = new money_format();
 
-        $resultado = $pesquisar->getProdutos($txt, $frete, $condicaoProduto, $filtro, $filtroPreco);
+        $resultado = $pesquisar->getProdutos($txt, $frete, $condicaoProduto, $precoMin, $precoMax, $filtro, $filtroPreco);
 
         //var_dump($resultado);
     }
@@ -73,9 +88,20 @@
                 <div class="container-fluid container-search min-vh-100 p-0 m-0 p-2 border border-2">
                     <p class="text-start">Filtros:</p>
                     <form class="mb-2" method="POST" action="ActionPHP/pesquisarPub.php">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-2" id="txtPesquisa" name="txtPesquisa" placeholder="Pesquisa" value="<?php echo ($txt); ?>">
-                            <label for="txtPesquisa">Pesquisa</label>
+                        <div class="row">
+
+                            <div class="col-sm-12 col-md-8 col-lg-9 pe-md-0 pe-lg-0">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control rounded-2 btn-pesquisa-submit" id="txtPesquisa" name="txtPesquisa" placeholder="Pesquisa" value="<?php echo ($txt); ?>">
+                                    <label for="txtPesquisa">Pesquisa</label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-4 col-lg-3 mb-3 ps-md-0 ps-lg-0">
+                                <button type="submit" class="btn btn-pub text-center rounded-0 w-100 h-100">E</button>
+                            </div>
+
+
                         </div>
 
                         <div class="row justify-content-center align-items-center pt-3">
@@ -251,8 +277,8 @@
                             </div>
 
                             <div class="collapse mt-0 mb-0" id="collapsePreco">
-                                <div class="container-fluid container-search text-blue p-2 m-0">
-                                    <div class="form-floating rounded-0">
+                                <div class="container-fluid container-search p-2 m-0">
+                                    <div class="form-floating rounded-0 pb-3">
                                         <select class="form-select border border-1 rounded-0" id="selectFiltrarPreco" name="selectFiltrarPreco" aria-label="Filtrar por">
                                             <option value="1" <?php if ($filtroPreco == 1) {
                                                                     echo ("selected");
@@ -262,6 +288,22 @@
                                                                 } ?>>Preço crescente</option>
                                         </select>
                                         <label class="form-label" for="selectFiltrarPreco">Filtrar por</label>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-lg-6">
+                                            <div class="form-floating mb-3">
+                                                <input type="number" class="form-control rounded-2" id="precoMin" name="precoMin" placeholder="Preço Mínimo" value="<?php echo ($precoMin); ?>">
+                                                <label for="precoMin">Preço Mínimo</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="form-floating">
+                                                <input type="number" class="form-control rounded-2" id="precoMax" name="precoMax" placeholder="Preço Máximo" value="<?php echo ($precoMax); ?>">
+                                                <label for="precoMax">Preço Máximo</label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -341,7 +383,7 @@
         </div>
     </div>
 
-    <script src="js/bootstrap.bundle.js"></script>
+
 
 </body>
 

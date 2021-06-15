@@ -80,7 +80,7 @@ class Produto
         return true;
     }
 
-    public function getProdutos($pesquisa = null, $frete = null, $condicao = null, $filtro = null, $filtroPreco = null)
+    public function getProdutos($pesquisa = null, $frete = null, $condicao = null, $precoMin = null, $precoMax = null, $filtro = null, $filtroPreco = null)
     {
         $obDb = new Database("produtos");
 
@@ -134,10 +134,24 @@ class Produto
             $filtroDefinitivo = null;
         }
 
+        $wherePreco = "";
+
+        if($precoMin != "" && $precoMax != ""){
+            $wherePreco .= "preco BETWEEN $precoMin AND $precoMax OR";
+        }elseif($precoMin != ""){
+            $wherePreco .= "preco > $precoMin OR";
+        }elseif($precoMax != ""){
+            $wherePreco .= "preco < $precoMax OR";
+        }
+
+        //var_dump("$wherePreco titulo like '%$pesquisa%' OR descricao like '%$pesquisa%' AND frete = $frete AND condicao = $condicao");
+
+
+
         
 
 
-        $result = $obDb->select("titulo like '%$pesquisa%' OR descricao like '%$pesquisa%' AND frete = $frete AND condicao = $condicao", $filtroDefinitivo);
+        $result = $obDb->select("$wherePreco titulo like '%$pesquisa%' OR descricao like '%$pesquisa%' AND frete = $frete AND condicao = $condicao", $filtroDefinitivo);
 
         return $result;
     }
