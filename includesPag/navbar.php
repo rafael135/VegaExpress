@@ -84,118 +84,108 @@
     ?>
 
 
-
-    <!-- "navbar" declara o nav como uma navbar para o Bootstrap, "navbar-expand-lg" é para os componentes da navbar aparecerem apenas quando a tela for maior que (720p) -->
-    <!-- "navbar-dark" e "bg-dark" são os temas da navbar, "shadow-sm" é para adicionar uma pequena sombra, e "mb-1" é para adicionar um espaçamento abaixo da Navbar para separar dos outros componentes -->
-    <nav class="navbar navbar-expand navbar-light bg-light">
-        <!-- "container-fluid" é um container que ocupa a tela inteira na horizontal, "align-items-center" é para alinhar os componentes no centro -->
-        <div class="container-fluid">
-            <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="btn border border-1 rounded rounded-3 bg-light h-100 w-100" title="Sobre nós" href="sobreN.php"><span class="text-center material-icons blue m-1" style="font-size:32px;">info</span></a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
+            <a class="navbar-brand" href="index.php">
+                <img class="ms-lg-3" src="img/LogoTCC_Final.png" height="40">
+            </a>
+            <button class="navbar-toggler ms-md-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item mx-lg-1 mt-md-3 mt-lg-0">
+                        <a class="nav-link p-0" href="#"><a class="btn border border-1 rounded rounded-3 bg-light w-100" title="Sobre nós" href="sobreN.php"><span class="text-center material-icons blue m-1" style="font-size:32px;">info</span></a></a>
                     </li>
-                </ul>
-            </div>
-
-            <div class="mx-auto order-0">
-                <a class="navbar-brand mx-auto" href="index.php"><img src="img/LogoTCC_Final.png" height="40"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".dual-collapse2">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-
-            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-                <ul class="navbar-nav ms-auto">
-                    <li class="border-0 nav-item">
-                        <a class="btn border border-1 rounded rounded-3 h-100 w-100" title="Carrinho" href="carrinho.php"><span class="text-center material-icons blue m-1" style="font-size:32px;">shopping_cart</span></a>
+                    <li class="nav-item mx-lg-1">
+                        <a class="nav-link p-0" href="#"><a class="btn border border-1 rounded rounded-3 w-100" title="Carrinho" href="carrinho.php"><span class="text-center material-icons blue m-1" style="font-size:32px;">shopping_cart</span></a></a>
                     </li>
-
-                    <li class="border-0 nav-item">
-                        <div class="btn-group dropstart mx-3">
-                            <a class="btn border-1 rounded rounded-3 justify-content-center align-content-center bg-light text-white" id="menu-user" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUsuario" aria-controls="offcanvasUsuario">
+                    <li class="nav-item mx-lg-1 me-lg-3">
+                        <a class="nav-link p-0" href="#">
+                            <div class="btn-group dropstart w-100">
+                                <a class="btn border-1 rounded rounded-3 w-100 justify-content-center align-content-center bg-light text-white" id="menu-user" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUsuario" aria-controls="offcanvasUsuario">
+                                    <?php
+                                    if (PHP_SESSION_ACTIVE) {
+                                    } else {
+                                        session_start();
+                                    }
+                                    if (isset($_SESSION['idUsuario'])) {
+                                    ?>
+                                        <span class="text-center material-icons blue m-1" style="font-size:32px;" id="menuUser">account_circle</span>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <span class="text-center material-icons red m-1" style="font-size:32px;" id="menuUser">account_circle</span>
+                                    <?php
+                                    }
+                                    ?>
+                                </a>
                                 <?php
                                 if (PHP_SESSION_ACTIVE) {
                                 } else {
                                     session_start();
                                 }
                                 if (isset($_SESSION['idUsuario'])) {
-                                ?>
-                                    <span class="text-center material-icons blue m-1" style="font-size:32px;" id="menuUser">account_circle</span>
-                                <?php
+                                    $nomeUsuario = $_SESSION['nomeUsuario'];
                                 } else {
-                                ?>
-                                    <span class="text-center material-icons red m-1" style="font-size:32px;" id="menuUser">account_circle</span>
-                                <?php
+                                    $nomeUsuario = "Faça login!";
+                                }
+                                if (isset($_SESSION['idUsuario'])) {
+                                    $idUsr = $_SESSION['idUsuario'];
+                                    $user = new Usuario();
+                                    $imgPerfil = $user->getDados("id = $idUsr", "imgPerfil");
+                                    $imgPerfil = $imgPerfil[0]['imgPerfil'];
+                                    $destino = "UsrImg/" . $idUsr . "/fotoPerfil/" . $imgPerfil;
                                 }
                                 ?>
-                            </a>
-                            <?php
-                            if (PHP_SESSION_ACTIVE) {
-                            } else {
-                                session_start();
-                            }
-                            if (isset($_SESSION['idUsuario'])) {
-                                $nomeUsuario = $_SESSION['nomeUsuario'];
-                            } else {
-                                $nomeUsuario = "Faça login!";
-                            }
-                            if (isset($_SESSION['idUsuario'])) {
-                                $idUsr = $_SESSION['idUsuario'];
-                                $user = new Usuario();
-                                $imgPerfil = $user->getDados("id = $idUsr", "imgPerfil");
-                                $imgPerfil = $imgPerfil[0]['imgPerfil'];
-                                $destino = "UsrImg/" . $idUsr . "/fotoPerfil/" . $imgPerfil;
-                            }
-                            ?>
-                            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasUsuario" aria-labelledby="offcanvasUsuarioLabel">
-                                <div class="offcanvas-header offcanvas-user p-0">
+                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasUsuario" aria-labelledby="offcanvasUsuarioLabel">
+                                    <div class="offcanvas-header offcanvas-user p-0">
 
-                                    <div class="card w-100 card-Usr">
+                                        <div class="card w-100 card-Usr">
 
 
-                                        <div class="container-fluid container-imgUsr p-0 m-0 p-2">
-                                            <div class="row justify-content-center align-content-center align-items-center">
+                                            <div class="container-fluid container-imgUsr p-0 m-0 p-2">
+                                                <div class="row justify-content-center align-content-center align-items-center">
 
-                                                <button type="button" class="btn-close-custom text-end m-0 p-0 position-absolute end-0 top-0" data-bs-dismiss="offcanvas" aria-label="Close"><span class="material-icons" style="font-size:24px;">close</span></button>
+                                                    <button type="button" class="btn-close-custom text-end m-0 p-0 position-absolute end-0 top-0" data-bs-dismiss="offcanvas" aria-label="Close"><span class="material-icons" style="font-size:24px;">close</span></button>
 
 
-                                                <?php
-                                                if (!isset($imgPerfil) || $imgPerfil == "0") {
-                                                ?>
-                                                    <img src="<?php echo ("img/imgPadraoUser.svg"); ?>" class="card-img svg rounded rounded-circle <?php if ($logado == true) {
-                                                                                                                                                        echo ("svg-navbar-userLogin");
-                                                                                                                                                    } else {
-                                                                                                                                                        echo ("svg-navbar-userNoLogin");
-                                                                                                                                                    } ?>">
-                                                <?php
-                                                } else {
+                                                    <?php
+                                                    if (!isset($imgPerfil) || $imgPerfil == "0") {
+                                                    ?>
+                                                        <img src="<?php echo ("img/imgPadraoUser.svg"); ?>" class="card-img svg rounded rounded-circle <?php if ($logado == true) {
+                                                                                                                                                            echo ("svg-navbar-userLogin");
+                                                                                                                                                        } else {
+                                                                                                                                                            echo ("svg-navbar-userNoLogin");
+                                                                                                                                                        } ?>">
+                                                    <?php
+                                                    } else {
 
-                                                ?>
+                                                    ?>
 
-                                                    <img class="card-img rounded rounded-circle m-0 p-0 border-0" src="<?php if (isset($imgPerfil) && $imgPerfil != "0") {
-                                                                                                                            echo ($destino);
-                                                                                                                        } else {
-                                                                                                                            echo ("");
-                                                                                                                        }
-                                                                                                                        ?>" alt="">
+                                                        <img class="card-img rounded rounded-circle m-0 p-0 border-0" src="<?php if (isset($imgPerfil) && $imgPerfil != "0") {
+                                                                                                                                echo ($destino);
+                                                                                                                            } else {
+                                                                                                                                echo ("");
+                                                                                                                            }
+                                                                                                                            ?>" alt="">
 
-                                                <?php } ?>
+                                                    <?php } ?>
+                                                </div>
                                             </div>
-                                        </div>
 
 
 
 
-                                        <div class="card-body m-0">
-                                            <h4 class="card-title text-center"><?php echo ($nomeUsuario); ?></h4>
-                                            <p class="card-text text-center fw-bold fs-6 <?php if (!isset($verificado)) {
-                                                                                                echo ("text-danger");
-                                                                                            } else {
-                                                                                                if ($verificado == false) {
+                                            <div class="card-body m-0">
+                                                <h4 class="card-title text-center"><?php echo ($nomeUsuario); ?></h4>
+                                                <p class="card-text text-center fw-bold fs-6 <?php if (!isset($verificado)) {
                                                                                                     echo ("text-danger");
-                                                                                                }
-                                                                                            } ?>"><?php
+                                                                                                } else {
+                                                                                                    if ($verificado == false) {
+                                                                                                        echo ("text-danger");
+                                                                                                    }
+                                                                                                } ?>"><?php
                                                                                                     if (!isset($_SESSION['idUsuario'])) {
                                                                                                     } else {
 
@@ -206,84 +196,86 @@
                                                                                                         }
                                                                                                     }
                                                                                                     ?></p>
+                                            </div>
+
+
                                         </div>
 
+                                        <!--<h5 class="offcanvas-title" id="offcanvasUsuarioLabel">Offcanvas with backdrop</h5>-->
+                                        <!---->
+                                    </div>
+                                    <div class="offcanvas-body offcanvas-UOptions p-0">
 
+                                        <ul class="nav nav-flush flex-column mb-auto">
+                                            <?php
+
+
+                                            if (isset($_SESSION['idUsuario']) == true) {
+
+                                            ?>
+
+                                                <li class="nav-item userOption mb-0" id="userConfig">
+                                                    <a class="nav-link nav-userOpt btn-group w-100" href="perfil.php">
+                                                        <div class="row">
+                                                            <div class="col-2">
+                                                                <button type="button" class="btn h-100 text-center w-100 btn-clean">
+                                                                    <span class="material-icons m-1 blue text-center">
+                                                                        settings
+                                                                    </span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="col-10">
+                                                                <button type="button" class="btn h-100 text-start w-100 btn-clean">
+                                                                    Configurações
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+
+                                                <li class="nav-item userOption mb-0" id="userLogout">
+                                                    <a class="nav-link nav-userOpt w-100" href="actionPHP/logout.php?id=<?php echo ($_SESSION['idUsuario']); ?>">
+                                                        <div class="row">
+                                                            <div class="col-2">
+                                                                <button type="button" class="btn h-100 text-center w-100 btn-clean">
+                                                                    <span class="material-icons icon blue text-center">
+                                                                        logout
+                                                                    </span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="col-10">
+                                                                <button type="button" class="btn h-100 text-start w-100 btn-clean">
+                                                                    Sair
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            <?php
+                                            } else {
+                                            ?>
+                                                <li class="nav-item userOption" id="userLogin">
+                                                    <a class="nav-link nav-userOpt w-100" href="registroEmpresa.php">
+                                                        <i class="fas fa-sign-in-alt"></i> Entrar
+                                                    </a>
+                                                </li>
+                                            <?php
+                                            }
+                                            ?>
+                                        </ul>
                                     </div>
 
-                                    <!--<h5 class="offcanvas-title" id="offcanvasUsuarioLabel">Offcanvas with backdrop</h5>-->
-                                    <!---->
-                                </div>
-                                <div class="offcanvas-body offcanvas-UOptions p-0">
-
-                                    <ul class="nav nav-flush flex-column mb-auto">
-                                        <?php
 
 
-                                        if (isset($_SESSION['idUsuario']) == true) {
-
-                                        ?>
-
-                                            <li class="nav-item userOption mb-0" id="userConfig">
-                                                <a class="nav-link nav-userOpt btn-group w-100" href="perfil.php">
-                                                    <div class="row">
-                                                        <div class="col-2">
-                                                            <button type="button" class="btn h-100 text-center w-100 btn-clean">
-                                                                <span class="material-icons m-1 blue text-center">
-                                                                    settings
-                                                                </span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="col-10">
-                                                            <button type="button" class="btn h-100 text-start w-100 btn-clean">
-                                                                Configurações
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-
-                                            <li class="nav-item userOption mb-0" id="userLogout">
-                                                <a class="nav-link nav-userOpt w-100" href="actionPHP/logout.php?id=<?php echo ($_SESSION['idUsuario']); ?>">
-                                                    <div class="row">
-                                                        <div class="col-2">
-                                                            <button type="button" class="btn h-100 text-center w-100 btn-clean">
-                                                                <span class="material-icons icon blue text-center">
-                                                                    logout
-                                                                </span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="col-10">
-                                                            <button type="button" class="btn h-100 text-start w-100 btn-clean">
-                                                                Sair
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        <?php
-                                        } else {
-                                        ?>
-                                            <li class="nav-item userOption" id="userLogin">
-                                                <a class="nav-link nav-userOpt w-100" href="registroEmpresa.php">
-                                                    <i class="fas fa-sign-in-alt"></i> Entrar
-                                                </a>
-                                            </li>
-                                        <?php
-                                        }
-                                        ?>
-                                    </ul>
                                 </div>
 
-
+                                <!--<script src="../ActionsJS/dropdownButtonsAnim.js"></script>-->
 
                             </div>
-
-                            <!--<script src="../ActionsJS/dropdownButtonsAnim.js"></script>-->
-
-                        </div>
+                        </a>
                     </li>
                 </ul>
+
             </div>
-        </div>
+        
     </nav>

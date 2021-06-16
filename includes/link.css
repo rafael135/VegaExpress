@@ -70,6 +70,15 @@ img.produto {
 	
 }
 
+@media (max-width: 991px) {
+    .container-navbar > .navbar-toggler[aria-expanded="true"]{
+        flex-direction: column;
+    }
+
+    
+}
+
+
 body{
     overflow-x: hidden;
 }
@@ -335,6 +344,8 @@ body{
     font-family: sans-serif;
     /*background-color: #084d6e !important;*/
     background-color: rgba(245, 245, 245, 0.904) !important;
+    /*background: rgb(2,18,233);
+    background: linear-gradient(90deg, rgba(2,18,233,0.9108018207282913) 0%, rgba(2,119,233,0.9248074229691877) 30%, rgba(2,135,233,0.9248074229691877) 43%, rgba(1,186,239,0.9360119047619048) 56%, rgba(1,198,244,0.9192051820728291) 75%, rgba(2,185,233,0.8855917366946778) 100%);*/
 }
 
 .expand-btn{
@@ -560,4 +571,27 @@ input:focus{
     color: rgb(235, 235, 235) !important;
     fill: rgb(235, 235, 235) !important;
     transition: 300ms;
+}
+
+.accordion-body-border{
+    border: thin solid rgb(210, 210, 210);
+}
+
+
+@media (max-width: 991px) {
+    .navbar-brand{
+        position: absolute;
+        top: -60px;
+        left: -60px;
+        visibility: hidden !important;
+        height: 0 !important;
+    }
+
+    .navbar > div > .navbar-collapse.collapse{
+        max-width: 300px !important;
+    }
+
+    .navbar > div > .navbar-collapse.collapsing{
+        max-width: 300px !important;
+    }
 }

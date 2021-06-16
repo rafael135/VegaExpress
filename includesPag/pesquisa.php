@@ -2,7 +2,7 @@
     <div class="row mx-1 mb-2 g-0">
         <div class="col-12 border-0">
 
-            <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion accordion-flush accordion-body-border" id="accordionFlushExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingOne">
 
