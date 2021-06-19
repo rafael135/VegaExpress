@@ -139,6 +139,7 @@ class Database
             //var_dump($query);
 
         //Executa a Query
+        
         return $this->executar($query);
     }
 

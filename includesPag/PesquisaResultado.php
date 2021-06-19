@@ -10,7 +10,7 @@
     use App\Produto;
 
     $obDb = new Database("produtos");
-    $countProdutosBD = count($obDb->select(null, null, null, '*'));
+    
     $paginaAtual = 0;
 
     if ($_GET) {
@@ -56,7 +56,7 @@
 
         $resultado = $pesquisar->getProdutos($txt, $frete, $condicaoProduto, $precoMin, $precoMax, $filtro, $filtroPreco, $paginaAtual);
 
-
+        $countProdutosBD = intval($_SESSION['quantidadeProdutosPesquisa']);
 
         //var_dump($resultado);
     }
@@ -96,7 +96,7 @@
     </script>
 
     <!--Coluna 1-->
-    <div class="container-fluid m-0 p-0 pe-2 pb-2 mx-2 ms-0 text-center pt-0">
+    <div class="container-fluid m-0 px-0 text-center pt-0">
         <div class="row gx-0">
             <div class="col-lg-3 pe-lg-0">
                 <div class="container-fluid container-search p-0 m-0 p-2 border border-2">
@@ -338,12 +338,12 @@
                     <div class="row mx-sm-auto mx-md-auto gx-0">
                         <?php
 
-                        if($resultado != false){
+                        if ($resultado != false) {
                             $contador = count($resultado);
-                        }else{
+                        } else {
                             $contador = 0;
                         }
-                        
+
 
                         if ($resultado != false) {
 
@@ -370,9 +370,9 @@
 
                                 if ($preco >= $precoMin && $preco <= $precoMax || $precoMax <= 0) {
                         ?>
-                                    <div class="col-12 pt-2 mx-sm-auto mx-md-auto justify-content-sm-center align-items-sm-center">
+                                    <div class="col-sm-12 col-md-12 col-lg-6 pt-2 mx-sm-auto mx-md-auto">
                                         <a href="produto.php?id=<?php echo ($idProduto) ?>" title="<?php echo ($titulo) ?>">
-                                            <div class="card card-resultado mx-sm-auto mx-md-auto mx-lg-3 mb-1">
+                                            <div class="card card-resultado card-resultadoPesquisa mx-sm-auto mx-md-auto mx-lg-3 mb-1">
                                                 <img src="<?php echo ($destinoImg); ?>" class="card-img-top" alt="...">
                                                 <div class="card-body">
                                                     <h5 class="card-title card-resultado text-start"><?php if (strlen($titulo) > 12) {
@@ -398,7 +398,7 @@
 
                                 <div class="col-12">
                                     <div class="container-fluid p-0 pt-2 px-3 m-0 h-100">
-                                        <p class="display-4 fw-bolder text-uppercase text-center">Nenhuma publicação foi encontrada!</p>
+                                        <p class="display-5 fw-bolder text-center">Nada encontrado</p>
                                     </div>
                                 </div>
 
@@ -415,12 +415,18 @@
 
                 //echo $UrlAtual;
                 ?>
-                <div class="container-fluid p-0 m-0 mt-2">
+                <div class="container-fluid container-pagina p-0 m-0">
                     <nav aria-label="Página">
-                        <ul class="pagination pagination-lg justify-content-center">
+                        <ul class="pagination pagination-lg pt-3 justify-content-center">
                             <?php
                             $condicaoAnterior = ($paginaAtual - 1) <= 0;
-                            $condicaoProximo = ($contador + 20) > $countProdutosBD;
+                            $condicaoProximo = $countProdutosBD - ($paginaAtual * 10);
+                            if ($condicaoProximo > 0) {
+                                $condicaoProximo = false;
+                            }
+
+
+                            $condicaoBlock = ($paginaAtual * 10) > $countProdutosBD;
 
                             //var_dump($condicaoProximo);
 
@@ -456,22 +462,22 @@
                             <li class="page-item <?php if ($condicaoAnterior == true) {
                                                         echo ("disabled");
                                                     } ?>"><a class="page-link" <?php if ($condicaoAnterior == true) {
-                                                                                                                                        echo ("tabindex='-1' aria-disabled='true'");
-                                                                                                                                    } ?> href="<?php echo ($UrlPagAnterior); ?>"><?php if ($condicaoAnterior == true) {
-                                                                                                                                                                                                                                                                    echo ("...");
-                                                                                                                                                                                                                                                                } else {
-                                                                                                                                                                                                                                                                    echo ($paginaAtual - 1);
-                                                                                                                                                                                                                                                                } ?> </a></li>
+                                                                                    echo ("tabindex='-1' aria-disabled='true'");
+                                                                                } ?> href="<?php echo ($UrlPagAnterior); ?>"><?php if ($condicaoAnterior == true) {
+                                                                                                                                                                                        echo ("...");
+                                                                                                                                                                                    } else {
+                                                                                                                                                                                        echo ($paginaAtual - 1);
+                                                                                                                                                                                    } ?> </a></li>
                             <li class="page-item active"><a class="page-link" href="pesquisa.php<?php echo ($UrlAtual); ?>"><?php echo ($paginaAtual); ?></a></li>
-                            <li class="page-item <?php if ($condicaoProximo != true) {
+                            <li class="page-item <?php if ($condicaoProximo == true) {
                                                         echo ("disabled");
-                                                    } ?>"><a class="page-link" <?php if ($condicaoProximo != true) {
-                                                                                                                                        echo ("tabindex='-1' aria-disabled='true'");
-                                                                                                                                    } ?> href="<?php echo ($urlProxPagina); ?>"><?php if ($condicaoProximo != true) {
-                                                                                                                                                                                                                                                                    echo ("...");
-                                                                                                                                                                                                                                                                } else {
-                                                                                                                                                                                                                                                                    echo ($paginaAtual + 1);
-                                                                                                                                                                                                                                                                } ?></a></li>
+                                                    } ?>"><a class="page-link" <?php if ($condicaoProximo == true) {
+                                                                                    echo ("tabindex='-1' aria-disabled='true'");
+                                                                                } ?> href="<?php echo ($urlProxPagina); ?>"><?php if ($condicaoProximo == true) {
+                                                                                                                                                                                    echo ("...");
+                                                                                                                                                                                } else {
+                                                                                                                                                                                    echo ($paginaAtual + 1);
+                                                                                                                                                                                } ?></a></li>
 
                         </ul>
                     </nav>

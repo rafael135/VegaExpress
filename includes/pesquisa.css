@@ -6,10 +6,17 @@
 }
 
 .container-fluid.container-search{
-    background-color: rgba(252, 252, 252, 0.904) !important;
+    background-color: rgba(252, 252, 252, 0.904);
+    /*background-color: #636363 !important;*/
     border: 1px solid rgb(235, 235, 235) !important;
     
-    
+}
+
+@media (min-width: 992px){
+    .container-fluid.container-search{
+        /*position: fixed !important;
+        width: inherit !important;*/
+    }
 }
 
 .container-fluid.border-produto{
@@ -45,9 +52,21 @@
 
 .container-fluid.container-resultado{
     /*background-color: rgba(245, 245, 245, 0.904) !important;*/
-    background: rgb(230,230,230);
-    background: linear-gradient(180deg, rgba(233,233,233,1) 0%, rgba(236,236,236,1) 25%, rgba(239,239,239,1) 50%, rgba(242,242,242,1) 75%, rgba(245,245,245,1) 100%);
-    border: thin solid rgb(215,215,215);
+    background: rgba(252, 252, 252, 0.904) !important;
+    /*background-color: #333333 !important;*/
+    border: 1px solid rgb(235, 235, 235) !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    /*background: linear-gradient(180deg, rgba(233,233,233,1) 0%, rgba(236,236,236,1) 25%, rgba(239,239,239,1) 50%, rgba(242,242,242,1) 75%, rgba(245,245,245,1) 100%);
+    border: thin solid rgb(215,215,215);*/
+}
+
+.container-pagina{
+    background: rgba(235, 235, 235) !important;
+    border: 1px solid rgb(220, 220, 220) !important;
+    border-top: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
 }
 
 .card.card-resultado{

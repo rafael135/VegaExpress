@@ -189,7 +189,7 @@
 
 
                             <div class="col-lg-2 offset-lg-4 d-flex justify-content-end align-items-end pe-0">
-                                <button type="button" class="btn btn-svg-delete h-100 w-100" data-bs-toggle="modal" data-bs-target="#deletarModal">
+                                <!-- <button type="button" class="btn btn-svg-delete h-100 w-100" data-bs-toggle="modal" data-bs-target="#deletarModal">
                                     <img class="svg svg-btn-delete" src="UIcons/svg/fi-rs-trash.svg">
                                 </button>
 
@@ -212,12 +212,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <button type="button" class="btn btn-svg-success ms-3 h-100 w-100" data-bs-toggle="modal" data-bs-target="#confirmacaoModal">
                                     <img class="svg svg-btn-success" src="img/btns/done.svg">
                                 </button>
-                                    
+
 
                                 <div class="modal fade" id="confirmacaoModal" tabindex="-1" aria-labelledby="confimacaoModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
@@ -243,7 +243,7 @@
 
 
 
-                            
+
                             <div class="col-sm-12 col-md-12 col-lg-4 m-0 p-0">
                                 <div class="container-fluid p-0 m-0">
                                     <div class="row">
@@ -284,6 +284,8 @@
                     $dados = $autor->getInformacoesAutor($idAutor);
                     $nomeAutor = $dados['nome'];
                     $AutorId = $dados['id'];
+                    $imgAutor = $dados['imgPerfil'];
+                    $destino = "UsrImg/" . $idUsr . "/fotoPerfil/" . $imgAutor;
                     ?>
 
                     <div class="row gx-0">
@@ -293,7 +295,13 @@
                                     <div class="card" style="height: 200px;">
                                         <div class="row">
                                             <div class="col-4">
-                                                <img src="img/proj5.jpg" class="card-img img-fluid rounded-0" style="max-height:200px; padding-bottom:2px;" alt="">
+                                                <img src="<?php
+                                                            if ($imgAutor != "0") {
+                                                                echo ($destino);
+                                                            } else {
+                                                                echo ("img/imgPadraoUser.svg");
+                                                            }
+                                                            ?>" class="card-img img-fluid rounded-0" style="max-height:200px; padding-bottom:2px;" alt="">
                                             </div>
                                             <div class="col-8">
                                                 <div class="card-body">

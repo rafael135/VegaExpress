@@ -34,6 +34,9 @@
         $paginaAtual = 0;
         if(isset($_POST['paginaAtual'])){
             $paginaAtual = intval($_POST['paginaAtual']);
+            if($paginaAtual == 1){
+                $paginaAtual = 0;
+            }
         }
 
 

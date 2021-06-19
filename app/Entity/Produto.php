@@ -149,11 +149,11 @@ class Produto
         $limit = "";
         
         if($pagina != null){
-            $paginaAnt = (($pagina) * 20) - 20;
-            if($paginaAnt < 0){
+            $paginaAnt = (($pagina * 10) - 10);
+            if($paginaAnt <= 0){
                 $paginaAnt = 0;
             }
-            $proxPag = ($pagina) * 20;
+            $proxPag = ($proxPag) + 10;
 
             $limit = "$paginaAnt, $proxPag";
             //var_dump($limit);
@@ -164,6 +164,8 @@ class Produto
 
         $result = $obDb->select("$wherePreco titulo like '%$pesquisa%' OR descricao like '%$pesquisa%' AND frete = $frete AND condicao = $condicao", $filtroDefinitivo, $limit);
 
+        $quantidade = count($obDb->select("$wherePreco titulo like '%$pesquisa%' OR descricao like '%$pesquisa%' AND frete = $frete AND condicao = $condicao", $filtroDefinitivo));
+        $_SESSION['quantidadeProdutosPesquisa'] = $quantidade;
         return $result;
     }
 }
