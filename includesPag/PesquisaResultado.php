@@ -375,7 +375,7 @@
                                             <div class="card card-resultado card-resultadoPesquisa mx-sm-auto mx-md-auto mx-lg-3 mb-1">
                                                 <img src="<?php echo ($destinoImg); ?>" class="card-img-top" alt="...">
                                                 <div class="card-body">
-                                                    <h5 class="card-title card-resultado text-start"><?php if (strlen($titulo) > 12) {
+                                                    <h5 class="card-title card-resultado text-start text-blue"><?php if (strlen($titulo) > 12) {
                                                                                                             $tituloArray = str_split($titulo);
                                                                                                             for ($i = 0; $i < 24; $i++) {
                                                                                                                 echo ($tituloArray[$i]);
