@@ -120,7 +120,7 @@ if (isset($_SESSION['emailEnviado'])) {
         <hr class="mx-2">
 
         <!-- Trocar senha -->
-        <div class="row d-flex justify-content-center mt-4 mx-auto col-3">
+        <div class="row d-flex justify-content-center mt-4 mx-auto col-sm-8 col-md-6 col-lg-3">
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-mudarNome btn-lg d-flex justify-content-center" data-bs-toggle="modal" data-bs-target="#TrocarSenha">
                 Trocar senha

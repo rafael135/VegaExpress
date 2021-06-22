@@ -84,7 +84,7 @@
     ?>
 
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
         
             <a class="navbar-brand" href="index.php">
                 <img class="ms-lg-3" src="img/LogoTCC_Final.png" height="40">

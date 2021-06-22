@@ -19,7 +19,7 @@ if ($detect->isMobile() == true && !$detect->isTablet()) {
     include __DIR__ . '/includesPag/navbar.php';
 }
 
-include __DIR__ . '/includesPag/carrinho.php';
+include __DIR__ . '/includesPag/Tela_compra.php';
 
 //include __DIR__ . '/sidebarT.php';
 

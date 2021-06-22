@@ -92,7 +92,8 @@
 }
 
 .nav-item > a{
-    background-color: #fff !important;
+    background-color: rgb(235, 235, 235) !important;
+    border: thin solid rgb(50, 50, 50) !important;
 }
 
 .nav-item > div > a > span{
@@ -110,7 +111,8 @@
 }
 
 .nav-item > div > a{
-    background-color: #fff !important;
+    background-color: rgb(235, 235, 235) !important;
+    border: thin solid rgb(50, 50, 50) !important;
 }
 
 div.border-custom-nav > a.btnPub{

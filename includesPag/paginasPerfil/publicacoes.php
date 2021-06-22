@@ -74,7 +74,11 @@ use App\money_format;
                 $paginaAnt = ($paginaAtual * 10) - 10;
                 $proxPagina = 10;
             }
-            $countProdutosBD = count($obDb->select("idAutor = $idAutor and titulo LIKE '%$titulo%'", null));
+            $countBool = $obDb->select("idAutor = $idAutor and titulo LIKE '%$titulo%'", null);
+            if($countBool != false){
+                $countProdutosBD = count($countBool);
+            }
+            
 
             //var_dump($paginaAnt);
             //var_dump($proxPagina);

@@ -75,13 +75,13 @@
                 ?>
                 <form action="ActionPHP/editarPerfil.php" class="w-100 p-0 m-0" method="POST" enctype="multipart/form-data">
                     <div class="row p-0 m-0 mt-3 justify-content-center align-items-center">
-                        <div class="col-6">
+                        <div class="col-sm-12 col-lg-6">
                             <div class="container-fluid ctn-label p-0 m-0">
                                 <p class="fs-5 fw-bold text-white text-center mb-0">Selecione uma nova imagem para o perfil</p>
                             </div>
                         </div>
                         <div class="col-12"></div>
-                        <div class="col-6">
+                        <div class="col-sm-12 col-lg-6">
                             <input type="file" name="imgPerfil" class="form-control mt-0" required accept=".png, .jpg, .jpeg" id="mudarFoto">
                         </div>
                     </div>
