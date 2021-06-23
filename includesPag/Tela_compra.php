@@ -1,8 +1,18 @@
 <head>
 	<title>Carrinho</title>
 	<link rel="stylesheet" href="includesPag/includesTelaCompra/Estilos.css">
-
+	<link rel="stylesheet" href="includesPag/includesCarrinho/carrinho.css">
 </head>
+
+
+<?php
+	if(isset($_SESSION['conteudoCarrinho'])){
+		$itemsCarrinho = $_SESSION['conteudoCarrinho'];
+		foreach($itemsCarrinho as $item){
+			
+		}
+	}
+?>
 
 <body>
 	<div class="container mw-100">

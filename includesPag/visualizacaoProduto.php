@@ -201,7 +201,7 @@
                     </div>
 
                     <div class="col-sm-2 offset-sm-8 col-md-2 offset-md-2 col-lg-2 offset-lg-2 align-self-end pe-0">
-                        <a class="" href=""><button class="btn btn-cart border align-text-bottom border-0 rounded-0 w-100 mt-4" title="Adicionar ao carrinho"><span class="material-icons m-1 blue">add_shopping_cart</span></button></a>
+                        <a class="" href="ActionPHP/adicionarCarrinho.php?idPub=<?php echo($idPub); ?>"><button class="btn btn-cart border align-text-bottom border-0 rounded-0 w-100 mt-4" title="Adicionar ao carrinho"><span class="material-icons m-1 blue">add_shopping_cart</span></button></a>
                     </div>
 
                     <div class="col-sm-2 col-md-2 col-lg-2 ps-0 align-self-end">
