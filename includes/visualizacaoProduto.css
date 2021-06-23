@@ -72,8 +72,14 @@
 }
 
 .img-zoom {
-    display: inline-block;
+    display:flex;
     position: relative;
+}
+
+@media(max-width: 991px){
+    .img-zoom{
+        display: flex !important;
+    }
 }
 
 /* magnifying glass icon */

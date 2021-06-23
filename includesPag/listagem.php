@@ -65,7 +65,7 @@ use App\money_format;
                                             <div class="card card-listagem link text-white text-center mb-2 mx-auto">
                                                 <img class="card-img-top" src="<?php echo ($destinoImg); ?>" alt="">
                                                 <div class="card-body my-auto">
-                                                    <h4 cklass="card-title"><?php if (strlen($titulo) > 12) {
+                                                    <h4 class="card-title"><?php if (strlen($titulo) > 12) {
                                                                                 $tituloArray = str_split($titulo);
                                                                                 for ($i = 0; $i < 12; $i++) {
                                                                                     echo ($tituloArray[$i]);
@@ -81,7 +81,7 @@ use App\money_format;
                                                     <?php setlocale(LC_MONETARY, 'pt_BR.UTF8');
                                                     $money = new money_format();
                                                     ?>
-                                                    <p class="card-text"><?php echo ($money->money_format("%.2n", $preco)) ?></p>
+                                                    <p class="card-text text-success"><?php echo ($money->money_format("%.2n", $preco)) ?></p>
                                                 </div>
                                             </div>
                                         </a>

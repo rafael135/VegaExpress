@@ -3,6 +3,10 @@
     width: 14rem !important;
 }
 
+.card-text{
+    font-size: 1.2rem !important;
+}
+
 @media(max-width: 1430px){
     .card-listagem{
         height: 13rem !important;
@@ -14,5 +18,68 @@
     .card-listagem{
         height: 12rem !important;
         width: 12rem !important;
+    }
+}
+
+@media(max-width: 1235px){
+    .card-listagem{
+        height: 11rem !important;
+        width: 11rem !important;
+    }
+
+    .card-text{
+        font-size: 1.1rem !important;
+    }
+}
+
+@media(max-width: 1136px){
+    .card-listagem{
+        height: 10rem !important;
+        width: 10rem !important;
+    }
+
+    .card-text{
+        font-size: 1rem !important;
+    }
+}
+
+@media(max-width: 1040px){
+    .card-listagem{
+        height: 9rem !important;
+        width: 9rem !important;
+    }
+
+    .card-title{
+        font-size: 1rem !important;
+    }
+}
+
+@media(max-width: 991px){
+    .card-listagem{
+        height: 11rem !important;
+        width: 11rem !important;
+    }
+
+    .card-title{
+        font-size: 1.5rem !important;
+    }
+
+    .card-text{
+        font-size: 1.2rem !important;
+    }
+}
+
+@media(max-width: 575px){
+    .card-listagem{
+        height: auto !important;
+        width: auto !important;
+    }
+
+    .card-title{
+        font-size: 2.5rem !important;
+    }
+
+    .card-text{
+        font-size: 2rem !important;
     }
 }

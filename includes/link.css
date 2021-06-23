@@ -380,6 +380,41 @@ body{
     transition: 300ms;
 }
 
+.navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: none !important;
+}
+.navbar-toggler[aria-expanded="true"] > svg{
+    transform: rotate(180deg) !important;
+    transition: 300ms;
+}
+
+.navbar-toggler{
+    background-color: rgb(225, 225, 225) !important;
+    color: #027CE9 !important;
+    border: thin solid transparent !important;
+    border-radius: 2px !important;
+}
+
+.navbar-toggler:hover{
+    border-color: #027CE9 !important;
+    background-color: #027CE9 !important;
+    color: rgb(245, 245, 245) !important;
+    transition: 300ms;
+}
+
+.navbar-toggler > svg{
+    height: 30px;
+    width: 30px;
+    fill: #027CE9 !important;
+}
+
+.navbar-toggler:hover > svg{
+    fill: rgb(245, 245, 245) !important;
+    transition: 300ms;
+}
+
 body{
     /*background-color: #4B5563;*/
     font-family: sans-serif;
