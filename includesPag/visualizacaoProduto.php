@@ -14,6 +14,8 @@
 
     require_once("vendor/autoload.php");
 
+    
+
     $produto = new Produto();
     $idPub = $_GET['id'];
     $publicacao = $produto->getProdutoId($idPub);
@@ -28,12 +30,14 @@
         $imgs = $publicacao[0]['imagens'];
         $imgs = explode(" ", $imgs);
     } else {
+        header("Location: ../index.php");
         $titulo = "Página não existe!";
         $descricao = "";
         $preco = "";
         $idProduto = "";
         $money = new money_format();
         $imgs = $publicacao[0]['imagens'];
+        
     }
 
     ?>
