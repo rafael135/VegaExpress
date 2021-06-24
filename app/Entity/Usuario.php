@@ -15,8 +15,9 @@ class Usuario{
         private $endereco;
         private $data;
         private $celular;
+        private $cep;
 
-        function __construct($id = null, $nome = null, $email = null, $senha = null, $endereco = null, $celular = null)
+        function __construct($id = null, $nome = null, $email = null, $senha = null, $endereco = null, $celular = null, $cep = null)
         {
             $this->id = $id;
             $this->nome = $nome;
@@ -24,6 +25,7 @@ class Usuario{
             $this->senha = $senha;
             $this->endereco = $endereco;
             $this->celular = $celular;
+            $this->cep = $cep;
         }
 
         // Responsável por cadastrar o usuário
@@ -38,7 +40,8 @@ class Usuario{
                 'email' => $this->email,
                 'senha' => $this->senha,
                 'endereco' => $this->endereco,
-                'celular' => $this->celular
+                'celular' => $this->celular,
+                'cep' => $this->cep
             ]);
 
             return $this -> id;
@@ -84,6 +87,7 @@ class Usuario{
                         $_SESSION['celularUsuario'] = $dado['celular'];
                         $_SESSION['enderecoUsuario'] = $dado['endereco'];
                         $_SESSION['usuarioVerificado'] = $dado['contaVerificada'];
+                        $_SESSION['cepUsuario'] = $dado['cep'];
                     }
 
                 }else{
@@ -103,6 +107,7 @@ class Usuario{
                         $_SESSION['celularUsuario'] = $dado['celular'];
                         $_SESSION['enderecoUsuario'] = $dado['endereco'];
                         $_SESSION['usuarioVerificado'] = $dado['contaVerificada'];
+                        $_SESSION['cepUsuario'] = $dado['cep'];
                     }
                 }
             }else{
@@ -122,6 +127,7 @@ class Usuario{
                     $_SESSION['celularUsuario'] = $dado['celular'];
                     $_SESSION['usuarioVerificado'] = $dado['contaVerificada'];
                     $_SESSION['enderecoUsuario'] = $dado['endereco'];
+                    $_SESSION['cepUsuario'] = $dado['cep'];
                 }
             }
         }

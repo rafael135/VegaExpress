@@ -69,6 +69,7 @@ if (isset($_POST) == true) {
     }
 
     $endereco = $_POST['endereco'] . " " . $_POST['cep'] . " " . $_POST['numero'] . " " . $_POST['cidade'] . " " . $_POST['estado'];
+    $cep = $_POST['cep'];
 
     $celular = $_POST['celular'];
     if ($celular == "" || strlen($celular) < 11) {
@@ -88,7 +89,7 @@ if (isset($_POST) == true) {
 
 
     if ($cont == 0) {
-        $usuario = new Usuario(0, $nome, $email, $senha, $endereco, $celular);
+        $usuario = new Usuario(0, $nome, $email, $senha, $endereco, $celular, $cep);
         $id = $usuario->cadastrar();
         //$_SESSION['idUsuario'] = $id;
         $usuario->login($email, $senha, "*", true);

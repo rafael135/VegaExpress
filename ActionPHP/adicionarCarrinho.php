@@ -21,6 +21,7 @@
                 $resultadoPesquisa = array_search($idPubAdd, $sessaoArray, true);
                 if($resultadoPesquisa == false){
                     $sessaoArray = array_merge($sessaoArray, $sessaoJuntar);
+                    $_SESSION['conteudoCarrinho'] = $sessaoArray;
                     var_dump($sessaoArray);
                 }
 

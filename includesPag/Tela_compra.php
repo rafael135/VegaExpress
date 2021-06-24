@@ -5,6 +5,7 @@
 
 <?php
 
+use App\Autor;
 use App\money_format;
 use App\Produto;
 ?>
@@ -37,93 +38,104 @@ use App\Produto;
 							<?php
 							}
 							?>
+							<div class="container-fluid p-0 m-0">
 
-							<div class="row">
-
-
-								<!-- Carrinho -->
-								<?php
+								
+								<div class="row">
 
 
+									<!-- Carrinho -->
+									<?php
 
-								if (isset($_SESSION['conteudoCarrinho'])) {
-									$precoSubTotal = 0.0;
-									$itemsCarrinho = $_SESSION['conteudoCarrinho'];
-									foreach ($itemsCarrinho as $item) {
-										$money = new money_format();
-										$idProduto = $item;
-										$produto = new Produto();
-										$produto = $produto->getProdutoId($idProduto);
 
-										$nomeProduto = $produto[0]['titulo'];
-										$valorProduto = doubleval($produto[0]['preco']);
-										$produtoIdAutor = $produto[0]['idAutor'];
-										$imgProduto = $produto[0]['imagens'];
-										$precoSubTotal += $valorProduto;
-										$destinoImg = "";
-										if ($imgProduto != "") {
-											$destinoImg = "UsrImg/$produtoIdAutor/Produtos/$idProduto/$imgProduto";
-										} else {
-											$destinoImg = "img/imgPadraoProduto.png";
-										}
-								?>
-										<div class="col-lg-6">
-											<div class="card mb-3 ms-3 me-0">
 
-												<img src="<?php echo ($destinoImg); ?>" alt="Imagem do produto">
+									if (isset($_SESSION['conteudoCarrinho'])) {
+										$precoSubTotal = 0.0;
+										$itemsCarrinho = $_SESSION['conteudoCarrinho'];
 
-												<div class="card-body">
-													<h4 class="card-title text-start">Nome do produto: <?php echo ($nomeProduto); ?></h4>
+										foreach ($itemsCarrinho as $item) {
+
+											$money = new money_format();
+											$idProduto = $item;
+											$produto = new Produto();
+											$produto = $produto->getProdutoId($idProduto);
+											$nomeProduto = $produto[0]['titulo'];
+											$valorProduto = doubleval($produto[0]['preco']);
+											$produtoIdAutor = $produto[0]['idAutor'];
+											$imgProduto = $produto[0]['imagens'];
+											$precoSubTotal += $valorProduto;
+											$informacoesAutor = new Autor();
+											$cepAutor = $informacoesAutor->getInformacoesAutor($produtoIdAutor);
+											//var_dump($enderecoCompleto[5]);
+											$cepAutor = $cepAutor[6];
+											//var_dump($cepAutor);
+											$destinoImg = "";
+											if ($imgProduto != "") {
+												$destinoImg = "UsrImg/$produtoIdAutor/Produtos/$idProduto/$imgProduto";
+											} else {
+												$destinoImg = "img/imgPadraoProduto.png";
+											}
+									?>
+											<div class="col-lg-6 mb-3">
+												<div class="card ms-3 me-0 h-100 mb-3">
+
+													<img src="<?php echo ($destinoImg); ?>" alt="Imagem do produto">
+
+													<div class="card-body">
+														<h4 class="card-title text-start">Nome do produto: <?php echo ($nomeProduto); ?></h4>
+
+													</div>
 
 												</div>
-
 											</div>
-										</div>
 
-										<div class="col-lg-2">
-											<div class="card ms-1">
-												<div class="card-body">
-													<h5 class="card-title text-center">Preço: <?php echo ($money->money_format("%.2n", $valorProduto)); ?></h5>
-													
-													<div class="form-floating mb-3">
-														<input type="number" class="form-control" min="1" max="40" value="1" placeholder="Quantidade" id="quantidadeProduto" name="quantidadeProduto">
-														<label for="quantidadeProduto">Quantidade</label>
+											<div class="col-lg-2">
+												<div class="card ms-1 mb-3">
+													<div class="card-body">
+														<h5 class="card-title text-center">Preço: <?php echo ($money->money_format("%.2n", $valorProduto)); ?></h5>
+
+														<div class="form-floating mb-3">
+															<input type="number" class="form-control" min="1" max="40" value="1" placeholder="Quantidade" id="quantidadeProduto" name="quantidadeProduto">
+															<label for="quantidadeProduto">Quantidade</label>
+														</div>
 													</div>
 												</div>
 											</div>
+
+
+
+
+										<?php
+										}
+										?>
+										<div class="col-lg-4 position-absolute top-0 end-0 ps-precoTotal">
+											<div class="container-fluid border p-0 m-0">
+												<p class="mb-0 ms-4 text-start">Subtotal: <?php echo ($money->money_format("%.2n", $precoSubTotal)); ?></p>
+												<input name="precoSubTotal" id="precoSubTotal" value="<?php echo ($precoSubTotal); ?>" hidden>
+												<input type="number" id="cepAutor" value="<?php echo($cepAutor); ?>" hidden>
+												<p id="val-freteTxt" class="mb-0 ms-4 text-start">Frete: R$0,00</p>
+											</div>
 										</div>
-
-
-
-
-									<?php
-									}
-									?>
-									<div class="col-lg-4">
-										<div class="container-fluid border p-0 m-0">
-											<p class="mb-0 ms-4 text-start">Subtotal: <?php echo ($money->money_format("%.2n", $precoSubTotal)); ?></p>
-											<input name="precoSubTotal" id="precoSubTotal" value="<?php echo($precoSubTotal); ?>" hidden>
-											<p class="mb-0 ms-4 text-start">Frete: R$ 0,00</p>
-										</div>
-									</div>
+								</div>
 							</div>
 							<div class="container col-sm-4 pt-4">
 								<div class="input-group">
 									<input type="text" id="cep" class="form-control" aria-label="" placeholder="Verifique o Frete">
+									<input type="number" id="cepUsr" value="0" hidden>
 									<span class="input-group-text">R$</span>
 									<span class="input-group-text">0.00</span>
 								</div>
 							</div>
 
-							<input type="button" name="next-step" id="avancarEndereco" class="next-step" value="Avançar" />
+							<input type="button" name="next-step" id="avancarEndereco" onclick="LoadFrete();" class="next-step" value="Avançar" />
 
 							<input type="number" name="precoTotal" id="precoTotal" hidden>
 						<?php
-								} else {
+									} else {
 						?>
 
 						<?php
-								}
+									}
 						?>
 
 
@@ -188,5 +200,5 @@ use App\Produto;
 	</div>
 	<script src="includesPag/includesTelaCompra/step.js"></script>
 	<script src="includesPag/includesTelaCompra/cep.js"></script>
-	<script src="includesPag/includesTelaCompra/calcPreco.js"></script>
+	<script src="includesPag/includesTelaCompra/a_calcFrete.js"></script>
 </body>

@@ -44,6 +44,8 @@ $(function () {
                         $("#estado").val(dados.uf);
                         //$("#ibge").val(dados.ibge);
                         $("#cepTxt").val(cep);
+                        $("#cepUsr").attr("value", cep);
+                        //alert($("#cepUsr").val)
                     } //end if.
                     else {
                         //CEP pesquisado não foi encontrado.
