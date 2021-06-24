@@ -220,15 +220,16 @@
 
                         <div class="container-fluid p-0 m-0">
                             <div class="row gx-0">
-                                <div class="col-6">
+                                <div class="col-12">
                                     <input type="radio" class="btn-check rounded-0 w-100 me-0" name="optPublicacao" id="optProduto" style="border-bottom-right-radius: 0 !important; border-top-right-radius: 0 !important;" autocomplete="off" checked>
                                     <label class="btn btn-outline-light rounded-0 btn-radio-blue w-100 me-0" for="optProduto" style="border-bottom-right-radius: 0 !important; border-top-right-radius: 0 !important;">Produto</label>
                                 </div>
-
+                                <!--
                                 <div class="col-6">
                                     <input type="radio" class="btn-check rounded-0 w-100 ms-0" name="optPublicacao" id="optServico" style="border-bottom-left-radius: 0 !important; border-top-left-radius: 0 !important;" autocomplete="off">
                                     <label class="btn btn-outline-light rounded-0 btn-radio-blue w-100 ms-0" for="optServico" style="border-bottom-left-radius: 0 !important; border-top-left-radius: 0 !important;">Serviço</label>
                                 </div>
+                                -->
                             </div>
                         </div>
 

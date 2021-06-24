@@ -57,8 +57,9 @@ card:hover{
 }
 
 .navbar{
-    background-color:rgb(245, 245, 245) !important;
-    border-bottom: thin solid rgb(225, 225, 225) !important;
+    /*background-color:rgb(245, 245, 245) !important;*/
+    background-color: rgb(60, 60, 60);
+    /*border-bottom: thin solid rgb(225, 225, 225) !important;*/
 }
 
 .titulo-produto{
@@ -100,6 +101,18 @@ body{
 
 .bg-blue{
     background-color: #027CE9 !important;
+}
+
+.bg-gray{
+    background-color: rgb(60, 60, 60) !important;
+}
+
+.bg-grayLight{
+    background-color: rgb(90, 90, 90) !important;;
+}
+
+.text-gray{
+    color: rgb(204, 204, 204) !important;
 }
 
 .btn-close-custom:hover{
@@ -176,13 +189,17 @@ body{
     box-shadow: none !important;
  }
 
+ .accordion-item{
+     background-color: rgb(70, 70, 70) !important;
+ }
+
  input:focus{
      outline: none;
      box-shadow: none;
  }
 
  .accordion-button:not(.collapsed){
-     background-color: #e9ecef !important;
+     background-color: rgb(70, 70, 70) !important;
  }
 
  #grupo-sobre{
@@ -269,7 +286,7 @@ body{
  }*/
 
  .accordion-button{
-     background-color: #e9ecef;
+     background-color: rgb(70, 70, 70) !important;
  }
 
 .btn-close-custom{
@@ -308,13 +325,15 @@ body{
 }
 
 .card.link{
-    background-color: #027CE9 !important;
+    /*background-color: #027CE9 !important;*/
+    background-color:   rgb(60, 60, 60) !important;
     
 }
 
 .card.link:hover{
     background-color: #0084f8 !important;
     cursor:pointer;
+    transition: 300ms;
 }
 
 .card.link:active{
@@ -339,12 +358,69 @@ body{
     border-color: #027CE9;
 }
 
+.svg-white{
+    fill: #027CE9 !important;
+    height: 30px;
+    width: 30px;
+}
+
+.btn-svg-avaliacao{
+    background-color: rgb(240, 240, 240) !important;
+    color: #027CE9 !important;
+}
+
+.btn-svg-avaliacao:hover > svg{
+    fill: rgb(240, 240, 240) !important;
+    transition: 300ms;
+}
+
+.btn-svg-avaliacao:hover{
+    background-color: #027CE9 !important;
+    color: rgb(240, 240, 240) !important;
+    transition: 300ms;
+}
+
+.navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: none !important;
+}
+.navbar-toggler[aria-expanded="true"] > svg{
+    transform: rotate(180deg) !important;
+    transition: 300ms;
+}
+
+.navbar-toggler{
+    background-color: rgb(225, 225, 225) !important;
+    color: #027CE9 !important;
+    border: thin solid transparent !important;
+    border-radius: 2px !important;
+}
+
+.navbar-toggler:hover{
+    border-color: #027CE9 !important;
+    background-color: #027CE9 !important;
+    color: rgb(245, 245, 245) !important;
+    transition: 300ms;
+}
+
+.navbar-toggler > svg{
+    height: 30px;
+    width: 30px;
+    fill: #027CE9 !important;
+}
+
+.navbar-toggler:hover > svg{
+    fill: rgb(245, 245, 245) !important;
+    transition: 300ms;
+}
+
 body{
     /*background-color: #4B5563;*/
     font-family: sans-serif;
     /*background-color: #084d6e !important;*/
     /*background-color: rgba(245, 245, 245, 0.904) !important;*/
-    background-color: #1F1F1F !important;
+    background-color: rgb(30, 30, 30) !important;
     /*background: rgb(2,18,233);
     background: linear-gradient(90deg, rgba(2,18,233,0.9108018207282913) 0%, rgba(2,119,233,0.9248074229691877) 30%, rgba(2,135,233,0.9248074229691877) 43%, rgba(1,186,239,0.9360119047619048) 56%, rgba(1,198,244,0.9192051820728291) 75%, rgba(2,185,233,0.8855917366946778) 100%);*/
 }
@@ -408,8 +484,8 @@ a > div > div > div > div > div > div> .btn-edit-pub:hover > span{
 
 
 .accordion-body-custom{
-    background-color: rgb(245, 245, 245) !important;
-    border: thin solid rgb(230, 230, 230) !important;
+    background-color: rgb(90, 90, 90) !important;
+    border: thin solid rgb(95, 95, 95) !important;
     
 }
 
@@ -443,7 +519,7 @@ a > div > div > div > div > div > div> .btn-edit-pub:hover > span{
 }
 
 .accordion-button{
-    border: thin solid rgb(240, 240, 240) !important;
+    border: thin solid rgb(75, 75, 75) !important;
 }
 
 .accordion-button:hover{
@@ -575,7 +651,7 @@ input:focus{
 }
 
 .accordion-body-border{
-    border: thin solid rgb(210, 210, 210);
+    border: thin solid rgb(75, 75, 75) !important;
 }
 
 

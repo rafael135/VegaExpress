@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="includes/link.css">
     <link rel="stylesheet" href="includes/fadeIn.css">
     <link rel="stylesheet" href="includes/navitems.css">
+    <link rel="stylesheet" href="includesPag/includesNavbar/navbar.css">
 
     <script src="JQuery 3.6.0/jquery-3.6.0.min.js"></script>
     <script src="https://kit.fontawesome.com/e19fb67a3c.js" crossorigin="anonymous"></script>
@@ -84,26 +85,26 @@
     ?>
 
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
         
             <a class="navbar-brand" href="index.php">
                 <img class="ms-lg-3" src="img/LogoTCC_Final.png" height="40">
             </a>
-            <button class="navbar-toggler ms-md-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler ms-sm-3 ms-sm-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <img class="svg" src="UIcons/svg/fi-rs-menu-burger.svg">
             </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="collapse navbar-collapse pt-sm-3 align-content-sm-start align-content-lg-center pt-lg-0" id="navbarCollapse">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item mx-lg-1 mt-md-3 mt-lg-0">
-                        <a class="nav-link p-0" href="#"><a class="btn border border-1 rounded rounded-3 bg-light w-100" title="Sobre nós" href="sobreN.php"><span class="text-center material-icons blue m-1" style="font-size:32px;">info</span></a></a>
+                    <li class="nav-item mx-sm-5 mx-lg-1 mt-md-3 mt-lg-0">
+                        <a class="nav-link p-0" href="#"><a class="btn border btn-navbar border-1 rounded rounded-3 bg-light w-100 justify-content-center align-content-center" title="Sobre nós" href="sobreN.php"><span class="text-center material-icons blue m-1" style="font-size:32px;">info</span></a></a>
                     </li>
-                    <li class="nav-item mx-lg-1">
-                        <a class="nav-link p-0" href="#"><a class="btn border border-1 rounded rounded-3 w-100" title="Carrinho" href="carrinho.php"><span class="text-center material-icons blue m-1" style="font-size:32px;">shopping_cart</span></a></a>
+                    <li class="nav-item mx-sm-5 mx-lg-1">
+                        <a class="nav-link p-0" href="#"><a class="btn border btn-navbar border-1 rounded rounded-3 w-100 justify-content-center align-content-center" title="Carrinho" href="carrinho.php"><span class="text-center material-icons blue m-1" style="font-size:32px;">shopping_cart</span></a></a>
                     </li>
-                    <li class="nav-item mx-lg-1 me-lg-3">
+                    <li class="nav-item mx-sm-5 mx-lg-1 me-lg-3">
                         <a class="nav-link p-0" href="#">
                             <div class="btn-group dropstart w-100">
-                                <a class="btn border-1 rounded rounded-3 w-100 justify-content-center align-content-center bg-light text-white" id="menu-user" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUsuario" aria-controls="offcanvasUsuario">
+                                <a class="btn border-1 btn-navbar rounded rounded-3 w-100 justify-content-center align-content-center bg-light text-white" id="menu-user" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUsuario" aria-controls="offcanvasUsuario">
                                     <?php
                                     if (PHP_SESSION_ACTIVE) {
                                     } else {

@@ -163,8 +163,13 @@ class Produto
 
 
         $result = $obDb->select("$wherePreco titulo like '%$pesquisa%' OR descricao like '%$pesquisa%' AND frete = $frete AND condicao = $condicao", $filtroDefinitivo, $limit);
-
-        $quantidade = count($obDb->select("$wherePreco titulo like '%$pesquisa%' OR descricao like '%$pesquisa%' AND frete = $frete AND condicao = $condicao", $filtroDefinitivo));
+        $quantidade = 0;
+        if($result == false){
+            $quantidade = 0;
+        }else{
+            $quantidade = count($obDb->select("$wherePreco titulo like '%$pesquisa%' OR descricao like '%$pesquisa%' AND frete = $frete AND condicao = $condicao", $filtroDefinitivo));
+        }
+        
         $_SESSION['quantidadeProdutosPesquisa'] = $quantidade;
         return $result;
     }

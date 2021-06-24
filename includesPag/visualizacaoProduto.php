@@ -5,11 +5,16 @@
     <?php
 
     use App\Autor;
+    use App\Avaliacao;
+    use App\Comentario;
     use App\money_format;
     use App\Produto;
+    use App\Usuario;
     use FFI\ParserException;
 
     require_once("vendor/autoload.php");
+
+    
 
     $produto = new Produto();
     $idPub = $_GET['id'];
@@ -25,12 +30,14 @@
         $imgs = $publicacao[0]['imagens'];
         $imgs = explode(" ", $imgs);
     } else {
+        header("Location: ../index.php");
         $titulo = "Página não existe!";
         $descricao = "";
         $preco = "";
         $idProduto = "";
         $money = new money_format();
         $imgs = $publicacao[0]['imagens'];
+        
     }
 
     ?>
@@ -172,13 +179,13 @@
                                 <div class="card" style="height: 200px;">
                                     <div class="row">
                                         <div class="col-4">
-                                            <img src="<?php 
-                                                if ($imgAutor != "0") {
-                                                    echo ($destino);
-                                                } else {
-                                                    echo ("img/imgPadraoUser.svg");
-                                                }
-                                            ?>" class="card-img img-fluid rounded-0" style="max-height:200px; padding-bottom:2px;" alt="">
+                                            <img src="<?php
+                                                        if ($imgAutor != "0") {
+                                                            echo ($destino);
+                                                        } else {
+                                                            echo ("img/imgPadraoUser.svg");
+                                                        }
+                                                        ?>" class="card-img img-fluid rounded-0" style="max-height:200px; padding-bottom:2px;" alt="">
                                         </div>
                                         <div class="col-8">
                                             <div class="card-body">
@@ -193,8 +200,12 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-2 offset-sm-10 col-md-2 offset-md-2 col-lg-2 offset-lg-4 align-self-end">
-                        <a class="" href=""><button class="btn btn-cart border align-text-bottom border-1 w-100 mt-4"><span class="material-icons m-1 blue">add_shopping_cart</span></button></a>
+                    <div class="col-sm-2 offset-sm-8 col-md-2 offset-md-2 col-lg-2 offset-lg-2 align-self-end pe-0">
+                        <a class="" href="ActionPHP/adicionarCarrinho.php?idPub=<?php echo($idPub); ?>"><button class="btn btn-cart border align-text-bottom border-0 rounded-0 w-100 mt-4" title="Adicionar ao carrinho"><span class="material-icons m-1 blue">add_shopping_cart</span></button></a>
+                    </div>
+
+                    <div class="col-sm-2 col-md-2 col-lg-2 ps-0 align-self-end">
+                        <a class="" href=""><button class="btn btn-cart border-0 rounded-0 w-100 align-items-center mb-1 pb-2 pt-3 text-center">Comprar</button></a>
                     </div>
                 </div>
             </div>
@@ -226,7 +237,7 @@
                         <div class="row mt-0 pt-0 mx-1">
                             <div class="col-sm-12 col-md-12 col-lg-12 m-0 p-0">
                                 <div class="container-fluid p-0 h-100">
-                                    <textarea class="form-control form-control-lg rounded-0" id="txtDescricao" disabled style="text-align: justify;"><?php echo ($descricao) ?></textarea>
+                                    <textarea class="form-control form-control-lg rounded-0" id="txtDescricao" disabled style="text-align: justify;"><?php echo (nl2br($descricao)); ?></textarea>
                                 </div>
                             </div>
                         </div>
@@ -265,10 +276,10 @@
                 </div>
             </div>
 
-            <div class="collapse mt-0 mb-0" id="collapseAvaliacao">
+            <div class="collapse <?php if(isset($_GET['selectAvaliacao'])) { echo("show"); } ?> mt-0 mb-0" id="collapseAvaliacao">
                 <div class="container-fluid bg-whiteGrey border border-1 p-0 pb-2 pt-2 m-0">
                     <div class="row">
-                        <form class="" method="POST" action="../produto.php">
+                        <form class="" method="GET" action="produto.php">
                             <div class="row m-1 mb-0 mx-auto">
                                 <div class="col-sm-6 col-md-4 col-lg-4">
                                     <div class="form-floating select-avaliacao">
@@ -283,7 +294,17 @@
                                     </div>
                                 </div>
 
-                                <div class="col-sm-6 col-md-4 col-lg-4 offset-md-4 offset-lg-4">
+                                <input type="number" hidden value="<?php echo($idPub); ?>" name="id">
+
+                                <div class="col-sm-12 col-md-2 col-lg-2">
+                                    <button type="button" class="btn btn-svg-avaliacao w-100 h-100" data-bs-toggle="modal" data-bs-target="#avaliarModal">Avaliar</button>
+                                </div>
+
+                                <div class="col-sm-12 col-md-4 col-lg-2">
+                                    <button type="submit" class="btn btn-svg-avaliacao w-100 h-100"><img class="svg svg-white" src="UIcons/svg/fi-rs-search.svg"></button>
+                                </div>
+
+                                <div class="col-sm-6 col-md-4 col-lg-4 offset-md-4 offset-lg-0">
                                     <div class="form-floating select-avaliacao rounded-0">
                                         <select class="form-select border border-1 rounded-0 select-avaliacao" id="selectRelevancia" name="selectRelevancia" aria-label="Filtrar por">
                                             <option value="1">Mais recentes</option>
@@ -300,46 +321,138 @@
                                 </div>
                             </div>
                         </form>
+
+                        <div class="modal fade" id="avaliarModal" tabindex="-1" aria-labelledby="avaliarModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="avaliarModalLabel">Avaliar</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <form action="ActionPHP/novaAvaliacao.php" method="POST">
+                                        <div class="modal-body">
+
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control" required minlength="4" id="titulo" name="titulo" placeholder="Título">
+                                                <label for="titulo">Título</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <textarea class="form-control" id="textoComent" name="texto" required minlength="8" placeholder="Descreva sua experiência"></textarea>
+                                                <label for="textoComent">Descreva sua experiência</label>
+                                            </div>
+                                            <script src="includesPag/includesProduto/textAreaAutoHeight.js"></script>
+                                            <hr class="mx-2" />
+
+                                            <input type="number" hidden name="idPub" value="<?php echo ($idProduto); ?>">
+
+                                            <h5>Como você avalia o produto?</h5>
+
+
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="avaliacaoRadio" id="estrela1" value="1">
+                                                <label class="form-check-label" for="estrela1">1 <img class="svg star-rate fill-star" src="img/btns/star_rate.svg"></label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="avaliacaoRadio" id="estrela2" value="2">
+                                                <label class="form-check-label" for="estrela2">2 <img class="svg star-rate fill-star" src="img/btns/star_rate.svg"><img class="svg star-rate fill-star" src="img/btns/star_rate.svg"></label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="avaliacaoRadio" id="estrela3" value="3">
+                                                <label class="form-check-label" for="estrela3">3 <img class="svg star-rate fill-star" src="img/btns/star_rate.svg"><img class="svg star-rate fill-star" src="img/btns/star_rate.svg"><img class="svg star-rate fill-star" src="img/btns/star_rate.svg"></label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="avaliacaoRadio" id="estrela4" value="4">
+                                                <label class="form-check-label" for="estrela4">4 <img class="svg star-rate fill-star" src="img/btns/star_rate.svg"><img class="svg star-rate fill-star" src="img/btns/star_rate.svg"><img class="svg star-rate fill-star" src="img/btns/star_rate.svg"><img class="svg star-rate fill-star" src="img/btns/star_rate.svg"></label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="avaliacaoRadio" id="estrela5" value="5">
+                                                <label class="form-check-label" for="estrela5">5 <img class="svg star-rate fill-star" src="img/btns/star_rate.svg"><img class="svg star-rate fill-star" src="img/btns/star_rate.svg"><img class="svg star-rate fill-star" src="img/btns/star_rate.svg"><img class="svg star-rate fill-star" src="img/btns/star_rate.svg"><img class="svg star-rate fill-star" src="img/btns/star_rate.svg"></label>
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn btn-primary">Avaliar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <hr class="hr-coments mx-3" />
 
                     <div class="container-fluid pt-1 mt-1">
                         <div class="row mt-0 pt-0">
                             <?php
-                            $d = 4;
-                            $i = 0;
-                            while ($i < $d) {
-                            ?>
-                                <div class="col-sm-12 col-md-12 col-lg-6 mb-2">
-                                    <div class="card card-user">
-                                        <div class="row">
+                            $avaliacao = new Avaliacao();
+                            $avaliacoes = $avaliacao->getPubComentarios($idProduto);
+                            if ($avaliacoes != false) {
 
-                                            <div class="col-sm-5 col-md-4 col-lg-3 pe-0">
-                                                <img src="img/imgPadraoProduto.png" class="card-img-top card-img-comentario card-user" alt="...">
-                                            </div>
-                                            <div class="col-sm-7 col-md-8 col-lg-9 ps-0">
-                                                <div class="card-body overflow-auto m-0 p-0 card-user">
-                                                    <h4 class="card-title">
-                                                        <div class="container-fluid m-0 mb-1 p-0 w-100 bottom-separator">
-                                                            <img class="svg star-rate fill-star" src="img/btns/star_rate.svg">
-                                                            <img class="svg star-rate fill-star" src="img/btns/star_rate.svg">
-                                                            <img class="svg star-rate fill-star" src="img/btns/star_rate.svg">
-                                                            <img class="svg star-rate fill-star-deact" src="img/btns/star_rate.svg">
-                                                            <img class="svg star-rate fill-star-deact" src="img/btns/star_rate.svg">
+
+                                foreach ($avaliacoes as $coment) {
+
+                                    $tituloComent = $coment['titulo'];
+                                    $textoComent = $coment['txtComentario'];
+                                    $avalicaoComent = intval($coment['avaliacao']);
+                                    $avaliacaoIdAutor = intval($coment['idAutor']);
+                                    $autorComent = new Autor();
+                                    $dadosComentAutor = $imgAvalicaoAutor = $autorComent->getInformacoesAutor($avaliacaoIdAutor);
+                                    $nomeAutorAvaliacao = $dadosComentAutor['nome'];
+                                    $imgAvalicaoAutor = $dadosComentAutor['imgPerfil'];
+                                    $destinoImgComent = "";
+                                    if ($imgAvalicaoAutor != "") {
+                                        $destinoImgComent = "UsrImg/" . $avaliacaoIdAutor . "/fotoPerfil/" . $imgAvalicaoAutor;
+                                    } else {
+                                        $destinoImgComent = "img/imgPadraoProduto.png";
+                                    }
+
+                            ?>
+                                    <div class="col-sm-12 col-md-12 col-lg-6 mb-2">
+                                        <div class="card card-user">
+                                            <div class="row">
+
+                                                <div class="col-sm-5 col-md-4 col-lg-3 pe-0">
+                                                    <img src="<?php echo ($destinoImgComent); ?>" class="card-img-top card-img-comentario card-user" alt="...">
+                                                </div>
+                                                <div class="col-sm-7 col-md-8 col-lg-9 ps-0">
+                                                    <div class="card-body overflow-auto m-0 p-0 card-user">
+                                                        <h4 class="card-title">
+                                                            <div class="container-fluid m-0 mb-1 p-0 w-100 bottom-separator">
+                                                                <?php
+                                                                for ($i = 0; $i < 5; $i++) {
+                                                                    if ($avalicaoComent > 0) {
+                                                                ?>
+                                                                        <img class="svg star-rate fill-star" src="img/btns/star_rate.svg">
+                                                                    <?php
+                                                                        $avalicaoComent--;
+                                                                    } else {
+                                                                    ?>
+                                                                        <img class="svg star-rate fill-star-deact" src="img/btns/star_rate.svg">
+                                                                <?php
+                                                                    }
+                                                                }
+                                                                ?>
+                                                            </div>
+                                                        </h4>
+                                                        <h5 class="ms-2"><?php echo ($nomeAutorAvaliacao); ?></h5>
+                                                        <div class="container-fluid h-100 p-0 m-0 bg-user-coment">
+                                                            <p class="card-text ms-2"><?php echo (nl2br($textoComent)); ?></p>
                                                         </div>
-                                                    </h4>
-                                                    <h5 class="ms-2">Nome Usuário</h5>
-                                                    <div class="container-fluid h-100 p-0 m-0 bg-user-coment">
-                                                        <p class="card-text ms-2">Opinião do usuário</p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
+                                <?php
+
+                                }
+                            } else {
+                                ?>
+                                <div class="container-fluid p-0 m-0 w-100 h-100">
+                                    <p class="fw-bold display-6 text-center">Nenhuma avaliação</p>
+                                </div>
                             <?php
-                                $i++;
                             }
                             ?>
                         </div>

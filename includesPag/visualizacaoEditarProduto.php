@@ -176,9 +176,9 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-12 col-md-12 col-lg-9">
+                    <div class="col-sm-12 ps-sm-0 ps-lg-1 col-md-12 col-lg-9">
                         <div class="row ms-1">
-                            <div class="col-6 ms-0 ps-0">
+                            <div class="col-sm-12 col-lg-6 ms-0 ps-0">
                                 <div class="container-fluid w-100 p-0 m-0 mt-1">
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control mb-3 no-borders-input" id="titulo" value="<?php echo ($titulo); ?>" name="titulo" placeholder="Titulo">
@@ -188,7 +188,7 @@
                             </div>
 
 
-                            <div class="col-lg-2 offset-lg-4 d-flex justify-content-end align-items-end pe-0">
+                            <div class="col-sm-12 col-lg-2 ps-sm-0 offset-lg-4 d-flex justify-content-sm-end justify-content-lg-end align-items-sm-center align-items-lg-end pe-0">
                                 <!-- <button type="button" class="btn btn-svg-delete h-100 w-100" data-bs-toggle="modal" data-bs-target="#deletarModal">
                                     <img class="svg svg-btn-delete" src="UIcons/svg/fi-rs-trash.svg">
                                 </button>
@@ -214,7 +214,7 @@
                                     </div>
                                 </div> -->
 
-                                <button type="button" class="btn btn-svg-success ms-3 h-100 w-100" data-bs-toggle="modal" data-bs-target="#confirmacaoModal">
+                                <button type="button" class="btn btn-svg-success ms-sm-0 ms-lg-3 h-100 w-100" data-bs-toggle="modal" data-bs-target="#confirmacaoModal">
                                     <img class="svg svg-btn-success" src="img/btns/done.svg">
                                 </button>
 
@@ -244,7 +244,7 @@
 
 
 
-                            <div class="col-sm-12 col-md-12 col-lg-4 m-0 p-0">
+                            <div class="col-sm-12 col-md-12 col-lg-6 m-0 p-0">
                                 <div class="container-fluid p-0 m-0">
                                     <div class="row">
 
@@ -289,7 +289,7 @@
                     ?>
 
                     <div class="row gx-0">
-                        <div class="col-sm-12 col-md-8 col-lg-6">
+                        <div class="col-sm-12 col-md-12 col-lg-6">
                             <div class="row pt-4">
                                 <div class="col-12">
                                     <div class="card" style="height: 200px;">
@@ -316,7 +316,7 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-2 offset-sm-10 col-md-2 offset-md-2 col-lg-2 offset-lg-4 align-self-end">
+                        <div class="col-sm-12 col-lg-2 offset-sm-10 col-md-2 offset-md-2 col-lg-2 offset-lg-4 align-self-sm-start align-self-lg-end">
                             <a class="" href=""><button class="btn btn-cart border align-text-bottom border-1 w-100 mt-4" disabled><span class="material-icons m-1 blue">add_shopping_cart</span></button></a>
                         </div>
                     </div>

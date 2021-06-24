@@ -74,7 +74,11 @@ use App\money_format;
                 $paginaAnt = ($paginaAtual * 10) - 10;
                 $proxPagina = 10;
             }
-            $countProdutosBD = count($obDb->select("idAutor = $idAutor and titulo LIKE '%$titulo%'", null));
+            $countBool = $obDb->select("idAutor = $idAutor and titulo LIKE '%$titulo%'", null);
+            if ($countBool != false) {
+                $countProdutosBD = count($countBool);
+            }
+
 
             //var_dump($paginaAnt);
             //var_dump($proxPagina);
@@ -116,10 +120,10 @@ use App\money_format;
 
                     <div class="col-sm-12 col-md-12 col-lg-6">
                         <!--<a href="produto.php?id=<?php echo ($idProduto); ?>" title="Editar publicação">-->
-                        
-                            <div class="card card-usuario mb-lg-2 mt-sm-2 mt-md-2 mx-auto">
-                                <img class="card-img img-pubUsr" src="<?php echo ($destinoImg); ?>" alt="">
-                                <!--<div class="card-img-overlay py-0">
+
+                        <div class="card card-usuario mb-lg-2 mt-sm-2 mt-md-2 mx-auto">
+                            <img class="card-img img-pubUsr" src="<?php echo ($destinoImg); ?>" alt="">
+                            <!--<div class="card-img-overlay py-0">
                                                                     <div class="row px-lg-3">
                                                                         <div class="col-4 offset-8">
                                                                             <div class="row">
@@ -133,33 +137,33 @@ use App\money_format;
                                                                         </div>
                                                                     </div>
                                                                 </div>-->
-                                <div class="card-body">
-                                    <h4 cklass="card-title card-title-usuario">
-                                        <?php if (strlen($titulo) > 12) {
-                                            $tituloArray = str_split($titulo);
-                                            for ($i = 0; $i < 12; $i++) {
-                                                echo ($tituloArray[$i]);
-                                            }
-                                        } else {
-                                            echo ($titulo);
-                                        } ?>
-                                    </h4>
-                                    <?php setlocale(LC_MONETARY, 'pt_BR.UTF8');
-                                    $money = new money_format();
-                                    ?>
-                                    <p class="card-text card-text-usuario"><?php echo ($money->money_format("%.2n", $preco)) ?></p>
+                            <div class="card-body">
+                                <h4 cklass="card-title card-title-usuario">
+                                    <?php if (strlen($titulo) > 12) {
+                                        $tituloArray = str_split($titulo);
+                                        for ($i = 0; $i < 12; $i++) {
+                                            echo ($tituloArray[$i]);
+                                        }
+                                    } else {
+                                        echo ($titulo);
+                                    } ?>
+                                </h4>
+                                <?php setlocale(LC_MONETARY, 'pt_BR.UTF8');
+                                $money = new money_format();
+                                ?>
+                                <p class="card-text card-text-usuario"><?php echo ($money->money_format("%.2n", $preco)) ?></p>
 
-                                    <button type="button" class="btn btn-svg-delete position-absolute top-0 end-0" data-bs-toggle="modal" data-bs-target="#deletarModal" title="Excluir publicação">
-                                        <img class="svg svg-btn-delete" src="UIcons/svg/fi-rs-trash.svg">
+                                <button type="button" class="btn btn-svg-delete position-absolute top-0 end-0" data-bs-toggle="modal" data-bs-target="#deletarModal" title="Excluir publicação">
+                                    <img class="svg svg-btn-delete" src="UIcons/svg/fi-rs-trash.svg">
+                                </button>
+                                <a href="editarPub.php?id=<?php echo ($idProduto); ?>" title="Editar publicação">
+                                    <button type="button" class="btn btn-svg-edit position-absolute top-0 end-0 rounded-0 me-btn-edit">
+                                        <img class="svg svg-btn-edit" src="UIcons/svg/fi-rs-edit.svg">
                                     </button>
-                                    <a href="editarPub.php?id=<?php echo ($idProduto); ?>" title="Editar publicação">
-                                        <button type="button" class="btn btn-svg-edit position-absolute top-0 end-0 rounded-0 me-btn-edit">
-                                            <img class="svg svg-btn-edit" src="UIcons/svg/fi-rs-edit.svg">
-                                        </button>
-                                    </a>
-                                </div>
+                                </a>
                             </div>
-                        
+                        </div>
+
                     </div>
                     <div class="modal fade" id="deletarModal" tabindex="-1" aria-labelledby="deletarModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
@@ -181,8 +185,14 @@ use App\money_format;
                         </div>
                     </div>
 
-        <?php
+                <?php
                 }
+            } else {
+                ?>
+                <div class="container-fluid p-0 m-0 w-100 h-100">
+                    <p class="fw-bold display-6 text-center">Você não tem nenhuma publicação</p>
+                </div>
+        <?php
             }
         }
         ?>
