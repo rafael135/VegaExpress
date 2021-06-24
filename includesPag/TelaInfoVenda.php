@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informações do comprador</title>
 
-    <link rel="stylesheet" href="bootstrap-5.0.0B3/css/bootstrap.min.css">
-
 </head>
 
 <body>
@@ -29,8 +27,6 @@
 
         </div>
     </div>
-
-    <script src="bootstrap-5.0.0B3/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
