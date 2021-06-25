@@ -4,7 +4,7 @@
 
 
         <!-- Footer -->
-        <footer class="fixed-bottom text-center text-lg-start text-white" style="background-color:#3c3c3c;">
+        <footer class="text-center text-lg-start text-white" style="background-color:#3c3c3c;">
 
             <?php
             /*<!-- Grid container -->

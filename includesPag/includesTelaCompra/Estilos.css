@@ -52,7 +52,7 @@ h2{
 
 #form .previous-step:hover,
 #form .previous-step:focus {
-	background-color: #000000
+	background-color: rgb(80, 80, 80);
 }
 
 #form .next-step:hover,
@@ -145,18 +145,31 @@ h2{
 	background-color: rgb(220, 220, 220);
 }
 
-.card{
+.card-produto{
 	flex-direction: row !important;
 }
 
-.card > img{
+.card-produto > img{
 	width: 30% !important;
 }
 
-.card-body{
+.card-produto > .card-body{
 	width: 70% !important;
 }
 
 .ps-precoTotal{
 	margin-top: 4.7rem !important;
+}
+
+.floating-borderStyle{
+	border: thin solid rgb(200, 200, 200) !important;
+}
+
+.px-3-custom > .floating-borderStyle{
+	margin-left: 1rem !important;
+	margin-right: 1rem !important;
+}
+
+.bg-light{
+	background-color: rgb(230, 230, 230) !important;
 }

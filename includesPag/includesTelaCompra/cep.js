@@ -12,6 +12,8 @@ $(function () {
     //Quando o campo cep perde o foco.
     $("#cep").on("blur", function () {
 
+
+
         //Nova variável "cep" somente com dígitos.
         var cep = $(this).val().replace(/\D/g, '');
 
@@ -23,6 +25,8 @@ $(function () {
 
             //Valida o formato do CEP.
             if (validacep.test(cep)) {
+
+
 
                 //Preenche os campos com "..." enquanto consulta webservice.
                 $("#rua").val("...");
@@ -46,6 +50,9 @@ $(function () {
                         $("#cepTxt").val(cep);
                         $("#cepUsr").attr("value", cep);
                         //alert($("#cepUsr").val)
+                        $("#avancarEndereco").removeAttr("disabled");
+                        $("#avancarEndereco").css("opacity", "1");
+                        $("#avancarEndereco").fadeIn("slow");
                     } //end if.
                     else {
                         //CEP pesquisado não foi encontrado.
