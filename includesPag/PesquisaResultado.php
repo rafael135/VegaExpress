@@ -378,7 +378,7 @@
                                                 <div class="card-body">
                                                     <h5 class="card-title card-resultado text-start text-blue"><?php if (strlen($titulo) > 12) {
                                                                                                             $tituloArray = str_split($titulo);
-                                                                                                            for ($i = 0; $i < 24; $i++) {
+                                                                                                            for ($i = 0; $i < strlen($titulo); $i++) {
                                                                                                                 echo ($tituloArray[$i]);
                                                                                                             }
                                                                                                         } else {

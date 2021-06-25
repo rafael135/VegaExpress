@@ -141,7 +141,7 @@ use App\money_format;
                                 <h4 cklass="card-title card-title-usuario">
                                     <?php if (strlen($titulo) > 12) {
                                         $tituloArray = str_split($titulo);
-                                        for ($i = 0; $i < 12; $i++) {
+                                        for ($i = 0; $i < strlen($titulo); $i++) {
                                             echo ($tituloArray[$i]);
                                         }
                                     } else {
