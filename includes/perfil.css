@@ -18,9 +18,7 @@ a#btnOpt2{
     border-style: solid;
     border-radius: 0;
     border-width: 1px;
-    
     border-color: rgb(235, 235, 235);
-    border: 1px solid rgb(235, 235, 235) !important;
 }
 
 .nav-item > a  > .row > div > button > span.material-icons{
@@ -174,6 +172,18 @@ a.activeOpt > .row > div > button > span.material-icons{
 
 .nav-item-userOpts{
     border: 1px solid rgb(235, 235, 235) !important;
+}
+
+.nav-item-userOpts#firstOpt > a{
+    border-right: thin solid rgb(210, 210, 210) !important;
+}
+
+.nav-item-userOpts#secondOpt > a{
+    border-right: thin solid rgb(210, 210, 210) !important;
+}
+
+.nav-item-userOpts#thirdOpt > a{
+    border-right: thin solid rgb(210, 210, 210) !important;
 }
 
 .border-custom-nav{

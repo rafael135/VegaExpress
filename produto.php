@@ -22,6 +22,7 @@ include __DIR__ . '/includesPag/pesquisa.php';
     <link rel="stylesheet" href="includes/publicacao.css">
 </head>
 
+<body background="img/blockChaintr.gif" class="animated-gif"></body>
 <?php
 
 include __DIR__ . '/includesPag/visualizacaoProduto.php';

@@ -26,7 +26,7 @@ if ($_GET) {
                             <div class="row m-0 p-0 w-100 g-0">
 
                                 <div class="col-lg-4">
-                                    <li class="nav-item nav-item-userOpts">
+                                    <li class="nav-item nav-item-userOpts" id="firstOpt">
                                         <a class="nav-link btnOpt2 btn-group w-100 <?php if ($idPag == 0) {
                                                                                         echo ("activeOpt");
                                                                                     } ?>" href="perfil.php?id=0">
@@ -50,7 +50,7 @@ if ($_GET) {
                                 </div>
 
                                 <div class="col-lg-4">
-                                    <li class="nav-item nav-item-userOpts">
+                                    <li class="nav-item nav-item-userOpts" id="secondOpt">
                                         <a class="nav-link btnOpt2 btn-group w-100 <?php if ($idPag == 1) {
                                                                                         echo ("activeOpt");
                                                                                     } ?>" href="perfil.php?id=1">
@@ -75,7 +75,7 @@ if ($_GET) {
 
                                 <!-- Minhas publicações -->
                                 <div class="col-sm-10 col-md-11 col-lg-3 pe-0">
-                                    <li class="nav-item nav-item-userOpts">
+                                    <li class="nav-item nav-item-userOpts" id="thirdOpt">
 
                                         <a class="nav-link btnOpt3 rounded-0 btn-group w-100 <?php if ($idPag == 2) {
                                                                                                     echo ("activeOpt");

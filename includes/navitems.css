@@ -116,7 +116,7 @@
 }
 
 div.border-custom-nav > a.btnPub{
-    background-color: #fff !important;
+    background-color: rgb(235, 235, 235) !important;
 }
 
 div.border-custom-nav:hover > a.btnPub{

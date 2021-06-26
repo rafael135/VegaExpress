@@ -13,6 +13,9 @@
         // Inclui a navbar para Desktop na página
         include __DIR__.'/includesPag/navbar.php';
     }
+    ?>
+    <body background="img/blockChaintr.gif" class="animated-gif"></body>
+    <?php
 
     // Inclui a página Sobre Nós
     include __DIR__ . '/includesPag/sobre.php';

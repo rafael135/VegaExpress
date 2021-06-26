@@ -54,6 +54,7 @@ if ($detect->isMobile() == true && !$detect->isTablet()) {
     <link rel="stylesheet" href="includes/perfil.css">
     <link rel="stylesheet" href="includesPag/paginasPerfil/includes/configs.css">
 </head>
+<body background="img/blockChaintr.gif" class="animated-gif"></body>
 <?php
 
 // Inclui a página Sobre Nós

@@ -334,8 +334,8 @@
             </div>
 
             <!--Coluna 2-->
-            <div class="col-lg-9">
-                <div class="container-fluid container-resultado p-0 m-0 p-1">
+            <div class="col-lg-9 h-auto">
+                <div class="container-fluid h-100 container-resultado p-0 m-0 p-1">
                     <div class="row mx-sm-auto mx-md-auto gx-0">
                         <?php
 

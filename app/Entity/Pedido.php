@@ -61,8 +61,14 @@ class Pedido
 
 
 
+            $obDbProduto = new Database("produtos");
+            $dadosProd = $obDbProduto->select("idProduto = $pedido");
+            $quantidadeVendas = $obDbProduto['vendas'];
+            var_dump($quantidadeVendas);
 
-
+            $obDbProduto->atualizar("idProduto = $pedido", [
+                "vendas" => $quantidadeVendas
+            ]);
 
             $result = $this->obDb->inserir([
                 'idProduto' => intval($pedido),
@@ -73,6 +79,10 @@ class Pedido
         }
 
         if ($result != false) {
+            
+
+
+
             return true;
         } else {
             return false;

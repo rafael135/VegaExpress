@@ -17,7 +17,7 @@ if ($detect->isMobile() == true && !$detect->isTablet()) {
 include __DIR__ . '/includesPag/includesTelaCompra/telaInfoVenda.php';
 
 ?>
-
+<body background="img/blockChaintr.gif" class="animated-gif"></body>
 <?php
 
 //  Inclui o final da página

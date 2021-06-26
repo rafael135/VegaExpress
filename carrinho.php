@@ -19,6 +19,10 @@ if ($detect->isMobile() == true && !$detect->isTablet()) {
     include __DIR__ . '/includesPag/navbar.php';
 }
 
+?>
+    <body background="img/blockChaintr.gif" class="animated-gif"></body>
+<?php
+
 include __DIR__ . '/includesPag/Tela_compra.php';
 
 //include __DIR__ . '/sidebarT.php';

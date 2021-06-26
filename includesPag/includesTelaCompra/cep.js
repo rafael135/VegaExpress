@@ -11,7 +11,7 @@ $(function () {
     }
 
     //Quando o campo cep perde o foco.
-    $("#cep").on("blur", function () {
+    $("#cep").on("change", function () {
 
 
 
