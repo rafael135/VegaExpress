@@ -426,6 +426,11 @@ body{
     background: linear-gradient(90deg, rgba(2,18,233,0.9108018207282913) 0%, rgba(2,119,233,0.9248074229691877) 30%, rgba(2,135,233,0.9248074229691877) 43%, rgba(1,186,239,0.9360119047619048) 56%, rgba(1,198,244,0.9192051820728291) 75%, rgba(2,185,233,0.8855917366946778) 100%);*/
 }
 
+.animated-gif{
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
 .container-footer-margin{
     /*margin-bottom: 160px !important;*/
 }
@@ -433,6 +438,7 @@ body{
 footer{
     margin-top: 27rem !important;
     padding-top: 36px !important;
+    opacity: 0.85 !important;
 }
 
 .expand-btn{

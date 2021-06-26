@@ -24,6 +24,12 @@ if ($detect->isMobile() == true && !$detect->isTablet()) {
 // Inclui o carousel
 //include __DIR__ . '/carousel.php';
 
+?>
+<body background="img/blockChaintr.gif" class="animated-gif"></body>
+
+<?php
+
+
 // Inclui a barra de pesquisa
 include __DIR__ . '/includesPag/pesquisa.php';
 
