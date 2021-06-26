@@ -3,6 +3,14 @@
     width: 14rem !important;
 }
 
+.card-listam > .card-body{
+    max-height: 40% !important;
+}
+
+.img-listagem{
+    max-height: 60% !important;
+}
+
 .card-text{
     font-size: 1.2rem !important;
 }

@@ -64,7 +64,7 @@ use App\money_format;
                                         <div class="col-sm-4 col-md-3 col-lg-2 mx-auto">
                                             <a href="produto.php?id=<?php echo ($idProduto); ?>" title="<?php echo ($titulo); ?>">
                                                 <div class="card card-listagem link text-white text-center mb-2 mx-auto">
-                                                    <img class="card-img-top" src="<?php echo ($destinoImg); ?>" alt="">
+                                                    <img class="card-img-top img-listagem" src="<?php echo ($destinoImg); ?>" alt="">
                                                     <div class="card-body my-auto">
                                                         <h4 class="card-title"><?php if (strlen($titulo) > 12) {
                                                                                     $tituloArray = str_split($titulo);
