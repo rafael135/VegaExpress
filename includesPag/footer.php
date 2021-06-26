@@ -1,12 +1,12 @@
         </div>
 
 <div class="container-fluid container-footer-margin">
-  d
+  
 </div>
 
 
         <!-- Footer -->
-        <footer class="text-center text-lg-start fixed-bottom text-white" style="background-color:#3c3c3c;">
+        <footer class="text-center text-lg-start text-white" style="background-color:#3c3c3c;">
 
             <?php
             /*<!-- Grid container -->

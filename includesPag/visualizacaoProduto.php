@@ -32,7 +32,7 @@
         $imgs = explode(" ", $imgs);
         $resultadoUsr = false;
         if (isset($_SESSION['idUsuario'])) {
-            $idUsuario = $_SESSION['idUsuario'];
+            $idUsuario = intval($_SESSION['idUsuario']);
             $pedido = new Pedido(0);
             $resultadoUsr = $pedido->verificarUsr($idUsuario);
         }
@@ -149,7 +149,7 @@
                                 <p class="text-start text-blue fs-2" id="produtoTxt"><?php echo ($titulo); ?></p>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-12 col-lg-2 m-0 p-0">
+                        <div class="col-sm-12 col-md-12 col-lg-5 m-0 p-0">
                             <div class="container-fluid p-0 m-0">
                                 <p class="text-start text-success fs-2 fw-bolder" id="produtoTxt"><?php echo ($money->money_format("%.2n", $preco)); ?></p>
                             </div>
@@ -303,7 +303,7 @@
                                 <input type="number" hidden value="<?php echo ($idPub); ?>" name="id">
                                 <?php
                                 if (isset($_SESSION['idUsuario'])) {
-                                    if ($resultadoUsr != true) {
+                                    if ($resultadoUsr == true) {
                                         if ($idAutor != $_SESSION['idUsuario']) {
                                 ?>
                                             <div class="col-sm-12 col-md-2 col-lg-2">
@@ -316,7 +316,7 @@
                                 }
                                 ?>
 
-                                <div class="col-sm-12 col-md-4 <?php if ($resultadoUsr != true) {
+                                <div class="col-sm-12 col-md-4 <?php if ($resultadoUsr == true) {
                                                                     if (isset($_SESSION['idUsuario'])) {
                                                                         if ($idAutor != $_SESSION['idUsuario']) {
                                                                             echo ("col-lg-2");
@@ -424,10 +424,10 @@
                                     $nomeAutorAvaliacao = $dadosComentAutor['nome'];
                                     $imgAvalicaoAutor = $dadosComentAutor['imgPerfil'];
                                     $destinoImgComent = "";
-                                    if ($imgAvalicaoAutor != "") {
-                                        $destinoImgComent = "UsrImg/" . $avaliacaoIdAutor . "/fotoPerfil/" . $imgAvalicaoAutor;
+                                    if (!isset($imgAvalicaoAutor) || $imgAvalicaoAutor == "0"){
+                                        $destinoImgComent = "img/imgPadraoUser.svg";
                                     } else {
-                                        $destinoImgComent = "img/imgPadraoProduto.png";
+                                        $destinoImgComent = "UsrImg/" . $avaliacaoIdAutor . "/fotoPerfil/" . $imgAvalicaoAutor;
                                     }
 
                             ?>

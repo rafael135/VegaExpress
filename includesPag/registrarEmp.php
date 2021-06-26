@@ -36,7 +36,7 @@ if (isset($_SESSION['senhaDiferente'])) {
 }*/
 ?>
 
-<body background="img/banner2.png"></body>
+<body background="img/BlockChainBackground.jpg"></body>
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-6">

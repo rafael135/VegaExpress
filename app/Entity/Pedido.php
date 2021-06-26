@@ -20,7 +20,8 @@ class Pedido
         $sql = $this->obDb->getConexao()->prepare($sql);
         $sql->bindValue("id", $id);
         $sql->execute();
-
+        
+//var_dump($sql->rowCount());
         if ($sql->rowCount() > 0) {
             return true;
         } else {

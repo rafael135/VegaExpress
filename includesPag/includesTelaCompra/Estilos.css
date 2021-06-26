@@ -86,19 +86,19 @@ h2{
 }
 
 #progressbar #step1:before {
-	content: "1"
+	content: "1";
 }
 
 #progressbar #step2:before {
-	content: "2"
+	content: "2";
 }
 
 #progressbar #step3:before {
-	content: "3"
+	content: "3";
 }
 
 #progressbar #step4:before {
-	content: "4"
+	content: "4";
 }
 
 #progressbar li:before {
