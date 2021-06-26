@@ -8,13 +8,14 @@
     use App\Avaliacao;
     use App\Comentario;
     use App\money_format;
+    use App\Pedido;
     use App\Produto;
     use App\Usuario;
     use FFI\ParserException;
 
     require_once("vendor/autoload.php");
 
-    
+
 
     $produto = new Produto();
     $idPub = $_GET['id'];
@@ -29,6 +30,12 @@
         $money = new money_format();
         $imgs = $publicacao[0]['imagens'];
         $imgs = explode(" ", $imgs);
+        $resultadoUsr = false;
+        if (isset($_SESSION['idUsuario'])) {
+            $idUsuario = $_SESSION['idUsuario'];
+            $pedido = new Pedido(0);
+            $resultadoUsr = $pedido->verificarUsr($idUsuario);
+        }
     } else {
         header("Location: ../index.php");
         $titulo = "Página não existe!";
@@ -37,7 +44,6 @@
         $idProduto = "";
         $money = new money_format();
         $imgs = $publicacao[0]['imagens'];
-        
     }
 
     ?>
@@ -169,7 +175,9 @@
                 $nomeAutor = $dados['nome'];
                 $AutorId = $dados['id'];
                 $imgAutor = $dados['imgPerfil'];
-                $destino = "UsrImg/" . $idUsr . "/fotoPerfil/" . $imgAutor;
+                $destino = "UsrImg/" . $AutorId . "/fotoPerfil/" . $imgAutor;
+
+
                 ?>
 
                 <div class="row">
@@ -200,12 +208,8 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-2 offset-sm-8 col-md-2 offset-md-2 col-lg-2 offset-lg-2 align-self-end pe-0">
-                        <a class="" href="ActionPHP/adicionarCarrinho.php?idPub=<?php echo($idPub); ?>"><button class="btn btn-cart border align-text-bottom border-0 rounded-0 w-100 mt-4" title="Adicionar ao carrinho"><span class="material-icons m-1 blue">add_shopping_cart</span></button></a>
-                    </div>
-
-                    <div class="col-sm-2 col-md-2 col-lg-2 ps-0 align-self-end">
-                        <a class="" href=""><button class="btn btn-cart border-0 rounded-0 w-100 align-items-center mb-1 pb-2 pt-3 text-center">Comprar</button></a>
+                    <div class="col-sm-2 offset-sm-8 col-md-2 offset-md-2 col-lg-2 offset-lg-4 align-self-end pe-0">
+                        <a class="" href="ActionPHP/adicionarCarrinho.php?idPub=<?php echo ($idPub); ?>"><button class="btn btn-cart border align-text-bottom border-0 rounded-0 w-100 mt-4" title="Adicionar ao carrinho"><span class="material-icons m-1 blue">add_shopping_cart</span></button></a>
                     </div>
                 </div>
             </div>
@@ -276,7 +280,9 @@
                 </div>
             </div>
 
-            <div class="collapse <?php if(isset($_GET['selectAvaliacao'])) { echo("show"); } ?> mt-0 mb-0" id="collapseAvaliacao">
+            <div class="collapse <?php if (isset($_GET['selectAvaliacao'])) {
+                                        echo ("show");
+                                    } ?> mt-0 mb-0" id="collapseAvaliacao">
                 <div class="container-fluid bg-whiteGrey border border-1 p-0 pb-2 pt-2 m-0">
                     <div class="row">
                         <form class="" method="GET" action="produto.php">
@@ -294,13 +300,31 @@
                                     </div>
                                 </div>
 
-                                <input type="number" hidden value="<?php echo($idPub); ?>" name="id">
+                                <input type="number" hidden value="<?php echo ($idPub); ?>" name="id">
+                                <?php
+                                if (isset($_SESSION['idUsuario'])) {
+                                    if ($resultadoUsr != true) {
+                                        if ($idAutor != $_SESSION['idUsuario']) {
+                                ?>
+                                            <div class="col-sm-12 col-md-2 col-lg-2">
+                                                <button type="button" class="btn btn-svg-avaliacao w-100 h-100" data-bs-toggle="modal" data-bs-target="#avaliarModal">Avaliar</button>
+                                            </div>
 
-                                <div class="col-sm-12 col-md-2 col-lg-2">
-                                    <button type="button" class="btn btn-svg-avaliacao w-100 h-100" data-bs-toggle="modal" data-bs-target="#avaliarModal">Avaliar</button>
-                                </div>
+                                <?php
+                                        }
+                                    }
+                                }
+                                ?>
 
-                                <div class="col-sm-12 col-md-4 col-lg-2">
+                                <div class="col-sm-12 col-md-4 <?php if ($resultadoUsr != true) {
+                                                                    if (isset($_SESSION['idUsuario'])) {
+                                                                        if ($idAutor != $_SESSION['idUsuario']) {
+                                                                            echo ("col-lg-2");
+                                                                        } else {
+                                                                            echo ("col-lg-4");
+                                                                        }
+                                                                    }
+                                                                } ?>">
                                     <button type="submit" class="btn btn-svg-avaliacao w-100 h-100"><img class="svg svg-white" src="UIcons/svg/fi-rs-search.svg"></button>
                                 </div>
 

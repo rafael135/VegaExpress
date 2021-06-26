@@ -1,4 +1,5 @@
 $(function () {
+    $("#cep").mask("99.999-999");
     function limpa_formulário_cep() {
         // Limpa valores do formulário de cep.
         //$("#rua").val("");
@@ -26,8 +27,6 @@ $(function () {
             //Valida o formato do CEP.
             if (validacep.test(cep)) {
 
-
-
                 //Preenche os campos com "..." enquanto consulta webservice.
                 $("#rua").val("...");
                 $("#bairro").val("...");
@@ -53,6 +52,8 @@ $(function () {
                         $("#avancarEndereco").removeAttr("disabled");
                         $("#avancarEndereco").css("opacity", "1");
                         $("#avancarEndereco").fadeIn("slow");
+                        $("#cepTxt").mask("99.999-999");
+                        $("#cepTxt").text($("#cep").text);
                     } //end if.
                     else {
                         //CEP pesquisado não foi encontrado.

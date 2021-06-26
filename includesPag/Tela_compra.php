@@ -8,6 +8,8 @@
 use App\Autor;
 use App\money_format;
 use App\Produto;
+
+$money = new money_format();
 ?>
 
 <body>
@@ -16,7 +18,7 @@ use App\Produto;
 			<div class="col-sm-10 col-md-10
 				col-lg-10 col-xl-10 text-center p-0 mt-3 mb-2">
 				<div class="px-0 pt-4 pb-0 mt-3 mb-3">
-					<form class="bg-carrinho" id="form">
+					<form class="bg-carrinho" action="ActionPHP/registrarCompra.php" method="POST" id="form">
 						<ul id="progressbar">
 							<li class="active" id="step1">
 								<strong>Carrinho</strong>
@@ -55,7 +57,7 @@ use App\Produto;
 
 										foreach ($itemsCarrinho as $item) {
 
-											$money = new money_format();
+											
 											$idProduto = $item;
 											$produto = new Produto();
 											$produto = $produto->getProdutoId($idProduto);
@@ -83,6 +85,28 @@ use App\Produto;
 
 													<div class="card-body">
 														<h4 class="card-title text-start">Nome do produto: <?php echo ($nomeProduto); ?></h4>
+														<button type="button" class="btn btn-svg-delete position-absolute top-0 end-0" data-bs-toggle="modal" data-bs-target="#deletarModal" title="Remover do carrinho">
+															<img class="svg svg-btn-delete" src="UIcons/svg/fi-rs-trash.svg">
+														</button>
+														<div class="modal fade" id="deletarModal" tabindex="-1" aria-labelledby="deletarModalLabel" aria-hidden="true">
+															<div class="modal-dialog modal-dialog-centered">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<h5 class="modal-title" id="deletarModalLabel">Confirmação</h5>
+																		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+																	</div>
+																	<div class="modal-body">
+																		Tem certeza de que deseja excluir a publicação?
+																	</div>
+																	<div class="modal-footer">
+
+																		<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+																		<a href="ActionPHP/removerProdutoCarrinho.php?idPub=<?php echo($idProduto); ?>" type="button" class="btn btn-success">Sim</a>
+
+																	</div>
+																</div>
+															</div>
+														</div>
 
 													</div>
 
@@ -97,7 +121,10 @@ use App\Produto;
 														<div class="form-floating mb-3 mx-sm-0 mx-md-2 mx-lg-4">
 															<input type="number" class="form-control" min="1" max="40" value="1" placeholder="Quantidade" id="quantidadeProduto" name="quantidadeProduto">
 															<label for="quantidadeProduto">Quantidade</label>
+															<input type="number" id="precoProduto" value="<?php echo ($valorProduto); ?>" hidden>
 														</div>
+
+
 													</div>
 												</div>
 											</div>
@@ -140,12 +167,12 @@ use App\Produto;
 										</div>
 								</div>
 							</div>
-							<div class="container col-sm-4 pt-4">
-								<div class="input-group">
+							<div class="container col-sm-12 col-md-10 col-lg-8 pt-4">
+								<div class="form-floating mb-3">
 									<input type="text" id="cep" class="form-control" aria-label="" placeholder="Verifique o CEP">
-
-									<input type="number" id="cepUsr" value="0" hidden>
+									<label for="cep">Por favor, digite seu CEP para continuar</label>
 								</div>
+								<input type="number" id="cepUsr" value="0" hidden>
 							</div>
 
 							<input type="button" name="next-step" id="avancarEndereco" class="next-step" value="Avançar" disabled style="opacity: 0;" />
@@ -155,7 +182,7 @@ use App\Produto;
 						<?php
 									} else {
 						?>
-
+							<p class="display-5 text-blue text-center pt-3 pb-0 mb-0">Você não adicionou nenhum produto ao seu carrinho</p>
 						<?php
 									}
 						?>
@@ -174,7 +201,7 @@ use App\Produto;
 								</div>
 
 								<div class="form-floating mx-2">
-									<input type="text" class="form-select mb-3" id="cidade" aria-label="Cidade">
+									<input type="text" class="form-control mb-3" id="cidade" aria-label="Cidade">
 									<label for="cidade">Cidade</label>
 								</div>
 
@@ -184,7 +211,7 @@ use App\Produto;
 								</div>
 
 								<div class="form-floating mx-2 mb-3">
-									<input type="number" class="form-control" id="cepTxt" placeholder="CEP">
+									<input type="text" class="form-control" id="cepTxt" placeholder="CEP">
 									<label for="cepTxt">CEP</label>
 								</div>
 							</div>
@@ -192,23 +219,26 @@ use App\Produto;
 							<input type="button" name="next-step" class="next-step mb-0" value="Avançar" />
 							<input type="button" name="previous-step" class="previous-step mb-0" value="Voltar" />
 						</fieldset>
-						<fieldset>
+						<fieldset class="px-3-custom bg-light">
 							<!-- Pagamento -->
-							<h2 class="mb-4">Pagamento</h2>
-
-							<div class="form-floating">
-								<select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-									<option selected></option>
-									<option value="1">Bitcoin</option>
-									<option value="2">Ethereum</option>
-									<option value="3">Cardano</option>
-									<option value="4">Monero</option>
-									<option value="5">Chainlink</option>
-								</select>
-								<label for="floatingSelect">Escolha uma forma de pagamento</label>
+							<div class="container-fluid bg-blue rounded-0 p-0 m-0">
+								<p class="text-center text-white fw-bold display-5">Pagamento</p>
+							</div>
+							<div class="floating-borderStyle rounded rounded-1 px-4">
+								<div class="form-floating mx-2 my-3">
+									<select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+										<option value="1" selected>Cartão de crédito</option>
+										<option value="2">Bitcoin</option>
+										<option value="3">Ethereum</option>
+										<option value="4">Cardano</option>
+										<option value="5">Monero</option>
+										<option value="6">Chainlink</option>
+									</select>
+									<label for="floatingSelect">Escolha uma forma de pagamento</label>
+								</div>
 							</div>
 
-							<input type="button" name="next-step" class="next-step" value="Finalizar" />
+							<input type="button" id="btn-finalizar" name="next-step" class="next-step" value="Finalizar" />
 							<input type="button" name="previous-step" class="previous-step" value="Voltar" />
 						</fieldset>
 						<fieldset>
@@ -227,4 +257,5 @@ use App\Produto;
 	<script src="includesPag/includesTelaCompra/step.js"></script>
 	<script src="includesPag/includesTelaCompra/cep.js"></script>
 	<script src="includesPag/includesTelaCompra/a_calcFrete.js"></script>
+	<script src="includesPag/includesTelaCompra/calcPreco.js"></script>
 </body>

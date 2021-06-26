@@ -421,8 +421,13 @@ body{
     /*background-color: #084d6e !important;*/
     /*background-color: rgba(245, 245, 245, 0.904) !important;*/
     background-color: rgb(30, 30, 30) !important;
+    
     /*background: rgb(2,18,233);
     background: linear-gradient(90deg, rgba(2,18,233,0.9108018207282913) 0%, rgba(2,119,233,0.9248074229691877) 30%, rgba(2,135,233,0.9248074229691877) 43%, rgba(1,186,239,0.9360119047619048) 56%, rgba(1,198,244,0.9192051820728291) 75%, rgba(2,185,233,0.8855917366946778) 100%);*/
+}
+
+.container-footer-margin{
+    margin-bottom: 160px !important;
 }
 
 .expand-btn{

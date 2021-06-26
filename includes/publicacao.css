@@ -50,7 +50,9 @@ select:focus{
 }
 
 .btn-cart{
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(210, 210, 210) !important;
+    border: thin solid rgb(200, 200, 200) !important;
+    border-radius: 0.5rem !important;
     color: #027CE9;
 }
 

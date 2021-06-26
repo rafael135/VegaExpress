@@ -12,8 +12,8 @@ function LoadFrete(){
         dataType: 'html',
         cache: false,
         data: {cep_destino: cep_destino,
-        cep_origem: cep_origem},
-        valor_total: valor_total,
+        cep_origem: cep_origem,
+        valor_total: valor_total},
         success: function(data){
             $("#val-freteTxt").val("Frete: " + data);
             console.log(data);
