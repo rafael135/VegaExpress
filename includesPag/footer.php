@@ -1,15 +1,15 @@
         </div>
 
-<div class="container-fluid container-footer-margin">
-  
-</div>
+        <div class="container-fluid container-footer-margin">
+
+        </div>
 
 
         <!-- Footer -->
         <footer class="text-center text-lg-start text-white" style="background-color:#3c3c3c;">
 
-            <?php
-            /*<!-- Grid container -->
+          <?php
+          /*<!-- Grid container -->
   <div class="container p-4">
 
 
@@ -58,17 +58,19 @@
   </div>
   <!-- Grid container -->
 */
-            ?>
-            <!-- Copyright -->
-            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-                © 2021 Copyright:
-                <a class="text-white" href="index.php">VegaExpress.com</a>
-            </div>
-            <!-- Copyright -->
+          ?>
+          <!-- Copyright -->
+          <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2021 Copyright:
+            <a class="text-white" href="index.php">VegaExpress.com</a>
+          </div>
+          <!-- Copyright -->
 
         </footer>
         <!-- Footer -->
 
+        
+       
         <script src="JQuery 3.6.0/jquery-3.6.0.min.js"></script>
         <script src="JQuery 3.6.0/jquery.mask.min.js"></script>
         <script src="JQuery 3.6.0/jquery.zoom.min.js"></script>

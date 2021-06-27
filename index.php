@@ -25,7 +25,7 @@ if ($detect->isMobile() == true && !$detect->isTablet()) {
 //include __DIR__ . '/carousel.php';
 
 ?>
-<body background="img/blockChaintr.gif" class="animated-gif"></body>
+<body background="img/backgroundVega.jpg" class="animated-gif"></body>
 
 <?php
 

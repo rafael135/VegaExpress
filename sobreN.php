@@ -14,7 +14,7 @@
         include __DIR__.'/includesPag/navbar.php';
     }
     ?>
-    <body background="img/blockChaintr.gif" class="animated-gif"></body>
+<body background="img/backgroundVega.jpg" class="animated-gif"></body>
     <?php
 
     // Inclui a página Sobre Nós

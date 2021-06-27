@@ -20,7 +20,7 @@ if ($detect->isMobile() == true && !$detect->isTablet()) {
 }
 
 ?>
-    <body background="img/blockChaintr.gif" class="animated-gif"></body>
+<body background="img/backgroundVega.jpg" class="animated-gif"></body>
 <?php
 
 include __DIR__ . '/includesPag/Tela_compra.php';

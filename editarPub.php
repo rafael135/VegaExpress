@@ -42,7 +42,7 @@ if ($detect->isMobile() == true && !$detect->isTablet()) {
 <head>
     <link rel="stylesheet" href="includes/publicacao.css">
 </head>
-<body background="img/blockChaintr.gif" class="animated-gif"></body>
+<body background="img/backgroundVega.jpg" class="animated-gif"></body>
 <?php
 
 
