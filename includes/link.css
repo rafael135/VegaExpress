@@ -48,6 +48,14 @@ card:hover{
     color: #d81919;
 }
 
+.text-red{
+    color: #d81919 !important;
+}
+
+.text-green{
+    color: #1abe4c !important;
+}
+
 #menu-user{
     border-color: rgb(224, 224, 224);
 }

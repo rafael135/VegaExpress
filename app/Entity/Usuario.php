@@ -161,6 +161,22 @@ class Usuario{
             return $resultado;
         }
 
+        public function registarVenda($id ,$val){
+            $obDb = new Database("usuarios");
+            $resultado = $obDb->atualizar("id = $id", [
+                'totalVendas' => $val
+            ]);
+            return $resultado;
+        }
+
+        public function registrarAvaliacao($id, $val){
+            $obDb = new Database("usuarios");
+            $resultado = $obDb->atualizar("id = $id", [
+                'notaVendedor' => $val
+            ]);
+            return $resultado;
+        }
+
         
     }
 ?>

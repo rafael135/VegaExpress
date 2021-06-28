@@ -8,10 +8,11 @@ $(function () {
         $("#estado").val("");
         //$("#ibge").val("");
         $("#endereco").val("");
+        $("#cepTxt").val("");
     }
 
     //Quando o campo cep perde o foco.
-    $("#cep").on("change", function () {
+    $("#cep").on("blur", function () {
 
 
 
@@ -53,7 +54,7 @@ $(function () {
                         $("#avancarEndereco").css("opacity", "1");
                         $("#avancarEndereco").fadeIn("slow");
                         $("#cepTxt").mask("99.999-999");
-                        $("#cepTxt").text($("#cep").text);
+                        $("#cepTxt").val($("#cep").val);
                     } //end if.
                     else {
                         //CEP pesquisado não foi encontrado.

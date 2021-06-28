@@ -39,17 +39,20 @@ include __DIR__ . '/includesPag/listagem.php';
 if (isset($_SESSION['idUsuario']) == true && !isset($_SESSION['contToast'])) {
    $_SESSION['contToast'] = 0;
 ?>
-<div class="container-fluid" id="toastLogin">
-    <div class="toast-container fadeIn fadeInCenter position-absolute bottom-0 end-0 p-3">
-        <!-- Then put toasts within -->
-        <div class="toast showing" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header toast-white">
-                <strong class="me-auto text-end text-blue">Bem vindo <?php echo ($_SESSION['nomeUsuario']); ?>!</strong>
-                <button type="button" class="btn-close-custom" id="btnToastLogin" data-bs-dismiss="toast" aria-label="Close"><span class="material-icons">close</span></button>
+<div class="toast-container position-absolute bottom-0 end-0 p-3">
+        <div class="toast" data-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto text-green">Bem vindo <?php echo($_SESSION['nomeUsuario']); ?></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
         </div>
     </div>
-</div>
+
+    <script>
+        $(document).ready(function() {
+            $(".toast").toast("show");
+        });
+    </script>
 <?php
 }
 //  Inclui o final da página

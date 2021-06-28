@@ -35,6 +35,15 @@ class Avaliacao{
             'txtComentario' => $texto,
             'avaliacao' => $avaliacao
         ]);
+        $pub = new Produto();
+        $dadosPub = $pub->getProdutoId($idPub);
+        $idAutorPub = $dadosPub[0]['idAutor'];
+        $autor = new Usuario();
+        $dadosAutor = $autor->getDados("id = $idAutorPub");
+        $avaliacaoAutor = intval($dadosAutor[0]['notaVendedor']);
+        $avaliacaoAutor += $avaliacao;
+        $autor->registrarAvaliacao($idAutorPub, $avaliacaoAutor);
+
 
         if($this->id != null){
             return true;

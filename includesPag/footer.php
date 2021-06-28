@@ -77,6 +77,7 @@
         <script src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
         <script src="bootstrap-5.0.0B3/js/bootstrap.bundle.min.js"></script>
         <!--<script src="ActionsJS/sideBarAction.js"></script>-->
+        
         </body>
 
         </html>

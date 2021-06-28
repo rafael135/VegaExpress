@@ -34,7 +34,7 @@
         if (isset($_SESSION['idUsuario'])) {
             $idUsuario = intval($_SESSION['idUsuario']);
             $pedido = new Pedido(0);
-            $resultadoUsr = $pedido->verificarUsr($idUsuario);
+            $resultadoUsr = $pedido->verificarUsr($idUsuario, $idPub);
         }
     } else {
         header("Location: ../index.php");
@@ -175,7 +175,16 @@
                 $nomeAutor = $dados['nome'];
                 $AutorId = $dados['id'];
                 $imgAutor = $dados['imgPerfil'];
+                $avaliacaoAutor = intval($dados['notaVendedor']);
+                $totalVendasAutor = intval($dados['totalVendas']);
                 $destino = "UsrImg/" . $AutorId . "/fotoPerfil/" . $imgAutor;
+
+                $selectRelevancia = null;
+                $selectAvaliacao = null;
+                if (isset($_GET['selectAvaliacao'])) {
+                    //$selectRelevancia = $_GET['selectRelevancia'];
+                    $selectAvaliacao = $_GET['selectAvaliacao'];
+                }
 
 
                 ?>
@@ -197,8 +206,23 @@
                                         </div>
                                         <div class="col-8">
                                             <div class="card-body">
-                                                <h5 class="card-title fs-3"><?php echo ($nomeAutor); ?></h5>
-                                                <p class="card-text">Nota: </p>
+                                                <h5 class="card-title fs-3">Vendedor: </h5>
+                                                <p class="card-text mb-1 fs-5"><?php echo ("Nome: " . $nomeAutor); ?></p>
+                                                <p class="card-text mb-1 fs-5 <?php if ($totalVendasAutor > 0) {
+                                                                                    if (($avaliacaoAutor / $totalVendasAutor) < 3) {
+                                                                                        echo ("text-red");
+                                                                                    } else {
+                                                                                        echo ("text-green");
+                                                                                    }
+                                                                                } ?>">
+                                                    <?php
+                                                    if ($totalVendasAutor > 0) {
+                                                        $mediaAutor = $avaliacaoAutor / $totalVendasAutor;
+                                                        echo ("Nota média: " . round($mediaAutor, 2) . "/5");
+                                                    }
+                                                    ?>
+                                                </p>
+                                                <p class="card-text mt-0 fs-5"><?php echo ("Total de vendas: " . $totalVendasAutor); ?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -209,7 +233,19 @@
                     </div>
 
                     <div class="col-sm-2 offset-sm-8 col-md-2 offset-md-2 col-lg-2 offset-lg-4 align-self-end pe-0">
-                        <a class="" href="ActionPHP/adicionarCarrinho.php?idPub=<?php echo ($idPub); ?>"><button class="btn btn-cart border align-text-bottom border-0 rounded-0 w-100 mt-4" title="Adicionar ao carrinho"><span class="material-icons m-1 blue">add_shopping_cart</span></button></a>
+                        <a class="" href="<?php if (isset($_SESSION['idUsuario'])) {
+                                                if ($idAutor != $_SESSION['idUsuario']) {
+                                                    echo ("ActionPHP/adicionarCarrinho.php?idPub=$idPub");
+                                                } else {
+                                                    echo ("");
+                                                }
+                                            } ?> "><button <?php if (isset($_SESSION['idUsuario'])) {
+                                                                if ($idAutor != $_SESSION['idUsuario']) {
+                                                                    echo ("");
+                                                                } else {
+                                                                    echo ("disabled");
+                                                                }
+                                                            } ?> class="btn btn-cart border align-text-bottom border-0 rounded-0 w-100 mt-4" title="Adicionar ao carrinho"><span class="material-icons m-1 blue">add_shopping_cart</span></button></a>
                     </div>
                 </div>
             </div>
@@ -287,14 +323,25 @@
                     <div class="row">
                         <form class="" method="GET" action="produto.php">
                             <div class="row m-1 mb-0 mx-auto">
-                                <div class="col-sm-6 col-md-4 col-lg-4">
+                                <div class="col-sm-6 col-md-8 col-lg-8">
                                     <div class="form-floating select-avaliacao">
                                         <select class="form-select border border-1 rounded-0 select-avaliacao" id="selectAvaliacao" name="selectAvaliacao" aria-label="Avaliação">
-                                            <option value="1">1 estrela</option>
-                                            <option value="2">2 estrelas</option>
-                                            <option value="3">3 estrelas</option>
-                                            <option value="4">4 estrelas</option>
-                                            <option value="5">5 estrelas</option>
+                                            <option value="">-----------------</option>
+                                            <option  <?php if($selectAvaliacao == "1"){
+                                                echo("selected");
+                                            } ?> value="1">1 estrela</option>
+                                            <option <?php if($selectAvaliacao == "2"){
+                                                echo("selected");
+                                            } ?> value="2">2 estrelas</option>
+                                            <option <?php if($selectAvaliacao == "3"){
+                                                echo("selected");
+                                            } ?> value="3">3 estrelas</option>
+                                            <option <?php if($selectAvaliacao == "4"){
+                                                echo("selected");
+                                            } ?> value="4">4 estrelas</option>
+                                            <option <?php if($selectAvaliacao == "5"){
+                                                echo("selected");
+                                            } ?> value="5">5 estrelas</option>
                                         </select>
                                         <label class="form-label" for="selectAvaliacao">Avaliação</label>
                                     </div>
@@ -316,8 +363,8 @@
                                 }
                                 ?>
 
-                                <div class="col-sm-12 col-md-4 <?php if ($resultadoUsr == true) {
-                                                                    if (isset($_SESSION['idUsuario'])) {
+                                <div class="col-sm-12 col-md-4 <?php if (isset($_SESSION['idUsuario'])) {
+                                                                    if ($resultadoUsr == true) {
                                                                         if ($idAutor != $_SESSION['idUsuario']) {
                                                                             echo ("col-lg-2");
                                                                         } else {
@@ -328,7 +375,7 @@
                                     <button type="submit" class="btn btn-svg-avaliacao w-100 h-100"><img class="svg svg-white" src="UIcons/svg/fi-rs-search.svg"></button>
                                 </div>
 
-                                <div class="col-sm-6 col-md-4 col-lg-4 offset-md-4 offset-lg-0">
+                                <!--<div class="col-sm-6 col-md-4 col-lg-4 offset-md-4 offset-lg-0">
                                     <div class="form-floating select-avaliacao rounded-0">
                                         <select class="form-select border border-1 rounded-0 select-avaliacao" id="selectRelevancia" name="selectRelevancia" aria-label="Filtrar por">
                                             <option value="1">Mais recentes</option>
@@ -338,7 +385,7 @@
                                         </select>
                                         <label class="form-label" for="selectRelevancia">Filtrar por</label>
                                     </div>
-                                </div>
+                                </div>-->
 
                                 <div class="col-sm-6 col-md-4 col-lg-4 offset-sm-3">
 
@@ -410,10 +457,12 @@
                             <?php
                             $avaliacao = new Avaliacao();
                             $avaliacoes = $avaliacao->getPubComentarios($idProduto);
-                            if ($avaliacoes != false) {
+                            $countAvaliacao;
+                            if ($avaliacoes != false && $avaliacoes != null) {
 
 
                                 foreach ($avaliacoes as $coment) {
+
 
                                     $tituloComent = $coment['titulo'];
                                     $textoComent = $coment['txtComentario'];
@@ -424,15 +473,25 @@
                                     $nomeAutorAvaliacao = $dadosComentAutor['nome'];
                                     $imgAvalicaoAutor = $dadosComentAutor['imgPerfil'];
                                     $destinoImgComent = "";
-                                    if (!isset($imgAvalicaoAutor) || $imgAvalicaoAutor == "0"){
+                                    if (!isset($imgAvalicaoAutor) || $imgAvalicaoAutor == "0") {
                                         $destinoImgComent = "img/imgPadraoUser.svg";
                                     } else {
                                         $destinoImgComent = "UsrImg/" . $avaliacaoIdAutor . "/fotoPerfil/" . $imgAvalicaoAutor;
                                     }
+                                    if ($_GET) {
+                                        if ($selectAvaliacao != "" && $selectAvaliacao != null) {
+                                            if ($avalicaoComent == $selectAvaliacao) {
+                                            } else {
+                                                continue;
+                                            }
+                                        }
+                                    }
+
+
 
                             ?>
                                     <div class="col-sm-12 col-md-12 col-lg-6 mb-2">
-                                        <div class="card card-user">
+                                        <div class="card card-user mt-3">
                                             <div class="row">
 
                                                 <div class="col-sm-5 col-md-4 col-lg-3 pe-0">
@@ -460,7 +519,7 @@
                                                         </h4>
                                                         <h5 class="ms-2"><?php echo ($nomeAutorAvaliacao); ?></h5>
                                                         <div class="container-fluid h-100 p-0 m-0 bg-user-coment">
-                                                            <p class="card-text ms-2"><?php echo (nl2br($textoComent)); ?></p>
+                                                            <p class="card-text ms-2 mt-1 fs-5"><?php echo (nl2br($textoComent)); ?></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -474,7 +533,7 @@
                             } else {
                                 ?>
                                 <div class="container-fluid p-0 m-0 w-100 h-100">
-                                    <p class="fw-bold display-6 text-center">Nenhuma avaliação</p>
+                                    <p class="fw-bold display-6 text-center">Nenhuma avaliação encontrada</p>
                                 </div>
                             <?php
                             }

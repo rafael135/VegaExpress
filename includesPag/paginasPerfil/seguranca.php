@@ -41,7 +41,7 @@ if (isset($_SESSION['emailEnviado'])) {
                     <h5 class="card-title text-center text-white fs-1 fw-bold">Atenção!</h5>
 
                 <?php } ?>
-                <p class="card-text fs-3 mb-0 text-center <?php if ($verificado == true) {
+                <p class="card-text fs-3 mb-3 text-center <?php if ($verificado == true) {
                                                                 echo ("text-success");
                                                             } else {
                                                                 echo ("text-white");
@@ -49,7 +49,7 @@ if (isset($_SESSION['emailEnviado'])) {
                     <?php if ($verificado == true) {
                         echo ("Sua conta está verificada");
                     } else {
-                        echo ("Sua conta não está verificada, clique no botão e verifique para ter acesso");
+                        echo ("Sua conta não está verificada, clique no botão e verifique para ter acesso a mais recursos");
                     } ?>
                 </p>
 

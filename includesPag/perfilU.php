@@ -123,6 +123,21 @@ if ($_GET) {
                                                     <h5 class="modal-title" id="produtoModalLabel">Nova publicação</h5>
                                                     <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
                                                 </div>
+                                                <?php
+                                                $verificado = $_SESSION['usuarioVerificado'];
+                                                $logado = true;
+                                                if ($verificado != null) {
+                                                    if ($verificado == "false") {
+                                                        $verificado = false;
+                                                    } else {
+                                                        $verificado = true;
+                                                    }
+                                                } else {
+                                                    $verificado = false;
+                                                }
+
+                                                if($verificado == true){
+                                                ?>
                                                 <div class="modal-body">
                                                     <form class="m-3" method="POST" action="ActionPHP/novaPub.php" enctype="multipart/form-data">
                                                         <div class="row">
@@ -174,16 +189,15 @@ if ($_GET) {
                                                                 </div>
                                                             </div>
                                                         </div>
-
-
-
-
-
-
-
-
                                                     </form>
                                                 </div>
+                                                <?php }else{ ?>
+                                                    <div class="modal-body justify-content-center">
+                                                        <p class="text-red mt-3 fs-3 fw-bold text-center">Verifique sua conta!</p>
+                                                </div>
+                                                    <?php
+                                                }
+                                                ?>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
 

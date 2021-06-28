@@ -18,6 +18,16 @@ class Produto
         }
     }
 
+
+    public function registrarVenda($id, $val){
+        $obDb = new Database("produtos");
+            $resultado = $obDb->atualizar("idProduto = $id", [
+                'vendas' => $val
+            ]);
+            return $resultado;
+    }
+
+
     public function getTodosProdutos()
     {
 

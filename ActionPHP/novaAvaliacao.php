@@ -16,6 +16,7 @@ require_once '../vendor/autoload.php';
         $avaliacao = new Avaliacao();
 
         $avaliacao->novaAvaliacao($idPub, $idUsr, $titulo, $texto, $avalia);
+        header("Location: ../produto.php?id=$idPub");
     }else{
         header("Location: ../index.php");
     }

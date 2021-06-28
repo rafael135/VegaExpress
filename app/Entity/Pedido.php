@@ -14,16 +14,22 @@ class Pedido
         $this->obDb = new Database("pedidos");
     }
 
-    function verificarUsr($id)
+    function verificarUsr($idUsr, $idPub)
     {
-        $sql = "SELECT * FROM " . $this->obDb->getTabela() . " WHERE idUsuario = :id";
+        $sql = "SELECT * FROM " . $this->obDb->getTabela() . " WHERE idUsuario = :idUsr";
         $sql = $this->obDb->getConexao()->prepare($sql);
-        $sql->bindValue("id", $id);
+        $sql->bindValue("idUsr", $idUsr);
         $sql->execute();
+        $resultado = $sql->fetchAll();
+        foreach($resultado as $pedido){
+            if($pedido['idProduto'] == $idPub){
+                return true;
+            }
+        }
         
 //var_dump($sql->rowCount());
         if ($sql->rowCount() > 0) {
-            return true;
+
         } else {
             return false;
         }
@@ -52,23 +58,24 @@ class Pedido
             $produtoTitulo = $produto['titulo'];
             $produtoPreco = floatval($produto['preco']);
             $produtoIdAutor = intval($produto['idAutor']);
-            //$autor = new Autor();
-            //$autor = $autor->getInformacoesAutor($produtoIdAutor);
-            //$autor = $autor[0];
+            $autor = new Autor();
+            $dadosAutor = $autor->getInformacoesAutor($produtoIdAutor);
+            $autorTotalVendas = intval($dadosAutor['totalVendas']);
+            $autorTotalVendas++;
+            $userAutor = new Usuario();
+            $userAutor->registarVenda($produtoIdAutor, $autorTotalVendas);
 
 
 
 
 
 
-            $obDbProduto = new Database("produtos");
-            $dadosProd = $obDbProduto->select("idProduto = $pedido");
-            $quantidadeVendas = $obDbProduto['vendas'];
-            var_dump($quantidadeVendas);
-
-            $obDbProduto->atualizar("idProduto = $pedido", [
-                "vendas" => $quantidadeVendas
-            ]);
+            $produto = new Produto();
+            
+            $dadosProd = $produto->getProdutoId($pedido);
+            $quantidadeVendas = intval($dadosProd[0]['vendas']);
+            $quantidadeVendas++;
+            $produto->registrarVenda($pedido, $quantidadeVendas);
 
             $result = $this->obDb->inserir([
                 'idProduto' => intval($pedido),

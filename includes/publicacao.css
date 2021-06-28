@@ -10,6 +10,12 @@
     
 }
 
+.card-user{
+    background-color: rgb(235, 235, 235) !important;
+    border: thin solid rgb(210, 210, 210) !important;
+    box-shadow: 8px 8px 6px #888888;
+}
+
 select:focus{
     box-shadow: none !important;
     border: thin solid #027CE9 !important;

@@ -120,7 +120,7 @@
 
                         </div>
 
-                        <div class="row justify-content-center align-items-center pt-3">
+                        <!--<div class="row justify-content-center align-items-center pt-3">
                             <div class="col-12">
                                 <button class="btn btn-pub rounded-0 w-100 border border-1" style="max-height:50px;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDescricao" aria-expanded="false" aria-controls="collapseDescricao">
                                     <div class="row">
@@ -201,7 +201,7 @@
                                 </div>
                             </div>
 
-                        </div>
+                        </div>-->
 
 
 
