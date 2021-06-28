@@ -1,5 +1,6 @@
 $(function () {
     $("#cep").mask("99.999-999");
+    
     function limpa_formulário_cep() {
         // Limpa valores do formulário de cep.
         //$("#rua").val("");
@@ -11,13 +12,14 @@ $(function () {
         $("#cepTxt").val("");
     }
 
+    
     //Quando o campo cep perde o foco.
-    $("#cep").on("blur", function () {
+    $("#cep").on("keyup", function () {
 
 
 
         //Nova variável "cep" somente com dígitos.
-        var cep = $(this).val().replace(/\D/g, '');
+        var cep = $("#cep").val().replace(/\D/g, '');
 
         //Verifica se campo cep possui valor informado.
         if (cep != "") {
@@ -27,7 +29,8 @@ $(function () {
 
             //Valida o formato do CEP.
             if (validacep.test(cep)) {
-
+                $("#cep").removeClass("is-invalid")
+                $("#cep").addClass("is-valid");
                 //Preenche os campos com "..." enquanto consulta webservice.
                 $("#rua").val("...");
                 $("#bairro").val("...");
@@ -53,8 +56,8 @@ $(function () {
                         $("#avancarEndereco").removeAttr("disabled");
                         $("#avancarEndereco").css("opacity", "1");
                         $("#avancarEndereco").fadeIn("slow");
+                        $("#cepTxt").text(cep);
                         $("#cepTxt").mask("99.999-999");
-                        $("#cepTxt").val($("#cep").val);
                     } //end if.
                     else {
                         //CEP pesquisado não foi encontrado.
@@ -65,8 +68,9 @@ $(function () {
             } //end if.
             else {
                 //cep é inválido.
-                limpa_formulário_cep();
-                alert("Formato de CEP inválido.");
+                $("#cep").removeClass("is-valid");
+                $("#cep").addClass("is-invalid");
+                //alert("Formato de CEP inválido.");
             }
         } //end if.
         else {

@@ -216,9 +216,11 @@
                                                                                     }
                                                                                 } ?>">
                                                     <?php
-                                                    if ($totalVendasAutor > 0) {
+                                                    if ($totalVendasAutor > 5) {
                                                         $mediaAutor = $avaliacaoAutor / $totalVendasAutor;
-                                                        echo ("Nota média: " . round($mediaAutor, 2) . "/5");
+                                                        echo ("Avaliação média: " . round($mediaAutor, 2) . "/5");
+                                                    }else{
+                                                        echo("Vendas insuficientes para o cálculo da avaliação média");
                                                     }
                                                     ?>
                                                 </p>
@@ -517,7 +519,7 @@
                                                                 ?>
                                                             </div>
                                                         </h4>
-                                                        <h5 class="ms-2"><?php echo ($nomeAutorAvaliacao); ?></h5>
+                                                        <h5 class="ms-2 bottom-separator"><?php echo ($nomeAutorAvaliacao); ?></h5>
                                                         <div class="container-fluid h-100 p-0 m-0 bg-user-coment">
                                                             <p class="card-text ms-2 mt-1 fs-5"><?php echo (nl2br($textoComent)); ?></p>
                                                         </div>

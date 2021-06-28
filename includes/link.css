@@ -550,6 +550,7 @@ a > div > div > div > div > div > div> .btn-edit-pub:hover > span{
 
 .btn-pesquisa:hover{
     background-color: #027CE9 !important;
+    color: rgb(250, 250, 250) !important;
     transition: 300ms !important;
 }
 

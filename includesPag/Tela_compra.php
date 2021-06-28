@@ -172,8 +172,14 @@ $money = new money_format();
 									<input type="text" id="cep" class="form-control" aria-label="" placeholder="Verifique o CEP">
 									<label for="cep">Por favor, digite seu CEP para continuar</label>
 								</div>
+								
 								<input type="number" id="cepUsr" value="0" hidden>
 							</div>
+							<div class="container col-sm-12 col-md-2 col-lg-4 pt-0" id="ctnBtnConfirmarCep">
+								<!--<a class="btn btn-pesquisa btnConfirmarCep" id="btnCep">Confirmar CEP</a>-->
+								
+							</div>
+							
 
 							<input type="button" name="next-step" id="avancarEndereco" class="next-step" value="Avançar" disabled style="opacity: 0;" />
 							<!-- onclick="LoadFrete();" -->
