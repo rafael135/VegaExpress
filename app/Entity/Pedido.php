@@ -2,6 +2,8 @@
 
 namespace App;
 
+use ErrorException;
+
 require_once(__DIR__ . "/../../vendor/autoload.php");
 class Pedido
 {
@@ -21,15 +23,14 @@ class Pedido
         $sql->bindValue("idUsr", $idUsr);
         $sql->execute();
         $resultado = $sql->fetchAll();
-        foreach($resultado as $pedido){
-            if($pedido['idProduto'] == $idPub){
+        foreach ($resultado as $pedido) {
+            if ($pedido['idProduto'] == $idPub) {
                 return true;
             }
         }
-        
-//var_dump($sql->rowCount());
-        if ($sql->rowCount() > 0) {
 
+        //var_dump($sql->rowCount());
+        if ($sql->rowCount() > 0) {
         } else {
             return false;
         }
@@ -71,7 +72,7 @@ class Pedido
 
 
             $produto = new Produto();
-            
+
             $dadosProd = $produto->getProdutoId($pedido);
             $quantidadeVendas = intval($dadosProd[0]['vendas']);
             $quantidadeVendas++;
@@ -86,7 +87,7 @@ class Pedido
         }
 
         if ($result != false) {
-            
+
 
 
 
@@ -95,4 +96,19 @@ class Pedido
             return false;
         }
     }
+
+    function getPedidoUsrId($id)
+    {
+        $where = "idUsuario = $id";
+        $field = '*';
+        try {
+            $solicitacao = $this->obDb->select($where, null, null, $field);
+
+            return $solicitacao;
+        } catch (ErrorException $e) {
+            die('Erro ao tentar cadastrar o usuário! ERRO: ' . $e->getMessage());
+        }
+    }
 }
+
+?>

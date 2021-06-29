@@ -49,7 +49,7 @@ if ($_GET) {
                                     </li>
                                 </div>
 
-                                <div class="col-lg-4">
+                                <div class="col-lg-2">
                                     <li class="nav-item nav-item-userOpts" id="secondOpt">
                                         <a class="nav-link btnOpt2 btn-group w-100 <?php if ($idPag == 1) {
                                                                                         echo ("activeOpt");
@@ -66,6 +66,30 @@ if ($_GET) {
                                                 <div class="col-10">
                                                     <button type="button" class="btn h-100 text-start w-100 btn-clean txtOptionBtn">
                                                         Segurança
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </div>
+
+                                <div class="col-lg-2">
+                                    <li class="nav-item nav-item-userOpts" id="secondOpt">
+                                        <a class="nav-link btnOpt2 btn-group w-100 <?php if ($idPag == 3) {
+                                                                                        echo ("activeOpt");
+                                                                                    } ?>" href="perfil.php?id=3">
+                                            <div class="row">
+
+                                                <div class="col-2">
+                                                    <button type="button" class="btn h-100 text-center w-100 btn-clean">
+                                                        <span class="material-icons blue text-center m-1">
+                                                            shopping_cart
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                                <div class="col-10">
+                                                    <button type="button" class="btn h-100 text-start w-100 btn-clean txtOptionBtn">
+                                                        Compras
                                                     </button>
                                                 </div>
                                             </div>
@@ -240,6 +264,12 @@ if ($_GET) {
                         <?php
                         if ($idPag == 2) {
                             include("paginasPerfil/publicacoes.php");
+                        }
+                        ?>
+
+                        <?php
+                        if ($idPag == 3) {
+                            include("paginasPerfil/compras.php");
                         ?>
 
 

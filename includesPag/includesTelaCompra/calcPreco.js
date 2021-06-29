@@ -8,7 +8,7 @@ $(function () {
             cache: false,
             data: {postConfirm: "post"},
             success: function(data){
-                console.log(data);
+                $("#toastCompra").toast("show");
             },beforeSend: function () {
                 
             }, error: function (jqXHR, textStatus, errorThrown) {
@@ -17,7 +17,7 @@ $(function () {
         });
       })
 
-
+      
 
 
 

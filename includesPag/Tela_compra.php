@@ -57,7 +57,7 @@ $money = new money_format();
 
 										foreach ($itemsCarrinho as $item) {
 
-											
+
 											$idProduto = $item;
 											$produto = new Produto();
 											$produto = $produto->getProdutoId($idProduto);
@@ -101,7 +101,7 @@ $money = new money_format();
 																	<div class="modal-footer">
 
 																		<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-																		<a href="ActionPHP/removerProdutoCarrinho.php?idPub=<?php echo($idProduto); ?>" type="button" class="btn btn-success">Sim</a>
+																		<a href="ActionPHP/removerProdutoCarrinho.php?idPub=<?php echo ($idProduto); ?>" type="button" class="btn btn-success">Sim</a>
 
 																	</div>
 																</div>
@@ -172,16 +172,16 @@ $money = new money_format();
 									<input type="text" id="cep" class="form-control" aria-label="" placeholder="Verifique o CEP">
 									<label for="cep">Por favor, digite seu CEP para continuar</label>
 								</div>
-								
+
 								<input type="number" id="cepUsr" value="0" hidden>
 							</div>
 							<div class="container col-sm-12 col-md-2 col-lg-4 pt-0" id="ctnBtnConfirmarCep">
 								<!--<a class="btn btn-pesquisa btnConfirmarCep" id="btnCep">Confirmar CEP</a>-->
-								
-							</div>
-							
 
-							<input type="button" name="next-step" id="avancarEndereco" class="next-step" value="Avançar" disabled style="opacity: 0;" />
+							</div>
+
+
+							<input type="button" name="next-step" id="avancarEndereco" class="next-step me-3" value="Avançar" disabled style="opacity: 0;" />
 							<!-- onclick="LoadFrete();" -->
 
 							<input type="number" name="precoTotal" id="precoTotal" hidden>
@@ -217,12 +217,17 @@ $money = new money_format();
 								</div>
 
 								<div class="form-floating mx-2 mb-3">
+									<input type="text" class="form-control" id="numero" placeholder="Nº">
+									<label for="numero">Nº</label>
+								</div>
+
+								<div class="form-floating mx-2 mb-3">
 									<input type="text" class="form-control" id="cepTxt" placeholder="CEP">
 									<label for="cepTxt">CEP</label>
 								</div>
 							</div>
 
-							<input type="button" name="next-step" class="next-step mb-0" value="Avançar" />
+							<input type="button" name="next-step" class="next-step mb-0 me-3" value="Avançar" />
 							<input type="button" name="previous-step" class="previous-step mb-0" value="Voltar" />
 						</fieldset>
 						<fieldset class="px-3-custom bg-light">
@@ -244,7 +249,7 @@ $money = new money_format();
 								</div>
 							</div>
 
-							<input type="button" id="btn-finalizar" name="next-step" class="next-step" value="Finalizar" />
+							<input type="button" id="btn-finalizar" name="next-step" class="next-step me-3" value="Finalizar" />
 							<input type="button" name="previous-step" class="previous-step" value="Voltar" />
 						</fieldset>
 						<fieldset>
@@ -256,6 +261,18 @@ $money = new money_format();
 							</div>
 						</fieldset>
 					</form>
+					<div class="toast-container position-absolute bottom-0 end-0 p-3">
+						<div class="toast" id="toastCompra" data-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
+							<div class="toast-header">
+								<img src="img/btns/done.svg" class="svg svg-success" alt="Sucesso!">
+								<strong class="me-auto">Sucesso</strong>
+								<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+							</div>
+							<div class="toast-body text-green">
+								Compra feita com sucesso.
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

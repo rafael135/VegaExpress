@@ -242,7 +242,7 @@
                                                     echo ("");
                                                 }
                                             } ?> "><button <?php if (isset($_SESSION['idUsuario'])) {
-                                                                if ($idAutor != $_SESSION['idUsuario']) {
+                                                                if ($idAutor == $_SESSION['idUsuario']) {
                                                                     echo ("");
                                                                 } else {
                                                                     echo ("disabled");
@@ -352,7 +352,7 @@
                                 <input type="number" hidden value="<?php echo ($idPub); ?>" name="id">
                                 <?php
                                 if (isset($_SESSION['idUsuario'])) {
-                                    if ($resultadoUsr == true) {
+                                    if ($resultadoUsr != true) {
                                         if ($idAutor != $_SESSION['idUsuario']) {
                                 ?>
                                             <div class="col-sm-12 col-md-2 col-lg-2">
@@ -366,7 +366,7 @@
                                 ?>
 
                                 <div class="col-sm-12 col-md-4 <?php if (isset($_SESSION['idUsuario'])) {
-                                                                    if ($resultadoUsr == true) {
+                                                                    if ($resultadoUsr != true) {
                                                                         if ($idAutor != $_SESSION['idUsuario']) {
                                                                             echo ("col-lg-2");
                                                                         } else {
