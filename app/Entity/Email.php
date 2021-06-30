@@ -8,7 +8,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-session_start();
+if(PHP_SESSION_NONE){
+    session_start();
+}
 
 
 class Email

@@ -37,6 +37,10 @@ if ($_GET) {
     }
 }
 
+if(isset($_SESSION['idUsuario']) == false){
+    header("Location: index.php");
+}
+
 
 
 
