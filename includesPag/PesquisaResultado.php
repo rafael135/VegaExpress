@@ -10,7 +10,7 @@
     use App\Produto;
 
     $obDb = new Database("produtos");
-    
+
     $paginaAtual = 0;
 
     if ($_GET) {
@@ -334,7 +334,7 @@
             </div>
 
             <!--Coluna 2-->
-            <div class="col-lg-9 h-auto">
+            <div class="col-lg-9 h-100">
                 <div class="container-fluid h-100 container-resultado p-0 m-0 p-1">
                     <div class="row mx-sm-auto mx-md-auto gx-0">
                         <?php
@@ -377,13 +377,13 @@
                                                 <img src="<?php echo ($destinoImg); ?>" class="card-img-top" alt="...">
                                                 <div class="card-body">
                                                     <h5 class="card-title card-resultado text-start text-blue"><?php if (strlen($titulo) > 12) {
-                                                                                                            $tituloArray = str_split($titulo);
-                                                                                                            for ($i = 0; $i < strlen($titulo); $i++) {
-                                                                                                                echo ($tituloArray[$i]);
-                                                                                                            }
-                                                                                                        } else {
-                                                                                                            echo ($titulo);
-                                                                                                        } ?></h5>
+                                                                                                                    $tituloArray = str_split($titulo);
+                                                                                                                    for ($i = 0; $i < strlen($titulo); $i++) {
+                                                                                                                        echo ($tituloArray[$i]);
+                                                                                                                    }
+                                                                                                                } else {
+                                                                                                                    echo ($titulo);
+                                                                                                                } ?></h5>
                                                     <p class="card-text card-resultado text-success text-start"><?php echo ($money->money_format("%.2n", $preco)); ?></p>
 
                                                 </div>
@@ -408,81 +408,91 @@
                         }
                         ?>
                     </div>
-                </div>
-                <?php
-                $parametros = $_SERVER['QUERY_STRING'];
-
-                $UrlAtual = '?' . $parametros;
-
-                //echo $UrlAtual;
-                ?>
-                <div class="container-fluid container-pagina p-0 m-0">
-                    <nav aria-label="Página">
-                        <ul class="pagination pagination-lg pt-3 justify-content-center">
-                            <?php
-                            $condicaoAnterior = ($paginaAtual - 1) <= 0;
-                            $condicaoProximo = $countProdutosBD - ($paginaAtual * 10);
-                            if ($condicaoProximo > 0) {
-                                $condicaoProximo = false;
-                            }
 
 
-                            $condicaoBlock = ($paginaAtual * 10) > $countProdutosBD;
+                    <?php
+                    $parametros = $_SERVER['QUERY_STRING'];
 
-                            //var_dump($condicaoProximo);
+                    $UrlAtual = '?' . $parametros;
+
+                    //echo $UrlAtual;
+                    ?>
+
+                    <div class="container-fluid container-pagina p-0 m-0">
+                        <nav class="" aria-label="Página">
+                            <ul class="pagination pagination-lg pt-3 justify-content-center">
+                                <?php
+                                $condicaoAnterior = ($paginaAtual - 1) <= 0;
+                                $condicaoProximo = $countProdutosBD - ($paginaAtual * 10);
+                                if ($condicaoProximo > 0) {
+                                    $condicaoProximo = false;
+                                }
 
 
-                            if (str_contains($UrlAtual, "paginaAtual=")) {
-                                $posicao = strpos($UrlAtual, "paginaAtual=");
-                                //$UrlAtual = substr($UrlAtual, 0, $posicao + 12);
-                                //$posicao = substr($UrlAtual, $posicao, $posicao + 12);
-                                if ($paginaAtual <= 0) {
-                                    $paginaAnterior = 0;
+                                $condicaoBlock = ($paginaAtual * 10) > $countProdutosBD;
+
+                                //var_dump($condicaoProximo);
+
+
+                                if (str_contains($UrlAtual, "paginaAtual=")) {
+                                    $posicao = strpos($UrlAtual, "paginaAtual=");
+                                    //$UrlAtual = substr($UrlAtual, 0, $posicao + 12);
+                                    //$posicao = substr($UrlAtual, $posicao, $posicao + 12);
+                                    if ($paginaAtual <= 0) {
+                                        $paginaAnterior = 0;
+                                    } else {
+                                        $paginaAnterior = $paginaAtual - 1;
+                                    }
+
+                                    if ($paginaAnterior <= 0) {
+                                        $UrlPagAnterior = "pesquisa.php" . substr($UrlAtual, 0, $posicao) . "paginaAtual=0";
+                                    } else {
+                                        $UrlPagAnterior = "pesquisa.php" . substr($UrlAtual, 0, $posicao) . str_replace($UrlAtual, "paginaAtual=", "paginaAtual=$paginaAnterior");
+                                    }
+
+                                    $proxPagina = $paginaAtual + 1;
+
+                                    $urlProxPagina = "pesquisa.php" . substr($UrlAtual, 0, $posicao) . str_replace($UrlAtual, "paginaAtual=", "paginaAtual=$proxPagina");
                                 } else {
                                     $paginaAnterior = $paginaAtual - 1;
+                                    $UrlPagAnterior = "pesquisa.php" . $UrlAtual . "&paginaAtual=$paginaAnterior";
+                                    $proxPagina = $paginaAtual + 1;
+                                    $urlProxPagina = "pesquisa.php" . $UrlAtual . "&paginaAtual=$proxPagina";
                                 }
-
-                                if ($paginaAnterior <= 0) {
-                                    $UrlPagAnterior = "pesquisa.php" . substr($UrlAtual, 0, $posicao) . "paginaAtual=0";
-                                } else {
-                                    $UrlPagAnterior = "pesquisa.php" . substr($UrlAtual, 0, $posicao) . str_replace($UrlAtual, "paginaAtual=", "paginaAtual=$paginaAnterior");
-                                }
-
-                                $proxPagina = $paginaAtual + 1;
-
-                                $urlProxPagina = "pesquisa.php" . substr($UrlAtual, 0, $posicao) . str_replace($UrlAtual, "paginaAtual=", "paginaAtual=$proxPagina");
-                            } else {
-                                $paginaAnterior = $paginaAtual - 1;
-                                $UrlPagAnterior = "pesquisa.php" . $UrlAtual . "&paginaAtual=$paginaAnterior";
-                                $proxPagina = $paginaAtual + 1;
-                                $urlProxPagina = "pesquisa.php" . $UrlAtual . "&paginaAtual=$proxPagina";
-                            }
-                            ?>
+                                ?>
 
 
-                            <li class="page-item <?php if ($condicaoAnterior == true) {
-                                                        echo ("disabled");
-                                                    } ?>"><a class="page-link" <?php if ($condicaoAnterior == true) {
-                                                                                    echo ("tabindex='-1' aria-disabled='true'");
-                                                                                } ?> href="<?php echo ($UrlPagAnterior); ?>"><?php if ($condicaoAnterior == true) {
-                                                                                                                                                                                        echo ("...");
-                                                                                                                                                                                    } else {
-                                                                                                                                                                                        echo ($paginaAtual - 1);
-                                                                                                                                                                                    } ?> </a></li>
-                            <li class="page-item active"><a class="page-link" href="pesquisa.php<?php echo ($UrlAtual); ?>"><?php echo ($paginaAtual); ?></a></li>
-                            <li class="page-item <?php if ($condicaoProximo == true) {
-                                                        echo ("disabled");
-                                                    } ?>"><a class="page-link" <?php if ($condicaoProximo == true) {
-                                                                                    echo ("tabindex='-1' aria-disabled='true'");
-                                                                                } ?> href="<?php echo ($urlProxPagina); ?>"><?php if ($condicaoProximo == true) {
-                                                                                                                                                                                    echo ("...");
-                                                                                                                                                                                } else {
-                                                                                                                                                                                    echo ($paginaAtual + 1);
-                                                                                                                                                                                } ?></a></li>
+                                <li class="page-item <?php if ($condicaoAnterior == true) {
+                                                            echo ("disabled");
+                                                        } ?>"><a class="page-link" <?php if ($condicaoAnterior == true) {
+                                                                                            echo ("tabindex='-1' aria-disabled='true'");
+                                                                                        } ?> href="<?php echo ($UrlPagAnterior); ?>"><?php if ($condicaoAnterior == true) {
+                                                                                                                                        echo ("...");
+                                                                                                                                    } else {
+                                                                                                                                        echo ($paginaAtual - 1);
+                                                                                                                                    } ?> </a></li>
+                                <li class="page-item active"><a class="page-link" href="pesquisa.php<?php echo ($UrlAtual); ?>"><?php echo ($paginaAtual); ?></a></li>
+                                <li class="page-item <?php if ($condicaoProximo == true) {
+                                                            echo ("disabled");
+                                                        } ?>"><a class="page-link" <?php if ($condicaoProximo == true) {
+                                                                                            echo ("tabindex='-1' aria-disabled='true'");
+                                                                                        } ?> href="<?php echo ($urlProxPagina); ?>"><?php if ($condicaoProximo == true) {
+                                                                                                                                    echo ("...");
+                                                                                                                                } else {
+                                                                                                                                    echo ($paginaAtual + 1);
+                                                                                                                                } ?></a></li>
 
-                        </ul>
-                    </nav>
+                            </ul>
+                        </nav>
+                    </div>
+
+
+
+
+
                 </div>
+
+
             </div>
 
 

@@ -41,7 +41,7 @@ if (isset($_SESSION['emailEnviado'])) {
                     <h5 class="card-title text-center text-white fs-1 fw-bold">Atenção!</h5>
 
                 <?php } ?>
-                <p class="card-text fs-3 mb-3 text-center <?php if ($verificado == true) {
+                <p class="card-text fs-3 mb-3 mt-3 text-center <?php if ($verificado == true) {
                                                                 echo ("text-success");
                                                             } else {
                                                                 echo ("text-white");

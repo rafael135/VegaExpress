@@ -1,0 +1,13 @@
+.card-usuario{
+    flex-direction: row !important;
+    
+}
+
+.card-usuario > img{
+    width: 33.3333333333% !important;
+    border: thin solid rgb(220, 220, 220) !important;
+}
+
+.card-usuario > .card-body{
+    width: 66.66666666% !important;
+}

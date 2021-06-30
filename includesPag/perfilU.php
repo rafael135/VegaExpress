@@ -269,7 +269,7 @@ if ($_GET) {
 
                         <?php
                         if ($idPag == 3) {
-                            include("paginasPerfil/compras.php");
+                            include("paginasPerfil/pedidos.php");
                         ?>
 
 

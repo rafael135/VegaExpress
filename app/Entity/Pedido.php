@@ -2,6 +2,8 @@
 
 namespace App;
 
+use DateInterval;
+use DateTime;
 use ErrorException;
 
 require_once(__DIR__ . "/../../vendor/autoload.php");
@@ -43,7 +45,7 @@ class Pedido
 
 
 
-    function registrarPedidos()
+    function registrarPedidos($estado, $cidade, $endereco, $cep, $numero)
     {
         $pedidos = $this->idItems;
         $idUsuario = intval($_SESSION['idUsuario']);
@@ -77,12 +79,26 @@ class Pedido
             $quantidadeVendas = intval($dadosProd[0]['vendas']);
             $quantidadeVendas++;
             $produto->registrarVenda($pedido, $quantidadeVendas);
+            date_default_timezone_set("America/Sao_Paulo");
+            $data = date("d/m/Y");
+            
+            
+
+            $data = DateTime::createFromFormat('d/m/Y', $data);
+            $data->add(new DateInterval('P7D')); // 2 dias
+            
 
             $result = $this->obDb->inserir([
                 'idProduto' => intval($pedido),
                 'idUsuario' => $idUsuario,
                 'tituloProduto' => $produtoTitulo,
-                'precoProduto' => $produtoPreco
+                'precoProduto' => $produtoPreco,
+                'dataFrete' => $data->format("Y/m/d"),
+                'endereco' => $endereco,
+                'cep' => $cep,
+                'numero' => $numero,
+                'cidade' => $cidade,
+                'estado' => $estado
             ]);
         }
 
@@ -110,5 +126,3 @@ class Pedido
         }
     }
 }
-
-?>

@@ -71,9 +71,10 @@ $money = new money_format();
 											//var_dump($enderecoCompleto[5]);
 											$cepAutor = $cepAutor[6];
 											//var_dump($cepAutor);
+											$imgProduto = explode(" ", $imgProduto);
 											$destinoImg = "";
 											if ($imgProduto != "") {
-												$destinoImg = "UsrImg/$produtoIdAutor/Produtos/$idProduto/$imgProduto";
+												$destinoImg = "UsrImg/$produtoIdAutor/Produtos/$idProduto/$imgProduto[0]";
 											} else {
 												$destinoImg = "img/imgPadraoProduto.png";
 											}

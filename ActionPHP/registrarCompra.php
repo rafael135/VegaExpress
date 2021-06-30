@@ -7,9 +7,16 @@ session_start();
 
     if($_POST){
         $items = $_SESSION['conteudoCarrinho'];
+        $cidade = $_POST['Cidade'];
+        $estado = $_POST['Estado'];
+        $endereco = $_POST['Endereco'];
+        $cep = $_POST['Cep'];
+        $numero = $_POST['Numero'];
+
+
 
         $registrar = new Pedido($items);
-        $registrar = $registrar->registrarPedidos();
+        $registrar = $registrar->registrarPedidos($estado, $cidade, $endereco, $cep, $numero);
         if($registrar != false){
             unset($_SESSION['conteudoCarrinho']);
         }

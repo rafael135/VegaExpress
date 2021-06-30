@@ -190,7 +190,7 @@ use App\money_format;
             } else {
                 ?>
                 <div class="container-fluid p-0 m-0 w-100 h-100">
-                    <p class="fw-bold display-6 text-center">Você não tem nenhuma publicação</p>
+                    <p class="fw-bold m-4 text-blue display-6 text-center">Você não tem nenhuma publicação</p>
                 </div>
         <?php
             }

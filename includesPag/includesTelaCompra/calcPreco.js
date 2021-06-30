@@ -1,14 +1,32 @@
 $(function () {
 
     $("#btn-finalizar").on("click", function(){
+        var txtEstado = $("#estado").val();
+        var txtCidade = $("#cidade").val();
+        var txtNumero = $("#numero").val();
+        var txtEndereco = $("#endereco").val();
+        var txtCep = $("#cepTxt").text();
+
+        console.log(txtEstado);
+        console.log(txtCidade);
+        console.log(txtNumero);
+        console.log(txtEndereco);
+        console.log(txtCep);
+
         $.ajax({
             url: 'ActionPHP/registrarCompra.php',
             type: 'POST',
             dataType: 'html',
             cache: false,
-            data: {postConfirm: "post"},
+            data: {postConfirm: "post",
+            Estado: txtEstado,
+            Cidade: txtCidade,
+            Endereco: txtEndereco,
+            Numero: txtNumero,
+            Cep: txtCep},
             success: function(data){
                 $("#toastCompra").toast("show");
+                console.log(data);
             },beforeSend: function () {
                 
             }, error: function (jqXHR, textStatus, errorThrown) {

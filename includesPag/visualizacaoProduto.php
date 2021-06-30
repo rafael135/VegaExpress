@@ -242,7 +242,7 @@
                                                     echo ("");
                                                 }
                                             } ?> "><button <?php if (isset($_SESSION['idUsuario'])) {
-                                                                if ($idAutor == $_SESSION['idUsuario']) {
+                                                                if ($idAutor != $_SESSION['idUsuario']) {
                                                                     echo ("");
                                                                 } else {
                                                                     echo ("disabled");

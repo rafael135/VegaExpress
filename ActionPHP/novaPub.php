@@ -61,6 +61,7 @@ if(session_status() == 2){
             }
 
             
+            
             $Pub->inserirImagens($nomeGravar);
         }
     }
