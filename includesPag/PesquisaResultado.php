@@ -399,7 +399,7 @@
 
                                 <div class="col-12">
                                     <div class="container-fluid p-0 pt-2 px-3 m-0 h-100">
-                                        <p class="display-5 fw-bolder text-center">Nada encontrado</p>
+                                        <p class="display-5 text-blue fw-bolder text-center">Nada encontrado</p>
                                     </div>
                                 </div>
 

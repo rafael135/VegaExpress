@@ -40,7 +40,7 @@ if (isset($_SESSION['idUsuario']) == true && !isset($_SESSION['contToast'])) {
    $_SESSION['contToast'] = 0;
 ?>
 <div class="toast-container position-absolute bottom-0 end-0 p-3">
-        <div class="toast" data-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast" id="toastBemVindo" data-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
                 <strong class="me-auto text-green">Bem vindo <?php echo($_SESSION['nomeUsuario']); ?></strong>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -50,7 +50,7 @@ if (isset($_SESSION['idUsuario']) == true && !isset($_SESSION['contToast'])) {
 
     <script>
         $(document).ready(function() {
-            $(".toast").toast("show");
+            $("#toastBemVindo").toast("show");
         });
     </script>
 <?php

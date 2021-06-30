@@ -97,7 +97,7 @@ use App\money_format;
                         } else {
                             ?>
                             <div class="container-fluid p-0 m-0">
-                                <p class="display-5 fw-bolder text-center text-white w-100 h-100">Nenhuma publicação encontrada</p>
+                                <p class="display-5 fw-bolder text-center text-blue w-100 h-100">Nenhuma publicação encontrada</p>
                             </div>
                         <?php
                         }

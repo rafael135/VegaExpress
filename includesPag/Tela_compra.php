@@ -218,7 +218,7 @@ $money = new money_format();
 								</div>
 
 								<div class="form-floating mx-2 mb-3">
-									<input type="text" class="form-control" id="numero" placeholder="Nº">
+									<input type="text" maxlength="3" class="form-control" id="numero" placeholder="Nº">
 									<label for="numero">Nº</label>
 								</div>
 
@@ -262,18 +262,7 @@ $money = new money_format();
 							</div>
 						</fieldset>
 					</form>
-					<div class="toast-container position-absolute bottom-0 end-0 p-3">
-						<div class="toast" id="toastCompra" data-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
-							<div class="toast-header">
-								<img src="img/btns/done.svg" class="svg svg-success" alt="Sucesso!">
-								<strong class="me-auto">Sucesso</strong>
-								<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-							</div>
-							<div class="toast-body text-green">
-								Compra feita com sucesso.
-							</div>
-						</div>
-					</div>
+					
 				</div>
 			</div>
 		</div>
