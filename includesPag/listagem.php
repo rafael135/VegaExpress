@@ -66,11 +66,12 @@ use App\money_format;
                                                 <div class="card card-listagem link text-white text-center mb-4 mx-auto">
                                                     <img class="card-img-top img-listagem" src="<?php echo ($destinoImg); ?>" alt="">
                                                     <div class="card-body my-auto">
-                                                        <h4 class="card-title"><?php if (strlen($titulo) > 12) {
+                                                        <h4 class="card-title"><?php if (strlen($titulo) > 9) {
                                                                                     $tituloArray = str_split($titulo);
-                                                                                    for ($i = 0; $i < 12; $i++) {
+                                                                                    for ($i = 0; $i < 9; $i++) {
                                                                                         echo ($tituloArray[$i]);
                                                                                     }
+                                                                                    echo("...");
                                                                                 } else {
                                                                                     echo ($titulo);
                                                                                 }

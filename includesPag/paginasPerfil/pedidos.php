@@ -80,7 +80,7 @@
                     $produto = $product->getProdutoId($idProduto);
                     $idAutor = $produto[0]['idAutor'];
                     //var_dump($produto);
-
+                    
                     $imgs = $produto[0]['imagens'];
                     //var_dump($imgs);
 
