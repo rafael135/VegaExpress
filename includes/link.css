@@ -730,11 +730,16 @@ input:focus{
     width: 36px;
 }
 
+.overflow-descricao{
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+
 .btn-svg-delete{
     border: 2px solid #e02828 !important;
+    border-top-right-radius: 0 !important;
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
-    border-bottom-right-radius: 0 !important;
     background-color: rgb(240, 240, 240) !important;
 }
 

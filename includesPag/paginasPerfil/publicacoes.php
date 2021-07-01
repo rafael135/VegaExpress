@@ -151,13 +151,13 @@ use App\money_format;
                                 <?php setlocale(LC_MONETARY, 'pt_BR.UTF8');
                                 $money = new money_format();
                                 ?>
-                                <p class="card-text card-text-usuario"><?php echo ($money->money_format("%.2n", $preco)) ?></p>
+                                <p class="card-text fs-3 text-green card-text-usuario"><?php echo ($money->money_format("%.2n", $preco)) ?></p>
 
-                                <button type="button" class="btn btn-svg-delete position-absolute top-0 end-0" data-bs-toggle="modal" data-bs-target="#deletarModal" title="Excluir publicação">
+                                <button type="button" class="btn btn-svg-delete position-absolute bottom-0 end-0" data-bs-toggle="modal" data-bs-target="#deletarModal" title="Excluir publicação">
                                     <img class="svg svg-btn-delete" src="UIcons/svg/fi-rs-trash.svg">
                                 </button>
                                 <a href="editarPub.php?id=<?php echo ($idProduto); ?>" title="Editar publicação">
-                                    <button type="button" class="btn btn-svg-edit position-absolute top-0 end-0 rounded-0 me-btn-edit">
+                                    <button type="button" class="btn btn-svg-edit position-absolute bottom-0 end-0 rounded-0 me-btn-edit">
                                         <img class="svg svg-btn-edit" src="UIcons/svg/fi-rs-edit.svg">
                                     </button>
                                 </a>

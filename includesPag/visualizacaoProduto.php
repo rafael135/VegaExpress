@@ -279,7 +279,7 @@
                         <div class="row mt-0 pt-0 mx-1">
                             <div class="col-sm-12 col-md-12 col-lg-12 m-0 p-0">
                                 <div class="container-fluid p-0 h-100">
-                                    <textarea class="form-control form-control-lg rounded-0" id="txtDescricao" disabled style="text-align: justify;"><?php echo (nl2br($descricao)); ?></textarea>
+                                    <div class="container-fluid border border-1 py-2 mb-2 px-3 overflow-descricao" id="txtDescricao" style="text-align: justify;"><?php echo (nl2br($descricao)); ?></div>
                                 </div>
                             </div>
                         </div>
