@@ -480,9 +480,14 @@ footer{
     border-bottom: 0/*thin solid rgb(240, 240, 240)*/;
 }
 
-.offcanvas{
-    width: 400px;
+.offcanvas-menuInfo{
+    width: 500px;
     max-height: fit-content;
+    overflow: hidden !important;
+}
+
+.offcanvas{
+    
 }
 
 .offcanvas-body.offcanvas-UOptions{

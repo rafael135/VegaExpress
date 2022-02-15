@@ -47,10 +47,10 @@ if(isset($_SESSION['idUsuario']) == false){
 
 if ($detect->isMobile() == true && !$detect->isTablet()) {
     //  Inclui a navbar mobile na página
-    include __DIR__ . '/includesPag/navbar.php';
+    include __DIR__ . '/includesPag/novoNavbar.php';
 } else {
     // Inclui a navbar para Desktop na página
-    include __DIR__ . '/includesPag/navbar.php';
+    include __DIR__ . '/includesPag/novoNavbar.php';
 }
 ?>
 

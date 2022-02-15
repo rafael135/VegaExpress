@@ -139,8 +139,8 @@
                                     $destino = "UsrImg/" . $idUsr . "/fotoPerfil/" . $imgPerfil;
                                 }
                                 ?>
-                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasUsuario" aria-labelledby="offcanvasUsuarioLabel">
-                                    <div class="offcanvas-header offcanvas-user p-0">
+                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasUsuario" aria_controls="offcanvasRight" aria-labelledby="offcanvasUsuarioLabel">
+                                    <div class="offcanvas-header offcanvas-user p-0" id="offcanvas">
 
                                         <div class="card w-100 card-Usr">
 
