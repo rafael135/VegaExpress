@@ -124,8 +124,8 @@
     transition: 500ms !important;
 }
 
-p#lblContaVerificada{
-    align-self: baseline !important;
+#lblContaVerificada{
+    font-size: 20px !important;
 }
 
 .offcanvasUsrMenu{

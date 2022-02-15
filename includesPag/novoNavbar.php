@@ -223,8 +223,8 @@
               </div>
 
               <div id="rowActiveUsr" class="row flex-grow-1 align-items-end m-0 g-0">
-                <div class="col-12">
-                  <p id="lblContaVerificada" class="fw-bold text-end ms-0 me-2 mb-0 mt-auto <?php if (isset($verificado) && ($verificado == true)) {
+                <div class="col-12 align-items-end">
+                  <div id="lblContaVerificada" class="badge w-100 bg-light fw-bold fs-4 text-center ms-0 me-2 mb-0 mt-auto <?php if (isset($verificado) && ($verificado == true)) {
                                                                                                                 echo ("text-success");
                                                                                                               } else {
                                                                                                                 echo ("text-danger");
@@ -240,7 +240,10 @@
                       }
                     }
                     ?>
-                  </p>
+
+                      <span id="lblContaVerificada" class="text-center material-icons mb-0 <?php if($verificado == false){ echo("red"); }else{ echo("text-success"); } ?> m-1"><?php if($verificado == false){ echo("report_problem"); }else{ echo("done"); } ?></span>
+                  </div>
+
                 </div>
               </div>
             </div>

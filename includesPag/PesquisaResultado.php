@@ -96,7 +96,7 @@
     </script>
 
     <!--Coluna 1-->
-    <div class="container-fluid m-0 px-0 text-center pt-0">
+    <div class="container-fluid m-0 px-2 text-center pt-4">
         <div class="row gx-0">
             <div class="col-lg-3 pe-lg-0">
                 <div class="container-fluid container-search p-0 m-0 p-2 border border-2">
