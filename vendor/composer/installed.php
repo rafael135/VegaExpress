@@ -1,42 +1,41 @@
-<?php return array (
-  'root' => 
-  array (
-    'pretty_version' => 'dev-main',
-    'version' => 'dev-main',
-    'aliases' => 
-    array (
+<?php return array(
+    'root' => array(
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'reference' => 'd4d0f73e73b675810755eab6c9c3c7b4a822b72b',
+        'name' => 'tcc/vegaexpress',
+        'dev' => true,
     ),
-    'reference' => '7d5197f1cd0b0d42a7155b710fba6316ad91d403',
-    'name' => 'tcc/vegaexpress',
-  ),
-  'versions' => 
-  array (
-    'mobiledetect/mobiledetectlib' => 
-    array (
-      'pretty_version' => '2.8.37',
-      'version' => '2.8.37.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '9841e3c46f5bd0739b53aed8ac677fa712943df7',
+    'versions' => array(
+        'mobiledetect/mobiledetectlib' => array(
+            'pretty_version' => '2.8.38',
+            'version' => '2.8.38.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../mobiledetect/mobiledetectlib',
+            'aliases' => array(),
+            'reference' => 'b6c4ac9686d204c49a432f527f137cf24ac0b90e',
+            'dev_requirement' => false,
+        ),
+        'phpmailer/phpmailer' => array(
+            'pretty_version' => 'v6.5.3',
+            'version' => '6.5.3.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phpmailer/phpmailer',
+            'aliases' => array(),
+            'reference' => 'baeb7cde6b60b1286912690ab0693c7789a31e71',
+            'dev_requirement' => false,
+        ),
+        'tcc/vegaexpress' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'reference' => 'd4d0f73e73b675810755eab6c9c3c7b4a822b72b',
+            'dev_requirement' => false,
+        ),
     ),
-    'phpmailer/phpmailer' => 
-    array (
-      'pretty_version' => 'v6.4.1',
-      'version' => '6.4.1.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '9256f12d8fb0cd0500f93b19e18c356906cbed3d',
-    ),
-    'tcc/vegaexpress' => 
-    array (
-      'pretty_version' => 'dev-main',
-      'version' => 'dev-main',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '7d5197f1cd0b0d42a7155b710fba6316ad91d403',
-    ),
-  ),
 );

@@ -61,7 +61,7 @@ if ($detect->isMobile() == true && !$detect->isTablet()) {
 <body background="img/backgroundVega.jpg" class="animated-gif"></body>
 <?php
 
-// Inclui a página Sobre Nós
+// Inclui a página Perfil
 include __DIR__ . '/includesPag/perfilU.php';
 
 if ($result != false) {
@@ -162,7 +162,7 @@ if (isset($_SESSION['emailEnviado'])) {
         <div class="toast-container position-absolute bottom-0 end-0 p-3">
             <div class="toast" data-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
-                    <img src="img/btns/done.svg" class="svg svg-warning" alt="Sucesso!">
+                    <img src="img/btns/done.svg" class="svg svg-success" alt="Sucesso!">
                     <strong class="me-auto text-black-50">Sucesso</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>

@@ -9,6 +9,8 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 if(PHP_SESSION_NONE){
+    
+}else{
     session_start();
 }
 

@@ -9,6 +9,7 @@
   <link rel="icon" type="img/ico" href="img/LogoTCC.ico">
   <!-- CSS do Bootstrap -->
   <link rel="stylesheet" href="bootstrap-5.0.0B3/css/bootstrap.min.css">
+
   <!-- Ícones do Google -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- ícones Bootstrap do Bootstrap -->
@@ -113,14 +114,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item mx-auto">
+          <li class="nav-item navUsrSecond mx-auto">
             <a class="nav-link" aria-current="page" href="sobreN.php"><span class="text-center material-icons blue m-1" style="max-height: 40px;">info</span></a>
           </li>
-          <li class="nav-item mx-auto">
+          <li class="nav-item navUsrSecond mx-auto">
             <a class="nav-link" aria-current="page" href="carrinho.php"><span class="text-center material-icons blue m-1" style="max-height: 40px;">shopping_cart</span></a>
           </li>
 
-          <li class="nav-item navUsr-item mx-auto">
+          <li class="nav-item navUsrSecond navUsr-item mx-auto">
             <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" aria-current="page">
               <?php
               if (PHP_SESSION_ACTIVE) {
@@ -140,22 +141,20 @@
             </a>
           </li>
 
-            <?php 
-              if(PHP_SESSION_ACTIVE){
-
-              }else{
-                session_start();
-              }
-              if(isset($_SESSION['idUsuario'])){
-
-              }else{
-            ?>
-          <li class="nav-item mx-auto">
-            <a class="nav-link" aria-current="page" href="registroEmpresa.php"><span class="text-center material-icons blue m-1" style="max-height: 40px;">login</span></a>
-          </li>
-          
           <?php
-              }
+          if (PHP_SESSION_ACTIVE) {
+          } else {
+            session_start();
+          }
+          if (isset($_SESSION['idUsuario'])) {
+          } else {
+          ?>
+            <li class="nav-item mx-auto">
+              <a class="nav-link" aria-current="page" href="registroEmpresa.php"><span class="text-center material-icons blue m-1" style="max-height: 40px;">login</span></a>
+            </li>
+
+          <?php
+          }
           ?>
 
         </ul>
@@ -185,21 +184,21 @@
             if (!isset($imgPerfil) || $imgPerfil == "0") {
             ?>
               <img src=" <?php echo ("img/imgPadraoUser.svg"); ?>" class="card-img svg imgUsrOffcanvas <?php if ($logado == true) {
-                                                                                                                                echo ("svg-navbar-userLogin");
-                                                                                                                              } else {
-                                                                                                                                echo ("svg-navbar-userNoLogin");
-                                                                                                                              } ?>">
+                                                                                                          echo ("svg-navbar-userLogin");
+                                                                                                        } else {
+                                                                                                          echo ("svg-navbar-userNoLogin");
+                                                                                                        } ?>">
             <?php
             } else {
 
             ?>
 
               <img class="card-img imgUsrOffcanvas m-0 p-0 border-0" src="<?php if (isset($imgPerfil) && $imgPerfil != "0") {
-                                                                                                    echo ($destino);
-                                                                                                  } else {
-                                                                                                    echo ("");
-                                                                                                  }
-                                                                                                  ?>" alt="">
+                                                                            echo ($destino);
+                                                                          } else {
+                                                                            echo ("");
+                                                                          }
+                                                                          ?>" alt="">
 
             <?php } ?>
           </div>
@@ -210,25 +209,39 @@
 
               <div id="rowNameUsr" class="row align-items-start m-0 g-0">
 
-                <div class="col-12">
-                  <p class="text-start m-2 my-1 fs-4 <?php if (!isset($verificado)) {
-                                                              echo ("text-danger");
-                                                            } else {
-                                                              if ($verificado == false) {
-                                                                echo ("text-danger");
-                                                              }
-                                                            } ?>"><?php echo ($nomeUsuario); ?>
+                <div class="<?php if($logado == false){ echo("col-12"); }else{ echo("col-10"); } ?>">
+                  <p class="text-start m-2 my-1 fs-2 text-break <?php if (!isset($verificado)) {
+                                                        echo ("text-danger");
+                                                      } else {
+                                                        if ($verificado == false) {
+                                                          echo ("text-danger");
+                                                        }
+                                                      } ?>"><?php echo ($nomeUsuario); ?>
                   </p>
                 </div>
+                <?php
+                if ($logado == false) {
+                } else {
+
+                ?>
+
+                  <div class="col-2">
+                    <a href="perfil.php" class="btn btn-clean btnDefaultStyle"><span class="material-icons md-36 blue text-center my-1 ms-1 me-1">settings</span></a>
+                  </div>
+
+                <?php
+                }
+                ?>
+
               </div>
 
               <div id="rowActiveUsr" class="row flex-grow-1 align-items-end m-0 g-0">
                 <div class="col-12 align-items-end">
                   <div id="lblContaVerificada" class="badge w-100 bg-light fw-bold fs-4 text-center ms-0 me-2 mb-0 mt-auto <?php if (isset($verificado) && ($verificado == true)) {
-                                                                                                                echo ("text-success");
-                                                                                                              } else {
-                                                                                                                echo ("text-danger");
-                                                                                                              } ?>">
+                                                                                                                              echo ("text-success");
+                                                                                                                            } else {
+                                                                                                                              echo ("text-danger");
+                                                                                                                            } ?>">
                     <?php
                     if (!isset($_SESSION['idUsuario'])) {
                     } else {
@@ -241,7 +254,15 @@
                     }
                     ?>
 
-                      <span id="lblContaVerificada" class="text-center material-icons mb-0 <?php if($verificado == false){ echo("red"); }else{ echo("text-success"); } ?> m-1"><?php if($verificado == false){ echo("report_problem"); }else{ echo("done"); } ?></span>
+                    <span id="lblContaVerificada" class="text-center material-icons mb-0 <?php if ($verificado == false) {
+                                                                                            echo ("red");
+                                                                                          } else {
+                                                                                            echo ("text-success");
+                                                                                          } ?> m-1"><?php if ($verificado == false) {
+                                                                                                      echo ("report_problem");
+                                                                                                    } else {
+                                                                                                      echo ("done");
+                                                                                                    } ?></span>
                   </div>
 
                 </div>
