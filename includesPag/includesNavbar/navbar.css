@@ -182,3 +182,15 @@ img.imgUsrOffcanvas{
     -o-transition: all 250ms ease;
     transition: 250ms;
 }
+
+li.border-top-navItemDefault{
+    border-top: solid 1px rgb(200, 200, 200) !important;
+}
+
+.nav.flex-column.flex-wrap-none{
+    flex-wrap: nowrap !important;
+}
+
+li.nav-item.userOption{
+    
+}

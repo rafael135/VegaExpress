@@ -209,14 +209,18 @@
 
               <div id="rowNameUsr" class="row align-items-start m-0 g-0">
 
-                <div class="<?php if($logado == false){ echo("col-12"); }else{ echo("col-10"); } ?>">
+                <div class="<?php if ($logado == false) {
+                              echo ("col-12");
+                            } else {
+                              echo ("col-10");
+                            } ?>">
                   <p class="text-start m-2 my-1 fs-2 text-break <?php if (!isset($verificado)) {
-                                                        echo ("text-danger");
-                                                      } else {
-                                                        if ($verificado == false) {
-                                                          echo ("text-danger");
-                                                        }
-                                                      } ?>"><?php echo ($nomeUsuario); ?>
+                                                                  echo ("text-danger");
+                                                                } else {
+                                                                  if ($verificado == false) {
+                                                                    echo ("text-danger");
+                                                                  }
+                                                                } ?>"><?php echo ($nomeUsuario); ?>
                   </p>
                 </div>
                 <?php
@@ -234,6 +238,90 @@
                 ?>
 
               </div>
+
+              <div id="rowNameUsr" class="row align-items-center m-0 g-0">
+                <ul class="nav nav-flush flex-column flex-wrap-none mb-0">
+
+                  <?php
+
+
+                  if (isset($_SESSION['idUsuario']) == true) {
+
+                  ?>
+
+                    <li class="nav-item userOption mb-0" id="userConfig">
+                      <a class="nav-link nav-userOpt btn-group w-100" href="perfil.php?id=3">
+                        <div class="row">
+                          <div class="col-2 px-0">
+                            <button type="button" class="btn h-100 text-center w-100 btn-clean p-1">
+                              <span class="material-icons md-32 m-1 ms-0 blue text-center">
+                                shopping_cart
+                              </span>
+                            </button>
+                          </div>
+                          <div class="col-10 px-0">
+                            <button type="button" class="btn h-100 fs-3 text-start w-100 btn-clean">
+                              Minhas compras
+                            </button>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+
+
+                    <li class="nav-item userOption mb-0 border-top-navItemDefault" id="userConfig">
+                      <a class="nav-link nav-userOpt btn-group w-100" href="perfil.php?id=2">
+                        <div class="row">
+                          <div class="col-2 px-0">
+                            <button type="button" class="btn h-100 text-center w-100 btn-clean p-1">
+                              <span class="material-icons md-32 m-1 ms-0 blue text-center">
+                                view_list
+                              </span>
+                            </button>
+                          </div>
+                          <div class="col-10 px-0">
+                            <button type="button" class="btn h-100 fs-3 text-start w-100 btn-clean">
+                              Minhas publicações
+                            </button>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+
+
+
+
+
+                    <li class="nav-item userOption mb-0 border-top-navItemDefault" id="userLogout">
+                      <a class="nav-link nav-userOpt w-100" href="actionPHP/logout.php?id=<?php echo ($_SESSION['idUsuario']); ?>">
+                        <div class="row">
+                          <div class="col-2 px-0">
+                            <button type="button" class="btn h-100 text-center w-100 btn-clean p-1">
+                              <span class="material-icons md-28 icon blue mx-0 text-center mt-2 mb-1">
+                                logout
+                              </span>
+                            </button>
+                          </div>
+                          <div class="col-10 px-0">
+                            <button type="button" class="btn h-100 fs-3 text-start w-100 btn-clean">
+                              Sair
+                            </button>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+
+                  <?php
+                  }
+                  ?>
+                </ul>
+              </div>
+
+
+
+
+
+
 
               <div id="rowActiveUsr" class="row flex-grow-1 align-items-end m-0 g-0">
                 <div class="col-12 align-items-end">
@@ -254,15 +342,22 @@
                     }
                     ?>
 
-                    <span id="lblContaVerificada" class="text-center material-icons mb-0 <?php if ($verificado == false) {
-                                                                                            echo ("red");
-                                                                                          } else {
-                                                                                            echo ("text-success");
-                                                                                          } ?> m-1"><?php if ($verificado == false) {
+                    <?php
+                    if (isset($_SESSION['idUsuario'])) {
+                    ?>
+                      <span id="lblContaVerificada" class="text-center material-icons mb-0 <?php if ($verificado == false) {
+                                                                                              echo ("red");
+                                                                                            } else {
+                                                                                              echo ("text-success");
+                                                                                            } ?> m-1"><?php if ($verificado == false) {
                                                                                                       echo ("report_problem");
                                                                                                     } else {
                                                                                                       echo ("done");
-                                                                                                    } ?></span>
+                                                                                                    } ?>
+                      </span>
+                    <?php
+                    }
+                    ?>
                   </div>
 
                 </div>
