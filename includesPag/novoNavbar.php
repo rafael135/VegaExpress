@@ -174,7 +174,7 @@
       <button type="button" class="btn-close btn-closeOffcanvasCustom text-reset me-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body offcanvasUsrMenu p-0">
-      <div class="container-fluid container-imgUsr p-1 ps-3 m-0 mt-1">
+      <div class="container-fluid container-imgUsr p-1 ps-0 pe-0 pb-0 m-0 mt-1">
         <div class="row justify-content-start align-content-center me-0">
 
           <!--<button type="button" class="btn-close-custom text-end m-0 p-0 position-absolute end-0 top-0" data-bs-dismiss="offcanvas" aria-label="Close"><span class="material-icons" style="font-size:24px;">close</span></button>-->

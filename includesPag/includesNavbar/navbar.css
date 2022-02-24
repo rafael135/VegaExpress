@@ -43,8 +43,8 @@
 
 
 
-    -webkit-box-shadow:inset 0px 0px 0px 1px rgb(180, 180, 180);
-    -moz-box-shadow:inset 0px 0px 0px 1px rgb(180, 180, 180);
+    -webkit-box-shadow:inset 0px 0px 0px 1px #3b8fda;
+    -moz-box-shadow:inset 0px 0px 0px 1px #3b8fda;
     box-shadow:inset 0px 0px 0px 1px #3b8fda;
 
 
@@ -174,7 +174,7 @@ img.imgUsrOffcanvas{
 
     -webkit-box-shadow:inset 0px 0px 0px 1px rgb(180, 180, 180);
     -moz-box-shadow:inset 0px 0px 0px 1px rgb(180, 180, 180);
-    box-shadow:inset 0px 0px 0px 1px #3b8fda;
+    box-shadow:inset 0px 0px 0px 1px rgb(180, 180, 180);
 
 
     -webkit-transition: all 250ms ease;

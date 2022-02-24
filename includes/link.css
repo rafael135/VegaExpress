@@ -713,7 +713,7 @@ input:focus{
 }
 
 .accordion-body-border{
-    border: thin solid rgb(75, 75, 75) !important;
+    /* border: thin solid rgb(75, 75, 75) !important; */
 }
 
 .accordion-button.btnAccSobre.collapsed {
@@ -813,4 +813,53 @@ input:focus{
 
 .card.card-resultadoPesquisa{
     
+}
+
+.accordion-btn-custom{
+    border-radius: 0 !important;
+    background-color: rgb(230, 230, 230) !important;
+    -webkit-box-shadow:inset 0px 0px 0px 120px transparent;
+    -moz-box-shadow:inset 0px 0px 0px 120px transparent;
+    box-shadow:inset 0px 0px 0px 120px transparent;
+}
+
+.accordion-btn-custom:hover{
+    -webkit-box-shadow:inset 0px 0px 0px 1px rgb(180, 180, 180);
+    -moz-box-shadow:inset 0px 0px 0px 1px rgb(180, 180, 180);
+    box-shadow:inset 0px 0px 0px 1px #3b90daa8;
+
+    background-color: #027CE9 !important;
+    
+
+    -webkit-transition: all 250ms ease !important;
+    -moz-transition: all 250ms ease !important;
+    -o-transition: all 250ms ease !important;
+    transition: 250ms !important;
+}
+
+.accordion-btn-custom:hover > span{
+    color: rgb(250, 250, 250) !important;
+
+    -webkit-transition: all 250ms ease !important;
+    -moz-transition: all 250ms ease !important;
+    -o-transition: all 250ms ease !important;
+    transition: 250ms !important;
+}
+
+.accordion-btn-custom:hover > p{
+    color: rgb(250, 250, 250) !important;
+
+    -webkit-transition: all 250ms ease !important;
+    -moz-transition: all 250ms ease !important;
+    -o-transition: all 250ms ease !important;
+    transition: 250ms !important;
+}
+
+.accordion-btn-custom::after{
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23027CE9'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+}
+
+.accordion-btn-custom:hover::after{
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+    transition: 250ms !important;
 }
