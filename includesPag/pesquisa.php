@@ -9,7 +9,7 @@
 
 
 
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        <button class="accordion-button accordion-btn-custom collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                             <span class="material-icons fs-3 text-blue m-1">search</span>
                             <p class="text-center w-100 fs-4 text-blue m-1">Expandir barra de pesquisa</p>
                         </button>
@@ -17,7 +17,7 @@
 
 
                     </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body accordion-body-custom p-0 pt-0">
                             <form class="p-0 m-0" method="POST" action="ActionPHP/pesquisarPub.php">
                                 <div class="row">
